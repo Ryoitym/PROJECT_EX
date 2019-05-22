@@ -18,21 +18,7 @@
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
-  <?php
-      require_once("function.php");
-      $dbh = connectDb()
-
-      try {
-          // SQLを構築
-          $sql = "SELECT * FROM food";
-          $sth = $dbh->prepare($sql); // SQLを準備
-
-          // SQLを発行
-          $sth->execute();
-      } catch (PDOException $e) {
-          exit("SQL発行エラー：{$e->getMessage()}");
-      }
-  ?>
+  
 <table>
   <!-- 検索窓作成 -->
     <tr>
