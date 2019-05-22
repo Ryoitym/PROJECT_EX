@@ -1,6 +1,6 @@
 <!-- /**
  * このファイルの概要説明
- 生鮮食品一覧画面
+ 生鮮食品一覧画面（IT担当社員）
  *　データベース作成フォーマット
  * このファイルの詳細説明
  *
@@ -29,7 +29,6 @@
 <a href="">店舗</a>
 
   <!-- 検索窓作成 -->
-
     <form action="view_food_list_admin.php" method="get">
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
@@ -48,11 +47,11 @@
         <th>栄養素</th>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>写真</td>
+        <td>食品名</td>
+        <td>価格</td>
+        <td>説明文書</td>
+        <td>栄養素</td>
       </tr>
     <form action = "food_update.php" method="post">
       <input type="submit" value="編集">
