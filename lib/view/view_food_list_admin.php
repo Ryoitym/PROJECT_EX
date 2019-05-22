@@ -20,6 +20,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト">
+生鮮食品一覧画面
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
 <a href="">生鮮食品</a>
@@ -39,25 +40,27 @@
     </form>
     <hr>
     <table border="1">
-        <tr>
-            <th>写真</th>
-            <th>食品名</th>
-            <th>価格</th>
-            <th>説明文書</th>
-            <th>栄養素</th>
-        </tr>
+      <tr>
+        <th>写真</th>
+        <th>食品名</th>
+        <th>価格</th>
+        <th>説明文書</th>
+        <th>栄養素</th>
+      </tr>
+      <tr>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        
+      </tr>
     <form action = "food_update.php" method="post">
       <input type="submit" value="編集">
     </form>
     <form action = "food_delete.php" method="post">
       <input type="submit" value="削除">
     </form>
+    
   <a href="">全て表示</a>
 </table>
 </body>
