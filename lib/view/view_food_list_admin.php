@@ -62,7 +62,8 @@
     </form>
     表示<input type="radio" name="show" value="表示">
     非表示<input type="radio" name="show" value="非表示">
+  </table>
+  <hr>
   <a href="">全て表示</a>
-</table>
 </body>
 </html>
