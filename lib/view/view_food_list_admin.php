@@ -1,5 +1,6 @@
 <!-- /**
  * このファイルの概要説明
+ 生鮮食品一覧画面（IT担当社員）
  *　データベース作成フォーマット
  * このファイルの詳細説明
  *
@@ -18,41 +19,50 @@
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
-  
-<table>
+<input type="submit" value="ログアウト">
+生鮮食品一覧画面
+<!-- 画面上部タブ -->
+<a href="">特価商品</a>
+<a href="">生鮮食品</a>
+<a href="">分類</a>
+<a href="">ユーザ</a>
+<a href="">店舗</a>
+
   <!-- 検索窓作成 -->
-    <tr>
-      <br>
-      <form action="view_food_list_admin.php" method="get">
-        検索：<input type="text" name="search">
-        <input type="submit" value="検索">
+    <form action="view_food_list_admin.php" method="get">
+      検索：<input type="text" name="search">
+            <input type="submit" value="検索">
       </form>
-    </tr>
+      <br>
     <form action = "food_insert.php" method="post">
       <input type="submit" value="新規登録">
     </form>
     <hr>
-    <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-    <tr>
-        <td><?php ph($row["picture"]);?></td>
-        <td><?php ph($row["food_name"]);?></td>
-        <td><?php ph($row["txt"]);?></td>
-        <td><?php ph($row["calorie"]);?></td>
-        <td><?php ph($row["protein"]);?></td>
-        <td><?php ph($row["lipid"]);?></td>
-        <td><?php ph($row["carb"]);?></td>
-        <td><?php ph($row["natrium"]);?></td>
-        <td><?php ph($row["kalium"]);?></td>
-    </tr>
+    <table border="1">
+      <tr>
+        <th>写真</th>
+        <th>食品名</th>
+        <th>価格</th>
+        <th>説明文書</th>
+        <th>栄養素</th>
+      </tr>
+      <tr>
+        <td>写真</td>
+        <td>食品名</td>
+        <td>価格</td>
+        <td>説明文書</td>
+        <td>栄養素</td>
+      </tr>
+    <form action = "food_update.php" method="post">
+      <input type="submit" value="編集">
+    </form>
+    <form action = "food_delete.php" method="post">
+      <input type="submit" value="削除">
+    </form>
+    表示<input type="radio" name="show" value="表示">
+    非表示<input type="radio" name="show" value="非表示">
     <hr>
-  <?php } ?>
-
-          <form action = "food_update.php" method="post">
-            <input type="submit" value="編集">
-          </form>
-          <form action = "food_delete.php" method="post">
-            <input type="submit" value="削除">
-          </form>
+  <a href="">全て表示</a>
 </table>
 </body>
 </html>

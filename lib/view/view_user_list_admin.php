@@ -13,8 +13,6 @@
  */
 -->
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +36,12 @@
 
     setcookie("access", 0);
 ?>
+<a href="">特価商品</a>
+<a href="">生鮮食品</a>
+<a href="">分類</a>
+<a href="">ユーザ</a>
+<a href="">店舗</a>
+<br>
 <form action="view_user_list_admin.php"method="post">
 <input type="text" name="name_family">
 <input type="submit" value="検索">
@@ -68,6 +72,6 @@
     </tr>
     <?php } ?>
 </table>
-<p><a href="#.php">全て表示</a></p>
+<p><a href="#">全て表示</a></p>
 </body>
 </html>
