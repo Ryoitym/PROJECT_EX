@@ -1,7 +1,7 @@
 <!--
  * ユーザ情報を表示する画面
  *　データベース作成フォーマット
- * IT管理者でログインしているときの表示。
+ * 店長級社員でログインしているときの表示。
    画面上部のタブで画面切り替えが可能。
    表示順は、優先順位1位：店舗名昇順　優先順位2位：名前昇順
  *
@@ -19,16 +19,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ユーザ一覧画面(IT担当者)</title>
+<title>ユーザ一覧画面(店長)</title>
 </head>
 <body>
     <h1>ユーザ一覧</h1><br>
 <?php
-    require_once("../init.php");
+    /*require_once("init.php");
     $dbh = connectDb();
 
     try {
-        $sql = "SELECT * FROM user WHERE acess_lv = 1";
+        $sql = "SELECT * FROM user WHERE acess_lv = 2";
         $sth = $dbh->prepare($sql);
 
         $sth->execute();
@@ -36,11 +36,10 @@
         exit("SQL発行エラー：{$e->getMessage()}");
     }
 
-    setcookie("access", 0);
+    setcookie("access", 0);*/
 ?>
 <a href="view_special_price_food_list_admin.php">特価商品</a>
 <a href="view_food_list_admin.php">生鮮食品</a>
-<a href="view_category_list_admin.php">分類</a>
 <a href="view_user_list_admin.php">ユーザ</a>
 <a href="view_shop_list_admin.php">店舗</a>
 <br>
