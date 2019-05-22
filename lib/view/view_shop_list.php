@@ -25,7 +25,9 @@
 <body>
     <h1>店舗一覧画面</h1><br>
 <?php
-    /*require_once("init.php");
+    /*修正してない
+
+    require_once("init.php");
     $dbh = connectDb();
 
     try {
