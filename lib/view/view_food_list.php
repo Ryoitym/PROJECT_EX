@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>生鮮食品一覧画面(IT担当者)</title>
+<title>生鮮食品一覧画面(店長)</title>
 </head>
 <body>
 <input type="submit" value="ログアウト">
@@ -24,7 +24,6 @@
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
 <a href="">生鮮食品</a>
-<a href="">分類</a>
 <a href="">ユーザ</a>
 <a href="">店舗</a>
 
@@ -34,10 +33,6 @@
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>
-      <br>
-    <form action = "food_insert.php" method="post">
-      <input type="submit" value="新規登録">
-    </form>
     <hr>
     <table border="1">
         <tr>
@@ -47,23 +42,18 @@
             <th>説明文書</th>
             <th>栄養素</th>
         </tr>
-      <tr>
-        <td>写真</td>
-        <td>食品名</td>
-        <td>価格</td>
-        <td>説明文書</td>
-        <td>栄養素</td>
-      </tr>
-    <form action = "food_update.php" method="post">
-      <input type="submit" value="編集">
-    </form>
-    <form action = "food_delete.php" method="post">
-      <input type="submit" value="削除">
-    </form>
+        <tr>
+          <td>写真</td>
+          <td>食品名</td>
+          <td>価格</td>
+          <td>説明文書</td>
+          <td>栄養素</td>
+        </tr>
+
     表示<input type="radio" name="show" value="表示">
     非表示<input type="radio" name="show" value="非表示">
-  </table>
-  <hr>
+    <hr>
+    </table>
   <a href="">全て表示</a>
 </body>
 </html>
