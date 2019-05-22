@@ -26,11 +26,12 @@
     //require_once("init.php");
 ?>
 <h1>店長級社員管理画面</h1>
-<span id="list"></span><br>
-<input type="button" value="生鮮食品一覧">
-<input type="button" value="特価品一覧"><br>
-<input type="button" value="ユーザ一覧">
-<input type="button" value="店舗一覧"><br>
-</form>
+
+<form action="view_food_list_admin.php">
+        <input type="submit" value = "生鮮食品一覧">
+        <input type="submit" value = "特価品一覧"><br>
+        <input type="submit" value = "ユーザ一覧">
+        <input type="submit" value = "店舗一覧"><br>
+    </form>
 </body>
 </html>
