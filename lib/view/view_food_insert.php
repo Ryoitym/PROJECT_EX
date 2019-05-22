@@ -52,7 +52,7 @@
         </select><br>
         <input type="submit" value="登録">
         <input type="submit" value="クリア"><br>
-        <a href="view_food_list_admin.php">生鮮食品確認画面へ戻る</a>
+        <a href="view_food_list_admin.php">生鮮食品一覧画面へ戻る</a>
     </form>
 </body>
 </html>

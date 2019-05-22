@@ -35,7 +35,7 @@
             <input type="submit" value="検索">
       </form>
       <br>
-    <form action = "food_insert.php" method="post">
+    <form action = "view_food_insert.php" method="post">
       <input type="submit" value="新規登録">
     </form>
     <hr>
