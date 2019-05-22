@@ -15,6 +15,14 @@
 
 ?>
 
+<?php 
+    //最初のログイン時の処理
+    if(empty($_POST)){
+        //require_once("init.php");
+        //$dbh = connectDb();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +31,9 @@
 </head>
 <body>
     <h1>ログイン画面</h1>
-    <form action="">
-        メールアドレス：<input type="text" value = ""><br>
-        パスワード：<input type="text" value = ""><br>
+    <form action="view_login.php">
+        メールアドレス：<input type="text" name="mail" value=""><br>
+        パスワード：<input type="text" name="password" value=""><br>
         <input type="submit" value = "送信">
     </form>
 </body>
