@@ -15,4 +15,4 @@
 
 
 // 共通関数をrequire_onceで読み込む
-require_once("function");
+require_once("function.php");

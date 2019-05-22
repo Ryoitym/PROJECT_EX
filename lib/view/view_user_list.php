@@ -24,7 +24,9 @@
 <body>
     <h1>ユーザ一覧</h1><br>
 <?php
-    /*require_once("init.php");
+    /*修正してない
+    
+    require_once("init.php");
     $dbh = connectDb();
 
     try {
