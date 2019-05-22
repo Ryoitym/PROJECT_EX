@@ -1,9 +1,10 @@
 <!--
- * ユーザ情報を表示する画面
+ * 店舗一覧を表示する画面
  *　データベース作成フォーマット
  * IT管理者でログインしているときの表示。
    画面上部のタブで画面切り替えが可能。
-   表示順は、優先順位1位：店舗名昇順　優先順位2位：名前昇順
+   表示順は、店舗名昇順
+
  *
  * システム名： FFS
  * 作成者：　余婉慈
@@ -19,16 +20,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ユーザ一覧画面(IT担当者)</title>
+<title>店舗一覧画面(IT担当者)</title>
 </head>
 <body>
-    <h1>ユーザ一覧</h1><br>
+    <h1>店舗一覧画面</h1><br>
 <?php
     //require_once("init.php");
     $dbh = connectDb();
 
     try {
-        $sql = "SELECT * FROM user WHERE acess_lv = 1";
+        $sql = "SELECT * FROM shop";
         $sth = $dbh->prepare($sql);
 
         $sth->execute();
@@ -53,18 +54,16 @@
 <table border="1">
     <tr>
         <th>店舗名</th>
-        <th>姓</th>
-        <th>名</th>
-        <th>メール</th>
+        <th>電話番号</th>
+        <th>住所</th>
         <th>編集</th>
         <th>削除</th>
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
         <td><?php ph($row["shop_name"]);?></td>
-        <td><?php ph($row["name_family"]);?></td>
-        <td><?php ph($row["name_last"]);?></td>
-        <td><?php ph($row["mail"]);?></td>
+        <td><?php ph($row["address"]);?></td>
+        <td><?php ph($row["tel"]);?></td>
         <td><a href="update.php?student_id=<?php
             ph($row["student_id"]);
         ?>">編集</a></td>
