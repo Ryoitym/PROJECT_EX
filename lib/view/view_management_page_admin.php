@@ -17,7 +17,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>管理トップ画面（店長級社員）</title>
+<title>管理トップ画面（IT担当社員）</title>
 <link rel="stylesheet" href= "style.css">
 </head>
 <body>
@@ -28,18 +28,22 @@
 <form action="view_logout.php">
     <input type="submit" value="ログアウト">
 </form>
-<h1>店長級社員管理画面</h1>
 
-<form action="view_food_list.php.php">
+<h1>IT担当社員管理画面</h1>
+
+<form action="view_food_list_admin.php">
         <input type="submit" value = "生鮮食品一覧">
 </form>
-<form action="view_special_price_food_list.php">
-        <input type="submit" value = "特価品一覧"><br>
+<form action="view_special_price_food_list_admin.php">
+        <input type="submit" value = "特価品一覧">
 </form>
-<form action="view_user_list.php">
+<form action="view_category_list_admin.php">
+        <input type="submit" value = "分類一覧"><br>
+</form>
+<form action="view_user_list_admin.php">
         <input type="submit" value = "ユーザ一覧">
 </form>
-<form action="view_shop_list.php.php">
+<form action="view_shop_list_admin.php.php">
         <input type="submit" value = "店舗一覧"><br>
 </form>
 </body>
