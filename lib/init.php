@@ -1,7 +1,7 @@
 <?php
 /**
  * このファイルの概要説明
- *　ログイン画面作成フォーマット
+ *　共通機能作成フォーマット
  * このファイルの詳細説明
  *
  * システム名： FFS
@@ -15,4 +15,4 @@
 
 
 // 共通関数をrequire_onceで読み込む
-require_once("function");
+require_once("function.php");
