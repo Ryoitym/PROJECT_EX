@@ -13,8 +13,6 @@
  */
 -->
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +66,6 @@
     </tr>
     <?php } ?>
 </table>
-<p><a href="#.php">全て表示</a></p>
+<p><a href="#">全て表示</a></p>
 </body>
 </html>
