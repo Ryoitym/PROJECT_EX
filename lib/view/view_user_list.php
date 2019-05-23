@@ -24,9 +24,8 @@
 <body>
     <h1>ユーザ一覧</h1><br>
 <?php
-    /*修正してない
 
-    require_once("init.php");
+    require_once("../init.php");
     $dbh = connectDb();
 
     try {
@@ -38,7 +37,7 @@
         exit("SQL発行エラー：{$e->getMessage()}");
     }
 
-    setcookie("access", 0);*/
+    setcookie("access", 0);
 ?>
 <a href="view_special_price_food_list_admin.php">特価商品</a>
 <a href="view_food_list_admin.php">生鮮食品</a>
@@ -53,7 +52,7 @@
 <brs>
 <table border="1">
     <tr>
-        <th>店舗名</th>
+        <th>店舗</th>
         <th>姓</th>
         <th>名</th>
         <th>メール</th>
@@ -62,15 +61,15 @@
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
-        <td><?php ph($row["shop_name"]);?></td>
+        <td><?php ph($row["shop_id"]);?></td>
         <td><?php ph($row["name_family"]);?></td>
         <td><?php ph($row["name_last"]);?></td>
         <td><?php ph($row["mail"]);?></td>
-        <td><a href="update.php?student_id=<?php
-            ph($row["student_id"]);
+        <td><a href="update.php?user_id=<?php
+            ph($row["user_id"]);
         ?>">編集</a></td>
-        <td><a href="delete_exec.php?student_id=<?php
-            ph($row["student_id"]);
+        <td><a href="../../user_delete.php?user_id=<?php
+            ph($row["user_id"]);
         ?>">削除</a></td>
     </tr>
     <?php } ?>

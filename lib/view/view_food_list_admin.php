@@ -19,7 +19,9 @@
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
-<input type="submit" value="ログアウト">
+<form action="../../logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+    </form><br>
 <h1>生鮮食品一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
@@ -64,6 +66,8 @@
     表示<input type="radio" name="show" value="表示">
     非表示<input type="radio" name="show" value="非表示">
   <hr>
-  <a href="">全て表示</a>
+  <a href="">全て表示</a><br>
+
+  <a href='view_management_page_admin.php'>トップページへ戻る</a>
 </body>
 </html>
