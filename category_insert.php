@@ -19,17 +19,16 @@
 <title>分類登録画面</title>
 </head>
 <body>
-  <!-- 一画面遷移 -->
   <?php
+      //共通関数読み込み
       require_once("lib/function.php");
       //入力画面表示
       if(empty($_POST)){
-        $dbh = connectDb();
         require_once("lib/view/view_category_insert.php");
       }else{
         //入力チェック
         if(empty($_POST["genre_name"])){
-        // 入力NG
+        // 入力チェックNG
             require_once("lib/view/view_category_insert.php");
            ph("入力不十分です");
         }else{
@@ -37,7 +36,7 @@
           $dbh = connectDb();
           try {
               // プレースホルダ付きSQLを構築
-              $sql = "INSERT INTO ffs_db.genre (ganre_name) ";
+              $sql = "INSERT INTO ffs_db.genre (genre_name) ";
               $sql .= "VALUES (:genre_name)";
               $sth = $dbh->prepare($sql); // SQLを準備
 
@@ -49,7 +48,7 @@
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
           }?>
-          <p><a href="view_category_list_admin.php">分類一覧画面に戻る</a></p>
+          <p><a href="lib/view/view_category_list_admin.php">分類一覧画面に戻る</a></p>
       <?php   }
     } ?>
   </body>
