@@ -48,7 +48,7 @@
 <form action="view_user_list_admin.php"method="post">
 <input type="text" name="name_family">
 <input type="submit" value="検索">
-<p><a href="insert.php">新規登録</a></p>
+<p><a href="../../../shop_insert.php">新規登録</a></p>
 </form>
 <brs>
 <table border="1">
