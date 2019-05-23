@@ -37,7 +37,7 @@
             <input type="submit" value="検索">
       </form>
       <br>
-    <form action = "view_food_insert.php" method="post">
+    <form action = "food_insert.php" method="post">
       <input type="submit" value="新規登録">
     </form>
     <hr>
@@ -68,6 +68,6 @@
   <hr>
   <a href="">全て表示</a><br>
 
-  <a href='view_management_page_admin.php'>トップページへ戻る</a>
+  <a href='food_list_admin.php'>トップページへ戻る</a>
 </body>
 </html>
