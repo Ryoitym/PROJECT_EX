@@ -59,7 +59,7 @@
 
 <?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
       <tr>
-        <td><?php ph($row["food_picture"]); ?></td>
+        <td><?php ph($row["picture"]); ?></td>
         <td><?php ph($row["food_name"]); ?></td>
         <td><?php ph($row["food_price"]); ?></td>
         <td><?php ph($row["txt"]); ?></td>
@@ -84,8 +84,6 @@
       </tr>
 <?php } ?>
     </table>
-    表示<input type="radio" name="show" value="表示">
-    非表示<input type="radio" name="show" value="非表示">
   <hr>
   <a href="">全て表示</a><br>
 
