@@ -31,7 +31,7 @@ if(del){
         $sql .= "WHERE genre_id=:genre_id";
         $sth = $dbh->prepare($sql);
 
-        $sth->bindValue(":user_id", $_GET["genre_id"]);
+        $sth->bindValue(":genre_id", $_GET["genre_id"]);
         $sth->execute();
 
     } catch (PDOException $e) {
