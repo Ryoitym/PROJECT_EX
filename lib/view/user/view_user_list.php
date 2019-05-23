@@ -25,7 +25,7 @@
     <h1>ユーザ一覧</h1><br>
 <?php
 
-    require_once("../init.php");
+    require_once("../../init.php");
     $dbh = connectDb();
 
     try {
@@ -39,10 +39,10 @@
 
     setcookie("access", 0);
 ?>
-<a href="../view_special_price_food_list_admin.php">特価商品</a>
-<a href="../view_food_list_admin.php">生鮮食品</a>
-<a href="../view_user_list_admin.php">ユーザ</a>
-<a href="../view_shop_list_admin.php">店舗</a>
+<a href="../special_price/view_special_price_food_list_admin.php">特価商品</a>
+<a href="../food/view_food_list_admin.php">生鮮食品</a>
+<a href="view_user_list_admin.php">ユーザ</a>
+<a href="../shop/view_shop_list_admin.php">店舗</a>
 <br>
 <form action="view_user_list_admin.php"method="post">
 <input type="text" name="name_family">
