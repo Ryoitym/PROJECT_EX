@@ -19,7 +19,7 @@
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
-<form action="../../logout.php" method="post">
+<form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>
     </form><br>
 <h1>生鮮食品一覧画面</h1>
