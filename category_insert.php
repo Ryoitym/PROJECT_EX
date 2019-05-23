@@ -47,7 +47,7 @@
         // 入力チェックNG
             require_once("lib/view/view_category_insert.php");
            ph("入力不十分です");
-        }else if(isset($row)){
+        }else if(!empty($row)){
             require_once("lib/view/view_category_insert.php");
            ph("すでに登録されています");
         }else{
