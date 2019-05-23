@@ -33,8 +33,8 @@
         <option value="4">♡♡♡</option><br>
         </select><br>
 権限レベル: <select name="acess_lv">
-        <option value="1">店長</option><br>
-        <option value="2">管理者</option><br>
+        <option value="1">IT担当者</option><br>
+        <option value="2">店長</option><br>
         </select><br>
 <input type="submit" value="登録"><br>
 <input type="submit" value="クリア"><br>
