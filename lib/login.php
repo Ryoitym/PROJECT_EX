@@ -18,11 +18,36 @@
 require_once("init.php");
 
 if(empty($_POST)){
-    require_once("view\view_login.php");
+    //初回アクセス時
+    require_once("view/view_login.php");
 } else{
-    if($_POST["mail"] == true){
+    //入力時の処理
+    if(isset($_POST["mail"]) && isset($_POST["password"])){
+        //SQL作成
+        $dbh = connectDb();
+
+        try {
+            $sql = "SELECT user.mail, user.password, user.acess_lv FROM user ";
+            $sql .= "WHERE user.mail = :mail AND user.password = :pass";
+            $sth = $dbh->prepare($sql);
+
+            //プレースホルダに値をバインド
+            $sth->bindValue(":mail", $_POST["mail"]);
+            $sth->bindValue(":password", $_POST["password"]);
+
+            $sth->execute();
+            $row = $sth->feach(PDO::FETCH_ASSOC); //結果データを取得
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+
+        var_dump($sth);
+
 
     }else{
-
+        //空白の場合
+        print "メールアドレスまたはパスワードが違います";
+        require_once("view\view_login.php");
+        
     }
 }
