@@ -66,9 +66,9 @@
               $sth->execute();
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
-          }?>
-          <p><a href="lib/view/view_category_list_admin.php">分類一覧画面に戻る</a></p>
-      <?php   }
+          }
+          header('Location: lib/view/view_category_list_admin.php');
+        }
     } ?>
   </body>
 </html>

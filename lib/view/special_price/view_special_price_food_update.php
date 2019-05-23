@@ -24,9 +24,10 @@
 
         <input type="submit" value="ログアウト"><br>
 
-        エラーメッセージ
+        <!-- エラーメッセージ -->
+        <?php print $error_message;?>
 
-        <form action="view_special_price_food_update.php" method="post">
+        <form action="special_price_food_update.php" method="post">
 
             生鮮食品名: 
             <select name="food_select">
@@ -63,6 +64,8 @@
 
             <input type="submit" value="編集"><br>
             <input type="submit" value="クリア"><br>
+
+            
             
         </form>
     </body>
