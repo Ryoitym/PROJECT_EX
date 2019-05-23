@@ -162,3 +162,22 @@ INSERT INTO user (
     1
     );
 
+--山田さん
+INSERT INTO user (
+  user_id, 
+  password,
+  name_family,
+  name_last,
+  mail,
+  acess_lv,
+  shop_id
+  ) VALUES (
+    2, 
+    'yamada',
+    '山田',
+    '花子',
+    'yamada@gmail.com',
+    2,
+    2
+    );
+
