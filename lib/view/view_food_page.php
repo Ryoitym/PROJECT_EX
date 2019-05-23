@@ -68,26 +68,6 @@
       text-align: center;
   }
 
-  nav ul {
-       margin: 0;
-       padding: 0;
-       list-style-type: none;
-  }
-
-  nav ul li {
-       float: left;
-       width: 25%; /*各メニューの幅*/
-       text-align: center;
-       text-shadow: 1px 1px 1px #fff;
-  }
-
-  nav ul li a{
-       display: block;
-       padding: 10px 0;
-       color: #666;
-       text-decoration: none;
-  }
-
   #slide {
     clear: both;
     padding: 40px 0;
@@ -123,24 +103,6 @@
 
   }
 
-  .box{
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #dedede;
-  }
-
-  .box_shop{
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #dedede;
-  }
-
   /*最下部
   ----------------------------------------------------*/
   footer {
@@ -153,94 +115,61 @@
 </style>
 
 <div class="wrapper">
-<!-- タイトル & ナビゲーション & 特売商品欄 -->
+<!-- タイトル -->
 <header>
   <h1>FFS</h1>
-  <hr>
-  <nav>
-    <ul>
-      <li><a href="#">特売</a></li>
-      <li><a href="#">生鮮食品</a></li>
-      <li><a href="#">店舗</a></li>
-    </ul>
-  </nav>
-
-<!-- 特売商品欄(スライダー機能必要) -->
-  <div id="slide">
-    <a href="#">もっと見る</a>
-  </div>
 </header>
-
+<hr>
 
 <!-- 本文（中身・コンテンツ） -->
 <div class="content">
   <main>
     <article>
-      <h2>生鮮食品一覧</h2>
-
-      <!-- 分類 -->
-      <select name="genre_name">
-            <option value="1">肉</option><br>
-            <option value="2">野菜</option><br>
-            <option value="3">魚</option><br>
-            <option value="4">その他</option><br>
-      </select>
-
-      <!-- 栄養価 -->
-      栄養価: <select name="eiyoka">
-              <option value="calorie">エネルギー</option><br>
-              <option value="protein">たんぱく質</option><br>
-              <option value="lipid">脂質</option><br>
-              <option value="carb">炭水化物</option><br>
-              <option value="natrium">ナトリウム</option><br>
-              <option value="kalium">カリウム</option><br>
-              </select><br>
-
-      <input type="text" name="keyword">
-      <input type="submit" value="検索"><br>
-
-      <div class="box">
+      <h2>食品名</h2>
         <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
+        <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
         <!-- 商品名 -->
-        <h3>食品名</h3>
+        <h3>価格</h3>
         <!-- 説明 -->
         <p>説明</p>
-      </div>
-
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
-
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
-
     </article>
-
     <article>
-      <h2>店舗一覧</h2>
-      <!-- 店舗リンク -->
-      <div class="box_shop">
-        <a href="#">abc店舗
-      </div>
-      <div class="box_shop">
-        <a href="#">def店舗
-      </div>
-      <div class="box_shop">
-        <a href="#">ghi店舗
-      </div>
+      <!-- 詳細情報 -->
+        <table>
+          <h2>栄養価</h2>
+          <tr>
+            <th>エネルギー：</th>
+            <th>保有量</th>
+          </tr>
+
+          <tr>
+            <td>たんぱく質：</td>
+            <td>保有量</td>
+          </tr>
+
+          <tr>
+            <td>脂質：</td>
+            <td>保有量</td>
+          </tr>
+
+          <tr>
+            <td>炭水化物：</td>
+            <td>保有量</td>
+          </tr>
+
+          <tr>
+            <td>ナトリウム：</td>
+            <td>保有量</td>
+          </tr>
+
+          <tr>
+            <td>カリウム：</td>
+            <td>保有量</td>
+          </tr>
+        </table>
     </article>
+    <!--公開トップページ画面の生鮮食品欄に飛ぶ？-->
+    <a href="view_top_page.php">生鮮食品一覧画面に戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 
