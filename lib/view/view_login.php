@@ -23,7 +23,7 @@
 </head>
 <body>
     <h1>ログイン画面</h1>
-    <form action="..\login.php" method="post">
+    <form action="login.php" method="post">
         メールアドレス：<input type="text" name="mail" value=""><br>
         パスワード：<input type="text" name="password" value=""><br>
         <input type="submit" value = "送信">

@@ -22,13 +22,13 @@ if(empty($_POST)){
     require_once("view/view_login.php");
 } else{
     //入力時の処理
-    if(isset($_POST["mail"]) && isset($_POST["password"])){
+    if(!empty($_POST["mail"]) && !empty($_POST["password"])){
         //SQL作成
         $dbh = connectDb();
 
         try {
-            $sql = "SELECT user.mail, user.password, user.acess_lv FROM user ";
-            $sql .= "WHERE user.mail = :mail AND user.password = :pass";
+            $sql = "SELECT user.mail, user.password, user.acess_lv FROM ffs_db.user ";
+            $sql .= "WHERE user.mail = :mail AND user.password = :password";
             $sth = $dbh->prepare($sql);
 
             //プレースホルダに値をバインド
@@ -42,12 +42,13 @@ if(empty($_POST)){
         }
 
         var_dump($sth);
+        print $row["acess_lv"];
 
 
     }else{
         //空白の場合
         print "メールアドレスまたはパスワードが違います";
-        require_once("view\view_login.php");
+        require_once("view/view_login.php");
         
     }
 }
