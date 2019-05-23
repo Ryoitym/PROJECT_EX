@@ -23,10 +23,10 @@
 <h1>分類登録画面</h1>
 
 分類名 <form action = "category_insert.php" method="post">
-        <input type="text" name="genre_name">
+        <input type="text" name="genre_name"><br>
         <input type="submit" value="登録">
         <input type="reset" value="クリア">
       </form>
-</table>
+      <p><a href="category_list_admin.php">分類一覧画面に戻る</a></p>
 </body>
 </html>

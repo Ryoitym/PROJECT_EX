@@ -21,7 +21,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト"><br>
-<form action="insert.php" method="post">
+<form action="../../../user_insert.php" method="post">
 姓: <input type="text" name="name_family"><br>
 名: <input type="text" name="name_last"><br>
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
@@ -33,8 +33,8 @@
         <option value="4">♡♡♡</option><br>
         </select><br>
 権限レベル: <select name="acess_lv">
-        <option value="1">店長</option><br>
-        <option value="2">管理者</option><br>
+        <option value="1">IT担当者</option><br>
+        <option value="2">店長</option><br>
         </select><br>
 <input type="submit" value="登録"><br>
 <input type="submit" value="クリア"><br>
