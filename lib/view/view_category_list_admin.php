@@ -20,7 +20,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト">
-分類一覧画面
+<h1>分類一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
 <a href="">生鮮食品</a>
@@ -45,7 +45,7 @@
       </tr>
       <tr>
         <td>分類</td>
-      </tr>
+      </tr><br>
     <form action = "view_category_update.php" method="post">
       <input type="submit" value="編集">
     </form>
