@@ -1,7 +1,7 @@
 <?php
 /**
  * このファイルの概要説明
- *　ログアウト画面作成フォーマット
+ *　生鮮食品削除画面作成フォーマット
  * このファイルの詳細説明
  *
  * システム名： FFS
@@ -125,5 +125,12 @@
   </p>
   </div>
 </div>
+
+<!-- 削除確認画面-->
+<form action="view_login.php">
+  <input type="submit" value="ログアウト">
+</form>
+<h1>削除しました</h1>
+<a href="view_food_list.php">生鮮食品一覧画面</a>
 </body>
 </html>
