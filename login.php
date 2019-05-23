@@ -15,11 +15,11 @@
 
 
 //共通関数読み込み
-require_once("init.php");
+require_once("lib/init.php");
 
 if(empty($_POST)){
     //初回アクセス時
-    require_once("view/view_login.php");
+    require_once("lib/view/view_login.php");
 } else{
     //入力時の処理
     if(!empty($_POST["mail"]) && !empty($_POST["password"])){
@@ -36,19 +36,27 @@ if(empty($_POST)){
             $sth->bindValue(":password", $_POST["password"]);
 
             $sth->execute();
-            $row = $sth->feach(PDO::FETCH_ASSOC); //結果データを取得
+            $row = $sth->fetch(PDO::FETCH_ASSOC); //結果データを取得
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
 
-        var_dump($sth);
         print $row["acess_lv"];
+
+        if(empty($row)){
+            print "メールアドレスまたはパスワードが違います";
+            require_once("lib/view/view_login.php");
+        } else{
+            session_start();
+            $_SESSION["acess_lv"] = $row;
+            header('Location:lib/view/view_management_page.php');
+        }
 
 
     }else{
         //空白の場合
         print "メールアドレスまたはパスワードが違います";
-        require_once("view/view_login.php");
+        require_once("lib/view/view_login.php");
         
     }
 }
