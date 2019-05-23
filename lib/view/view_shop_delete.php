@@ -1,25 +1,23 @@
 <?php
 /**
  * このファイルの概要説明
- *　生鮮食品削除画面作成フォーマット
+ *　データベース作成フォーマット
  * このファイルの詳細説明
  *
  * システム名： FFS
- * 作成者：　sugerSong
+ * 作成者：　appleCandy
  * 作成日：　2019/05/23
  * 最終更新日：　2019/05/23
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
  */
-
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>生鮮食品削除画面</title>
+<title>店舗削除画面</title>
 </head>
 
 <body>
@@ -110,6 +108,7 @@
   $('.x').click(function(){
       $('.popup').hide();
       overlay.appendTo(document.body).remove();
+      
       return false;
   });
   });
@@ -117,20 +116,24 @@
 </script>
 
 <div class='popup'>
+  
   <div class='cnt223'>
+  <h1>店舗削除確認画面</h1>
   <h1>削除しますか?</h1>
   <p>
-  <a href='' class='close'>OK</a>
+  <a href='' class='close' id='ok'>OK</a>
   <a href='' class='close'>キャンセル</a>
   </p>
   </div>
 </div>
+<script> document.getElementById('ok').onclick=fuction(){
+        alert ('ajahah');
+        document.getElementById('ok').innerHTML="削除しました"<br>
+        <a href="view_shop_list_admin.php">店舗一覧画面に戻る</a>
+};
+</script>
 
-<!-- 削除確認画面-->
-<form action="view_login.php">
-  <input type="submit" value="ログアウト">
-</form>
-<h1>削除しました</h1>
-<a href="view_food_list.php">生鮮食品一覧画面</a>
+</body>
+</html>
 </body>
 </html>

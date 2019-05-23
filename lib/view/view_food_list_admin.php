@@ -20,7 +20,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト">
-生鮮食品一覧画面
+<h1>生鮮食品一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
 <a href="">生鮮食品</a>
@@ -54,6 +54,7 @@
         <td>説明文書</td>
         <td>栄養素</td>
       </tr>
+    </table>
     <form action = "food_update.php" method="post">
       <input type="submit" value="編集">
     </form>
@@ -62,7 +63,6 @@
     </form>
     表示<input type="radio" name="show" value="表示">
     非表示<input type="radio" name="show" value="非表示">
-  </table>
   <hr>
   <a href="">全て表示</a>
 </body>
