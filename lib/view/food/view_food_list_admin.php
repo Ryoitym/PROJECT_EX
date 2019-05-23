@@ -47,22 +47,43 @@
             <th>食品名</th>
             <th>価格</th>
             <th>説明文書</th>
-            <th>栄養素</th>
+            <th>エネルギー</th>
+            <th>タンパク質</th>
+            <th>脂質</th>
+            <th>炭水化物</th>
+            <th>ナトリウム</th>
+            <th>カリウム</th>
+            <th>表示フラグ</th>
+            <th>分類ID</th>
         </tr>
+
+<?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
       <tr>
-        <td>写真</td>
-        <td>食品名</td>
-        <td>価格</td>
-        <td>説明文書</td>
-        <td>栄養素</td>
+        <td><?php ph($row["food_picture"]); ?></td>
+        <td><?php ph($row["food_name"]); ?></td>
+        <td><?php ph($row["food_price"]); ?></td>
+        <td><?php ph($row["txt"]); ?></td>
+        <td><?php ph($row["calorie"]); ?></td>
+        <td><?php ph($row["protein"]); ?></td>
+        <td><?php ph($row["lipid"]); ?></td>
+        <td><?php ph($row["carb"]); ?></td>
+        <td><?php ph($row["natrium"]); ?></td>
+        <td><?php ph($row["kalium"]); ?></td>
+        <td><?php ph($row["show_flag"]); ?></td>
+        <td><?php ph($row["genre_id"]); ?></td>
+        <td>
+          <form action = "food_update.php" method="post">
+            <input type="submit" value="編集">
+          </form>
+        </td>
+        <td>
+          <form action = "food_delete.php" method="post">
+            <input type="submit" value="削除">
+          </form>
+        </td>
       </tr>
+<?php } ?>
     </table>
-    <form action = "food_update.php" method="post">
-      <input type="submit" value="編集">
-    </form>
-    <form action = "food_delete.php" method="post">
-      <input type="submit" value="削除">
-    </form>
     表示<input type="radio" name="show" value="表示">
     非表示<input type="radio" name="show" value="非表示">
   <hr>

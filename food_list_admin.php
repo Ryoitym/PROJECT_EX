@@ -16,6 +16,17 @@
  require_once("lib/function.php");
  session_start();
  if($_SESSION["acess_lv"] == 1){
+    //SQL作成
+    $dbh = connectDb();
+
+    try {
+        $sql = "SELECT * FROM ffs_db.food ";
+        $sth = $dbh->prepare($sql);
+
+        $sth->execute();
+    } catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
     require_once("lib/view/food/view_food_list_admin.php");
  } else{
     print "権限レベルが低いため、ログインからやり直してください<br>";
