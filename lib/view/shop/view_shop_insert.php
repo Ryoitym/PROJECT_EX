@@ -21,29 +21,20 @@
 <link rel="stylesheet" href= "style.css">
 </head>
 <body>
-<?php
-    require_once("../init.php");
-?>
-<form action="view_logout.php">
-    <input type="submit" value="ログアウト">
-</form>
+
+<form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+    </form><br>
 <h1>店舗登録画面</h1>
 
-<!--エラーメッセージをここに追加-->
-<?php print "入力が不十分です";?><br>
 <br>
-<form action="">
-    店舗名:<input type="text" value = ""><br>
-    住所：<input type="text" value = ""><br>
-    電話番号：<input type="text" value = ""><br>
+<form action="shop_insert.php" method="post">
+    店舗名:<input type="text" name="shop_name"><br>
+    住所：<input type="text" name="address"><br>
+    電話番号：<input type="text" name="tel"><br>
+    <input type="submit" value = "登録">
+    <input type="reset" value = "クリア"><br>
 </form>
 
-<form action="view_shop_list_admin.php">
-        <input type="submit" value = "登録">
-</form>
-<form action="view_shop_insert.php">
-        <input type="submit" value = "クリア"><br>
-</form>
-</form>
 </body>
 </html>

@@ -40,21 +40,19 @@
     <form action = "view_category_insert.php" method="post">
       <input type="submit" value="新規登録">
     </form>
-    <hr>
     <table border="1">
       <tr>
         <th>分類</th>
-      </tr>
-      <tr>
         <td>分類</td>
-      </tr><br>
-    <form action = "view_category_update.php" method="post">
-      <input type="submit" value="編集">
-    </form>
-    <form action = "view_category_delete.php" method="post">
-      <input type="submit" value="削除">
-    </form>
+        <form action = "category_update.php" method="post">
+          <input type="submit" value="編集">
+        </form>
+        <form action = "category_delete.php" method="post">
+          <input type="submit" value="削除">
+        </form>
+     </tr>
+     </table>
   <a href="">全て表示</a>
-</table>
+
 </body>
 </html>
