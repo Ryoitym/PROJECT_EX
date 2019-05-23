@@ -1,12 +1,16 @@
 <?php
-/*
+/**
+ * このファイルの概要説明
+ *　データベース作成フォーマット
+ * このファイルの詳細説明
+ *
  * システム名： FFS
- * 作成者：　amaru
+ * 作成者：　appleCandy
  * 作成日：　2019/05/23
  * 最終更新日：　2019/05/23
  * レビュー担当者：
  * レビュー日：
- * バージョン： 1.0
+ * バージョン： 1.1
  */
 ?>
 
@@ -15,7 +19,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>公開トップページ画面</title>
+<title>特価品一覧ページ画面</title>
 <!--外部記述する場合
 <link rel="stylesheet" href="css/style.css">
 -->
@@ -99,7 +103,7 @@
   /*中身
   ----------------------------------------------------*/
   .content {
-        padding: 0 10px;
+        padding: 0px 10px;
   }
 
   main {
@@ -134,8 +138,8 @@
 
   .box_shop{
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 500px;
+    height: 200px;
     margin: 0 auto;
     padding: 10px;
     background-color: #dedede;
@@ -144,30 +148,23 @@
   /*最下部
   ----------------------------------------------------*/
   footer {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
+      clear: both;
+      padding: 40px 0;
+      background: #dedede;
+      color: grey;
+      text-align: center;
   }
 </style>
 
 <div class="wrapper">
 <!-- タイトル & ナビゲーション & 特売商品欄 -->
 <header>
-  <h1>FFS</h1>
-  <hr>
-  <nav>
-    <ul>
-      <li><a href="#">特売</a></li>
-      <li><a href="#">生鮮食品</a></li>
-      <li><a href="#">店舗</a></li>
-    </ul>
-  </nav>
+  
+  <a href='view_top_page.php'><h1>FFS</h1></a>
 
 <!-- 特売商品欄(スライダー機能必要) -->
   <div id="slide">
-    <a href="#">もっと見る</a>
+    <a href="#"></a>
   </div>
 </header>
 
@@ -175,71 +172,19 @@
 <!-- 本文（中身・コンテンツ） -->
 <div class="content">
   <main>
-    <article>
-      <h2>生鮮食品一覧</h2>
-
-      <!-- 分類 -->
-      <select name="genre_name">
-            <option value="1">肉</option><br>
-            <option value="2">野菜</option><br>
-            <option value="3">魚</option><br>
-            <option value="4">その他</option><br>
-      </select>
-
-      <!-- 栄養価 -->
-      栄養価: <select name="eiyoka">
-              <option value="calorie">エネルギー</option><br>
-              <option value="protein">たんぱく質</option><br>
-              <option value="lipid">脂質</option><br>
-              <option value="carb">炭水化物</option><br>
-              <option value="natrium">ナトリウム</option><br>
-              <option value="kalium">カリウム</option><br>
-              </select><br>
-
-      <input type="text" name="keyword">
-      <input type="submit" value="検索"><br>
-
-      <div class="box">
+  <h2>特売商品一覧</h2>
+  <article>
+  <?php for($i=0;$i<16;$i++){?>
+        <div class="box">
         <!-- 生鮮食品の写真 -->
         <img src="#" alt="">
         <!-- 商品名 -->
-        <h3>食品名</h3>
+        <a href='view_special_price_food_page.php'><h3>食品名</h3></a>
         <!-- 説明 -->
         <p>説明</p>
       </div>
+      <?php }?>
 
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
-
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
-
-    </article>
-
-    <article>
-      <h2>店舗一覧</h2>
-      <!-- 店舗リンク -->
-      <div class="box_shop">
-        <a href="#">abc店舗
-      </div>
-      <div class="box_shop">
-        <a href="#">def店舗
-      </div>
-      <div class="box_shop">
-        <a href="#">ghi店舗
-      </div>
     </article>
 </main>
 </div><!-- コンテンツはここまで -->
