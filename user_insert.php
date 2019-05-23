@@ -17,8 +17,7 @@
         try {
             // SQLを構築
             $sql = "SELECT * FROM user";
-            $sql .= " WHERE name_family = :name_family and";
-            $sql .= " name_last = :name_last";
+            $sql .= " WHERE mail = :mail";
             $sth = $dbh->prepare($sql); // SQLを準備
 
             $sth->bindValue(":name_family", $_POST["name_family"]);
