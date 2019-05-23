@@ -67,8 +67,8 @@
         <td><a href="update.php?student_id=<?php
             ph($row["student_id"]);
         ?>">編集</a></td>
-        <td><a href="delete_exec.php?student_id=<?php
-            ph($row["student_id"]);
+        <td><a href="../../../shop_delete.php?shop_id=<?php
+            ph($row["shop_id"]);
         ?>">削除</a></td>
     </tr>
     <?php } ?>

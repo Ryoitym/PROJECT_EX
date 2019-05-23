@@ -12,13 +12,7 @@
  * レビュー日：
  * バージョン： 1.1
  */ -->
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>分類登録画面</title>
-</head>
-<body>
+
   <?php
       //共通関数読み込み
       require_once("lib/function.php");
@@ -69,6 +63,4 @@
           }
           header('Location: category_list_admin.php');
         }
-    } ?>
-  </body>
-</html>
+    } 
