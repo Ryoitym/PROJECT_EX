@@ -55,5 +55,6 @@
     表示<input type="radio" name="show" value="表示">
     非表示<input type="radio" name="show" value="非表示"><br>
   <a href="">全て表示</a>
+  <a href='food_list.php'>トップページへ戻る</a>
 </body>
 </html>

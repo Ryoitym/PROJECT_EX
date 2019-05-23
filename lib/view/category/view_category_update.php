@@ -33,5 +33,6 @@
         <input type="submit" value="登録"><br>
         <input type="reset" value="クリア">
     </form>
+      <p><a href="category_list_admin.php">分類一覧画面に戻る</a></p>
 </body>
 </html>
