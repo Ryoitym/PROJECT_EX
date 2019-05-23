@@ -25,9 +25,7 @@
 <body>
     <h1>店舗一覧画面</h1><br>
 <?php
-    /*修正してない
-
-    require_once("init.php");
+    require_once("../../init.php");
     $dbh = connectDb();
 
     try {
@@ -40,7 +38,6 @@
     }
 
     setcookie("access", 0);
-    */
 ?>
 <a href="view_special_price_food_list_admin.php">特価商品</a>
 <a href="view_food_list_admin.php">生鮮食品</a>
