@@ -24,7 +24,7 @@
       require_once("lib/function.php");
       //入力画面表示
       if(empty($_POST)){
-        require_once("lib/view/view_category_insert.php");
+        require_once("lib/view/category/view_category_insert.php");
       }else{
         // 入力チェック 既に登録されているかどうか
         $dbh = connectDb();
@@ -45,10 +45,10 @@
         //入力チェック
         if(empty($_POST["genre_name"])){
         // 入力チェックNG
-            require_once("lib/view/view_category_insert.php");
+            require_once("lib/view/category/view_category_insert.php");
            ph("入力不十分です");
         }else if(!empty($row)){
-            require_once("lib/view/view_category_insert.php");
+            require_once("lib/view/category/view_category_insert.php");
            ph("すでに登録されています");
         }else{
           //入力チェックOK 分類を追加する
@@ -67,7 +67,7 @@
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
           }
-          header('Location: lib/view/view_category_list_admin.php');
+          header('Location: lib/view/category/view_category_list_admin.php');
         }
     } ?>
   </body>
