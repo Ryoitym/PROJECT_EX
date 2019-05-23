@@ -20,7 +20,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト">
-生鮮食品一覧画面
+<h1>生鮮食品一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
 <a href="">生鮮食品</a>
@@ -33,7 +33,7 @@
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>
-    <hr>
+      <hr>
     <table border="1">
         <tr>
             <th>写真</th>
@@ -49,11 +49,9 @@
           <td>説明文書</td>
           <td>栄養素</td>
         </tr>
-
+</table>
     表示<input type="radio" name="show" value="表示">
-    非表示<input type="radio" name="show" value="非表示">
-    <hr>
-    </table>
+    非表示<input type="radio" name="show" value="非表示"><br>
   <a href="">全て表示</a>
 </body>
 </html>

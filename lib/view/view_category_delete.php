@@ -123,5 +123,8 @@
    </p>
    </div>
  </div>
+ <input type="submit" value="ログアウト"><br>
+ 削除しました<br>
+ <a href="view_category_list_admin.php">分類一覧画面に戻る</a>
  </body>
  </html>
