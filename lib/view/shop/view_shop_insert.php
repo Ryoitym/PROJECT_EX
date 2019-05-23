@@ -22,13 +22,11 @@
 </head>
 <body>
 
-<form action="view_logout.php">
-    <input type="submit" value="ログアウト">
-</form>
+<form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+    </form><br>
 <h1>店舗登録画面</h1>
 
-<!--エラーメッセージをここに追加-->
-<?php print "入力が不十分です";?><br>
 <br>
 <form action="shop_insert.php" method="post">
     店舗名:<input type="text" name="shop_name"><br>
