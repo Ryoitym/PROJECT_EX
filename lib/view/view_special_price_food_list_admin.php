@@ -18,7 +18,9 @@
 <title>特価商品一覧画面</title>
 </head>
 <body>
-<input type="submit" value="ログアウト">
+<form action="../../logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+    </form><br>
 <a href="">特価商品</a>
 <a href="">生鮮食品</a>
 <a href="">分類</a>
