@@ -21,24 +21,23 @@
 <body>
   <!-- 一画面遷移 -->
   <?php
-      require_once("function.php");
+      require_once("lib/function.php");
       //入力画面表示
       if(empty($_POST)){
         $dbh = connectDb();
-        require_once("view_category_insert.php");
+        require_once("lib/view/view_category_insert.php");
       }else{
         //入力チェック
         if(empty($_POST["genre_name"])){
         // 入力NG
-            $dbh = connectDb();
-            require_once("view_category_insert.php");
+            require_once("lib/view/view_category_insert.php");
            ph("入力不十分です");
         }else{
           //入力チェックOK 分類を追加する
           $dbh = connectDb();
           try {
               // プレースホルダ付きSQLを構築
-              $sql = "INSERT INTO genre (ganre_name) ";
+              $sql = "INSERT INTO ffs_db.genre (ganre_name) ";
               $sql .= "VALUES (:genre_name)";
               $sth = $dbh->prepare($sql); // SQLを準備
 
