@@ -16,6 +16,7 @@
 if($_POST["logout"] == "logout"){
     session_start();
     unset($_SESSION["acess_lv"]);  //"acess_lv"のセッションを削除
+    unset($_SESSION["shop_id"]);  //"shop_id"のセッションを削除
     //var_dump($_SESSION["acess_lv"]);
 
     //logout確認画面を表示

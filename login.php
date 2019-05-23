@@ -27,7 +27,7 @@ if(empty($_POST)){
         $dbh = connectDb();
 
         try {
-            $sql = "SELECT user.mail, user.password, user.acess_lv FROM ffs_db.user ";
+            $sql = "SELECT user.mail, user.password, user.acess_lv, shop_id FROM ffs_db.user ";
             $sql .= "WHERE user.mail = :mail AND user.password = :password";
             $sth = $dbh->prepare($sql);
 
@@ -46,10 +46,16 @@ if(empty($_POST)){
             print "メールアドレスまたはパスワードが違います";
             require_once("lib/view/view_login.php");
         } else{
-        //メールアドレス or パスワードが間違っている時
+        //入力内容が正しい時
             session_start();
-            $_SESSION["acess_lv"] = $row;
-            header('Location:lib/view/view_management_page.php');
+            $_SESSION["acess_lv"] = $row["acess_lv"];
+            $_SESSION["shop_id"] = $row["shop_id"];
+
+            if($row["acess_lv"] == 1){
+                header('Location:lib/view/view_management_page_admin.php');
+            } elseif($row["acess_lv"] == 2){
+                header('Location:lib/view/view_management_page.php');
+            }
         }
 
 
