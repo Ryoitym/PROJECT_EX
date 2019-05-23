@@ -66,11 +66,11 @@
         <td><?php ph($row["name_family"]);?></td>
         <td><?php ph($row["name_last"]);?></td>
         <td><?php ph($row["mail"]);?></td>
-        <td><a href="update.php?student_id=<?php
-            ph($row["student_id"]);
+        <td><a href="update.php?user_id=<?php
+            ph($row["user_id"]);
         ?>">編集</a></td>
-        <td><a href="delete_exec.php?student_id=<?php
-            ph($row["student_id"]);
+        <td><a href="user_delete.php?user_id=<?php
+            ph($row["user_id"]);
         ?>">削除</a></td>
     </tr>
     <?php } ?>

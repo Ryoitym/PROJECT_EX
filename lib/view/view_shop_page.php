@@ -159,7 +159,7 @@
 <div class="wrapper">
 <!-- タイトル & ナビゲーション & 特売商品欄 -->
 <header>
-  <h1>FFS</h1>
+<a href='view_top_page.php'><h1>FFS</h1></a>
 
 <!-- 特売商品欄(スライダー機能必要) -->
   <div id="slide">

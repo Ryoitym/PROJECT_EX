@@ -186,6 +186,7 @@
       <?php }?>
 
     </article>
+    <a href="view_top_page.php">トップページへ画面に戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 
@@ -195,5 +196,6 @@
 </footer>
 
 </div><!--　wrapperはここまで　-->
+
 </body>
 </html>
