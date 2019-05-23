@@ -15,7 +15,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>公開トップページ画面</title>
+<title>生鮮食品個別ページ画面</title>
 <!--外部記述する場合
 <link rel="stylesheet" href="css/style.css">
 -->
