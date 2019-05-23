@@ -22,11 +22,11 @@
 <input type="submit" value="ログアウト"><br>
 <h1>分類登録画面</h1>
 
-分類名 <form action = "view_category_insert.php" method="post">
-        <input type="text" name="分類名">
+分類名 <form action = "category_insert.php" method="post">
+        <input type="text" name="genre_name">
+        <input type="submit" value="登録">
+        <input type="reset" value="クリア">
       </form>
-      <input type="submit" value="登録">
-      <input type="reset" value="クリア">
 </table>
 </body>
 </html>

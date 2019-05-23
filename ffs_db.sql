@@ -143,4 +143,22 @@ INSERT INTO food (
     1
     );
 
+--田中さん
+INSERT INTO user (
+  user_id, 
+  password,
+  name_family,
+  name_last,
+  mail,
+  acess_lv,
+  shop_id
+  ) VALUES (
+    1, 
+    'ffs',
+    '田中',
+    '太郎',
+    'ffs@gmail.com',
+    1,
+    1
+    );
 

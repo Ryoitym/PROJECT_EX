@@ -144,11 +144,11 @@
   /*最下部
   ----------------------------------------------------*/
   footer {
-      clear: both;
-      padding: 40px 0;
-      background: #dedede;
-      color: grey;
-      text-align: center;
+    clear: both;
+    padding: 40px 0;
+    background: #dedede;
+    color: grey;
+    text-align: center;
   }
 </style>
 
