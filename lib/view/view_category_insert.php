@@ -19,15 +19,14 @@
 <title>分類登録画面</title>
 </head>
 <body>
-<input type="submit" value="ログアウト">
-分類登録画面
+<input type="submit" value="ログアウト"><br>
+<h1>分類登録画面</h1>
 
 分類名 <form action = "view_category_insert.php" method="post">
         <input type="text" name="分類名">
       </form>
       <input type="submit" value="登録">
       <input type="reset" value="クリア">
-  <a href="">全て表示</a>
 </table>
 </body>
 </html>
