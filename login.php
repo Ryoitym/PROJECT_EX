@@ -41,12 +41,12 @@ if(empty($_POST)){
             exit("SQL発行エラー：{$e->getMessage()}");
         }
 
-        print $row["acess_lv"];
-
+        //メールアドレス or パスワードが間違っている時
         if(empty($row)){
             print "メールアドレスまたはパスワードが違います";
             require_once("lib/view/view_login.php");
         } else{
+        //メールアドレス or パスワードが間違っている時
             session_start();
             $_SESSION["acess_lv"] = $row;
             header('Location:lib/view/view_management_page.php');

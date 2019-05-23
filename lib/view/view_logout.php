@@ -23,6 +23,6 @@
 </head>
 <body>
     <h1>ログアウトしました</h1>
-    <a href="view_login.php">ログイン画面に戻る</a>
+    <a href="login.php">ログイン画面に戻る</a>
 </body>
 </html>
