@@ -124,7 +124,6 @@
   <a href='' class='close'>キャンセル</a>
   </p>
   </div>
-  <h1>削除しました。</h1>
 </div>
 </body>
 </html>
