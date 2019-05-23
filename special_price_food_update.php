@@ -27,11 +27,6 @@
         // SQLを構築
         $sql =  "SELECT * FROM ffs_db.food;";
 
-        // $sql = 
-        // "SELECT * 
-        // FROM 
-        // ffs_db.food t2 
-        // ON t1.food_id = t2.food_id";
         $sth = $dbh->prepare($sql); // SQLを準備
 
         // SQLを発行
@@ -67,17 +62,12 @@
 
         // セレクトボックスで選択した日付の前後の日付を得て、変数に代入
         $targetTime = strtotime($_POST["date_select"]);
-        // print $_POST["date_select"];
-        // print "<br>";
         $before_date = date("Y-m-d",strtotime("-" . "1" . " day", $targetTime));
-        // print date("Y-m-d",strtotime("-" . "1" . " day", $targetTime));
-        // print "<br>";
         $after_date = date("Y-m-d",strtotime("+" . "1" . " day", $targetTime));
-        // print date("Y-m-d",strtotime("+" . "1" . " day", $targetTime));
 
-        $dates = [  strval($before_date)    => "before", 
-                    strval($targetTime)     => "same",
-                    strval($after_date)     => "after"];
+        $dates = [  "before"    => strval($before_date), 
+                    "same"      => strval($targetTime),
+                    "after"     => strval($after_date)];
         
         foreach ( $dates as $key => $date ) {
               // SQLを構築
@@ -91,30 +81,37 @@
               $shop_list_comp = $sth->fetchAll(PDO::FETCH_ASSOC);
               foreach ($shop_list_comp as $shop) {
                   if ($shop["shop_id"] ==  $_POST["shop_select"] && $shop["food_id"] == $_POST["food_select"]){ 
-                    //   print "同じ！";
-                        if ($key === "before") {
+
+                        if ($key == "before") {
                             $flag_before = true;
-                        } else if ($key === "after") {
+                        } else if ($key == "after") {
                             $flag_after = true;
                         } else {
                             $flag_same = true;
                         }
-                    //   $flag_before_and_fter = true;
                   }
               }
         }
               
-
-
         if (empty($_POST["sale_price"]) || !is_numeric($_POST["sale_price"])) {
             $error_message .= "特価価格の入力に不備があります。<br>";
-        } else if ($flag_before === true) {
-            $error_message .= "前日に、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
-        } else if ($flag_same === true) {
-            $error_message .= "同じ日に、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
-        } else if ($flag_after === true) {
-            $error_message .= "翌日に、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
-        } else {
+        } 
+        if ($flag_before == true || $flag_same == true || $flag_after == true) {
+            if ($flag_before === true) {
+                $error_message .= $before_date;
+                $error_message .= "<br>";
+            }
+            if ($flag_same === true) {
+                $error_message .= $targetTime;
+                $error_message .= "<br>";
+            }
+            if ($flag_after === true) {
+                $error_message .= $after_date;
+                $error_message .= "<br>";
+            }
+            $error_message .= "上記の日付で、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
+        }
+        if ($error_message == "") {
 
             try {
                 // プレースホルダ付きSQLを構築
@@ -130,7 +127,6 @@
                 $sth->bindValue(":food_id",   $_POST["food_select"]);
                 $sth->bindValue(":sale_id",  $sale_id_r);
                 
-        
                 // SQLを発行
                 $sth->execute();
             } catch (PDOException $e) {
@@ -138,12 +134,7 @@
             }
         }
         
-        // 日付の条件について
-        // if () {
-
-        // }
     }
-
 
     require_once("lib\\view\\special_price\\view_special_price_food_update.php");
 
