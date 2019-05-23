@@ -19,39 +19,52 @@
         <meta charset="utf-8">
         <title>特価商品編集画面</title>
     </head>
-<body>
 
-<input type="submit" value="ログアウト"><br>
+    <body>
 
-エラーメッセージ
+        <input type="submit" value="ログアウト"><br>
 
-<form action="view_special_price_food_update.php" method="post">
+        エラーメッセージ
 
-生鮮食品名: <select name="food_select">
-        <option value="1">test1</option><br>
-        <option value="2">test2</option><br>
-        <option value="3">test3</option><br>
-        <option value="4">test4</option><br>
-        </select><br>
+        <form action="view_special_price_food_update.php" method="post">
 
-特価価格:<input type="text" name="sale_price" size="20"><br>
+            生鮮食品名: 
+            <select name="food_select">
+                <?php foreach ($food_list as $food) {?>
+                        <option value="<?php print $food["food_id"];?>">
+                            <?php print $food["food_name"]; ?>
+                        </option>
+                        <br>
+                <?php } ?>
+            </select><br>
 
-日付: <select name="date_select">
-        <option value="1">test1</option><br>
-        <option value="2">test2</option><br>
-        <option value="3">test3</option><br>
-        <option value="4">test4</option><br>
-        </select><br>
+            特価価格:<input type="text" name="sale_price" size="20"><br>
 
-店舗名: <select name="shop_select">
-        <option value="1">test1</option><br>
-        <option value="2">test2</option><br>
-        <option value="3">test3</option><br>
-        <option value="4">test4</option><br>
-        </select><br>
+            日付:
+            <select name="date_select">
+            <?php for ($i = 0 ; $i < 8 ; $i++) {?>
+                <?php $temp_date = date("Y-m-d",strtotime("+" . $i . " day")); ?>
+                <option value="<?php print $temp_date; ?>">
+                <?php print $temp_date; ?>
+                </option>
+                <br>
+            <?php } ?>
+            </select><br>
 
-<input type="submit" value="編集"><br>
-<input type="submit" value="クリア"><br>
-</form>
-</body>
+            店舗名:
+            <select name="shop_select">
+                <?php foreach ($shop_list as $shop) {?>
+                        <option value="<?php print $shop["shop_id"];?>">
+                            <?php print $shop["shop_name"]; ?>
+                        </option>
+                        <br>
+                <?php } ?>
+            </select><br>
+
+            <input type="submit" value="編集"><br>
+            <input type="submit" value="クリア"><br>
+            
+        </form>
+    </body>
 </html>
+
