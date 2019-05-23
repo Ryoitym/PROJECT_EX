@@ -101,10 +101,13 @@
       $('.popup').show();
       $('.close').click(function(){
       $('.popup').hide();
+      end();
       overlay.appendTo(document.body).remove();
       return false;
     });
-
+    function end(){
+    document.body.innerHTML="削除しました<br><a href='view_shop_list_admin.php'>店舗一覧へ戻る</a>";
+};
   $('.x').click(function(){
       $('.popup').hide();
       overlay.appendTo(document.body).remove();
@@ -126,12 +129,6 @@
   </p>
   </div>
 </div>
-<script> document.getElementById('ok').onclick=fuction(){
-        alert ('ajahah');
-        document.getElementById('ok').innerHTML="削除しました"<br>
-        <a href="view_shop_list_admin.php">店舗一覧画面に戻る</a>
-};
-</script>
 
 </body>
 </html>
