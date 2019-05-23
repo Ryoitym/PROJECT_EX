@@ -46,6 +46,6 @@ if(del){
 }
 </script>
 <p>削除しました。</p>
-<p><a href="shop_list_admin.php">店舗一覧画面に戻る</a></p>
+<p><a href="lib/view/shop/view_shop_list_admin.php">店舗一覧画面に戻る</a></p>
 </body>
 </html>
