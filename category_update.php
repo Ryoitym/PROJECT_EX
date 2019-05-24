@@ -10,15 +10,13 @@
  * 最終更新日：　2019/05/24
  * レビュー担当者：
  * レビュー日：
- * バージョン： 1.0
+ * バージョン： 1.1
  */ -->
 <?php
     require_once("lib/function.php");
     // 入力画面表示
     if(empty($_POST)){
-      require_once("lib/view/category/view_category_update.php");
-    }else{
-      // 入力チェック 既に登録されているかどうか
+      //編集画面表示　デフォルト値に元のデータ入れる
       $dbh = connectDb();
 
     try {
@@ -34,23 +32,40 @@
         // SQLを発行
         $sth->execute();
 
+        $row = $sth->fetch(PDO::FETCH_ASSOC);
+      } catch (PDOException $e) {
+          exit("SQL発行エラー：{$e->getMessage()}");
+      }
+      require_once("lib/view/category/view_category_update.php");
+    }else{
+      //入力チェック 既に登録されているか確認
+      $dbh = connectDb();
+
+      try{
+        //SQLを構築
+        $sql = "SELECT * FROM ffs_db.genre ";
+        $sql .= "WHERE genre_name=:genre_name ";
+        $sth = $dbh->prepare($sql); //SQLを準備
+
+        $sth->bindValue(":genre_name",  $_POST["genre_name"]);
+
+        // SQLを発行
+        $sth->execute();
+
         // 結果データを取得
         $row = $sth->fetch(PDO::FETCH_ASSOC);
       } catch (PDOException $e) {
           exit("SQL発行エラー：{$e->getMessage()}");
       }
 
-      //入力チェック
-      if(empty($_POST["genre_name"])){
-      // 入力チェックNG
-          require_once("lib/view/category/view_category_updete.php");
-         ph("入力不十分です");
-      }else if(!empty($row)){
-          require_once("lib/view/category/view_category_update.php");
-         ph("すでに登録されています");
-       }else{
-
-      $dbh = connectDb();
+      if(!empty($row)){
+        require_once("lib/view/category/view_category_update.php");
+       ph("すでに登録されています");
+     }else if(empty($_POST["genre_name"])){
+       require_once("lib/view/category/view_category_updete.php");
+      ph("入力不十分です");
+    }else{
+      //編集する処理
       try{
             // プレースホルダ付きSQLを構築
           $sql = "UPDATE ffs_db.genre ";
@@ -67,6 +82,9 @@
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
       }
+      // 編集成功したとき一覧に飛ぶ
+      header('Location: category_list_admin.php');
     }
+    //
+      require_once("lib/view/category/view_category_update.php");
   }
-    require_once("lib/view/category/view_category_update.php");
