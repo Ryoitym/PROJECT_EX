@@ -22,6 +22,9 @@
 <title>ユーザ一覧画面(IT担当者)</title>
 </head>
 <body>
+  <form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
     <h1>ユーザ一覧</h1><br>
 <?php
     require_once("../../init.php");
