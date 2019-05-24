@@ -13,18 +13,6 @@
  * バージョン： 1.1
  */
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>店舗削除確認画面のコントローラ</title>
-</head>
-<body>
-<script>
-//ポップアップ
-var del = window.confirm("本当に削除しますか？");
-if(del){
 <?php
     require_once("lib/function.php");
     $dbh = connectDb();
@@ -41,11 +29,5 @@ if(del){
         exit("SQL発行エラー：{$e->getMessage()}");
     }
 ?>
-}else{
-    window.location.replace('shop_list_admin.php');
-}
-</script>
-<p>削除しました。</p>
-<p><a href="lib/view/shop/view_shop_list_admin.php">店舗一覧画面に戻る</a></p>
 </body>
 </html>
