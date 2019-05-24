@@ -14,6 +14,7 @@
 -->
 
 <?php
+ $message = "";
       //共通関数読み込み
       require_once("lib/function.php");
       //入力画面表示
@@ -62,11 +63,11 @@
         ||empty($_POST["protein"])||empty($_POST["lipid"])||empty($_POST["carb"])
         ||empty($_POST["natrium"])||empty($_POST["kalium"])){
         // 入力チェックNG
+            $message = "入力不十分です";
             require_once("lib/view/food/view_food_insert.php");
-            ph("入力不十分です");
         }else if(!empty($row)){
+            $message = "すでに登録されています";
             require_once("lib/view/food/view_food_insert.php");
-            ph("すでに登録されています");
         }else{
           //入力チェックOK 分類を追加する
           $dbh = connectDb();

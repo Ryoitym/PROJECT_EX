@@ -46,8 +46,5 @@
     }
     require_once("lib/view/food/view_food_list.php");
  } else{
-    print "権限レベルが低いため、ログインからやり直してください<br>";
-    print "<form action=\"logout.php\" method=\"post\">
-                <button type=\"submit\" name=\"logout\" value=\"logout\">ログアウト</button>
-           </form><br>";
+    require_once("lib/view/view_access_logout.php");
  }
