@@ -1,13 +1,13 @@
 <?php
 /**
 * このファイルの概要説明
-* 特価商品編集画面のコントローラ
-*　
+* 特価商品登録画面のコントローラ
+* 
 * このファイルの詳細説明
 *
 * システム名： FFS
 * 作成者：　nosu10101
-* 作成日：　2019/05/23
+* 作成日：　2019/05/24
 * 最終更新日：　2019/05/24
 * レビュー担当者：
 * レビュー日：
@@ -26,6 +26,7 @@
 
     $food_list = $special_price_food->getDataFoodArray();
     $shop_list = $special_price_food->getDataShopArray();
+
 
     $error_message = "";
 
@@ -50,11 +51,18 @@
                     "after"     => strval($after_date)];
         
         foreach ( $dates as $key => $date ) {
+              // SQLを構築
+              $sql = "SELECT * FROM ffs_db.sale ";
+              $sql .= "WHERE date = '{$date}';";
 
-              $shop_list_comp = $special_price_food->getDataSalepArrayAtDate($date);
-
+              $sth = $dbh->prepare($sql); // SQLを準備
+      
+              // SQLを発行
+              $sth->execute();
+              $shop_list_comp = $sth->fetchAll(PDO::FETCH_ASSOC);
               foreach ($shop_list_comp as $shop) {
                   if ($shop["shop_id"] ==  $_POST["shop_select"] && $shop["food_id"] == $_POST["food_select"]){ 
+
                         if ($key == "before") {
                             $flag_before = true;
                         } else if ($key == "after") {
@@ -85,8 +93,28 @@
             $error_message .= "上記の日付で、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
         }
         if ($error_message == "") {
-            $special_price_food->update($sale_id_r, $_POST);
+
+            try {
+                // プレースホルダ付きSQLを構築
+                $sql = "UPDATE ffs_db.sale ";
+                $sql .= "SET sale_price=:sale_price, date=:date, shop_id=:shop_id, food_id=:food_id ";
+                $sql .= "WHERE sale_id=:sale_id;";
+                $sth = $dbh->prepare($sql); // SQLを準備
+        
+                // プレースホルダに値をバインド
+                $sth->bindValue(":sale_price",  $_POST["sale_price"]);
+                $sth->bindValue(":date",  $_POST["date_select"]);
+                $sth->bindValue(":shop_id",   $_POST["shop_select"]);
+                $sth->bindValue(":food_id",   $_POST["food_select"]);
+                $sth->bindValue(":sale_id",  $sale_id_r);
+                
+                // SQLを発行
+                $sth->execute();
+            } catch (PDOException $e) {
+                exit("SQL発行エラー：{$e->getMessage()}");
+            }
         }
+        
     }
 
     require_once("lib\\view\\special_price\\view_special_price_food_update.php");
