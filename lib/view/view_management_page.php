@@ -30,16 +30,16 @@
 </form>
 <h1>店長級社員管理画面</h1>
 
-<form action="view_food_list.php.php">
+<form action="../../food_list.php.php">
         <input type="submit" value = "生鮮食品一覧">
 </form>
-<form action="view_special_price_food_list.php">
+<form action="../../special_price_food_list.php">
         <input type="submit" value = "特価品一覧"><br>
 </form>
-<form action="view_user_list.php">
+<form action="../../user_list.php">
         <input type="submit" value = "ユーザ一覧">
 </form>
-<form action="view_shop_list.php.php">
+<form action="../../shop_list.php.php">
         <input type="submit" value = "店舗一覧"><br>
 </form>
 </body>

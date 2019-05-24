@@ -31,19 +31,19 @@
 
 <h1>IT担当社員管理画面</h1>
 
-<form action="view_food_list_admin.php">
+<form action="../../food_list_admin.php">
         <input type="submit" value = "生鮮食品一覧">
 </form>
-<form action="view_special_price_food_list_admin.php">
+<form action="../../special_price_food_list_admin.php">
         <input type="submit" value = "特価品一覧">
 </form>
-<form action="view_category_list_admin.php">
+<form action="../../category_list_admin.php">
         <input type="submit" value = "分類一覧"><br>
 </form>
-<form action="view_user_list_admin.php">
+<form action="../../user_list_admin.php">
         <input type="submit" value = "ユーザ一覧">
 </form>
-<form action="view_shop_list_admin.php.php">
+<form action="../../shop_list_admin.php.php">
         <input type="submit" value = "店舗一覧"><br>
 </form>
 </body>
