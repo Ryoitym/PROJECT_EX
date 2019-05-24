@@ -24,12 +24,14 @@
 <body>
     <h1>分類編集画面</h1>
     <!-- ログアウトボタン-->
-    <form action="view_logout.php">
+    <form action="logout.php">
         <input type="submit" value="ログアウト">
     </form><br>
     <!-- 分類入力フォーム-->
-    <form action="view_category_insert.php">
-        分類名 <input type="text" name="genre_name"><br>
+    <form action="category_update.php" method="post">
+      <!-- 編集前のデータを表示するためにvalueでデフォルト値を設定する -->
+        分類名 <input type="text" name="genre_name" value="<?php ph($row["genre_name"]);?>"><br>
+        <input type="hidden" name="genre_id" value="<?php ph($row["genre_id"]);?>">
         <input type="submit" value="登録">
         <input type="reset" value="クリア">
     </form>
