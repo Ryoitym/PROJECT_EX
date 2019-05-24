@@ -6,7 +6,7 @@
  *
  * システム名： FFS
  * 作成者：　sugerSong
- * 作成日：　2019/05/23
+ * 作成日：　2019/05/24
  * 最終更新日：　2019/05/24
  * レビュー担当者：
  * レビュー日：
@@ -15,7 +15,7 @@
 
  require_once("lib/function.php");
  session_start();
- if($_SESSION["acess_lv"] == 1){
+ if($_SESSION["acess_lv"] == 2){
     //SQL作成
     $dbh = connectDb();
 
@@ -44,7 +44,7 @@
             exit("SQL発行エラー：{$e->getMessage()}");
         }
     }
-    require_once("lib/view/food/view_food_list_admin.php");
+    require_once("lib/view/food/view_food_list.php");
  } else{
     print "権限レベルが低いため、ログインからやり直してください<br>";
     print "<form action=\"logout.php\" method=\"post\">

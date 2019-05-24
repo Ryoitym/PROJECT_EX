@@ -25,7 +25,7 @@
     //init.phpができたらコメントアウト解除
     //require_once("init.php");
 ?>
-<form action="../../logout.php" method="post">
+<form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>
 </form><br>
 

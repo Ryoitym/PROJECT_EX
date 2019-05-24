@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
   <!--ポップアップ-->
   <script>
   var del = window.confirm("本当に削除しますか？");
@@ -33,5 +34,8 @@
   </script>
   <p>削除しました。</p>
   <p><a href="user_list.php">ユーザ一覧画面に戻る</a></p>
+  <form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
 </body>
 </html>
