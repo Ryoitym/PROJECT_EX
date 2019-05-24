@@ -31,7 +31,7 @@
 
   <!-- 検索窓作成 -->
 
-    <form action="view_food_list_admin.php" method="get">
+    <form action="food_list.php" method="post">
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>

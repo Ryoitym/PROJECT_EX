@@ -38,9 +38,7 @@ class SpecialPriceFood
                         INNER JOIN ffs_db.food t2
                             ON t1.food_id = t2.food_id
                         INNER JOIN ffs_db.shop t3
-                            ON t1.shop_id = t3.shop_id
-                    WHERE
-                        food_name LIKE '%カロリ%' ";
+                            ON t1.shop_id = t3.shop_id";
 
             $sth = $this->dbh->prepare($sql); // SQLを準備
 
@@ -55,7 +53,7 @@ class SpecialPriceFood
     }
 
     // データベースからSpecialPriceFoodのデータを取得し、連想配列を返す
-    public function searchDataSpecialPriceFood()
+    public function searchDataSpecialPriceFood($search_word)
     {
         try {
             // SQLを構築
@@ -64,10 +62,16 @@ class SpecialPriceFood
                         INNER JOIN ffs_db.food t2
                             ON t1.food_id = t2.food_id
                         INNER JOIN ffs_db.shop t3
-                            ON t1.shop_id = t3.shop_id";
+                            ON t1.shop_id = t3.shop_id
+                    WHERE
+                        food_name LIKE :search_word ";
 
             
             $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // プレースホルダに値をバインド
+            $name_search_word = "%". $search_word . "%";
+            $sth->bindValue(":search_word", $name_search_word);           
 
             // SQLを発行
             $sth->execute();

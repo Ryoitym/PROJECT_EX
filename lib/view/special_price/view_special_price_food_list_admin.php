@@ -29,7 +29,7 @@
     <a href="">ユーザ</a>
     <a href="">店舗</a>
 
-    <form action="view_special_price_food_list_admin.php" method="get">
+    <form action="special_price_food_list_admin.php" method="get">
         検索: <input type="text" name="search_name">
         <input type="submit" value="検索">
     </form>
