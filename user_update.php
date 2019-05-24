@@ -57,7 +57,7 @@
 
            // SQLを発行
            $sth_category->execute();
-         } catch (PDOException $e) {
+         }catch (PDOException $e) {
              exit("SQL発行エラー：{$e->getMessage()}");
        }
 
