@@ -22,8 +22,11 @@
 <title>ユーザ登録画面</title>
 </head>
 <body>
-<input type="submit" value="ログアウト"><br>
-<form action="../../../user_insert.php" method="post">
+  <form action="logout.php" method="post">
+      <button type="submit" name="logout" value="logout">ログアウト</button>
+  </form><br>
+
+<form action="user_insert.php" method="post">
 姓: <input type="text" name="name_family"><br>
 名: <input type="text" name="name_last"><br>
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
@@ -40,7 +43,7 @@
         </select><br>
 <input type="submit" value="登録"><br>
 <input type="reset" value="クリア"><br>
-<p><a href="user_list.php">一覧に戻る</a></p>
+<p><a href="user_list_admin.php">一覧に戻る</a></p>
 </form>
 </body>
 </html>
