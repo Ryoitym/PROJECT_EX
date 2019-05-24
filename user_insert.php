@@ -66,12 +66,13 @@
               $sth = $dbh->prepare($sql); // SQLを準備
 
               // プレースホルダに値をバインド
-              $sth->bindValue(":name_family", $_POST["name_family"]);
-              $sth->bindValue(":name_last", $_POST["name_last"]);
-              $sth->bindValue(":mail", $_POST["mail"]);
-              $sth->bindValue(":password", $_POST["password"]);
-              $sth->bindValue(":shop_id", $_POST["shop_id"]);
-              $sth->bindValue(":acess_lv", $_POST["acess_lv"]);
+              $sth->bindValue(":user_id",$_POST["user_id"]);
+              $sth->bindValue(":name_family",$_POST["name_family"]);
+              $sth->bindValue(":name_last",$_POST["name_last"]);
+              $sth->bindValue(":mail",$_POST["mail"]);
+              $sth->bindValue(":password",$_POST["password"]);
+              $sth->bindValue(":shop_id",$_POST["shop_id"]);
+              $sth->bindValue(":acess_lv",$_POST["acess_lv"]);
 
               // SQLを発行
               $sth->execute();
