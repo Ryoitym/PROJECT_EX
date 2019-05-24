@@ -1,7 +1,8 @@
-<!--
- * ユーザ情報を登録する画面
- *　データベース作成フォーマット
- *
+<?php
+/**
+ * このファイルの概要説明
+ *　ログアウト画面作成フォーマット
+ * このファイルの詳細説明
  *
  * システム名： FFS
  * 作成者：　amaru
@@ -9,9 +10,10 @@
  * 最終更新日：　2019/05/22
  * レビュー担当者：
  * レビュー日：
- * バージョン： 1.0
+ * バージョン： 1.1
  */
--->
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -21,12 +23,12 @@
 </head>
 <body>
 <input type="submit" value="ログアウト"><br>
-<form action="../../../user_insert.php" method="post">
+<form action="user_insert.php" method="post">
 姓: <input type="text" name="name_family"><br>
 名: <input type="text" name="name_last"><br>
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
 パスワード:<input type="password" name="password" size="20"><br>
-店舗名: <select name="shop_name">
+店舗名: <select name="shop_id">
         <option value="1">○○○○</option><br>
         <option value="2">■ ■ ■</option><br>
         <option value="3">△△△</option><br>

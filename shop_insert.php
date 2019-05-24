@@ -13,17 +13,9 @@
  * バージョン： 1.1
  */
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>店舗登録画面</title>
-</head>
-<body>
   <?php
       //共通関数読み込み
-      require_once("lib/function.php");
+      require_once("lib/init.php");
       //入力画面表示
       if(empty($_POST)){
         require_once("lib/view/shop/view_shop_insert.php");
@@ -78,5 +70,3 @@
           header('Location: lib/view/shop/view_shop_list_admin.php');
         }
     } ?>
-  </body>
-</html>
