@@ -43,10 +43,10 @@
       //入力チェック
       if(empty($_POST["genre_name"])){
       // 入力チェックNG
-          require_once("lib/view/category/view_category_insert.php");
+          require_once("lib/view/category/view_category_updete.php");
          ph("入力不十分です");
       }else if(!empty($row)){
-          require_once("lib/view/category/view_category_insert.php");
+          require_once("lib/view/category/view_category_update.php");
          ph("すでに登録されています");
        }else{
 
