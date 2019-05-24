@@ -102,7 +102,7 @@ class SpecialPriceFood
         }
     }
 
-    // データベースからfoodのデータを取得し、連想配列を返す
+    // データベースからshopのデータを取得し、連想配列を返す
     public function getDataShopArray()
     {
         try {
@@ -129,6 +129,31 @@ class SpecialPriceFood
             $sql .= "WHERE date = '{$date}';";
 
             $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // SQLを発行
+            $sth->execute();
+
+            // データを戻す
+            return $sth->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
+
+
+    // データベースのデータをIDを指定して1件取得する
+    // $id:idを指定
+    public function getDataById($sale_id)
+    {
+        try {
+            // SQLを構築
+            $sql = "SELECT * FROM ffs_db.sale ";
+            $sql .= "WHERE sale_id = :sale_id";
+
+            $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // プレースホルダに値をバインド
+            $sth->bindValue(":sale_id", (int) $sale_id);
 
             // SQLを発行
             $sth->execute();

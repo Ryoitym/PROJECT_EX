@@ -24,7 +24,7 @@ require_once("lib/model/SpecialPriceFood.php");
 $special_price_food = new SpecialPriceFood($dbh);
 
 // 削除
-$special_price_food->delete($_GET["id"]);
+$special_price_food->delete($_GET["sale_id"]);
 
 require_once("lib/view/special_price/view_special_price_food_delete.php");
 

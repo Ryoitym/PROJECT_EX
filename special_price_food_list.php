@@ -23,12 +23,15 @@ require_once("lib/model/SpecialPriceFood.php");
 // モデルクラスのインスタンスを生成
 $special_price_food = new SpecialPriceFood($dbh);
 
-$result = $special_price_food->getDataFoodArray();
 
-$special_price_food_list = $special_price_food->getDataSpecialPriceFoodArray();
+if (!empty($_GET) && !$_GET["search_name"]==""){
+    $search_word = $_GET["search_name"];
+    $special_price_food_list = $special_price_food->searchDataSpecialPriceFood($search_word);
+} else {
+    $special_price_food_list = $special_price_food->getDataSpecialPriceFoodArray();
+}
 
-require_once("lib/view/special_price/view_special_price_food_list_admin.php");
-
+require_once("lib/view/special_price/view_special_price_food_list.php");
 
 
 ?>
