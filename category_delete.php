@@ -27,3 +27,4 @@
         exit("SQL発行エラー：{$e->getMessage()}");
     }
     
+header('Location: lib/view/category/view_category_delete.php');
