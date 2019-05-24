@@ -135,6 +135,27 @@ class SpecialPriceFood
     }
 
 
+    // データベースのデータを削除する
+    // $id: 削除するデータのid DELETE FROM ffs_db.sale WHERE sale_id=6;
+    public function delete($id)
+    {
+        try {
+            // プレースホルダ付きSQLを構築
+            $sql = "DELETE FROM ffs_db.sale ";
+            $sql .= "WHERE sale_id=:id";
+            $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // プレースホルダに値をバインド
+            $sth->bindValue(":id", (int)$id);
+
+            // SQLを発行
+            $sth->execute();
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
+
+
     public static function getYesterdayTodayTomorrow($today) {
         $targetTime = strtotime($today);
         $before_date = date("Y-m-d",strtotime("-" . "1" . " day", $targetTime));

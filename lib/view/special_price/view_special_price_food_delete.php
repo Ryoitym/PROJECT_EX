@@ -19,16 +19,15 @@
         <title>特価商品削除確認画面</title>
     </head>
 <body>
-    特価商品削除確認画面
-
-    削除しますか？
-        <form action = "view_special_price_food_delete.php" method="post">
-            <input type="submit" value="削除">
-            <input type="submit" value="キャンセル">
-        </form>
-    <input type="submit" value="ログアウト"><br>
-    削除しました
-    <a href="view_special_price_food_list_admin.php">>特価商品一覧画面に戻る</a>
-
+    <!--ポップアップ-->
+    <!-- <script>
+        var del = window.confirm("本当に削除しますか？");
+        if(del){
+        }else{
+            window.location.replace('user_list.php');
+        }
+    </script> -->
+    <p>削除しました。</p>
+    <p><a href="user_list.php">ユーザ一覧画面に戻る</a></p>
 </body>
 </html>
