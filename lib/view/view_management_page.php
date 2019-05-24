@@ -25,9 +25,9 @@
     //init.phpができたらコメントアウト解除
     //require_once("init.php");
 ?>
-<form action="view_logout.php">
-    <input type="submit" value="ログアウト">
-</form>
+<form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
 <h1>店長級社員管理画面</h1>
 
 <form action="../../food_list.php.php">

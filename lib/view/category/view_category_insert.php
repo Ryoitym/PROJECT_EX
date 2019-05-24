@@ -19,8 +19,12 @@
 <title>分類登録画面</title>
 </head>
 <body>
-<input type="submit" value="ログアウト"><br>
+  <form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
 <h1>分類登録画面</h1>
+
+    <!-- <?php print($error_message); ?> -->
 
     <form action = "category_insert.php" method="post">
   分類名 <input type="text" name="genre_name"><br>
