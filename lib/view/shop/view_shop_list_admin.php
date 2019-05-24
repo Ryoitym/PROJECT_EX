@@ -15,7 +15,9 @@
  * バージョン： 1.0
  */
 -->
-
+<form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
 <!DOCTYPE html>
 <html>
 <head>

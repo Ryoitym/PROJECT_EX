@@ -32,36 +32,33 @@
 
   <!-- 検索窓作成 -->
 
-    <form action="category_list_admin.php" method="get">
-      検索：<input type="text" name="search">
-            <input type="submit" value="検索">
-      </form>
-      <br>
-    <form action = "category_insert.php" method="post">
-      <input type="submit" value="新規登録">
-    </form>
-    <table border="1">
-        <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-        <tr>
-            <td><?php ph($row["genre_name"]);?></td>
-            <td>
-              <form action = "category_update.php?genre_id=<?php
-              ph($row["genre_id"]);
-             ?>" method="post">
-              <input type="submit" value="編集">
-            </form>
-          </td>
-          <td>
-            <form action = "category_delete.php?genre_id=<?php
-              ph($row["genre_id"]);
-            ?>" method="post">
-              <input type="submit" value="削除">
-            </form>
-          </td>
-        </tr>
-        <?php } ?>
-     </table>
-  <a href="">全て表示</a>
-  <a href='category_list_admin.php'>トップページへ戻る</a>
+<form action="category_list_admin.php" method="get">
+    検索：<input type="text" name="search">
+          <input type="submit" value="検索">
+</form> <br>
+<form action = "category_insert.php" method="post">
+        <input type="submit" value="新規登録">
+</form>
+<table border="1">
+  <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+      <tr>
+        <td><?php ph($row["genre_name"]);?></td>
+        <td>
+          <form action = "category_update.php?genre_id=<?php
+             ph($row["genre_id"]);?>" method="post">
+             <input type="submit" value="編集">
+           </form>
+        </td>
+        <td>
+          <form action = "category_delete.php?genre_id=<?php
+             ph($row["genre_id"]);?>" method="post">
+             <input type="submit" value="削除">
+          </form>
+        </td>
+      </tr>
+  <?php } ?>
+</table>
+<a href="">全て表示</a>
+<a href='category_list_admin.php'>トップページへ戻る</a>
 </body>
 </html>
