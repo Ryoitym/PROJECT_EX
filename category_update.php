@@ -24,12 +24,12 @@
     try {
         // SQLを構築
         $sql = "SELECT * FROM ffs_db.genre";
-        $sql .= "WHERE genre_name=:genre_name";
+        $sql .= "WHERE genre_id=:genre_id";
         $sth = $dbh->prepare($sql); // SQLを準備
 
         // プレースホルダに値をバインド
-        //GETで飛んできたIDのレコードを取ってくる
-        $sth->bindValue(":student_name", $_POST["student_name"]);
+        //get飛んできたIDのレコードを取ってくる
+        $sth->bindValue(":genre_id", $_GET["genre_id"]);
 
         // SQLを発行
         $sth->execute();
@@ -60,6 +60,7 @@
 
           // プレースホルダに値をバインド
           $sth->bindValue(":genre_name",  $_POST["genre_name"]);
+          $sth->bindValue(":genre_id",  $_POST["genre_id"]);
 
           // SQLを発行
           $sth->execute();

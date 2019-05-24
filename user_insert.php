@@ -25,7 +25,7 @@
         $dbh = connectDb();
         try {
             // SQLを構築
-            $sql = "SELECT * FROM user";
+            $sql = "SELECT * FROM ffs_db.user";
             $sql .= " WHERE name_family = :name_family and";
             $sql .= " name_last = :name_last and";
             $sql .= " mail = :mail and";
@@ -61,23 +61,23 @@
           $dbh = connectDb();
           try {
               // プレースホルダ付きSQLを構築
-              $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password, shop_id, acess_lv) ";
+              $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password, shop_id, acess_lv)";
               $sql .= "VALUES (:name_family, :name_last, :mail, :password :shop_id, :acess_lv)";
               $sth = $dbh->prepare($sql); // SQLを準備
 
               // プレースホルダに値をバインド
-              $sth->bindValue(":name_family", $_POST["name_family"]);
-              $sth->bindValue(":name_last", $_POST["name_last"]);
-              $sth->bindValue(":mail", $_POST["mail"]);
-              $sth->bindValue(":password", $_POST["password"]);
-              $sth->bindValue(":shop_id", $_POST["shop_id"]);
-              $sth->bindValue(":acess_lv", $_POST["acess_lv"]);
+              $sth->bindValue(":name_family",$_POST["name_family"]);
+              $sth->bindValue(":name_last",$_POST["name_last"]);
+              $sth->bindValue(":mail",$_POST["mail"]);
+              $sth->bindValue(":password",$_POST["password"]);
+              $sth->bindValue(":shop_id",$_POST["shop_id"]);
+              $sth->bindValue(":acess_lv",$_POST["acess_lv"]);
 
               // SQLを発行
               $sth->execute();
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
           }
-          header('Location: lib/view/user/view_user_list_admin.php');
+          header('Location: user_list_admin.php');
         }
     } ?>

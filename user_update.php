@@ -26,22 +26,12 @@
      try {
          // SQLを構築
          $sql = "SELECT * FROM user";
-         $sql .= " WHERE name_family = :name_family and";
-         $sql .= " name_last = :name_last and";
-         $sql .= " mail = :mail and";
-         $sql .= " password = :password and";
-         $sql .= " shop_id = :shop_id and";
-         $sql .= " acess_lv = :acess_lv";
+         $sql .= " WHERE user_id = :user_id";
          $sth = $dbh->prepare($sql); // SQLを準備
 
          // プレースホルダに値をバインド
          //GETで飛んできたIDのレコードを取ってくる
-         $sth->bindValue(":name_family", $_POST["name_family"]);
-         $sth->bindValue(":name_last", $_POST["name_last"]);
-         $sth->bindValue(":mail", $_POST["mail"]);
-         $sth->bindValue(":password", $_POST["password"]);
-         $sth->bindValue(":shop_id", $_POST["shop_id"]);
-         $sth->bindValue(":acess_lv", $_POST["acess_lv"]);
+         $sth->bindValue(":user_id", $_POST["user_id"]);
 
          // SQLを発行
          $sth->execute();
@@ -56,7 +46,7 @@
        if(empty($_POST["name_family"])||empty($_POST["name_last"])||empty($_POST["mail"])
        ||empty($_POST["password"])||empty($_POST["shop_id"])||empty($_POST["acess_lv"])){
        // 入力チェックNG
-           require_once("lib/view/user/view_user_updete.php");
+           require_once("lib/view/user/view_user_update.php");
           ph("入力不十分です");
        }else if(!empty($row)){
            require_once("lib/view/user/view_user_update.php");
@@ -66,14 +56,14 @@
        $dbh = connectDb();
        try{
              // プレースホルダ付きSQLを構築
-           $sql = "UPDATE ffs_db.user ";
+           $sql = "UPDATE user ";
            $sql .= "SET name_family=:name_family, name_last=:name_last, mail=:mail,
            password=:password, shop_id=:shop=id, acess_lv=:acess_lv";
-           $sql .= "WHERE name_family=:name_family, name_last=:name_last, mail=:mail,
-           password=:password, shop_id=:shop=id, acess_lv=:acess_lv";
+           $sql .= "WHERE user_id=:user_id";
            $sth = $dbh->prepare($sql); // SQLを準備
 
            // プレースホルダに値をバインド
+           $sth->bindValue(":user_id",$_POST["user_id"]);
            $sth->bindValue(":name_family",$_POST["name_family"]);
            $sth->bindValue(":name_last",$_POST["name_last"]);
            $sth->bindValue(":mail",$_POST["mail"]);

@@ -63,4 +63,4 @@
           }
           header('Location: category_list_admin.php');
         }
-    } 
+    }

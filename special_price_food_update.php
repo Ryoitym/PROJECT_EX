@@ -35,19 +35,12 @@
     if (!empty($_POST)){
         
         // 選択日の前後の日付で、同生鮮商品かつ同店舗の特価価格商品の有無を表す。true：有　false：無
-        $flag_before_and_fter = false;
-        $flag_before = false;
-        $flag_after = false;
-        $flag_same = false;
+        $flag_yesterday = false;
+        $flag_tomorrow = false;
+        $flag_today = false;
 
-        // セレクトボックスで選択した日付の前後の日付を得て、変数に代入
-        $targetTime = strtotime($_POST["date_select"]);
-        $before_date = date("Y-m-d",strtotime("-" . "1" . " day", $targetTime));
-        $after_date = date("Y-m-d",strtotime("+" . "1" . " day", $targetTime));
-
-        $dates = [  "before"    => strval($before_date), 
-                    "same"      => strval($targetTime),
-                    "after"     => strval($after_date)];
+        // セレクトボックスで選択した日付と前後の日付の入った連想配列を作成
+        $dates = $special_price_food::getYesterdayTodayTomorrow($_POST["date_select"]);
         
         foreach ( $dates as $key => $date ) {
 
@@ -55,12 +48,12 @@
 
               foreach ($shop_list_comp as $shop) {
                   if ($shop["shop_id"] ==  $_POST["shop_select"] && $shop["food_id"] == $_POST["food_select"]){ 
-                        if ($key == "before") {
-                            $flag_before = true;
-                        } else if ($key == "after") {
-                            $flag_after = true;
-                        } else {
-                            $flag_same = true;
+                        if ($key == "yesterday") {
+                            $flag_yesterday = true;
+                        } else if ($key == "today") {
+                            $flag_tomorrow = true;
+                        } else if ($key == "tomorrow") {
+                            $flag_today = true;
                         }
                   }
               }
@@ -69,17 +62,17 @@
         if (empty($_POST["sale_price"]) || !is_numeric($_POST["sale_price"])) {
             $error_message .= "特価価格の入力に不備があります。<br>";
         } 
-        if ($flag_before == true || $flag_same == true || $flag_after == true) {
-            if ($flag_before === true) {
-                $error_message .= $before_date;
+        if ($flag_yesterday == true || $flag_today == true || $flag_tomorrow == true) {
+            if ($flag_yesterday === true) {
+                $error_message .= $dates["yesterday"];
                 $error_message .= "<br>";
             }
-            if ($flag_same === true) {
-                $error_message .= $targetTime;
+            if ($flag_today === true) {
+                $error_message .= $dates["today"];
                 $error_message .= "<br>";
             }
-            if ($flag_after === true) {
-                $error_message .= $after_date;
+            if ($flag_tomorrow === true) {
+                $error_message .= $dates["tomorrow"];
                 $error_message .= "<br>";
             }
             $error_message .= "上記の日付で、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
@@ -89,6 +82,6 @@
         }
     }
 
-    require_once("lib\\view\\special_price\\view_special_price_food_update.php");
+    require_once("lib/view/special_price/view_special_price_food_update.php");
 
 ?>
