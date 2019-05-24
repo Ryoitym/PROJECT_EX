@@ -31,9 +31,9 @@
 <a href="user_list_admin.php">ユーザ</a>
 <a href="shop_list_admin.php">店舗</a>
 <br>
-<form action="user_list_admin.php"method="post">
-<input type="text" name="name_family">
-<input type="submit" value="検索">
+<form action="user_list.php"method="post">
+  検索：<input type="text" name="search">
+        <input type="submit" value="検索">
 <p><a href="user_insert.php">新規登録</a></p>
 </form>
 <brs>
@@ -61,6 +61,6 @@
     </tr>
     <?php } ?>
 </table>
-<p><a href="#">全て表示</a></p>
+<p><a href="user_list.php">全て表示</a></p>
 </body>
 </html>

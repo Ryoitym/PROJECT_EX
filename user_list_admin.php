@@ -41,6 +41,6 @@ if(empty($_POST)){
     }
 
   }
-    require_once("lib/view/user/view_user_list.php");
+    require_once("lib/view/user/view_user_list_admin.php");
 
 ?>
