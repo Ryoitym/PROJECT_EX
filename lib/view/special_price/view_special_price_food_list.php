@@ -1,4 +1,5 @@
-<!-- /**
+<?php
+/**
  * このファイルの概要説明
  *　特価商品一覧画面(店長)
  * このファイルの詳細説明
@@ -10,44 +11,63 @@
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
- */ -->
+ */
+ ?>
+
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>特価商品一覧画面</title>
-</head>
-<body>
-<input type="submit" value="ログアウト">
-<a href="">特価商品</a>
-<a href="">生鮮食品</a>
-<a href="">ユーザ</a>
-<a href="">店舗</a>
+    <head>
+    <meta charset="utf-8">
+    <title>特価商品一覧画面</title>
+    </head>
 
-<form action="view_special_price_food_list_admin.php" method="get">
-検索: <input type="text" name="search_name">
-<input type="submit" value="検索">
-</form>
-<input type="submit" value="新規登録">
+    <body>
+        <input type="submit" value="ログアウト">
+        <a href="">特価商品</a>
+        <a href="">生鮮食品</a>
+        <a href="">ユーザ</a>
+        <a href="">店舗</a>
 
-<!-- borderは後で消す -->
-<table border="1">
-    <tr>
-        <th>日付</th>
-        <th>食品名</th>
-        <th>価格</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <td>test</td>
-        <td>test</td>
-        <td>test</td>
-        <td><input type="submit" value="編集"></td>
-        <td><input type="submit" value="削除"></td>
-    </tr>
-</table>
+        <form action="special_price_food_list.php" method="get">
+            検索: <input type="text" name="search_name">
+            <input type="submit" value="検索">
+        </form>
+        
+        <input type="submit" value="新規登録">
 
-<a href="">全て表示</a>
-</body>
+        <!-- borderは後で消す -->
+        <table border="1">
+        <tr>
+            <th>日付</th>
+            <th>店舗名</th>
+            <th>食品名</th>
+            <th>価格</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <?php foreach ($special_price_food_list as $special_price_food_i) {?>
+            <tr>
+                <td><?php print $special_price_food_i["date"]; ?></td>
+                <td><?php print $special_price_food_i["shop_name"]; ?></td>
+                <td><?php print $special_price_food_i["food_name"]; ?></td>
+                <td><?php print $special_price_food_i["sale_price"]; ?></td>
+                <td>
+                    <form action="special_price_food_update.php" method="get">
+                        <input type="submit" value="編集">
+                        <input type="hidden" name="sale_id" value="<?php print $special_price_food_i["sale_id"]; ?>" />
+                    </form>
+                </td>
+                <td>
+                    <form action="special_price_food_delete.php" method="get">
+                            <input type="submit" value="削除">
+                            <input type="hidden" name="sale_id" value="<?php print $special_price_food_i["sale_id"]; ?>" />
+                    </form>
+                </td>
+            </tr>
+        <?php } ?>
+        </table>
+
+        <a href="special_price_food_list.php">全て表示</a>
+    </body>
 </html>
