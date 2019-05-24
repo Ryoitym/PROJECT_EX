@@ -23,7 +23,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト"><br>
-<form action="user_insert.php" method="post">
+<form action="../../../user_insert.php" method="post">
 姓: <input type="text" name="name_family"><br>
 名: <input type="text" name="name_last"><br>
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
@@ -39,7 +39,8 @@
         <option value="2">店長</option><br>
         </select><br>
 <input type="submit" value="登録"><br>
-<input type="submit" value="クリア"><br>
+<input type="reset" value="クリア"><br>
+<p><a href="user_list.php">一覧に戻る</a></p>
 </form>
 </body>
 </html>

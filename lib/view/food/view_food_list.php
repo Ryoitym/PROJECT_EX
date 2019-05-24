@@ -42,19 +42,30 @@
             <th>食品名</th>
             <th>価格</th>
             <th>説明文書</th>
-            <th>栄養素</th>
+            <th>エネルギー</th>
+            <th>タンパク質</th>
+            <th>脂質</th>
+            <th>炭水化物</th>
+            <th>ナトリウム</th>
+            <th>カリウム</th>
+            <th>表示フラグ</th>
         </tr>
         <tr>
           <td>写真</td>
           <td>食品名</td>
           <td>価格</td>
           <td>説明文書</td>
-          <td>栄養素</td>
+          <td>エネルギー</td>
+          <td>タンパク質</td>
+          <td>脂質</td>
+          <td>炭水化物</td>
+          <td>ナトリウム</td>
+          <td>カリウム</td>
+          <td>表示<input type="radio" name="show" value="表示"></td>
+          <td>非表示<input type="radio" name="show" value="非表示"></td>
         </tr>
 </table>
-    表示<input type="radio" name="show" value="表示">
-    非表示<input type="radio" name="show" value="非表示"><br>
-  <a href="">全て表示</a>
   <a href='food_list.php'>トップページへ戻る</a>
+  <a href="">全て表示</a>
 </body>
 </html>

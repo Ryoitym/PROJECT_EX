@@ -72,12 +72,16 @@
         <td><?php ph($row["show_flag"]); ?></td>
         <td><?php ph($row["genre_id"]); ?></td>
         <td>
-          <form action = "food_update.php" method="post">
+          <form action = "food_update.php?food_id=<?php 
+            ph($row["food_id"]);
+          ?>" method="post">
             <input type="submit" value="編集">
           </form>
         </td>
         <td>
-          <form action = "food_delete.php" method="post">
+          <form action = "food_delete.php?food_id=<?php 
+            ph($row["food_id"]);
+          ?>" method="post">
             <input type="submit" value="削除">
           </form>
         </td>
