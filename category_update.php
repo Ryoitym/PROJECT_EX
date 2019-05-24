@@ -59,6 +59,7 @@
           $sth = $dbh->prepare($sql); // SQLを準備
 
           // プレースホルダに値をバインド
+          $sth->bindValue(":genre_name",  $_POST["genre_name"]);
           $sth->bindValue(":genre_id",  $_POST["genre_id"]);
 
           // SQLを発行
