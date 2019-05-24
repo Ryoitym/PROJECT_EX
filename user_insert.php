@@ -26,11 +26,11 @@
         try {
             // SQLを構築
             $sql = "SELECT * FROM user";
-            $sql .= " WHERE name_family = :name_family or";
-            $sql .= " name_last = :name_last or";
-            $sql .= " mail = :mail or";
-            $sql .= " password = :password or";
-            $sql .= " shop_id = :shop_id or";
+            $sql .= " WHERE name_family = :name_family and";
+            $sql .= " name_last = :name_last and";
+            $sql .= " mail = :mail and";
+            $sql .= " password = :password and";
+            $sql .= " shop_id = :shop_id and";
             $sql .= " acess_lv = :acess_lv";
             $sth = $dbh->prepare($sql); // SQLを準備
 
