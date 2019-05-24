@@ -47,12 +47,12 @@
 <form action="view_user_list_admin.php"method="post">
 <input type="text" name="name_family">
 <input type="submit" value="検索">
-<p><a href="../../../user_insert.php">新規登録</a></p>
+<p><a href="view_user_insert.php">新規登録</a></p>
 </form>
 <brs>
 <table border="1">
     <tr>
-        <th>店舗名</th>
+        <th>店舗</th>
         <th>姓</th>
         <th>名</th>
         <th>メール</th>
@@ -61,7 +61,7 @@
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
-        <td><?php ph($row["shop_name"]);?></td>
+        <td><?php ph($row["shop_id"]);?></td>
         <td><?php ph($row["name_family"]);?></td>
         <td><?php ph($row["name_last"]);?></td>
         <td><?php ph($row["mail"]);?></td>

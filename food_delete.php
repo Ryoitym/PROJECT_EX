@@ -28,5 +28,5 @@
     } catch (PDOException $e) {
         exit("SQL発行エラー：{$e->getMessage()}");
     }
-    require_once("view_food_delete.php");
+    require_once("lib/view/food/view_food_delete.php");
 ?>
