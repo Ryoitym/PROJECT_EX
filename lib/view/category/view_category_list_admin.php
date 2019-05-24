@@ -60,15 +60,8 @@
           </td>
         </tr>
         <?php } ?>
-        <!-- <td><form action = "category_update.php" method="post">
-          <input type="submit" value="編集">
-        </form></td>
-        <td><form action = "category_delete.php" method="post">
-          <input type="submit" value="削除">
-        </form></td>
-     </tr> -->
      </table>
   <a href="">全て表示</a>
-
+  <a href='category_list_admin.php'>トップページへ戻る</a>
 </body>
 </html>
