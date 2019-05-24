@@ -17,9 +17,12 @@
 //共通関数読み込み
 require_once("lib/init.php");
 
+$message = "";
+
 if(empty($_POST)){
     //初回アクセス時
     require_once("lib/view/view_login.php");
+    $message = "";
 } else{
     //入力時の処理
     if(!empty($_POST["mail"]) && !empty($_POST["password"])){
@@ -43,7 +46,7 @@ if(empty($_POST)){
 
         //メールアドレス or パスワードが間違っている時
         if(empty($row)){
-            ph("メールアドレスまたはパスワードが違います");
+            $message = "メールアドレスまたはパスワードが違います";
             require_once("lib/view/view_login.php");
         } else{
         //入力内容が正しい時
@@ -52,16 +55,18 @@ if(empty($_POST)){
             $_SESSION["shop_id"] = $row["shop_id"];
 
             if($row["acess_lv"] == 1){
-                header('Location:lib/view/view_management_page_admin.php');
+                header('Location:management_page_admin.php');
             } elseif($row["acess_lv"] == 2){
-                header('Location:lib/view/view_management_page.php');
+                header('Location:management_page.php');
             }
         }
+
+        $message = "";
 
 
     }else{
         //空白の場合
-        ph("メールアドレスまたはパスワードが違います");
+        $message = "メールアドレスまたはパスワードが違います";
         require_once("lib/view/view_login.php");
         
     }

@@ -22,7 +22,7 @@ require_once("lib/model/SpecialPriceFood.php");
 
 // モデルクラスのインスタンスを生成
 $special_price_food = new SpecialPriceFood($dbh);
-$search_word = $_GET["search_name"];
+
 
 if (!empty($_GET) && !$_GET["search_name"]==""){
     $search_word = $_GET["search_name"];

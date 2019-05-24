@@ -83,9 +83,12 @@
         }
     } else {
         
-        $result = $special_price_food->getDataById($sale_id_r);
-        var_dump($result);
+        $special_price_food_value = $special_price_food->getDataById($sale_id_r);
+        // 確認用
+        // var_dump($special_price_food_value);
+
     }
+    
     $result = $special_price_food->getDataFoodArray();
     require_once("lib/view/special_price/view_special_price_food_update.php");
 

@@ -16,6 +16,7 @@
   <?php
       //共通関数読み込み
       require_once("lib/function.php");
+      $error_message = "";
       //入力画面表示
       if(empty($_POST)){
         require_once("lib/view/category/view_category_insert.php");
@@ -40,9 +41,11 @@
         if(empty($_POST["genre_name"])){
         // 入力チェックNG
             require_once("lib/view/category/view_category_insert.php");
+            // $error_message = "入力不十分です";
            ph("入力不十分です");
         }else if(!empty($row)){
             require_once("lib/view/category/view_category_insert.php");
+            // $error_message = "すでに登録されています";
            ph("すでに登録されています");
         }else{
           //入力チェックOK 分類を追加する

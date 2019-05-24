@@ -23,6 +23,7 @@
 </head>
 <body>
     <h1>生鮮食品登録画面</h1>
+    <?php ph($message); ?>
     <!-- ログアウトボタン-->
     <form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>

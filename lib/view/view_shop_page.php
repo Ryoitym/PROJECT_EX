@@ -201,12 +201,31 @@
       </div>
 
     </article>
+    <?php 
+     require_once("../function.php");
+      $dbh=connectDb();
 
+      try{
+        $sql = "SELECT * FROM ffs_db.shop ";
+        $sth = $dbh->prepare($sql);
+
+        $sth->execute();
+      }
+      catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+    ?>
     <article>
       <h2>店舗名</h2>
       <!-- 店舗リンク -->
       <div class="box_shop">
-        <h3>abc店舗</h3>
+        <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+    <tr>
+    <div class="box_shop">
+        <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
+    </div>
+    </tr>
+    <?php } ?>
         電話番号：090-xxxx-xxxx<br>
         住所：東京都 xx区
       </div>
