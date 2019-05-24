@@ -66,7 +66,6 @@
               $sth = $dbh->prepare($sql); // SQLを準備
 
               // プレースホルダに値をバインド
-              $sth->bindValue(":user_id",$_POST["user_id"]);
               $sth->bindValue(":name_family",$_POST["name_family"]);
               $sth->bindValue(":name_last",$_POST["name_last"]);
               $sth->bindValue(":mail",$_POST["mail"]);
