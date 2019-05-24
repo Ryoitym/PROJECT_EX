@@ -39,7 +39,8 @@
         <option value="2">店長</option><br>
         </select><br>
 <input type="submit" value="登録"><br>
-<input type="submit" value="クリア"><br>
+<input type="reset" value="クリア"><br>
+<p><a href="user_list.php">一覧に戻る</a></p>
 </form>
 </body>
 </html>
