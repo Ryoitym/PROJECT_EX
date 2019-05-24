@@ -23,7 +23,7 @@
 </head>
 <body>
 <input type="submit" value="ログアウト"><br>
-<form action="../../../user_update.php" method="post">
+<form action="view_user_insert.php" method="post">
 姓: <input type="text" name="name_family"><br>
 名: <input type="text" name="name_last"><br>
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
