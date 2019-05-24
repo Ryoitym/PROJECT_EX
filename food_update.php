@@ -81,7 +81,7 @@
 
         if(!empty($row)){
             require_once("lib/view/food/view_food_update.php");
-            ph("すでに登録されています");
+            ph("同じ内容の商品が登録されています");
         } else if(empty($_POST["food_name"])||empty($_POST["genre_id"])||empty($_POST["picture"])
             ||empty($_POST["food_price"])||empty($_POST["txt"])||empty($_POST["calorie"])
             ||empty($_POST["protein"])||empty($_POST["lipid"])||empty($_POST["carb"])
