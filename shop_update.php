@@ -16,8 +16,7 @@
     require_once("lib/init.php");
     $dbh = connectDb();
 
-    if (!empty($_POST)){
-
+    if (empty($_POST)){
         try {
             // プレースホルダ付きSQLを構築
             $sql = "UPDATE ffs_db.shop ";
@@ -27,9 +26,13 @@
 
             // プレースホルダに値をバインド
             $sth->bindValue(":shop_name",  $_POST["shop_name"]);
+            $sth->bindValue(":shop_id",  $_POST["shop_id"]);
 
             // SQLを発行
             $sth->execute();
+
+            
+
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
