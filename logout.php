@@ -22,5 +22,5 @@ if($_POST["logout"] == "logout"){
     //logout確認画面を表示
     require_once("lib/view/view_logout.php");
 } else{
-    print "不正アクセスです";
+    ph("不正アクセスです");
 }
