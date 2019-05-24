@@ -29,7 +29,7 @@
     </form><br>
     <!-- 分類入力フォーム-->
     <form action="view_category_insert.php">
-        分類名：<input type="text" name="genre_name"><br>
+        分類名 <input type="text" name="genre_name"><br>
         <input type="submit" value="登録">
         <input type="reset" value="クリア">
     </form>
