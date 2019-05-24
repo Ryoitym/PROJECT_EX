@@ -1,32 +1,32 @@
 /**
- * ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¦‚è¦èª¬æ˜Ž
- *ã€€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ä½œæˆãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ
- * ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®è©³ç´°èª¬æ˜Ž
+ * ‚±‚Ìƒtƒ@ƒCƒ‹‚ÌŠT—và–¾
+ *@ƒf[ƒ^ƒx[ƒXì¬ƒtƒH[ƒ}ƒbƒg
+ * ‚±‚Ìƒtƒ@ƒCƒ‹‚ÌÚ×à–¾
  *
- * ã‚·ã‚¹ãƒ†ãƒ åï¼š FFS
- * ä½œæˆè€…ï¼šã€€appleCandy
- * ä½œæˆæ—¥ï¼šã€€2019/05/22
- * æœ€çµ‚æ›´æ–°æ—¥ï¼šã€€2019/05/22
- * ãƒ¬ãƒ“ãƒ¥ãƒ¼æ‹…å½“è€…ï¼š
- * ãƒ¬ãƒ“ãƒ¥ãƒ¼æ—¥ï¼š
- * ãƒãƒ¼ã‚¸ãƒ§ãƒ³ï¼š 1.1
+ * ƒVƒXƒeƒ€–¼F FFS
+ * ì¬ŽÒF@appleCandy
+ * ì¬“úF@2019/05/22
+ * ÅIXV“úF@2019/05/22
+ * ƒŒƒrƒ…[’S“–ŽÒF
+ * ƒŒƒrƒ…[“úF
+ * ƒo[ƒWƒ‡ƒ“F 1.1
  */
 
---ã€€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ä½œæˆ
+--@ƒf[ƒ^ƒx[ƒXì¬
 DROP DATABASE IF EXISTS ffs_db;
 CREATE DATABASE ffs_db DEFAULT CHARACTER SET UTF8;
 
---ã€€ãƒ¦ãƒ¼ã‚¶ä½œæˆ
+--@ƒ†[ƒUì¬
 GRANT ALL PRIVILEGES ON ffs_db.* TO 'root'@'%' IDENTIFIED BY 'ffs';
 
 /*
-  mysql -u root -p -h IPã‚¢ãƒ‰ãƒ¬ã‚¹ã§ä»–PCã®mysqlã«ã‚¢ã‚¯ã‚»ã‚¹å¯
+  mysql -u root -p -h IPƒAƒhƒŒƒX‚Å‘¼PC‚Ìmysql‚ÉƒAƒNƒZƒX‰Â
 */
 
--- ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆDBæŒ‡å®š
+-- ƒfƒtƒHƒ‹ƒgDBŽw’è
 USE ffs_db;
 
--- ç”Ÿé®®é£Ÿå“ãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ food
+-- ¶‘NH•iƒe[ƒuƒ‹ì¬ food
 DROP TABLE IF EXISTS food;
 CREATE TABLE IF NOT EXISTS food (
   `food_id` INT AUTO_INCREMENT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS food (
   PRIMARY KEY (`food_id`)
 );
 
--- åº—èˆ—ãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ shop
+-- “X•Üƒe[ƒuƒ‹ì¬ shop
 DROP TABLE IF EXISTS shop;
 CREATE TABLE IF NOT EXISTS shop (
   `shop_id` INT AUTO_INCREMENT NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS shop (
   PRIMARY KEY (`shop_id`)
 );
 
--- ãƒ¦ãƒ¼ã‚¶ãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ user
+-- ƒ†[ƒUƒe[ƒuƒ‹ì¬ user
 DROP TABLE IF EXISTS user;
 CREATE TABLE IF NOT EXISTS user (
   `user_id` INT AUTO_INCREMENT NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS user (
   PRIMARY KEY (`user_id`)
 );
 
--- ç‰¹ä¾¡å“ãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ sale
+-- “Á‰¿•iƒe[ƒuƒ‹ì¬ sale
 DROP TABLE IF EXISTS sale;
 CREATE TABLE IF NOT EXISTS sale (
   `sale_id` INT AUTO_INCREMENT NOT NULL,
@@ -79,38 +79,38 @@ CREATE TABLE IF NOT EXISTS sale (
   PRIMARY KEY (`sale_id`)
 );
 
--- åˆ†é¡žãƒ†ãƒ¼ãƒ–ãƒ«ä½œæˆ genre
+-- •ª—Þƒe[ƒuƒ‹ì¬ genre
 DROP TABLE IF EXISTS genre;
 CREATE TABLE IF NOT EXISTS genre (
   `genre_id` INT AUTO_INCREMENT NOT NULL,
   `genre_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`genre_id`)
 );
---é‡Žèœ
+--–ìØ
 INSERT INTO genre(
   genre_id,
   genre_name
 ) VALUES (
   1,
-  'é‡Žèœ'
+  '–ìØ'
 );
 
---è‚‰
+--“÷
 INSERT INTO genre(
   genre_id,
   genre_name
 ) VALUES (
   2,
-  'è‚‰'
+  '“÷'
 );
 
---é­š
+--‹›
 INSERT INTO genre(
   genre_id,
   genre_name
 ) VALUES (
   3,
-  'é­š'
+  '‹›'
 );
 
 INSERT INTO food (
@@ -129,10 +129,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     1, 
-    'èŒ„å­',
+    '‰ÖŽq',
     60,
     'http://placehold.jp/150x150.png',
-    'é«˜çŸ¥çœŒç”£ã€€ã¿ãšã¿ãšã—ãã¦ä»ŠãŒæ—¬ï¼',
+    '‚’mŒ§ŽY@‚Ý‚¸‚Ý‚¸‚µ‚­‚Ä¡‚ª{I',
     22,
     1.1,
     0.1,
@@ -143,7 +143,7 @@ INSERT INTO food (
     1
     );
 
---ç”°ä¸­ã•ã‚“
+--“c’†‚³‚ñ
 INSERT INTO user (
   user_id, 
   password,
@@ -155,14 +155,14 @@ INSERT INTO user (
   ) VALUES (
     1, 
     'ffs',
-    'ç”°ä¸­',
-    'å¤ªéƒŽ',
+    '“c’†',
+    '‘¾˜Y',
     'ffs@gmail.com',
     1,
     1
     );
 
---å±±ç”°ã•ã‚“
+--ŽR“c‚³‚ñ
 INSERT INTO user (
   user_id, 
   password,
@@ -174,8 +174,8 @@ INSERT INTO user (
   ) VALUES (
     2, 
     'yamada',
-    'å±±ç”°',
-    'èŠ±å­',
+    'ŽR“c',
+    '‰ÔŽq',
     'yamada@gmail.com',
     2,
     2
