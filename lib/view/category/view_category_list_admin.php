@@ -24,11 +24,11 @@
     </form><br>
 <h1>分類一覧画面</h1>
 <!-- 画面上部タブ -->
-<a href="">特価商品</a>
-<a href="">生鮮食品</a>
+<a href="view_special_price_food_list_admin.php">特価商品</a>
+<a href="view_food_list_admin.php">生鮮食品</a>
 <a href="">分類</a>
-<a href="">ユーザ</a>
-<a href="">店舗</a>
+<a href="view_user_list_admin.php">ユーザ</a>
+<a href="view_shop_list_admin.php">店舗</a>
 
   <!-- 検索窓作成 -->
 
@@ -37,19 +37,36 @@
             <input type="submit" value="検索">
       </form>
       <br>
-    <form action = "view_category_insert.php" method="post">
+    <form action = "category_insert.php" method="post">
       <input type="submit" value="新規登録">
     </form>
     <table border="1">
-      <tr>
-        <td>分類</td>
-        <td><form action = "category_update.php" method="post">
+        <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+        <tr>
+            <td><?php ph($row["genre_name"]);?></td>
+            <td>
+              <form action = "category_update.php?food_id=<?php
+              ph($row["genre_id"]);
+             ?>" method="post">
+              <input type="submit" value="編集">
+            </form>
+          </td>
+          <td>
+            <form action = "category_delete.php?genre_id=<?php
+              ph($row["genre_id"]);
+            ?>" method="post">
+              <input type="submit" value="削除">
+            </form>
+          </td>
+        </tr>
+        <?php } ?>
+        <!-- <td><form action = "category_update.php" method="post">
           <input type="submit" value="編集">
         </form></td>
         <td><form action = "category_delete.php" method="post">
           <input type="submit" value="削除">
         </form></td>
-     </tr>
+     </tr> -->
      </table>
   <a href="">全て表示</a>
 
