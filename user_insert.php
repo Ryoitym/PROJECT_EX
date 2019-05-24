@@ -61,7 +61,7 @@
           $dbh = connectDb();
           try {
               // プレースホルダ付きSQLを構築
-              $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password, shop_id, acess_lv) ";
+              $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password, shop_id, acess_lv)";
               $sql .= "VALUES (:name_family, :name_last, :mail, :password :shop_id, :acess_lv)";
               $sth = $dbh->prepare($sql); // SQLを準備
 
