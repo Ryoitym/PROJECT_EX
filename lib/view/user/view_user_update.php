@@ -24,6 +24,9 @@
 <body>
 <input type="submit" value="ログアウト"><br>
 <form action="user_update.php" method="post">
+<input type="hidden" name="user_id" value=<?php print $user_id_get; ?> ><br>
+
+
 姓: <input type="text" name="name_family"><br>
 名: <input type="text" name="name_last"><br>
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
@@ -40,7 +43,7 @@
         </select><br>
 <input type="submit" value="編集"><br>
 <input type="submit" value="クリア"><br>
-<a href="view_user_list.php">ユーザ一覧に戻る</a>
+<a href="user_list.php">ユーザ一覧に戻る</a>
 </form>
 </body>
 </html>
