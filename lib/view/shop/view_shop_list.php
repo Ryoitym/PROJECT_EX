@@ -23,6 +23,9 @@
 <title>店舗一覧画面(IT担当者)</title>
 </head>
 <body>
+<form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
     <h1>店舗一覧画面</h1><br>
 <?php
     /*修正してない
@@ -41,6 +44,7 @@
 
     setcookie("access", 0);*/
 ?>
+
 <a href="view_special_price_food_list_admin.php">特価商品</a>
 <a href="view_food_list_admin.php">生鮮食品</a>
 <a href="view_user_list_admin.php">ユーザ</a>
