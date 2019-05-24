@@ -21,16 +21,6 @@
  </head>
 
  <body>
-   <!-- 削除確認 -->
-   <script>
-   // 確認ダイアログに表示
-   var del = window.confirm("本当に削除しますか？");
-   if(del){
-   }else{
-     // キャンセルのとき一覧に飛ぶ
-       window.location.replace('category_list_admin.php');
-   }
-   </script>
  <input type="submit" value="ログアウト"><br>
  削除しました<br>
  <a href="category_list_admin.php">分類一覧画面に戻る</a>
