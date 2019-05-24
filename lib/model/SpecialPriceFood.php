@@ -1,7 +1,7 @@
 <?php
 /**
  * このファイルの概要説明
- * 特価商品のモデル
+ * 特価商品モデル
  * 
  * このファイルの詳細説明
  *
@@ -28,8 +28,34 @@ class SpecialPriceFood
     }
 
 
-    // データベースからfoodのデータを取得し、連想配列を返す
+    // データベースからSpecialPriceFoodのデータを取得し、連想配列を返す
     public function getDataSpecialPriceFoodArray()
+    {
+        try {
+            // SQLを構築
+            $sql = "SELECT * 
+                    FROM ffs_db.sale t1 
+                        INNER JOIN ffs_db.food t2
+                            ON t1.food_id = t2.food_id
+                        INNER JOIN ffs_db.shop t3
+                            ON t1.shop_id = t3.shop_id
+                    WHERE
+                        food_name LIKE '%カロリ%' ";
+
+            $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // SQLを発行
+            $sth->execute();
+
+            // データを戻す
+            return $sth->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
+
+    // データベースからSpecialPriceFoodのデータを取得し、連想配列を返す
+    public function searchDataSpecialPriceFood()
     {
         try {
             // SQLを構築
@@ -53,7 +79,7 @@ class SpecialPriceFood
         }
     }
 
-
+    
     // データベースからfoodのデータを取得し、連想配列を返す
     public function getDataFoodArray()
     {
