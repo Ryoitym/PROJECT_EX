@@ -24,9 +24,9 @@
 <body>
     <h1>分類編集画面</h1>
     <!-- ログアウトボタン-->
-    <form action="logout.php">
-        <input type="submit" value="ログアウト">
-    </form><br>
+    <form action="logout.php" method="post">
+          <button type="submit" name="logout" value="logout">ログアウト</button>
+  </form><br>
     <!-- 分類入力フォーム-->
     <form action="category_update.php" method="post">
       <!-- 編集前のデータを表示するためにvalueでデフォルト値を設定する -->
