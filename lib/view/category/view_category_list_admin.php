@@ -24,15 +24,15 @@
     </form><br>
 <h1>分類一覧画面</h1>
 <!-- 画面上部タブ -->
-<a href="view_special_price_food_list_admin.php">特価商品</a>
-<a href="view_food_list_admin.php">生鮮食品</a>
-<a href="">分類</a>
-<a href="view_user_list_admin.php">ユーザ</a>
-<a href="view_shop_list_admin.php">店舗</a>
+<a href="special_price_food_list_admin.php">特価商品</a>
+<a href="food_list_admin.php">生鮮食品</a>
+<a href="category_list_admin.php">分類</a>
+<a href="user_list_admin.php">ユーザ</a>
+<a href="shop_list_admin.php">店舗</a>
 
   <!-- 検索窓作成 -->
 
-    <form action="view_category_list_admin.php" method="get">
+    <form action="category_list_admin.php" method="get">
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>
@@ -45,7 +45,7 @@
         <tr>
             <td><?php ph($row["genre_name"]);?></td>
             <td>
-              <form action = "category_update.php?food_id=<?php
+              <form action = "category_update.php?genre_id=<?php
               ph($row["genre_id"]);
              ?>" method="post">
               <input type="submit" value="編集">
