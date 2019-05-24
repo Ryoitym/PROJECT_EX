@@ -28,5 +28,5 @@
     } catch (PDOException $e) {
         exit("SQL発行エラー：{$e->getMessage()}");
     }
-    header('Location: lib/view/shop/view_shop_delete.php');
+    require_once('lib/view/shop/view_shop_delete.php');
 ?>

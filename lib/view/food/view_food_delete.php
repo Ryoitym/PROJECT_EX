@@ -131,6 +131,6 @@
   <input type="submit" value="ログアウト">
 </form>
 <h1>削除しました</h1>
-<a href="view_food_list.php">生鮮食品一覧画面</a>
+<a href="food_list_admin.php">生鮮食品一覧画面</a>
 </body>
 </html>
