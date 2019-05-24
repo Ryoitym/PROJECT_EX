@@ -29,8 +29,9 @@
 
     $error_message = "";
 
-    // 本来は他のページからpostかgetで得る
-    $sale_id_r = "1";
+
+    // 編集対象のidを遷移前のページからgetで得る
+    $sale_id_r = $_GET["sale_id"];
 
     if (!empty($_POST)){
         
@@ -80,8 +81,12 @@
         if ($error_message == "") {
             $special_price_food->update($sale_id_r, $_POST);
         }
+    } else {
+        
+        $result = $special_price_food->getDataById($sale_id_r);
+        var_dump($result);
     }
-
+    $result = $special_price_food->getDataFoodArray();
     require_once("lib/view/special_price/view_special_price_food_update.php");
 
 ?>
