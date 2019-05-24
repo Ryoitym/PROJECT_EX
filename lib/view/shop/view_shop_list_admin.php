@@ -64,9 +64,9 @@
         <td><?php ph($row["shop_name"]);?></td>
         <td><?php ph($row["address"]);?></td>
         <td><?php ph($row["tel"]);?></td>
-        <td><a href="../../../shop_update.php?shop_name=<?php
-            ph($row['shop_name'],$row['tel'],$row['address']);?>
-        ">編集</a></td>
+        <td><a href="../../../shop_update.php?shop_id=<?php
+            ph($row['shop_id']);?>
+        ?>">編集</a></td>
         <td><a href="../../../shop_delete.php?shop_id=<?php
             ph($row["shop_id"]);
         ?>">削除</a></td>
