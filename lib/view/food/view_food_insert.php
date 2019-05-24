@@ -24,11 +24,11 @@
 <body>
     <h1>生鮮食品登録画面</h1>
     <!-- ログアウトボタン-->
-    <form action="../../logout.php" method="post">
+    <form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>
     </form><br>
     <!-- 生鮮食品入力フォーム-->
-    <form action="view_food_insert.php">
+    <form action="food_insert.php" method="post">
         食品名：<input type="text" name="food_name" value=""><br>
         分類：<select name="genre_id">
                 <option value="1">肉</option>
@@ -38,7 +38,7 @@
         写真：<input type="text" name="picture" value="">
               <input type="submit" value="写真を選択"><br>
         価格：<input type="text" name="food_price" value=""><br>
-        説明文書：<input type="textarea" name="text" value=""><br>
+        説明文書：<input type="textarea" name="txt" value=""><br>
         栄養価<br>
         エネルギー<input type="text" name="calorie" value=""><br>
         タンパク質<input type="text" name="protein" value=""><br>
@@ -52,7 +52,7 @@
         </select><br>
         <input type="submit" value="登録">
         <input type="submit" value="クリア"><br>
-        <a href="view_food_list_admin.php">生鮮食品一覧画面へ戻る</a>
+        <a href="food_list_admin.php">生鮮食品一覧画面へ戻る</a>
     </form>
 </body>
 </html>
