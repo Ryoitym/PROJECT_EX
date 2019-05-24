@@ -42,14 +42,13 @@
     </form>
     <table border="1">
       <tr>
-        <th>分類</th>
         <td>分類</td>
-        <form action = "category_update.php" method="post">
+        <td><form action = "category_update.php" method="post">
           <input type="submit" value="編集">
-        </form>
-        <form action = "category_delete.php" method="post">
+        </form></td>
+        <td><form action = "category_delete.php" method="post">
           <input type="submit" value="削除">
-        </form>
+        </form></td>
      </tr>
      </table>
   <a href="">全て表示</a>

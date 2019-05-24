@@ -29,10 +29,10 @@
     </form><br>
     <!-- 分類入力フォーム-->
     <form action="view_category_insert.php">
-        分類名：<input type="text" name="genre_name"><br>
-        <input type="submit" value="登録"><br>
+        分類名 <input type="text" name="genre_name"><br>
+        <input type="submit" value="登録">
         <input type="reset" value="クリア">
     </form>
-      <p><a href="category_list_admin.php">分類一覧画面に戻る</a></p>
+      <p><a href="category_list_admin.php">一覧に戻る</a></p>
 </body>
 </html>

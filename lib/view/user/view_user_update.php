@@ -1,7 +1,8 @@
-<!--
- * ユーザ情報を再編集登録する画面
- *　データベース作成フォーマット
- *
+<?php
+/**
+ * このファイルの概要説明
+ *　ログアウト画面作成フォーマット
+ * このファイルの詳細説明
  *
  * システム名： FFS
  * 作成者：　amaru
@@ -9,9 +10,10 @@
  * 最終更新日：　2019/05/22
  * レビュー担当者：
  * レビュー日：
- * バージョン： 1.0
+ * バージョン： 1.1
  */
--->
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -33,11 +35,12 @@
         <option value="4">♡♡♡</option><br>
         </select><br>
 権限レベル: <select name="acess_lv">
-        <option value="1">店長</option><br>
-        <option value="2">管理者</option><br>
+        <option value="1">IT担当者</option><br>
+        <option value="2">店長</option><br>
         </select><br>
 <input type="submit" value="編集"><br>
 <input type="submit" value="クリア"><br>
+<a href="view_user_list.php">ユーザ一覧に戻る</a>
 </form>
 </body>
 </html>

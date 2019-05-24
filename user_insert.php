@@ -13,13 +13,7 @@
  */
 -->
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>ユーザ登録画面</title>
-</head>
-<body>
+
   <?php
       //共通関数読み込み
       require_once("lib/function.php");
@@ -32,16 +26,20 @@
         try {
             // SQLを構築
             $sql = "SELECT * FROM user";
-            $sql .= " WHERE name_family = :name_family or";
-            $sql .= " name_last = :name_last or";
-            $sql .= " mail = :mail or";
-            $sql .= " password = :password";
+            $sql .= " WHERE name_family = :name_family and";
+            $sql .= " name_last = :name_last and";
+            $sql .= " mail = :mail and";
+            $sql .= " password = :password and";
+            $sql .= " shop_id = :shop_id and";
+            $sql .= " acess_lv = :acess_lv";
             $sth = $dbh->prepare($sql); // SQLを準備
 
             $sth->bindValue(":name_family", $_POST["name_family"]);
             $sth->bindValue(":name_last", $_POST["name_last"]);
             $sth->bindValue(":mail", $_POST["mail"]);
             $sth->bindValue(":password", $_POST["password"]);
+            $sth->bindValue(":shop_id", $_POST["shop_id"]);
+            $sth->bindValue(":acess_lv", $_POST["acess_lv"]);
             // SQLを発行
             $sth->execute();
             $row = $sth->fetch(PDO::FETCH_ASSOC); //結果データを取得
@@ -50,7 +48,8 @@
         }
 
         //入力チェック
-        if(empty($_POST["name_family"])||empty($_POST["name_last"])||empty($_POST["mail"])||empty($_POST["password"])){
+        if(empty($_POST["name_family"])||empty($_POST["name_last"])||empty($_POST["mail"])
+        ||empty($_POST["password"])||empty($_POST["shop_id"])||empty($_POST["acess_lv"])){
         // 入力チェックNG
             require_once("lib/view/user/view_user_insert.php");
            ph("入力不十分です");
@@ -62,8 +61,8 @@
           $dbh = connectDb();
           try {
               // プレースホルダ付きSQLを構築
-              $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password) ";
-              $sql .= "VALUES (:name_family, :name_last, :mail, :password)";
+              $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password, shop_id, acess_lv) ";
+              $sql .= "VALUES (:name_family, :name_last, :mail, :password :shop_id, :acess_lv)";
               $sth = $dbh->prepare($sql); // SQLを準備
 
               // プレースホルダに値をバインド
@@ -71,6 +70,8 @@
               $sth->bindValue(":name_last", $_POST["name_last"]);
               $sth->bindValue(":mail", $_POST["mail"]);
               $sth->bindValue(":password", $_POST["password"]);
+              $sth->bindValue(":shop_id", $_POST["shop_id"]);
+              $sth->bindValue(":acess_lv", $_POST["acess_lv"]);
 
               // SQLを発行
               $sth->execute();
@@ -80,5 +81,3 @@
           header('Location: lib/view/user/view_user_list_admin.php');
         }
     } ?>
-  </body>
-</html>
