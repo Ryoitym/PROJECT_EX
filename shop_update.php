@@ -40,7 +40,7 @@
         $dbh = connectDb();
         try {
             // SQLを構築
-            $sql = "SELECT * FROM ffs_db.shop";
+            $sql = "SELECT * FROM ffs_db.shop ";
             $sql .= "WHERE shop_id=:shop_id";
             $sth = $dbh->prepare($sql); // SQLを準備
 
