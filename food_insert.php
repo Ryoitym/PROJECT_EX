@@ -63,7 +63,7 @@
         ||empty($_POST["natrium"])||empty($_POST["kalium"])){
         // 入力チェックNG
             require_once("lib/view/food/view_food_insert.php");
-            print("入力不十分です");
+            ph("入力不十分です");
         }else if(!empty($row)){
             require_once("lib/view/food/view_food_insert.php");
             ph("すでに登録されています");
