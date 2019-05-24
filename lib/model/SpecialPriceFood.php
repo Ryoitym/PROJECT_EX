@@ -73,8 +73,6 @@ class SpecialPriceFood
 
             $sth = $this->dbh->prepare($sql); // SQLを準備
 
-            
-
             // SQLを発行
             $sth->execute();
 
@@ -111,6 +109,41 @@ class SpecialPriceFood
         }
     }
 
-}
 
- 
+    // データベースにデータを追加する
+    // $input: array 入力値
+    public function insert($input = null)
+    {
+        try {
+            // プレースホルダ付きSQLを構築
+            $sql = "INSERT INTO ffs_db.sale (sale_price, date, shop_id, food_id) ";
+            $sql .= "VALUES (:sale_price, :date, :shop_id, :food_id)";
+            $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // プレースホルダに値をバインド
+
+            $sth->bindValue(":sale_price",  $input["sale_price"]);
+            $sth->bindValue(":date",        $input["date_select"]);
+            $sth->bindValue(":shop_id",     $input["shop_select"]);
+            $sth->bindValue(":food_id",     $input["food_select"]);
+
+            // SQLを発行
+            $sth->execute();
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
+
+
+    public static function getYesterdayTodayTomorrow($today) {
+        $targetTime = strtotime($today);
+        $before_date = date("Y-m-d",strtotime("-" . "1" . " day", $targetTime));
+        $after_date = date("Y-m-d",strtotime("+" . "1" . " day", $targetTime));
+
+        $dates = [  "yesterday" => strval($before_date), 
+                    "today"     => $today,
+                    "tomorrow"  => strval($after_date)];
+        return $dates;
+    }
+
+}
