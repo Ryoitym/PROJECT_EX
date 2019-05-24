@@ -25,7 +25,7 @@
 <body>
     <h1>店舗一覧画面</h1><br>
 <?php
-    require_once("../../init.php");
+    require_once("lib/init.php");
     $dbh = connectDb();
 
     try {
@@ -48,7 +48,7 @@
 <form action="view_user_list_admin.php"method="post">
 <input type="text" name="name_family">
 <input type="submit" value="検索">
-<p><a href="../../../shop_insert.php">新規登録</a></p>
+<p><a href="shop_insert.php">新規登録</a></p>
 </form>
 <brs>
 <table border="1">
@@ -64,12 +64,14 @@
         <td><?php ph($row["shop_name"]);?></td>
         <td><?php ph($row["address"]);?></td>
         <td><?php ph($row["tel"]);?></td>
-        <td><a href="../../../shop_update.php?shop_id=<?php
-            ph($row['shop_id']);?>
-        ?>">編集</a></td>
-        <td><a href="../../../shop_delete.php?shop_id=<?php
-            ph($row["shop_id"]);
-        ?>">削除</a></td>
+        <td><form action="shop_update.php?shop_id=<?php
+            ph($row['shop_id']);?>"
+             method="post">
+        <input type="submit" value="編集"></form></td>
+        <td><form action="shop_delete.php?shop_id=<?php
+            ph($row['shop_id']);?>"
+             method="post">
+        <input type="submit" value="削除"></form></td>
     </tr>
     <?php } ?>
 </table>

@@ -67,6 +67,6 @@
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
           }
-          header('Location: lib/view/shop/view_shop_list_admin.php');
+          require_once("shop_list_admin.php");
         }
     } ?>

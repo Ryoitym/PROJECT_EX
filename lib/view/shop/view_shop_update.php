@@ -23,8 +23,31 @@
 <body>
 <?php
     require_once("lib/init.php");
+    require_once("shop_update.php");
+
     $dbh = connectDb();
-    //require_once("shop_update.php");
+
+    if (!empty($_POST)){
+        try {
+            // プレースホルダ付きSQLを構築
+            $sql = "UPDATE ffs_db.shop ";
+            $sql .= "SET shop_name=:shop_name ";
+            $sql .= "WHERE shop_id=:shop_id";
+            $sth = $dbh->prepare($sql); // SQLを準備
+
+            // プレースホルダに値をバインド
+            $sth->bindValue(":shop_name",  $_POST["shop_name"]);
+            $sth->bindValue(":shop_id",  $_POST["shop_id"]);
+
+            // SQLを発行
+            $sth->execute();
+
+            $row = $sth->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
 ?>
 <form action="view_logout.php">
     <input type="submit" value="ログアウト">
@@ -32,16 +55,19 @@
 <h1>店舗編集画面</h1>
 
 <br>
-<form action="shop_update.php" method="POST">
+<form action="shop_update.php" method="post">
     店舗名:<input type="text" name="shop_name" value= "<?php ph($row["shop_name"])?>" ><br>
     住所：<input type="text" name = "address" value= "<?php echo $row["address"];?>" ><br>
     電話番号：<input type="text" name = "tel" value= "<?php echo $row["tel"];?>"    ><br>
     <input type="hidden" name="shop_id" value="<?php ph($row["shop_id"]);?>">
-</form>
 
-<form action="lib/view/shop/view_shop_list_admin.php">
-        <input type="submit" value = "編集">
+    <input type="submit" value = "編集">
 </form>
+<!--
+<form action="shop_list_admin.php" method="post">
+    <input type="submit" value = "編集">
+</form>
+-->
 <form action="view_shop_insert.php">
         <input type="submit" value = "クリア"><br>
 </form>
