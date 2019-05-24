@@ -11,17 +11,6 @@
  */
 -->
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>分類削除確認画面のコントローラ</title>
-</head>
-<body>
-<script>
-//ポップアップ
-var del = window.confirm("本当に削除しますか？");
-if(del){
 <?php
     require_once("lib/function.php");
     $dbh = connectDb();
@@ -37,12 +26,4 @@ if(del){
     } catch (PDOException $e) {
         exit("SQL発行エラー：{$e->getMessage()}");
     }
-?>
-}else{
-    window.location.replace('category_list_admin.php');
-}
-</script>
-<p>削除しました。</p>
-<p><a href="category_list_admin.php">分類一覧画面に戻る</a></p>
-</body>
-</html>
+    
