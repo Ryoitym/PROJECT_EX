@@ -43,7 +43,7 @@ if(empty($_POST)){
 
         //メールアドレス or パスワードが間違っている時
         if(empty($row)){
-            print "メールアドレスまたはパスワードが違います";
+            ph("メールアドレスまたはパスワードが違います");
             require_once("lib/view/view_login.php");
         } else{
         //入力内容が正しい時
@@ -61,7 +61,7 @@ if(empty($_POST)){
 
     }else{
         //空白の場合
-        print "メールアドレスまたはパスワードが違います";
+        ph("メールアドレスまたはパスワードが違います");
         require_once("lib/view/view_login.php");
         
     }

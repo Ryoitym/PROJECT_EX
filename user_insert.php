@@ -25,7 +25,7 @@
         $dbh = connectDb();
         try {
             // SQLを構築
-            $sql = "SELECT * FROM user";
+            $sql = "SELECT * FROM ffs_db.user";
             $sql .= " WHERE name_family = :name_family and";
             $sql .= " name_last = :name_last and";
             $sql .= " mail = :mail and";
@@ -78,6 +78,6 @@
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
           }
-          header('Location: lib/view/user/view_user_list_admin.php');
+          header('Location: user_list_admin.php');
         }
     } ?>
