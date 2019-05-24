@@ -26,5 +26,5 @@
     } catch (PDOException $e) {
         exit("SQL発行エラー：{$e->getMessage()}");
     }
-    
-header('Location: lib/view/category/view_category_delete.php');
+
+  require_once("lib/view/category/view_category_delete.php");
