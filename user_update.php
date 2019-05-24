@@ -59,6 +59,7 @@
            $sth_category->execute();
          }catch (PDOException $e) {
              exit("SQL発行エラー：{$e->getMessage()}");
+        }
        }
 
      require_once("lib/view/user/view_user_update.php");
