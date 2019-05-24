@@ -32,7 +32,7 @@
        // 入力チェックNG
            require_once("lib/view/user/view_user_update.php");
            $error_message .= "入力が不十分です";
-       }else if(!empty($category_list)){
+       }else if(!empty($user_list)){
            require_once("lib/view/user/view_user_update.php");
            $error_message .= "すでに登録されています";
        }
