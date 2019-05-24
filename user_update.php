@@ -13,30 +13,52 @@
  * バージョン： 1.1
  */ -->
 
-     <?php
-     require_once("lib\init.php");
+ <?php
+     require_once("lib/function.php");
      $dbh = connectDb();
 
-     try {
-         // プレースホルダ付きSQLを構築
-         $sql = "UPDATE user ";
-         $sql .= "SET name_family=:name_family, name_last=:name_last, mail=:mail,
-         password=:password, shop_id=:shop=id, acess_lv=:acess_lv";
-         $sql .= "WHERE name_family=:name_family, name_last=:name_last, mail=:mail,
-         password=:password, shop_id=:shop=id, acess_lv=:acess_lv";
-         $sth = $dbh->prepare($sql); // SQLを準備
+     $error_message = "";
 
-         // プレースホルダに値をバインド
-         $sth->bindValue(":name_family",$_POST["name_family"]);
-         $sth->bindValue(":name_last",$_POST["name_last"]);
-         $sth->bindValue(":mail",$_POST["mail"]);
-         $sth->bindValue(":password",$_POST["password"]);
-         $sth->bindValue(":shop_id",$_POST["shop_id"]);
-         $sth->bindValue(":acess_lv",$_POST["acess_lv"]);
+     try {
+         // SQLを構築
+         $sql = "SELECT * FROM ffs_db.user";
+         $sth = $dbh->prepare($sql); // SQLを準備
 
          // SQLを発行
          $sth->execute();
-     } catch (PDOException $e) {
-         exit("SQL発行エラー：{$e->getMessage()}");
-     }
- ?>
+         $user_list = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+     if (!empty($_POST)){
+       // 入力チェックNG
+           require_once("lib/view/user/view_user_update.php");
+           $error_message .= "入力が不十分です";
+       }else if(!empty($category_list)){
+           require_once("lib/view/user/view_user_update.php");
+           $error_message .= "すでに登録されています";
+       }
+       // エラーメッセージが無い場合編集実行する
+       if($error_message == ""){
+
+           // プレースホルダ付きSQLを構築
+           $sql = "UPDATE user ";
+           $sql .= "SET name_family=:name_family, name_last=:name_last, mail=:mail,
+           password=:password, shop_id=:shop=id, acess_lv=:acess_lv";
+           $sql .= "WHERE name_family=:name_family, name_last=:name_last, mail=:mail,
+           password=:password, shop_id=:shop=id, acess_lv=:acess_lv";
+           $sth = $dbh->prepare($sql); // SQLを準備
+
+           // プレースホルダに値をバインド
+           $sth->bindValue(":name_family",$_POST["name_family"]);
+           $sth->bindValue(":name_last",$_POST["name_last"]);
+           $sth->bindValue(":mail",$_POST["mail"]);
+           $sth->bindValue(":password",$_POST["password"]);
+           $sth->bindValue(":shop_id",$_POST["shop_id"]);
+           $sth->bindValue(":acess_lv",$_POST["acess_lv"]);
+
+           // SQLを発行
+           $sth_category->execute();
+         } catch (PDOException $e) {
+             exit("SQL発行エラー：{$e->getMessage()}");
+       }
+
+     require_once("lib/view/user/view_user_update.php");
