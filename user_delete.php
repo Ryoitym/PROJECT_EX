@@ -10,18 +10,6 @@
  * バージョン： 1.0
  */
 -->
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>ユーザ削除確認画面のコントローラ</title>
-</head>
-<body>
-<script>
-//ポップアップ
-var del = window.confirm("本当に削除しますか？");
-if(del){
 <?php
     require_once("lib/function.php");
     $dbh = connectDb();
@@ -38,11 +26,3 @@ if(del){
         exit("SQL発行エラー：{$e->getMessage()}");
     }
 ?>
-}else{
-    window.location.replace('user_list.php');
-}
-</script>
-<p>削除しました。</p>
-<p><a href="user_list.php">ユーザ一覧画面に戻る</a></p>
-</body>
-</html>
