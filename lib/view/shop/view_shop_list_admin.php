@@ -54,8 +54,8 @@
 <table border="1">
     <tr>
         <th>店舗名</th>
-        <th>電話番号</th>
         <th>住所</th>
+        <th>電話番号</th>
         <th>編集</th>
         <th>削除</th>
     </tr>

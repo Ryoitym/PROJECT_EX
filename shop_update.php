@@ -41,12 +41,16 @@
         try {
             // SQLを構築
             $sql = "SELECT * FROM ffs_db.shop ";
-            $sql .= "WHERE shop_id=:shop_id";
+            $sql .= "WHERE shop_id=:shop_id AND ";
+            $sql .= "address=:address AND ";
+            $sql .= "tel=:tel ";
             $sth = $dbh->prepare($sql); // SQLを準備
 
             // プレースホルダに値をバインド
             //GETで飛んできたIDのレコードを取ってくる
             $sth->bindValue(":shop_id", $_POST["shop_id"]);
+            $sth->bindValue(":address", $_POST["address"]);
+            $sth->bindValue(":tel", $_POST["tel"]);
 
             // SQLを発行
             $sth->execute();
@@ -60,19 +64,18 @@
         try {
             // プレースホルダ付きSQLを構築
             $sql = "UPDATE ffs_db.shop ";
-            $sql .= "SET shop_name=:shop_name ";
+            $sql .= "SET address=:address , tel=:tel ";
             $sql .= "WHERE shop_id=:shop_id";
             $sth = $dbh->prepare($sql); // SQLを準備
 
             // プレースホルダに値をバインド
-            $sth->bindValue(":shop_name",  $_POST["shop_name"]);
+            //$sth->bindValue(":shop_name",  $_POST["shop_name"]);
             $sth->bindValue(":shop_id",  $_POST["shop_id"]);
+            $sth->bindValue(":address",  $_POST["address"]);
+            $sth->bindValue(":tel", $_POST["tel"]);
 
             // SQLを発行
             $sth->execute();
-
-            
-
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
