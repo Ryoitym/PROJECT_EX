@@ -22,24 +22,22 @@
 </head>
 <body>
 <?php
-    require_once("../init.php");
+    //require_once("../../init.php");
 ?>
 <form action="view_logout.php">
     <input type="submit" value="ログアウト">
 </form>
 <h1>店舗編集画面</h1>
 
-<!--エラーメッセージをここに追加-->
-<?php print "入力が不十分です";?><br>
 <br>
-<form action="">
-    店舗名:<input type="text" value = ""><br>
-    住所：<input type="text" value = ""><br>
-    電話番号：<input type="text" value = ""><br>
+<form action="shop_update.php" method="post">
+    店舗名:<input type="text" name="shop_name" value= <?php echo $_GET["shop_name"];?> ><br>
+    住所：<input type="text" name = "address" value= <?php echo $_GET["address"];?>><br>
+    電話番号：<input type="text" name = "tel" value= <?php echo $_GET["tel"];?>><br>
 </form>
 
-<form action="view_shop_list_admin.php">
-        <input type="submit" value = "登録">
+<form action="lib/view/shop/view_shop_list_admin.php">
+        <input type="submit" value = "編集">
 </form>
 <form action="view_shop_insert.php">
         <input type="submit" value = "クリア"><br>

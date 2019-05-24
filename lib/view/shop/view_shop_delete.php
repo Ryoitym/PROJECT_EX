@@ -24,7 +24,7 @@
  <body>
  <input type="submit" value="ログアウト"><br>
  削除しました<br>
- <a href="view_shop_list_admin.php">店舗一覧画面に戻る</a>
+ <a href="lib/view/shop/view_shop_list_admin.php">店舗一覧画面に戻る</a>
  </body>
  </html>
  
