@@ -6,7 +6,7 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/24
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.0
@@ -61,8 +61,9 @@
           $dbh = connectDb();
           try {
               // プレースホルダ付きSQLを構築
+              // var_dump($_POST);
               $sql = "INSERT INTO ffs_db.user (name_family, name_last, mail, password, shop_id, acess_lv)";
-              $sql .= "VALUES (:name_family, :name_last, :mail, :password :shop_id, :acess_lv)";
+              $sql .= " VALUES (:name_family, :name_last, :mail, :password, :shop_id, :acess_lv)";
               $sth = $dbh->prepare($sql); // SQLを準備
 
               // プレースホルダに値をバインド
@@ -72,7 +73,7 @@
               $sth->bindValue(":password",$_POST["password"]);
               $sth->bindValue(":shop_id",$_POST["shop_id"]);
               $sth->bindValue(":acess_lv",$_POST["acess_lv"]);
-
+              var_dump($sth);
               // SQLを発行
               $sth->execute();
           } catch (PDOException $e) {
