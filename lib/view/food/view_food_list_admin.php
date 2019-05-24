@@ -19,7 +19,7 @@
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
-<form action="logout.php" method="post">
+<form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
     </form><br>
 <h1>生鮮食品一覧画面</h1>
@@ -32,7 +32,7 @@
 
   <!-- 検索窓作成 -->
 
-    <form action="view_food_list_admin.php" method="get">
+    <form action="food_list_admin.php" method="post">
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>

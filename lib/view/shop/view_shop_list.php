@@ -23,6 +23,9 @@
 <title>店舗一覧画面(IT担当者)</title>
 </head>
 <body>
+<form action="logout.php" method="post">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+</form><br>
     <h1>店舗一覧画面</h1><br>
 <?php
     /*修正してない
@@ -41,6 +44,7 @@
 
     setcookie("access", 0);*/
 ?>
+
 <a href="view_special_price_food_list_admin.php">特価商品</a>
 <a href="view_food_list_admin.php">生鮮食品</a>
 <a href="view_user_list_admin.php">ユーザ</a>
@@ -49,7 +53,6 @@
 <form action="view_user_list_admin.php"method="post">
 <input type="text" name="name_family">
 <input type="submit" value="検索">
-<p><a href="insert.php">新規登録</a></p>
 </form>
 <brs>
 <table border="1">
@@ -57,20 +60,12 @@
         <th>店舗名</th>
         <th>電話番号</th>
         <th>住所</th>
-        <th>編集</th>
-        <th>削除</th>
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
         <td><?php ph($row["shop_name"]);?></td>
         <td><?php ph($row["address"]);?></td>
         <td><?php ph($row["tel"]);?></td>
-        <td><a href="update.php?student_id=<?php
-            ph($row["student_id"]);
-        ?>">編集</a></td>
-        <td><a href="delete_exec.php?student_id=<?php
-            ph($row["student_id"]);
-        ?>">削除</a></td>
     </tr>
     <?php } ?>
 </table>
