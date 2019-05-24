@@ -28,7 +28,7 @@
         <input type="submit" value="ログアウト">
     </form><br>
     <!-- 生鮮食品入力フォーム-->
-    <form action="food_update.php">
+    <form action="food_update.php" method="post">
         食品名：<input type="text" name="food_name" value="<?php ph($row["food_name"]);?>"><br>
         分類：<select name="genre_id">
                 <option value="1">肉</option>
@@ -38,7 +38,7 @@
         写真：<input type="text" name="picture" value="<?php ph($row["picture"]);?>">
               <input type="submit" value="写真を選択"><br>
         価格：<input type="text" name="food_price" value="<?php ph($row["food_price"]);?>"><br>
-        説明文書：<input type="textarea" name="text" value="<?php ph($row["text"]);?>"><br>
+        説明文書：<input type="textarea" name="txt" value="<?php ph($row["txt"]);?>"><br>
         栄養価<br>
         エネルギー<input type="text" name="calorie" value="<?php ph($row["calorie"]);?>"><br>
         タンパク質<input type="text" name="protein" value="<?php ph($row["protein"]);?>"><br>
@@ -50,7 +50,7 @@
             <option value="1">表示</option>
             <option value="0">非表示</option>
         </select><br>
-        <input type="hidden" name="id" value="<?php ph($row["food_id"]);?>">
+        <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
         <input type="submit" value="登録">
         <input type="submit" value="クリア"><br>
         <a href="food_list_admin.php">生鮮食品一覧画面へ戻る</a>
