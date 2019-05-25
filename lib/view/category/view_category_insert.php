@@ -23,8 +23,8 @@
         <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>分類登録画面</h1>
-
-    <!-- <?php print($error_message); ?> -->
+    <!-- エラー表示 -->
+    <?php print $error_message; ?>
 
     <form action = "category_insert.php" method="post">
   分類名 <input type="text" name="genre_name"><br>
