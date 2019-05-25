@@ -60,10 +60,10 @@
 
       if(!empty($row)){
         require_once("lib/view/category/view_category_update.php");
-       ph("すでに登録されています");
+       $error_message = "すでに登録されています";
      }else if(empty($_POST["genre_name"])){
        require_once("lib/view/category/view_category_updete.php");
-      ph("入力不十分です");
+      $error_message = "入力不十分です";
     }else{
       //編集する処理
       try{

@@ -24,8 +24,10 @@
 </form>
 <h1>分類登録画面</h1>
     <!-- エラー表示 -->
-    <?php print $error_message; ?>
-
+    <?php
+    require_once("lib/function.php");
+    ph($error_message);
+    ?>
     <form action = "category_insert.php" method="post">
   分類名 <input type="text" name="genre_name"><br>
         <input type="submit" value="登録">
