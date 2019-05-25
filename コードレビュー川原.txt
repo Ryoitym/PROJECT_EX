@@ -33,3 +33,62 @@ else側の処理：それ用のviewを作って表示する
 
 ■user_insert.php
 メールアドレスは重複可？メールアドレス以外の項目が違う場合は登録できそう。
+
+---------- 以下、25日（土）追記 ----------
+途中っぽいファイルは無視してます
+
+■lib/view/category/view_category_delete.php
+26行目:<form>タグはブロックレベル要素なので後ろに改行は不要。余白を取りたいのであればCSSで。
+　　　　このファイルだけではなく、全体的に。
+
+■lib/view/category/view_category_list.php（list系全般か）
+48行目付近:編集画面への遷移はGETの方が良い（POSTでも良いので修正は不要）
+　　　　　更新系DB処理をするときにPOSTにしたほうが良いが、更新系処理が走るのは入力画面で登録ボタンが押されたとき。ここはPOSTにする。
+　　　　　一覧画面→編集入力画面→確認画面→完了画面の遷移であった場合
+　　　　　POSTの場合、確認画面からブラウザの戻るボタンで戻りにくい。
+
+54行目付近:削除は更新系の処理なのでPOSTでしたいという意図であれば、この書き方はおかしい。
+          category_delete.php?genre_id=1
+          のようにURLに消したいデータを入れているのでGETで操作している。
+          POSTでしたいのであれば、フォーム部品にデータをセットして送信する。
+          例：これでgenre_id:1がPOSTされる
+          <form action="category_delete.php" method="post">
+             <input type="hidden" name="genre_id" value="1">
+             <input type="submit" value="削除">
+          </form>
+
+全体的に、POSTでやりたいのかGETでやりたいのか統一されていない印象。
+GETでやる場合はリンクでできるという考えももつこと。
+
+■lib/view/food/view_food_delete.php
+途中？
+削除していいですか？のJavaScriptの処理はlist側に書く。
+
+■lib/view/food/view_food_insert.php
+分類は固定ではなく、genreテーブルのデータを表示したいはず
+
+■lib/view/food/view_food_list_admin.php
+40行目付近:ここもあえてPOSTでする必要性はなく、ただのリンクでよい。
+72行目：0,1が表示されてしまいそう。今この食品が「表示」なのか「非表示」なのかを表示したいのでは。
+73行目:IDではなく、分類名を表示したいのでは。
+
+■lib/view/shop/view_shop_list_admin.php
+29~43行目:viewに書くことではない。controllerかmodelに書く。
+
+■lib/view/shop/view_shop_update.php
+24~51行目:viewに書くことではない。controllerかmodelに書く。
+74行目:不要に見える
+
+■lib/view/special_price/view_special_price_food_insert.php
+その他のファイルも含め全体
+　例えば19,20行目。
+　XSS対策が必要。DBの中のデータもタグは入っていることはある。
+  そもそもviewでprintするときは全部対策しておくべき。
+
+29行目:何日先までの特価を入力できるかという8のようなデータ（即値と言う）は後から読むと分からない。
+　　　　init.phpでわかりやすい定数にしておくのが定石
+　　　　define("SPECIAL_PRICE_DATE_RANGE", 8); // 特価品は8日先まで入力できる
+
+■lib/view/user/view_user_insert.php
+店舗名は固定ではなくデータベースから
+35行目等:</option>の後ろに<br>は不要。というかあったらダメ。
