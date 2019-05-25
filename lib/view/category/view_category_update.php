@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　orange juice
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/25
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -26,7 +26,7 @@
     <!-- ログアウトボタン-->
     <form action="logout.php" method="post">
           <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form><br>
+  </form>
     <!-- 分類入力フォーム-->
     <form action="category_update.php" method="post">
       <!-- 編集前のデータを表示するためにvalueでデフォルト値を設定する -->

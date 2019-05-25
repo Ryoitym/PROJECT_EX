@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　orange juice
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
+ * 最終更新日：　2019/05/25
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -21,7 +21,7 @@
 <body>
 <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-    </form><br>
+    </form>
 <h1>生鮮食品一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="">特価商品</a>
@@ -36,7 +36,6 @@
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>
-      <br>
     <form action = "food_insert.php" method="post">
       <input type="submit" value="新規登録">
     </form>
@@ -72,14 +71,14 @@
         <td><?php ph($row["show_flag"]); ?></td>
         <td><?php ph($row["genre_id"]); ?></td>
         <td>
-          <form action = "food_update.php?food_id=<?php 
+          <form action = "food_update.php?food_id=<?php
             ph($row["food_id"]);
           ?>" method="post">
             <input type="submit" value="編集">
           </form>
         </td>
         <td>
-          <form action = "food_delete.php?food_id=<?php 
+          <form action = "food_delete.php?food_id=<?php
             ph($row["food_id"]);
           ?>" method="post">
             <input type="submit" value="削除">

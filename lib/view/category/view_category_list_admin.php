@@ -7,12 +7,12 @@
  * システム名： FFS
  * 作成者：　orange juice
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
+ * 最終更新日：　2019/05/25
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
  */ -->
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,7 @@
 <body>
   <form action="logout.php" method="post">
           <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form><br>
+  </form>
 <h1>分類一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="special_price_food_list_admin.php">特価商品</a>
@@ -36,7 +36,7 @@
 <form action="category_list_admin.php" method="get">
     検索：<input type="text" name="search">
           <input type="submit" value="検索">
-</form> <br>
+</form>
 <form action = "category_insert.php" method="post">
         <input type="submit" value="新規登録">
 </form>
