@@ -36,9 +36,7 @@
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
       </form>
-    <form action = "food_insert.php" method="post">
-      <input type="submit" value="新規登録">
-    </form>
+      <a href="food_insert.php">新規登録</a>
     <hr>
     <table border="1">
         <tr>

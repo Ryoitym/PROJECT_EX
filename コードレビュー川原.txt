@@ -38,7 +38,7 @@ else側の処理：それ用のviewを作って表示する
 途中っぽいファイルは無視してます
 
 ■lib/view/category/view_category_delete.php
-修正済み 26行目:<form>タグはブロックレベル要素なので後ろに改行は不要。余白を取りたいのであればCSSで。
+26行目:<form>タグはブロックレベル要素なので後ろに改行は不要。余白を取りたいのであればCSSで。
 　　　　このファイルだけではなく、全体的に。
 
 ■lib/view/category/view_category_list.php（list系全般か）
