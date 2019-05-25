@@ -39,11 +39,16 @@
 
         //入力チェック
         if(empty($_POST["genre_name"])){
-        // 入力チェックNG
+        // 入力されていないとき
             $error_message = "入力不十分です";
             require_once("lib/view/category/view_category_insert.php");
         }else if(!empty($row)){
+          // 既に登録されているとき
              $error_message = "すでに登録されています";
+            require_once("lib/view/category/view_category_insert.php");
+        }else if(mb_strlen($_POST["genre_name"]) > 50){
+            // 50文字以上で入力されたとき
+             $error_message = "50文字以内で登録してください";
             require_once("lib/view/category/view_category_insert.php");
         }else{
           //入力チェックOK 分類を追加する
