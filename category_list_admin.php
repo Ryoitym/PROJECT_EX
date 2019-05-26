@@ -30,8 +30,6 @@
     }
     require_once("lib/view/category/view_category_list_admin.php");
  } else{
-    print "権限レベルが低いため、ログインからやり直してください<br>";
-    print "<form action=\"logout.php\" method=\"post\">
-                <button type=\"submit\" name=\"logout\" value=\"logout\">ログアウト</button>
-           </form><br>";
+   $message = "権限レベルが低いため、ログインからやり直してください";
+    require_once("lib/view/view_access_logout.php");
  }
