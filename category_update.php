@@ -86,6 +86,4 @@
       // 編集成功したとき一覧に飛ぶ
       header('Location: category_list_admin.php');
     }
-    //
-      require_once("lib/view/category/view_category_update.php");
   }
