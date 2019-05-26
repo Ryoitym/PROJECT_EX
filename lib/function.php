@@ -41,3 +41,29 @@ function connectDb(){
 
     return $dbh;
 }
+
+
+//  管理者権限レベルチェック  
+function accesscheckAdmin(){
+    session_start();
+    if(empty($_SESSION["acess_lv"]) || $_SESSION["acess_lv"] != 1){
+            header('Location:login.php');
+    } 
+}
+
+//  店長権限レベルチェック  
+function accesscheck(){
+    session_start();
+    if(empty($_SESSION["acess_lv"]) || $_SESSION["acess_lv"] != 2){
+            header('Location:login.php');
+    } 
+}
+
+//  店長shop_idチェック
+function accesscheckShop(){
+    session_start();
+    if(empty($_SESSION["shop_id"]) || $_SESSION["shop_id"] != $_GET["shop_id"]){
+            header('Location:special_price_food_list.php');
+    }
+}
+
