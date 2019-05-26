@@ -12,7 +12,7 @@
 -->
 
 <?php
-    require_once("lib/function.php");
+    require_once("lib/init.php");
     $dbh = connectDb();
 
     try {

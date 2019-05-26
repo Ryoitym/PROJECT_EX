@@ -13,7 +13,7 @@
  * バージョン： 1.1
  */ -->
 <?php
-    require_once("lib/function.php");
+    require_once("lib/init.php");
     // 入力画面表示
     if(empty($_POST)){
       //編集画面表示　デフォルト値に元のデータ入れる

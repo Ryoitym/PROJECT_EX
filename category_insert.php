@@ -15,7 +15,7 @@
 
   <?php
       //共通関数読み込み
-      require_once("lib/function.php");
+      require_once("lib/init.php");
      $error_message = "";
       //入力画面表示
       if(empty($_POST)){
