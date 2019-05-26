@@ -16,6 +16,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script href="lib/js/food_delete.js"></script>
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
@@ -79,7 +80,7 @@
           <form action = "food_delete.php?food_id=<?php
             ph($row["food_id"]);
           ?>" method="post">
-            <input type="submit" value="削除">
+            <input type="submit" value="削除" id="delete">
           </form>
         </td>
       </tr>
