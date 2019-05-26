@@ -13,10 +13,10 @@
  * バージョン： 1.0
  */
 
- require_once("lib/function.php");
- session_start();
+// 共通関数読み込み
+ require_once("lib/init.php");
  // IT担当者かどうか確認
- if($_SESSION["acess_lv"] == 1){
+ accesscheckAdmin();
     //SQL作成
     $dbh = connectDb();
 
@@ -46,7 +46,3 @@
         }
     }
     require_once("lib/view/category/view_category_list_admin.php");
- } else{
-   $message = "権限レベルが低いため、ログインからやり直してください";
-    require_once("lib/view/view_access_logout.php");
- }
