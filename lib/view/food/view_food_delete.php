@@ -23,7 +23,6 @@
 </head>
 
 <body>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <style type="text/css">
   #overlay {
       position: fixed;
@@ -92,39 +91,6 @@
   }
 
 </style>
-
-
-<script type='text/javascript'>
-
-  $(function(){
-      var overlay = $('<div id="overlay"></div>');
-      overlay.show();
-      overlay.appendTo(document.body);
-      $('.popup').show();
-      $('.close').click(function(){
-      $('.popup').hide();
-      overlay.appendTo(document.body).remove();
-      return false;
-    });
-
-  $('.x').click(function(){
-      $('.popup').hide();
-      overlay.appendTo(document.body).remove();
-      return false;
-  });
-  });
-
-</script>
-
-<div class='popup'>
-  <div class='cnt223'>
-  <h1>削除しますか?</h1>
-  <p>
-  <a href='' class='close'>OK</a>
-  <a href='' class='close'>キャンセル</a>
-  </p>
-  </div>
-</div>
 
 <!-- 削除確認画面-->
 <form action="view_login.php">

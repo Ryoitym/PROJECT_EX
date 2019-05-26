@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script href="lib/js/food_delete.js"></script>
+<script type="text/javascript" src="lib/js/food_delete.js"></script>
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
