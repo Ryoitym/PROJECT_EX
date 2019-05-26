@@ -17,4 +17,4 @@
  require_once("lib/init.php");
  // 店長級社員かどうか確認
  accesscheck();
- require_once("lib/view/view_management_page");
+ require_once("lib/view/view_management_page.php");
