@@ -20,13 +20,30 @@
     //SQL作成
     $dbh = connectDb();
 
-    try {
-        $sql = "SELECT * FROM ffs_db.genre ";
-        $sth = $dbh->prepare($sql);
+    //初回アクセス時 全て表示
+    if(empty($_POST)){
+        try {
+            $sql = "SELECT * FROM ffs_db.genre ";
+            $sth = $dbh->prepare($sql);
 
-        $sth->execute();
-    } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
+            $sth->execute();
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }else{
+        //検索ボタン押下時の処理
+        try {
+            $sql = "SELECT * FROM ffs_db.genre WHERE genre_name LIKE :search";
+            $sth = $dbh->prepare($sql);
+
+            // プレースホルダに値をバインド
+            $search_name = "%" . $_POST["search"] . "%";
+            $sth->bindValue(":search", $search_name);
+
+            $sth->execute();
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
     }
     require_once("lib/view/category/view_category_list_admin.php");
  } else{

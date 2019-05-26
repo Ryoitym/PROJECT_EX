@@ -33,7 +33,7 @@
 
   <!-- 検索窓作成 -->
 
-<form action="category_list_admin.php" method="get">
+<form action="category_list_admin.php" method="post">
     検索：<input type="text" name="search">
           <input type="submit" value="検索">
 </form>

@@ -24,7 +24,7 @@ $message = "";
         try {
             $sql = "SELECT * FROM ffs_db.food ";
             $sth = $dbh->prepare($sql);
-    
+
             $sth->execute();
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
@@ -38,7 +38,7 @@ $message = "";
             // プレースホルダに値をバインド
             $search_name = "%" . $_POST["search"] . "%";
             $sth->bindValue(":search", $search_name);
-    
+
             $sth->execute();
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
