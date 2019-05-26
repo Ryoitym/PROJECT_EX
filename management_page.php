@@ -13,17 +13,8 @@
  * バージョン： 1.0
  */
 
- 
-// 店長級社員がいないためまだテストできていない
- require_once("lib/function.php");
- session_start();
+
+ require_once("lib/init.php");
  // 店長級社員かどうか確認
- if($_SESSION["acess_lv"] == 2){
-    //SQL作成
-    require_once("lib/view/view_management_page.php");
- } else{
-    print "権限レベルが低いため、ログインからやり直してください<br>";
-    print "<form action=\"logout.php\" method=\"post\">
-                <button type=\"submit\" name=\"logout\" value=\"logout\">ログアウト</button>
-           </form><br>";
- }
+ accesscheck();
+ require_once("lib/view/view_management_page");
