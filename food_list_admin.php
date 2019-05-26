@@ -12,10 +12,10 @@
  * レビュー日：
  * バージョン： 1.1
  */
-$message = "";
+
  require_once("lib/function.php");
- session_start();
- if($_SESSION["acess_lv"] == 1){
+ accesscheckAdmin();
+
     //SQL作成
     $dbh = connectDb();
 
@@ -45,7 +45,3 @@ $message = "";
         }
     }
     require_once("lib/view/food/view_food_list_admin.php");
- } else{
-    $message = "権限レベルが低いため、ログインからやり直してください";
-    require_once("lib/view/view_access_logout.php");
- }
