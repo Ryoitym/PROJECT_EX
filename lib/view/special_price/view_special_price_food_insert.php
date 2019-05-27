@@ -1,3 +1,20 @@
+<?php
+/**
+* このファイルの概要説明
+* 特価商品登録画面のビュー
+* 
+* このファイルの詳細説明
+*
+* システム名： FFS
+* 作成者：　nosu10101
+* 作成日：　2019/05/27
+* 最終更新日：　2019/05/23
+* レビュー担当者：
+* レビュー日：
+* バージョン： 1.1
+*/
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +33,8 @@
         店舗名:
             <select name="shop_select">
                 <?php foreach ($shop_list as $shop) {?>
-                        <option value="<?php print $shop["shop_id"];?>">
-                            <?php print $shop["shop_name"]; ?>
+                        <option value="<?php ph($shop["shop_id"]);?>">
+                            <?php ph($shop["shop_name"]); ?>
                         </option>
                         <br>
                 <?php } ?>
@@ -39,8 +56,8 @@
         生鮮食品名: 
             <select name="food_select">
                 <?php foreach ($food_list as $food) {?>
-                        <option value="<?php print $food["food_id"];?>">
-                            <?php print $food["food_name"]; ?>
+                        <option value="<?php ph($food["food_id"]);?>">
+                            <?php ph($food["food_name"]); ?>
                         </option>
                         <br>
                 <?php } ?>

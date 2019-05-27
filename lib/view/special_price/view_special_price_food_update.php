@@ -1,13 +1,13 @@
 <?php
 /**
  * このファイルの概要説明
- * 特価商品編集画面
+ * 特価商品編集画面のビュー
  * このファイルの詳細説明
  *
  * システム名： FFS
  * 作成者：　nosu10101
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/24
+ * 最終更新日：　2019/05/27
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -33,16 +33,16 @@
             生鮮食品名: 
             <select name="food_select">
                 <?php foreach ($food_list as $food) {?>
-                        <option value="<?php print $food["food_id"];?>" 
+                        <option value="<?php ph($food["food_id"]);?>" 
                             <?php 
-                            if (isset($special_price_food_value[0])) {
-                                if ($special_price_food_value[0]["food_id"] == $food["food_id"]) {
+                            if (isset($special_price_food_value)) {
+                                if ($special_price_food_value["food_id"] == $food["food_id"]) {
                                     print "selected";
                                 }
                             } 
                             ?>
                         >
-                            <?php print $food["food_name"]; ?>
+                            <?php ph($food["food_name"]); ?>
                         </option>
                         <br>
                 <?php } ?>
@@ -50,8 +50,8 @@
 
             特価価格:<input type="text" name="sale_price" size="20" 
                         <?php 
-                            if (isset($special_price_food_value[0])) {
-                                print "value=\"{$special_price_food_value[0]["sale_price"]}\"";
+                            if (isset($special_price_food_value)) {
+                                ph("value={$special_price_food_value["sale_price"]}");
                             } 
                         ?>
                     >
@@ -63,8 +63,8 @@
                 <?php $temp_date = date("Y-m-d",strtotime("+" . $i . " day")); ?>
                 <option value="<?php print $temp_date; ?>"
                     <?php 
-                        if (isset($special_price_food_value[0])) {
-                            if ($special_price_food_value[0]["date"] == $temp_date) {
+                        if (isset($special_price_food_value)) {
+                            if ($special_price_food_value["date"] == $temp_date) {
                                 print " selected";
                             }
                         } 
@@ -80,10 +80,10 @@
             店舗名:
             <select name="shop_select">
                 <?php foreach ($shop_list as $shop) {?>
-                        <option value="<?php print $shop["shop_id"];?>" 
+                        <option value="<?php ph($shop["shop_id"]);?>" 
                         <?php 
-                            if (isset($special_price_food_value[0])) {
-                                if ($special_price_food_value[0]["shop_id"] == $shop["shop_id"]) {
+                            if (isset($special_price_food_value)) {
+                                if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
                                     print " selected";
                                 }
                             } 
