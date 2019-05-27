@@ -238,7 +238,6 @@ if(empty($_POST)){
 <div class="box_food">
   <a href="view_food_page.php"><td><?php ph($row["food_name"]);?></td><br>
 </div>
-    <!--仮で送信ボタン追加-->
     <td><form action="view_food_page.php?food_id=<?php ph($row['food_id'])?>
       &food_name=<?php ph($row['food_name']);?>
       &food_price=<?php ph($row['food_price']);?>
