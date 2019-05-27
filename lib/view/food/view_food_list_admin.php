@@ -21,14 +21,14 @@
 <body>
 <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-    </form>
+</form>
 <h1>生鮮食品一覧画面</h1>
 <!-- 画面上部タブ -->
-<a href="">特価商品</a>
-<a href="">生鮮食品</a>
-<a href="">分類</a>
-<a href="">ユーザ</a>
-<a href="">店舗</a>
+<a href="special_price_food_list_admin.php">特価商品</a>
+<a href="food_list_admin.php">生鮮食品</a>
+<a href="category_list_admin.php">分類</a>
+<a href="user_list_admin.php">ユーザ</a>
+<a href="shop_list_admin.php">店舗</a>
 
   <!-- 検索窓作成 -->
 
@@ -85,6 +85,6 @@
   <hr>
   <a href="food_list_admin.php">全て表示</a><br>
 
-  <a href="management.php">トップページへ戻る</a>
+  <a href="management_page_admin.php">トップページへ戻る</a>
 </body>
 </html>

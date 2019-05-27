@@ -8,8 +8,8 @@
  * 作成者：　amaru
  * 作成日：　2019/05/22
  * 最終更新日：　2019/05/22
- * レビュー担当者：
- * レビュー日：
+ * レビュー担当者：orange juice
+ * レビュー日：2019/05/22
  * バージョン： 1.1
  */
 
@@ -24,10 +24,11 @@
 <body>
   <form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-</form><br>
-<h1>ユーザ一覧</h1><br>
+</form>
+<h1>ユーザ一覧</h1>
 <a href="special_price_food_list_admin.php">特価商品</a>
 <a href="food_list_admin.php">生鮮食品</a>
+<a href="category_list_admin.php">分類</a>
 <a href="user_list_admin.php">ユーザ</a>
 <a href="shop_list_admin.php">店舗</a>
 <br>
@@ -36,7 +37,6 @@
         <input type="submit" value="検索">
 <p><a href="user_insert.php">新規登録</a></p>
 </form>
-<brs>
 <table border="1">
     <tr>
         <th>店舗</th>

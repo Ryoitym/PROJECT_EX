@@ -44,17 +44,15 @@
   <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
       <tr>
         <td><?php ph($row["genre_name"]);?></td>
-        <td>
-          <form action = "category_update.php?genre_id=<?php
+        <td><form action = "category_update.php?genre_id=<?php
              ph($row["genre_id"]);?>" method="post">
              <input type="submit" value="編集">
-           </form>
+            </form>
         </td>
-        <td>
-          <form action = "category_delete.php?genre_id=<?php
+        <td><form action = "category_delete.php?genre_id=<?php
              ph($row["genre_id"]);?>" method="post">
              <input type="submit" value="削除">
-          </form>
+             </form>
         </td>
       </tr>
   <?php } ?>

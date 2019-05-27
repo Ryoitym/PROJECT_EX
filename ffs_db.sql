@@ -181,3 +181,16 @@ INSERT INTO user (
     2
     );
 
+INSERT INTO sale()
+  sale_id,
+  sale_price,
+  date,
+  shop_id,
+  food_id
+  ) VALUES (
+    1,
+    50,
+    '2019/05/27',
+    1,
+    1
+  )

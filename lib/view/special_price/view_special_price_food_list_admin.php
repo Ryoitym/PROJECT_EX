@@ -21,15 +21,15 @@
     </head>
 
     <body>
-        <form action="../../logout.php" method="post">
-                <button type="submit" name="logout" value="logout">ログアウト</button>
-        </form><br>
+    <form action="logout.php" method="get">
+        <button type="submit" name="logout" value="logout">ログアウト</button>
+    </form>
 
-    <a href="">特価商品</a>
-    <a href="">生鮮食品</a>
-    <a href="">分類</a>
-    <a href="">ユーザ</a>
-    <a href="">店舗</a>
+    <a href="special_price_food_list_admin.php">特価商品</a>
+    <a href="food_list_admin.php">生鮮食品</a>
+    <a href="category_list_admin.php">分類</a>
+    <a href="user_list_admin.php">ユーザ</a>
+    <a href="shop_list_admin.php">店舗</a>
 
     <form action="special_price_food_list_admin.php" method="get">
         検索: <input type="text" name="search_name">
@@ -55,8 +55,8 @@
         <?php } ?>
     </table>
 
-    <a href="">全て表示</a>
+    <a href="special_price_food_list_admin.php">全て表示</a>
 
-    <a href="">トップページへ戻る</a>
+    <a href="management_page_admin.php">トップページへ戻る</a>
     </body>
 </html>
