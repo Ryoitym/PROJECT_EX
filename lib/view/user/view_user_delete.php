@@ -24,14 +24,6 @@
 
 <body>
 
-  <!--ポップアップ-->
-  <script>
-  var del = window.confirm("本当に削除しますか？");
-  if(del){
-  }else{
-      window.location.replace('user_list.php');
-  }
-  </script>
   <p>削除しました。</p>
   <p><a href="user_list_admin.php">ユーザ一覧画面に戻る</a></p>
   <form action="logout.php" method="get">

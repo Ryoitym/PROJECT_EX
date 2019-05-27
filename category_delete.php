@@ -20,7 +20,7 @@
         $sql .= "WHERE genre_id=:genre_id";
         $sth = $dbh->prepare($sql);
 
-        $sth->bindValue(":genre_id", $_GET["genre_id"]);
+        $sth->bindValue(":genre_id", $_POST["genre_id"]);
         $sth->execute();
 
     } catch (PDOException $e) {
