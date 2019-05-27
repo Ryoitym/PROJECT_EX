@@ -230,7 +230,7 @@
 
     <article>
     <?php 
-     require_once("../function.php");
+     require_once("lib/function.php");
       $dbh=connectDb();
 
       try{
@@ -249,11 +249,11 @@
       <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
     <div class="box_shop">
-        <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
+        <?php ph($row["shop_name"]);?></td>店<br>
       </div>
       
       <!--仮で送信ボタン追加-->
-      <td><form action="view_shop_page.php?shop_id=<?php
+      <td><form action="lib/view/view_shop_page.php?shop_id=<?php
             ph($row['shop_id'])?>&shop_name=<?php ph($row['shop_name']);?>
             &address=<?php ph($row['address']);?>
             &tel=<?php ph($row['tel']);?>"
