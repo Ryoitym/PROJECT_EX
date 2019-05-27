@@ -13,9 +13,9 @@
  * バージョン： 1.1
  */
 
-$message = "";
 
-if($_POST["logout"] == "logout"){
+
+if($_GET["logout"] == "logout"){
     session_start();
     unset($_SESSION["acess_lv"]);  //"acess_lv"のセッションを削除
     unset($_SESSION["shop_id"]);  //"shop_id"のセッションを削除
@@ -24,7 +24,4 @@ if($_POST["logout"] == "logout"){
     //logout確認画面を表示
     require_once("lib/view/view_logout.php");
     $message = "";
-} else{
-    $message = "不正アクセスです";
-    require_once("lib/view/view_access_logout.php");
-}
+} 

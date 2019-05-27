@@ -85,6 +85,6 @@
   <hr>
   <a href="food_list_admin.php">全て表示</a><br>
 
-  <a href="food_list_admin.php">トップページへ戻る</a>
+  <a href="management.php">トップページへ戻る</a>
 </body>
 </html>
