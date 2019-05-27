@@ -179,7 +179,8 @@
       <h2>生鮮食品一覧</h2>
 
       <!-- 分類 -->
-      <select name="genre_name">
+      <form action="TopPage.php"method="post">
+      <select name="genre_id">
             <option value="1">肉</option><br>
             <option value="2">野菜</option><br>
             <option value="3">魚</option><br>
@@ -196,23 +197,15 @@
               <option value="kalium">カリウム</option><br>
               </select><br>
 
-      <input type="text" name="keyword">
-      <input type="submit" value="検索"><br>
+
+      検索：<input type="text" name="search">
+            <input type="submit" value="検索">
+      </form>
 
 <?php
-  require_once("../function.php");
-  $dbh=connectDb();
-
-  try{
-    $sql = "SELECT * FROM ffs_db.food ";
-    $sth = $dbh->prepare($sql);
-    $sth->execute();
-  }
-  catch (PDOException $e) {
-    exit("SQL発行エラー：{$e->getMessage()}");
-  }
+  require_once("lib/function.php");
 ?>
-
+<?php var_dump($sth->fetchAll(PDO::FETCH_ASSOC));exit();?>
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
 <tr>
 <div class="box_food">
@@ -232,7 +225,7 @@
 
     <article>
     <?php
-     require_once("../function.php");
+     require_once("lib/function.php");
       $dbh=connectDb();
 
       try{

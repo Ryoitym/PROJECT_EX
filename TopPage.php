@@ -13,13 +13,16 @@
  * バージョン： 1.1
  */
 
+
+
 require_once("lib/function.php");
 $dbh = connectDb();
 
 if(empty($_POST)){
     try {
-        $sql = "SELECT * FROM food";
-        $sth = $dbh->prepare($sql);
+      $sql = "SELECT * FROM food
+      INNER JOIN genre ON food.genre_id=genre.genre_id ";
+      $sth = $dbh->prepare($sql); // SQLを準備
 
         $sth->execute();
     } catch (PDOException $e) {
@@ -28,19 +31,26 @@ if(empty($_POST)){
   }else{
     //検索ボタン押下時の処理
     try {
-        $sql = "SELECT * FROM ffs_db.food WHERE food_name AND genre_name LIKE :search";
-        $sth = $dbh->prepare($sql);
+      // SQLを構築
+      $sql = "SELECT * FROM food
+      INNER JOIN genre ON food.genre_id=genre.genre_id
+      WHERE food.genre_id = :search_genre_id";
+      $sth = $dbh->prepare($sql); // SQLを準備
 
         // プレースホルダに値をバインド
         $search_name = "%" . $_POST["search"] . "%";
-        $sth->bindValue(":search", $search_name);
-
+        $search_genre_id = $_POST["genre_id"];
+        // $sth->bindValue(":search", $search_name);
+        $sth->bindValue(":search_genre_id", $search_genre_id);
         $sth->execute();
+        //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));
+        //var_dump($_POST);
+        // var_dump($sth->fetchAll(PDO::FETCH_ASSOC));
     } catch (PDOException $e) {
         exit("SQL発行エラー：{$e->getMessage()}");
     }
 
   }
-    require_once("../view/view_top_page.php");
+    require_once("lib/view/view_top_page.php");
 
 ?>
