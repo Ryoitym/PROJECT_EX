@@ -18,9 +18,7 @@
      require_once("lib/function.php");
      // 入力画面表示
      $user_id_get = "";
-    $user_id_get = @$_GET["user_id"];
-
-
+     $user_id_get = @$_GET["user_id"];
 
      if(empty($_POST)){
        $dbh = connectDb();
