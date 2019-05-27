@@ -13,7 +13,7 @@
  * バージョン： 1.1
  */
 
- require_once("lib/function.php");
+ require_once("lib/init.php");
     //SQL作成
     $dbh = connectDb();
 
