@@ -26,69 +26,69 @@ class Food{
       $this->dbh = $dbh;
     }
 
-        // データベースからSpecialPriceFoodのデータを取得し、連想配列を返す
-        public function getDataFoodArray(){
+    // データベースからSpecialPriceFoodのデータを取得し、連想配列を返す
+    public function getDataFoodArray(){
 
-            try {
-                // SQLを構築
-                $sql = "SELECT * FROM ffs_db.food";
+        try {
+            // SQLを構築
+            $sql = "SELECT * FROM ffs_db.food";
 
-                $sth = $this->dbh->prepare($sql); // SQLを準備
+            $sth = $this->dbh->prepare($sql); // SQLを準備
 
-                // SQLを発行
-                $sth->execute();
+            // SQLを発行
+            $sth->execute();
 
-                // データを戻す
-                return $sth->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                exit("SQL発行エラー：{$e->getMessage()}");
-            }
+            // データを戻す
+            return $sth->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
         }
+    }
 
-        // データベースからFoodのデータを取得し、連想配列を返す
-        public function searchDataFood($search_word){
+    // データベースからFoodのデータを取得し、連想配列を返す
+    public function searchDataFood($search_word){
 
-            try {
-                // SQLを構築
-                $sql = "SELECT * FROM ffs_db.food
-                        WHERE food_name LIKE :search_word ";
+        try {
+            // SQLを構築
+            $sql = "SELECT * FROM ffs_db.food
+                    WHERE food_name LIKE :search_word ";
 
-                $sth = $this->dbh->prepare($sql); // SQLを準備
+            $sth = $this->dbh->prepare($sql); // SQLを準備
 
-                // プレースホルダに値をバインド
-                $name_search_word = "%". $search_word . "%";
-                $sth->bindValue(":search_word", $name_search_word);
+            // プレースホルダに値をバインド
+            $name_search_word = "%". $search_word . "%";
+            $sth->bindValue(":search_word", $name_search_word);
 
-                // SQLを発行
-                $sth->execute();
+            // SQLを発行
+            $sth->execute();
 
-                // データを戻す
-                return $sth->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                exit("SQL発行エラー：{$e->getMessage()}");
-            }
+            // データを戻す
+            return $sth->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
         }
+    }
 
-        public function getDataById($food_id){
+    public function getDataById($food_id){
 
-            try {
-                // SQLを構築
-                $sql = "SELECT * FROM ffs_db.food
-                        WHERE food_id = :food_id";
+        try {
+            // SQLを構築
+            $sql = "SELECT * FROM ffs_db.food
+                    WHERE food_id = :food_id";
 
-                $sth = $this->dbh->prepare($sql); // SQLを準備
+            $sth = $this->dbh->prepare($sql); // SQLを準備
 
-                // プレースホルダに値をバインド
-                $sth->bindValue(":food_id", (int) $food_id);
+            // プレースホルダに値をバインド
+            $sth->bindValue(":food_id", (int) $food_id);
 
-                // SQLを発行
-                $sth->execute();
+            // SQLを発行
+            $sth->execute();
 
-                // データを戻す
-                $result_array = $sth->fetchAll(PDO::FETCH_ASSOC);
-                return @$result_array[0];
-            } catch (PDOException $e) {
-                exit("SQL発行エラー：{$e->getMessage()}");
-            }
+            // データを戻す
+            $result_array = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return @$result_array[0];
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
         }
+    }
  }

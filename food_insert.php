@@ -17,8 +17,20 @@
  $message = "";
       //共通関数読み込み
       require_once("lib/function.php");
+      $dbh = connectDb();
       //入力画面表示
       if(empty($_POST)){
+
+        //分類のためのSQL作成
+        try{
+        $sql = "SELECT * FROM ffs_db.genre";
+        $sth = $dbh->prepare($sql); // SQLを準備
+        $sth->execute();
+        
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+
         require_once("lib/view/food/view_food_insert.php");
       }else{
         // 入力チェック 既に登録されているかどうか
@@ -63,9 +75,25 @@
         ||empty($_POST["protein"])||empty($_POST["lipid"])||empty($_POST["carb"])
         ||empty($_POST["natrium"])||empty($_POST["kalium"])){
         // 入力チェックNG
+            //分類のためのSQL作成
+        try{
+            $sql = "SELECT * FROM ffs_db.genre";
+            $sth = $dbh->prepare($sql); // SQLを準備
+            $sth->execute();
+            } catch (PDOException $e) {
+                exit("SQL発行エラー：{$e->getMessage()}");
+            }
             $message = "入力不十分です";
             require_once("lib/view/food/view_food_insert.php");
         }else if(!empty($row)){
+            //分類のためのSQL作成
+        try{
+            $sql = "SELECT * FROM ffs_db.genre";
+            $sth = $dbh->prepare($sql); // SQLを準備
+            $sth->execute();
+            } catch (PDOException $e) {
+                exit("SQL発行エラー：{$e->getMessage()}");
+            }
             $message = "すでに登録されています";
             require_once("lib/view/food/view_food_insert.php");
         }else{
