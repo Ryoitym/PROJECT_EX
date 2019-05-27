@@ -6,9 +6,9 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/24
- * レビュー担当者：
- * レビュー日：
+ * 最終更新日：　2019/05/27
+ * レビュー担当者：orange jyuuice
+ * レビュー日：2019/05/27
  * バージョン： 1.0
  */
 -->
@@ -17,12 +17,21 @@
   <?php
       //共通関数読み込み
       require_once("lib/function.php");
+      $dbh = connectDb();
       //入力画面表示
       if(empty($_POST)){
+          // 店舗をセレクトボックスで表示するためのSQL作成
+          try{
+          $sql = "SELECT * FROM ffs_db.shop";
+          $sth = $dbh->prepare($sql); // SQLを準備
+          $sth->execute();
+          } catch (PDOException $e) {
+              exit("SQL発行エラー：{$e->getMessage()}");
+          }
+
         require_once("lib/view/user/view_user_insert.php");
       }else{
         // 入力チェック 既に登録されているかどうか
-        $dbh = connectDb();
         try {
             // SQLを構築
             $sql = "SELECT * FROM ffs_db.user";
@@ -51,9 +60,25 @@
         if(empty($_POST["name_family"])||empty($_POST["name_last"])||empty($_POST["mail"])
         ||empty($_POST["password"])||empty($_POST["shop_id"])||empty($_POST["acess_lv"])){
         // 入力チェックNG
+        // 店舗をセレクトボックスで表示するためのSQL作成
+        try{
+        $sql = "SELECT * FROM ffs_db.shop";
+        $sth = $dbh->prepare($sql); // SQLを準備
+        $sth->execute();
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
             require_once("lib/view/user/view_user_insert.php");
            ph("入力不十分です");
         }else if(!empty($row)){
+          // 店舗をセレクトボックスで表示するためのSQL作成
+          try{
+          $sql = "SELECT * FROM ffs_db.shop";
+          $sth = $dbh->prepare($sql); // SQLを準備
+          $sth->execute();
+          } catch (PDOException $e) {
+              exit("SQL発行エラー：{$e->getMessage()}");
+          }
             require_once("lib/view/user/view_user_insert.php");
            ph("すでに登録されています");
         }else{

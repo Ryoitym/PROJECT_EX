@@ -15,4 +15,4 @@
 <?php
     require_once("lib/init.php");
 
-    require_once("lib/view/test_danger.php");
+    require_once("lib/view/view_top_page_design/view_top_page.php");

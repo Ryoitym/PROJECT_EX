@@ -32,9 +32,9 @@
     <form action="food_update.php" method="post">
         食品名：<input type="text" name="food_name" value="<?php ph($row["food_name"]);?>"><br>
         分類：<select name="genre_id">
-                <option value="1">肉</option>
-                <option value="2">魚</option>
-                <option value="3">野菜</option>
+                <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+                    <option value="<?php ph($row["genre_id"]);?>"><?php ph($row["genre_name"]);?></option>
+	            <?php } ?>
              </select><br>
         写真：<input type="text" name="picture" value="<?php ph($row["picture"]);?>">
               <input type="submit" value="写真を選択"><br>
