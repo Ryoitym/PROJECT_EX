@@ -13,7 +13,10 @@
  * バージョン： 1.1
  */
 
- require_once("lib/function.php");
+ require_once("lib/init.php");
+   // 店長級社員かどうか確認
+   accesscheck();
+
     //SQL作成
     $dbh = connectDb();
 
