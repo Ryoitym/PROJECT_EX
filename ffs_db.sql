@@ -181,7 +181,7 @@ INSERT INTO user (
     2
     );
 
-INSERT INTO sale()
+INSERT INTO sale(
   sale_id,
   sale_price,
   date,
@@ -190,7 +190,7 @@ INSERT INTO sale()
   ) VALUES (
     1,
     50,
-    '2019/05/27',
+    '20190527',
     1,
     1
   )
