@@ -231,32 +231,23 @@ if(empty($_POST)){
     require_once("view_top_page.php");
 
 ?>
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
 
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
+<h2>生鮮食品一覧</h2>
+<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+<tr>
+<div class="box_food">
+  <a href="view_food_page.php"><td><?php ph($row["food_name"]);?></td><br>
+</div>
+    <!--仮で送信ボタン追加-->
+    <td><form action="view_food_page.php?food_id=<?php ph($row['food_id'])?>
+      &food_name=<?php ph($row['food_name']);?>
+      &food_price=<?php ph($row['food_price']);?>
+      &txt=<?php ph($row['txt']);?>"
+    method="post">
+  </td>
+</tr>
+<?php } ?>
 
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
 
     </article>
 
