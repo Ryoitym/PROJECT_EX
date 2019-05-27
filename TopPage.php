@@ -15,7 +15,7 @@
 
 
 
-require_once("lib/function.php");
+require_once("lib/init.php");
 $dbh = connectDb();
 
 function get_food($dbh)
