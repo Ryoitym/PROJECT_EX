@@ -198,7 +198,6 @@
 
       <input type="text" name="keyword">
       <input type="submit" value="検索"><br>
-
 <?php
 
 require_once("../function.php");
