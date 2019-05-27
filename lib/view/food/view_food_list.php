@@ -19,22 +19,22 @@
 <title>生鮮食品一覧画面(店長)</title>
 </head>
 <body>
-<form action="../../logout.php" method="post">
+<form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-    </form>
+</form>
 <h1>生鮮食品一覧画面</h1>
 <!-- 画面上部タブ -->
-<a href="">特価商品</a>
-<a href="">生鮮食品</a>
-<a href="">ユーザ</a>
-<a href="">店舗</a>
+<a href="special_price_food_list.php">特価商品</a>
+<a href="food_list.php">生鮮食品</a>
+<a href="user_list.php">ユーザ</a>
+<a href="shop_list.php">店舗</a>
 
   <!-- 検索窓作成 -->
 
     <form action="food_list.php" method="post">
       検索：<input type="text" name="search">
             <input type="submit" value="検索">
-      </form>
+    </form>
       <hr>
     <table border="1">
         <tr>
@@ -49,23 +49,26 @@
             <th>ナトリウム</th>
             <th>カリウム</th>
             <th>表示フラグ</th>
+            <th>分類</th>
         </tr>
-        <tr>
-          <td>写真</td>
-          <td>食品名</td>
-          <td>価格</td>
-          <td>説明文書</td>
-          <td>エネルギー</td>
-          <td>タンパク質</td>
-          <td>脂質</td>
-          <td>炭水化物</td>
-          <td>ナトリウム</td>
-          <td>カリウム</td>
-          <td>表示<input type="radio" name="show" value="表示"></td>
-          <td>非表示<input type="radio" name="show" value="非表示"></td>
-        </tr>
+<?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
+      <tr>
+        <td><?php ph($row["picture"]); ?></td>
+        <td><?php ph($row["food_name"]); ?></td>
+        <td><?php ph($row["food_price"]); ?></td>
+        <td><?php ph($row["txt"]); ?></td>
+        <td><?php ph($row["calorie"]); ?></td>
+        <td><?php ph($row["protein"]); ?></td>
+        <td><?php ph($row["lipid"]); ?></td>
+        <td><?php ph($row["carb"]); ?></td>
+        <td><?php ph($row["natrium"]); ?></td>
+        <td><?php ph($row["kalium"]); ?></td>
+        <td><?php ph($row["show_flag"]); ?></td>
+        <td><?php ph($row["genre_id"]); ?></td>
+      </tr>
+<?php } ?>
 </table>
-  <a href='food_list.php'>トップページへ戻る</a>
-  <a href="">全て表示</a>
+  <a href="management_page.php">トップページへ戻る</a>
+  <a href="food_list.php">全て表示</a>
 </body>
 </html>
