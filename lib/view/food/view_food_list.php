@@ -69,8 +69,7 @@
                 } else{
                   ph("非表示"); 
               }?></td>
-        <td><?php ph($row["genre_id"]); ?></td>
-        <td><?php ph($row["genre_id"]); ?></td>
+        <td><?php ph($row["genre_name"]); ?></td>
       </tr>
 <?php } ?>
 </table>

@@ -71,7 +71,7 @@
                 } else{
                   ph("非表示"); 
               }?></td>
-        <td><?php ph($row["genre_id"]); ?></td>
+        <td><?php ph($row["genre_name"]); ?></td>
         <td>
           <form action = "food_update.php" method="get">
             <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
