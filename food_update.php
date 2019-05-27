@@ -17,11 +17,11 @@
     require_once("lib/init.php");
     accesscheckAdmin();
     $message = "";
+    $dbh = connectDb();
+
 
     // 入力画面表示
     if(empty($_POST)){
-        $dbh = connectDb();
-
         try {
             // SQLを構築
             $sql = "SELECT * FROM ffs_db.food ";
@@ -42,7 +42,7 @@
         require_once("lib/view/food/view_food_update.php");
     }else{
         // 入力チェック 既に登録されているかどうか
-        $dbh = connectDb();
+        
 
         try {
             // SQLを構築
@@ -83,8 +83,24 @@
         }
 
         if(!empty($row)){
-            require_once("lib/view/food/view_food_update.php");
+            try {
+                // SQLを構築
+                $sql = "SELECT * FROM ffs_db.food ";
+                $sql .= "WHERE food_id=:food_id";
+                $sth = $dbh->prepare($sql); // SQLを準備
+    
+                // プレースホルダに値をバインド
+                //GETで飛んできたIDのレコードを取ってくる
+                $sth->bindValue(":food_id", $_POST["food_id"]);
+    
+                // SQLを発行
+                $sth->execute();
+                $row = $sth->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                exit("SQL発行エラー：{$e->getMessage()}");
+            }
             $message="同じ内容の商品が登録されています";
+            require_once("lib/view/food/view_food_update.php");
         } else if(  strlen($_POST["food_name"]) == 0 ||
                     strlen($_POST["genre_id"])  == 0 ||
                     strlen($_POST["picture"])   == 0 ||
@@ -96,8 +112,24 @@
                     strlen($_POST["carb"])      == 0 ||
                     strlen($_POST["natrium"])   == 0 ||
                     strlen($_POST["kalium"])    == 0 ){
-                require_once("lib/view/food/view_food_update.php");
+                    try {
+                        // SQLを構築
+                        $sql = "SELECT * FROM ffs_db.food ";
+                        $sql .= "WHERE food_id=:food_id";
+                        $sth = $dbh->prepare($sql); // SQLを準備
+                
+                        // プレースホルダに値をバインド
+                        //GETで飛んできたIDのレコードを取ってくる
+                        $sth->bindValue(":food_id", $_POST["food_id"]);
+                
+                        // SQLを発行
+                        $sth->execute();
+                        $row = $sth->fetch(PDO::FETCH_ASSOC);
+                    } catch (PDOException $e) {
+                        exit("SQL発行エラー：{$e->getMessage()}");
+                    }
                 $message="入力不十分です";
+                require_once("lib/view/food/view_food_update.php");
         } else if(  is_numeric($_POST["food_price"]) == false || $_POST["food_price"] < 0 ||
                     is_numeric($_POST["calorie"]) == false || $_POST["food_price"] < 0 ||
                     is_numeric($_POST["protein"]) == false || $_POST["food_price"] < 0 ||
@@ -105,12 +137,44 @@
                     is_numeric($_POST["carb"]) == false || $_POST["food_price"] < 0 ||
                     is_numeric($_POST["natrium"]) == false || $_POST["food_price"] < 0 ||
                     is_numeric($_POST["kalium"]) == false || $_POST["food_price"] < 0 ){
-                require_once("lib/view/food/view_food_update.php");
+                    try {
+                        // SQLを構築
+                        $sql = "SELECT * FROM ffs_db.food ";
+                        $sql .= "WHERE food_id=:food_id";
+                        $sth = $dbh->prepare($sql); // SQLを準備
+                
+                        // プレースホルダに値をバインド
+                        //GETで飛んできたIDのレコードを取ってくる
+                        $sth->bindValue(":food_id", $_POST["food_id"]);
+                
+                        // SQLを発行
+                        $sth->execute();
+                        $row = $sth->fetch(PDO::FETCH_ASSOC);
+                    } catch (PDOException $e) {
+                        exit("SQL発行エラー：{$e->getMessage()}");
+                    }
                 $message="正の数値で入力してください";
+                require_once("lib/view/food/view_food_update.php");
         } else if(  strlen($_POST["food_name"]) <= 100 ||
                     strlen($_POST["picture"]) <= 300){
-                require_once("lib/view/food/view_food_update.php");
+                        try {
+                            // SQLを構築
+                            $sql = "SELECT * FROM ffs_db.food ";
+                            $sql .= "WHERE food_id=:food_id";
+                            $sth = $dbh->prepare($sql); // SQLを準備
+                
+                            // プレースホルダに値をバインド
+                            //GETで飛んできたIDのレコードを取ってくる
+                            $sth->bindValue(":food_id", $_POST["food_id"]);
+                
+                            // SQLを発行
+                            $sth->execute();
+                            $row = $sth->fetch(PDO::FETCH_ASSOC);
+                        } catch (PDOException $e) {
+                            exit("SQL発行エラー：{$e->getMessage()}");
+                        }
                 $message="食品名は１００文字、写真は３００文字以内で入力してください";
+                require_once("lib/view/food/view_food_update.php");
         } else{
             
             try{
