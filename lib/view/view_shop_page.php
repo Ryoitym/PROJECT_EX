@@ -218,20 +218,22 @@
     <article>
       <h2>店舗名</h2>
       <!-- 店舗リンク -->
+      <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
       <div class="box_shop">
-        <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-    <tr>
-    <div class="box_shop">
-        <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
-    </div>
-    </tr>
-    <?php } ph($_GET["shop_id"]);?>
-        電話番号：090-xxxx-xxxx<br>
-        住所：東京都 xx区
+        <?php for($i=0;$i<1000;$i++){
+            switch($_GET['shop_id']){
+              case $i:?>
+              <div class="box_shop">
+          <a href="view_shop_page.php"><td><?php ph($_GET["shop_name"]);?></td>店<br>
+          住所：<?php ph($_GET['address'])?><br>
+          電話番号：<?php ph($_GET['tel'])?><br>
+          </div>
+            <?php break;}
+          }?>
         
       </div>
     </article>
-
+    <br>
     <a href='view_top_page.php'>トップページへ戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
