@@ -198,8 +198,9 @@
         <img src="#" alt="">
 
       <?php foreach ($sth as $value) {
-        if($_GET["shop_id"]==$value["shop_id"]){echo $value["food_name"];
-        echo $value["txt"];?><br><?php }}
+        if($_GET["shop_id"]==$value["shop_id"]){echo $value["food_name"];?><br><?php 
+        echo $value["txt"];?><br><?php }
+      }
       ?>
       <br>
       
