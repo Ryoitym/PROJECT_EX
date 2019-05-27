@@ -121,9 +121,9 @@
     <article>
         <?php ph($food_value["picture"]); ?>
         <br>
-        <!-- 生鮮食品の写真 --
-        <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
-         -->
+        <!-- 生鮮食品の写真 -->
+        <img src="lib/pic/food_pic/<?php ph($food_value["picture"]) ?>" width=300px height=300px alt="生鮮食品画像">
+
         <!-- 商品名 -->
         <h3><?php ph($food_value["food_name"]); ?></h3>
 
