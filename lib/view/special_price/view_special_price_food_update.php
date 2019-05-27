@@ -35,8 +35,8 @@
                 <?php foreach ($food_list as $food) {?>
                         <option value="<?php ph($food["food_id"]);?>" 
                             <?php 
-                            if (isset($special_price_food_value[0])) {
-                                if ($special_price_food_value[0]["food_id"] == $food["food_id"]) {
+                            if (isset($special_price_food_value)) {
+                                if ($special_price_food_value["food_id"] == $food["food_id"]) {
                                     print "selected";
                                 }
                             } 
@@ -50,8 +50,8 @@
 
             特価価格:<input type="text" name="sale_price" size="20" 
                         <?php 
-                            if (isset($special_price_food_value[0])) {
-                                ph("value=\"{$special_price_food_value[0]["sale_price"]}\"");
+                            if (isset($special_price_food_value)) {
+                                ph("value={$special_price_food_value["sale_price"]}");
                             } 
                         ?>
                     >
@@ -63,8 +63,8 @@
                 <?php $temp_date = date("Y-m-d",strtotime("+" . $i . " day")); ?>
                 <option value="<?php print $temp_date; ?>"
                     <?php 
-                        if (isset($special_price_food_value[0])) {
-                            if ($special_price_food_value[0]["date"] == $temp_date) {
+                        if (isset($special_price_food_value)) {
+                            if ($special_price_food_value["date"] == $temp_date) {
                                 print " selected";
                             }
                         } 
@@ -82,8 +82,8 @@
                 <?php foreach ($shop_list as $shop) {?>
                         <option value="<?php ph($shop["shop_id"]);?>" 
                         <?php 
-                            if (isset($special_price_food_value[0])) {
-                                if ($special_price_food_value[0]["shop_id"] == $shop["shop_id"]) {
+                            if (isset($special_price_food_value)) {
+                                if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
                                     print " selected";
                                 }
                             } 

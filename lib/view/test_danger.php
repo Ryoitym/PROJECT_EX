@@ -1,16 +1,12 @@
 <?php
-/**
- * このファイルの概要説明
- *　データベース作成フォーマット
- * このファイルの詳細説明
- *
+/*
  * システム名： FFS
- * 作成者：　appleCandy
+ * 作成者：　amaru
  * 作成日：　2019/05/23
  * 最終更新日：　2019/05/23
  * レビュー担当者：
  * レビュー日：
- * バージョン： 1.1
+ * バージョン： 1.0
  */
 ?>
 
@@ -19,7 +15,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>店舗個別ページ画面</title>
+<title>公開トップページ画面</title>
 <!--外部記述する場合
 <link rel="stylesheet" href="css/style.css">
 -->
@@ -138,8 +134,8 @@
 
   .box_shop{
     display: inline-block;
-    width: 500px;
-    height: 200px;
+    width: 50px;
+    height: 50px;
     margin: 0 auto;
     padding: 10px;
     background-color: #dedede;
@@ -148,22 +144,30 @@
   /*最下部
   ----------------------------------------------------*/
   footer {
-      clear: both;
-      padding: 40px 0;
-      background: #dedede;
-      color: grey;
-      text-align: center;
+    clear: both;
+    padding: 40px 0;
+    background: #dedede;
+    color: grey;
+    text-align: center;
   }
 </style>
 
 <div class="wrapper">
 <!-- タイトル & ナビゲーション & 特売商品欄 -->
 <header>
-<a href='view_top_page.php'><h1>FFS</h1></a>
+  <h1>FFS</h1>
+  <hr>
+  <nav>
+    <ul>
+      <li><a href="#">特売</a></li>
+      <li><a href="#">生鮮食品</a></li>
+      <li><a href="#">店舗</a></li>
+    </ul>
+  </nav>
 
 <!-- 特売商品欄(スライダー機能必要) -->
   <div id="slide">
-    <a href="#"></a>
+    <a href="#">もっと見る</a>
   </div>
 </header>
 
@@ -171,9 +175,31 @@
 <!-- 本文（中身・コンテンツ） -->
 <div class="content">
   <main>
-  <h2>特売商品一覧</h2>
-  <article>
-  <div class="box">
+    <article>
+      <h2>生鮮食品一覧</h2>
+
+      <!-- 分類 -->
+      <select name="genre_name">
+            <option value="1">肉</option><br>
+            <option value="2">野菜</option><br>
+            <option value="3">魚</option><br>
+            <option value="4">その他</option><br>
+      </select>
+
+      <!-- 栄養価 -->
+      栄養価: <select name="eiyoka">
+              <option value="calorie">エネルギー</option><br>
+              <option value="protein">たんぱく質</option><br>
+              <option value="lipid">脂質</option><br>
+              <option value="carb">炭水化物</option><br>
+              <option value="natrium">ナトリウム</option><br>
+              <option value="kalium">カリウム</option><br>
+              </select><br>
+
+      <input type="text" name="keyword">
+      <input type="submit" value="検索"><br>
+
+      <div class="box">
         <!-- 生鮮食品の写真 -->
         <img src="#" alt="">
         <!-- 商品名 -->
@@ -201,8 +227,10 @@
       </div>
 
     </article>
+
+    <article>
     <?php 
-     require_once("../function.php");
+     require_once("lib/function.php");
       $dbh=connectDb();
 
       try{
@@ -215,27 +243,26 @@
         exit("SQL発行エラー：{$e->getMessage()}");
     }
     ?>
-    <article>
-      <h2>店舗名</h2>
-      <!-- 店舗リンク -->
-      <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
-      <div class="box_shop">
-      <!--仮で999まで表示-->
-        <?php for($i=0;$i<1000;$i++){
-            switch($_GET['shop_id']){
-              case $i:?>
-              <div class="box_shop">
-          <?php ph($_GET["shop_name"]);?></td>店<br>
-          住所：<?php ph($_GET['address'])?><br>
-          電話番号：<?php ph($_GET['tel'])?><br>
-          </div>
-            <?php break;}
-          }?>
-        
+    
+
+      <h2>店舗一覧</h2>
+      <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+    <tr>
+    <div class="box_shop">
+        <?php ph($row["shop_name"]);?></td>店<br>
       </div>
+      
+      <!--仮で送信ボタン追加-->
+      <td><form action="lib/view/view_shop_page.php?shop_id=<?php
+            ph($row['shop_id'])?>&shop_name=<?php ph($row['shop_name']);?>
+            &address=<?php ph($row['address']);?>
+            &tel=<?php ph($row['tel']);?>"
+             method="post">
+      <input type="submit" value="送信"></form></td>
+    </tr>
+    <?php } ?>
+
     </article>
-    <br>
-    <a href='view_top_page.php'>トップページへ戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 

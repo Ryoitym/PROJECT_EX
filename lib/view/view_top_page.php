@@ -199,6 +199,39 @@
       <input type="text" name="keyword">
       <input type="submit" value="検索"><br>
 
+<?php
+
+require_once("../function.php");
+$dbh = connectDb();
+
+if(empty($_POST)){
+    try {
+        $sql = "SELECT * FROM food";
+        $sth = $dbh->prepare($sql);
+
+        $sth->execute();
+    } catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+  }else{
+    //検索ボタン押下時の処理
+    try {
+        $sql = "SELECT * FROM ffs_db.food WHERE food_name LIKE :search";
+        $sth = $dbh->prepare($sql);
+
+        // プレースホルダに値をバインド
+        $search_name = "%" . $_POST["search"] . "%";
+        $sth->bindValue(":search", $search_name);
+
+        $sth->execute();
+    } catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+
+  }
+    require_once("view_top_page.php");
+
+?>
       <div class="box">
         <!-- 生鮮食品の写真 -->
         <img src="#" alt="">
@@ -251,19 +284,16 @@
     <div class="box_shop">
         <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
       </div>
-      <td><form action="view_shop_page.php?shop_id=<?php
-            ph($row['shop_id']);?>"
+          <!--仮で送信ボタン追加-->
+          <td><form action="view_shop_page.php?shop_id=<?php
+            ph($row['shop_id'])?>&shop_name=<?php ph($row['shop_name']);?>
+            &address=<?php ph($row['address']);?>
+            &tel=<?php ph($row['tel']);?>"
              method="post">
+      <input type="submit" value="送信"></form></td>
     </tr>
     <?php } ?>
-      <!-- 店舗リンク -->
 
-      <div class="box_shop">
-        <a href="#">def店舗
-      </div>
-      <div class="box_shop">
-        <a href="#">ghi店舗
-      </div>
     </article>
 </main>
 </div><!-- コンテンツはここまで -->
