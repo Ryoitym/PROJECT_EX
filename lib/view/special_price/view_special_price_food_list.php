@@ -33,7 +33,7 @@
             <input type="submit" value="検索">
         </form>
         
-        <input type="submit" value="新規登録">
+        <a href="special_price_food_insert.php">新規登録</a>
 
         <!-- borderは後で消す -->
         <table border="1">
