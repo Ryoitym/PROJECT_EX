@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　nosu10101
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/24
+ * 最終更新日：　2019/05/27
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -52,21 +52,21 @@
 
         <?php foreach ($special_price_food_list as $special_price_food_i) {?>
             <tr>
-                <td><?php print $special_price_food_i["date"]; ?></td>
-                <td><?php print $special_price_food_i["shop_name"]; ?></td>
-                <td><?php print $special_price_food_i["food_name"]; ?></td>
-                <td><?php print $special_price_food_i["sale_price"]; ?></td>
+                <td><?php ph($special_price_food_i["date"]); ?></td>
+                <td><?php ph($special_price_food_i["shop_name"]); ?></td>
+                <td><?php ph($special_price_food_i["food_name"]); ?></td>
+                <td><?php ph($special_price_food_i["sale_price"]); ?></td>
                 <td>
                     <form action="special_price_food_update.php" method="get">
                         <input type="submit" value="編集">
-                        <input type="hidden" name="sale_id" value="<?php print $special_price_food_i["sale_id"]; ?>" />
+                        <input type="hidden" name="sale_id" value="<?php ph($special_price_food_i["sale_id"]); ?>" />
                     </form>
                 </td>
                 <td>
-                    <form action = "special_price_food_delete.php" method="post">
-                      <input type="hidden" name="sale_id" value="<?php ph($row["sale_id"]);?>">
-                     <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
-                     </form>
+                    <form action="special_price_food_delete.php" method="get">
+                            <input type="submit" value="削除"  onclick="return confirm('本当に削除しますか？');">
+                            <input type="hidden" name="sale_id" value="<?php ph($special_price_food_i["sale_id"]); ?>" />
+                    </form>
                 </td>
             </tr>
         <?php } ?>

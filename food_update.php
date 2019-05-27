@@ -39,6 +39,8 @@
             exit("SQL発行エラー：{$e->getMessage()}");
         }
 
+        
+
         require_once("lib/view/food/view_food_update.php");
     }else{
         // 入力チェック 既に登録されているかどうか
@@ -99,7 +101,7 @@
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
-            $message="同じ内容の商品が登録されています";
+            $message.="同じ内容の商品が登録されています";
             require_once("lib/view/food/view_food_update.php");
         } else if(  strlen($_POST["food_name"]) == 0 ||
                     strlen($_POST["genre_id"])  == 0 ||
@@ -128,7 +130,7 @@
                     } catch (PDOException $e) {
                         exit("SQL発行エラー：{$e->getMessage()}");
                     }
-                $message="入力不十分です";
+                $message.="入力不十分です";
                 require_once("lib/view/food/view_food_update.php");
         } else if(  is_numeric($_POST["food_price"]) == false || $_POST["food_price"] < 0 ||
                     is_numeric($_POST["calorie"]) == false || $_POST["food_price"] < 0 ||
@@ -153,7 +155,7 @@
                     } catch (PDOException $e) {
                         exit("SQL発行エラー：{$e->getMessage()}");
                     }
-                $message="正の数値で入力してください";
+                $message.="正の数値で入力してください";
                 require_once("lib/view/food/view_food_update.php");
         } else if(  strlen($_POST["food_name"]) <= 100 ||
                     strlen($_POST["picture"]) <= 300){
@@ -173,7 +175,7 @@
                         } catch (PDOException $e) {
                             exit("SQL発行エラー：{$e->getMessage()}");
                         }
-                $message="食品名は１００文字、写真は３００文字以内で入力してください";
+                $message.="食品名は１００文字、写真は３００文字以内で入力してください";
                 require_once("lib/view/food/view_food_update.php");
         } else{
             
