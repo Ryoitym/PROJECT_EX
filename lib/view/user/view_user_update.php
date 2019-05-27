@@ -7,9 +7,9 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
- * レビュー担当者：
- * レビュー日：
+ * 最終更新日：　2019/05/27
+ * レビュー担当者：orange jyuice
+ * レビュー日：2019/05/27
  * バージョン： 1.1
  */
 
@@ -24,7 +24,7 @@
 <body>
   <form action="logout.php" method="post">
           <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form><br>
+  </form>
 <form action="user_update.php" method="post">
 <input type="hidden" name="user_id" value=<?php print $user_id_get; ?> ><br>
 
@@ -45,7 +45,7 @@
         </select><br>
 <input type="submit" value="編集"><br>
 <input type="submit" value="クリア"><br>
-<a href="user_list.php">ユーザ一覧に戻る</a>
+<a href="user_list_admin.php">ユーザ一覧に戻る</a>
 </form>
 </body>
 </html>

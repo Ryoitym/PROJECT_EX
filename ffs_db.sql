@@ -181,6 +181,7 @@ INSERT INTO user (
     2
     );
 
+-- “Á‰¿•iA‰ÖŽq
 INSERT INTO sale(
   sale_id,
   sale_price,
@@ -190,7 +191,19 @@ INSERT INTO sale(
   ) VALUES (
     1,
     50,
-    '20190527',
+    '2019-05-27',
     1,
     1
-  )
+  );
+
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    1,
+    'ó‘‹´“X',
+    '“Œ‹ž“s‘ä“Œ‹æó‘‹´5’š–Ú‚Q|‚R',
+    '090-1234-5678'
+  );

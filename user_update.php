@@ -109,6 +109,6 @@
          } catch (PDOException $e) {
              exit("SQL発行エラー：{$e->getMessage()}");
        }
+       header('Location: user_list_admin.php');
      }
    }
-     require_once("lib/view/user/view_user_update.php");
