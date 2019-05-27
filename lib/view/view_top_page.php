@@ -198,41 +198,21 @@
 
       <input type="text" name="keyword">
       <input type="submit" value="検索"><br>
+
 <?php
+  require_once("../function.php");
+  $dbh=connectDb();
 
-require_once("../function.php");
-$dbh = connectDb();
-
-if(empty($_POST)){
-    try {
-        $sql = "SELECT * FROM food";
-        $sth = $dbh->prepare($sql);
-
-        $sth->execute();
-    } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-    }
-  }else{
-    //検索ボタン押下時の処理
-    try {
-        $sql = "SELECT * FROM ffs_db.food WHERE food_name LIKE :search";
-        $sth = $dbh->prepare($sql);
-
-        // プレースホルダに値をバインド
-        $search_name = "%" . $_POST["search"] . "%";
-        $sth->bindValue(":search", $search_name);
-
-        $sth->execute();
-    } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-    }
-
+  try{
+    $sql = "SELECT * FROM ffs_db.food ";
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
   }
-    require_once("view_top_page.php");
-
+  catch (PDOException $e) {
+    exit("SQL発行エラー：{$e->getMessage()}");
+  }
 ?>
 
-<h2>生鮮食品一覧</h2>
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
 <tr>
 <div class="box_food">

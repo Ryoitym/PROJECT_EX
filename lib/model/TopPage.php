@@ -28,7 +28,7 @@ if(empty($_POST)){
   }else{
     //検索ボタン押下時の処理
     try {
-        $sql = "SELECT * FROM ffs_db.food WHERE food_name LIKE :search";
+        $sql = "SELECT * FROM ffs_db.food WHERE food_name AND genre_name LIKE :search";
         $sth = $dbh->prepare($sql);
 
         // プレースホルダに値をバインド
