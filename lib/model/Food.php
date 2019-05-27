@@ -16,21 +16,19 @@
 
 
 //生鮮食品モデルクラス
-class Food
-{
+class Food{
+
     private $dbh; // PDOインスタンス
 
     // コンストラクタ
     // $dbh:PDOインスタンス
-    public function __construct($dbh)
-    {
-        $this->dbh = $dbh;
+    public function __construct($dbh){
+      $this->dbh = $dbh;
     }
 
-
         // データベースからSpecialPriceFoodのデータを取得し、連想配列を返す
-        public function getDataSpecialPriceFoodArray()
-        {
+        public function getDataFoodArray(){
+
             try {
                 // SQLを構築
                 $sql = "SELECT * FROM ffs_db.food";
@@ -48,8 +46,8 @@ class Food
         }
 
         // データベースからFoodのデータを取得し、連想配列を返す
-        public function searchDataSpecialPriceFood($search_word)
-        {
+        public function searchDataFood($search_word){
+
             try {
                 // SQLを構築
                 $sql = "SELECT * FROM ffs_db.food
@@ -71,15 +69,12 @@ class Food
             }
         }
 
+        public function getDataById($food_id){
 
-        // データベースのデータをIDを指定して1件取得する
-        // $id:idを指定
-        public function getDataById($food_id)
-        {
             try {
                 // SQLを構築
                 $sql = "SELECT * FROM ffs_db.food
-                        WHERE sale_id = :food_id";
+                        WHERE food_id = :food_id";
 
                 $sth = $this->dbh->prepare($sql); // SQLを準備
 
@@ -91,9 +86,9 @@ class Food
 
                 // データを戻す
                 $result_array = $sth->fetchAll(PDO::FETCH_ASSOC);
-                return $result_array[0];
+                return @$result_array[0];
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
         }
-?>
+ }
