@@ -199,6 +199,39 @@
       <input type="text" name="keyword">
       <input type="submit" value="検索"><br>
 
+<?php
+
+require_once("../function.php");
+$dbh = connectDb();
+
+if(empty($_POST)){
+    try {
+        $sql = "SELECT * FROM food";
+        $sth = $dbh->prepare($sql);
+
+        $sth->execute();
+    } catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+  }else{
+    //検索ボタン押下時の処理
+    try {
+        $sql = "SELECT * FROM ffs_db.food WHERE food_name LIKE :search";
+        $sth = $dbh->prepare($sql);
+
+        // プレースホルダに値をバインド
+        $search_name = "%" . $_POST["search"] . "%";
+        $sth->bindValue(":search", $search_name);
+
+        $sth->execute();
+    } catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+
+  }
+    require_once("view_top_page.php");
+
+?>
       <div class="box">
         <!-- 生鮮食品の写真 -->
         <img src="#" alt="">
