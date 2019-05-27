@@ -184,7 +184,6 @@
             <option value="1">肉</option><br>
             <option value="2">野菜</option><br>
             <option value="3">魚</option><br>
-            <option value="4">その他</option><br>
       </select>
 
       <!-- 栄養価 -->
@@ -205,7 +204,7 @@
 <?php
   require_once("lib/function.php");
 ?>
-<?php var_dump($sth->fetchAll(PDO::FETCH_ASSOC));exit();?>
+<?php //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));//exit();?>
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
 <tr>
 <div class="box_food">
