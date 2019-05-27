@@ -55,10 +55,10 @@
             ph($row['shop_id']);?>"
              method="post">
         <input type="submit" value="編集"></form></td>
-        <td><form action="shop_delete.php?shop_id=<?php
-            ph($row['shop_id']);?>"
-             method="post">
-        <input type="submit" value="削除"></form></td>
+        <td><form action = "shop_delete.php" method="post">
+            <input type="hidden" name="shop_id" value="<?php ph($row["shop_id"]);?>">
+            <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
+            </form></td>
     </tr>
     <?php } ?>
 </table>

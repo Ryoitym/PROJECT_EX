@@ -52,12 +52,16 @@
         <td><?php ph($row["name_family"]);?></td>
         <td><?php ph($row["name_last"]);?></td>
         <td><?php ph($row["mail"]);?></td>
-        <td><a href="user_update.php?user_id=<?php
-            ph($row["user_id"]);
-        ?>">編集</a></td>
-        <td><a href="user_delete.php?user_id=<?php
-            ph($row["user_id"]);
-        ?>">削除</a></td>
+        <td><form action = "user_update.php?genre_id=<?php
+             ph($row["user_id"]);?>" method="post">
+             <input type="submit" value="編集">
+            </form>
+        </td>
+        <td><form action = "user_delete.php" method="post">
+            <input type="hidden" name="user_id" value="<?php ph($row["user_id"]);?>">
+            <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
+            </form>
+        </td>
     </tr>
     <?php } ?>
 </table>
