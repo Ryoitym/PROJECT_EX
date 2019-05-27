@@ -119,7 +119,7 @@ class SpecialPriceFood
             exit("SQL発行エラー：{$e->getMessage()}");
         }
     }
-
+   
     // データベースからfoodのデータを取得し、連想配列を返す
     public function getDataSalepArrayAtDate($date)
     {
@@ -147,8 +147,13 @@ class SpecialPriceFood
     {
         try {
             // SQLを構築
-            $sql = "SELECT * FROM ffs_db.sale ";
-            $sql .= "WHERE sale_id = :sale_id";
+            $sql = "SELECT * 
+                        FROM ffs_db.sale  t1 
+                            INNER JOIN ffs_db.food t2
+                                ON t1.food_id = t2.food_id
+                            INNER JOIN ffs_db.shop t3
+                                ON t1.shop_id = t3.shop_id 
+                    WHERE sale_id = :sale_id";
 
             $sth = $this->dbh->prepare($sql); // SQLを準備
 
@@ -159,7 +164,8 @@ class SpecialPriceFood
             $sth->execute();
 
             // データを戻す
-            return $sth->fetchAll(PDO::FETCH_ASSOC);
+            $result_array = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return $result_array[0];
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
