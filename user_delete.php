@@ -19,7 +19,7 @@
         $sql .= "WHERE user_id=:user_id";
         $sth = $dbh->prepare($sql);
 
-        $sth->bindValue(":user_id", $_GET["user_id"]);
+        $sth->bindValue(":user_id", $_POST["user_id"]);
         $sth->execute();
 
     } catch (PDOException $e) {

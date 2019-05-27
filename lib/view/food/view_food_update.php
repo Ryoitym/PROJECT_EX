@@ -27,6 +27,7 @@
     <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
     </form>
+    <?php ph($message);?>
     <!-- 生鮮食品入力フォーム-->
     <form action="food_update.php" method="post">
         食品名：<input type="text" name="food_name" value="<?php ph($row["food_name"]);?>"><br>

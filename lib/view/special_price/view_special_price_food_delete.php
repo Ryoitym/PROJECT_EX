@@ -23,14 +23,6 @@
     <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
     </form>
-    <!--ポップアップ-->
-    <!-- <script>
-        var del = window.confirm("本当に削除しますか？");
-        if(del){
-        }else{
-            window.location.replace('user_list.php');
-        }
-    </script> -->
     <p>削除しました。</p>
     <p><a href="special_price_food_list.php">特価商品一覧画面に戻る</a></p>
 </body>
