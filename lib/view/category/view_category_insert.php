@@ -25,7 +25,6 @@
 <h1>分類登録画面</h1>
     <!-- エラー表示 -->
     <?php
-    require_once("lib/function.php");
     ph($error_message);
     ?>
     <form action = "category_insert.php" method="post">

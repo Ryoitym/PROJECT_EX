@@ -11,7 +11,7 @@
  */
 -->
 <?php
-    require_once("lib/function.php");
+    require_once("lib/init.php");
     // IT担当者かどうか確認
     accesscheckAdmin();
 

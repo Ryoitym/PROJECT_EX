@@ -226,12 +226,12 @@
 	<?php else: ?>
 		<p>検索対象は見つかりませんでした。</p>
 	<?php endif; ?>
-  
+
     </article>
 
     <article>
     <?php
-     require_once("lib/function.php");
+     require_once("lib/init.php");
       $dbh=connectDb();
 
       try{
