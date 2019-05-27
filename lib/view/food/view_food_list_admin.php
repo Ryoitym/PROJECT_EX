@@ -65,8 +65,13 @@
         <td><?php ph($row["carb"]); ?></td>
         <td><?php ph($row["natrium"]); ?></td>
         <td><?php ph($row["kalium"]); ?></td>
-        <td><?php ph($row["show_flag"]); ?></td>
-        <td><?php ph($row["genre_id"]); ?></td>
+        <td><?php 
+                if($row["show_flag"] == 1){
+                  ph("表示");
+                } else{
+                  ph("非表示"); 
+              }?></td>
+        <td><?php ph($row["genre_name"]); ?></td>
         <td>
           <form action = "food_update.php" method="get">
             <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
@@ -83,8 +88,7 @@
 <?php } ?>
     </table>
   <hr>
-  <a href="food_list_admin.php">全て表示</a><br>
-
+  <a href="food_list_admin.php">全て表示</a>
   <a href="management_page_admin.php">トップページへ戻る</a>
 </body>
 </html>
