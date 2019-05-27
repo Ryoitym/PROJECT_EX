@@ -178,7 +178,7 @@
         </table>
     </article>
     <!--特価品一覧画面に戻る-->
-    <a href="view_top_page.php">公開トップページに戻る</a>
+    <a href="lib/view/view_top_page.php">公開トップページに戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 
