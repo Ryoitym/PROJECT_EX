@@ -22,7 +22,7 @@
     //初回アクセス時
     if(empty($_POST)){
         try {
-            $sql = "SELECT * FROM ffs_db.food ";
+            $sql = "SELECT * FROM ffs_db.food LEFT OUTER JOIN ffs_db.genre ON food.genre_id = genre.genre_id";
             $sth = $dbh->prepare($sql);
 
             $sth->execute();
