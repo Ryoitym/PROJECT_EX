@@ -119,7 +119,7 @@
 <div class="content">
   <main>
     <article>
-      <h2><a href="shop_page.php"><?php ph($special_price_food_value["shop_name"]); ?>店舗限定！！！</a></h2>
+      <h2><a href="shop_page.php?shop_id=<?php ph($special_price_food_value["shop_id"]); ?>"><?php ph($special_price_food_value["shop_name"]); ?>店舗限定！！！</a></h2>
         <!-- 生鮮食品の写真 --
         <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
          -->
@@ -145,31 +145,37 @@
           <tr>
             <th>エネルギー：</th>
             <th><?php ph($special_price_food_value["calorie"]); ?></th>
+            <td>Kcal</td>
           </tr>
 
           <tr>
             <td>たんぱく質：</td>
             <td><?php ph($special_price_food_value["protein"]); ?></td>
+            <td>g</td>
           </tr>
 
           <tr>
             <td>脂質：</td>
             <td><?php ph($special_price_food_value["lipid"]); ?></td>
+            <td>g</td>
           </tr>
 
           <tr>
             <td>炭水化物：</td>
             <td><?php ph($special_price_food_value["carb"]); ?></td>
+            <td>g</td>
           </tr>
 
           <tr>
             <td>ナトリウム：</td>
             <td><?php ph($special_price_food_value["natrium"]); ?></td>
+            <td>mg</td>
           </tr>
 
           <tr>
             <td>カリウム：</td>
             <td><?php ph($special_price_food_value["kalium"]); ?></td>
+            <td>mg</td>
           </tr>
         </table>
     </article>

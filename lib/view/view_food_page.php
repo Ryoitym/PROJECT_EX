@@ -1,13 +1,16 @@
 <?php
 /*
- * システム名： FFS
- * 作成者：　amaru
- * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
- * レビュー担当者：
- * レビュー日：
- * バージョン： 1.0
- */
+* このファイルの概要説明
+* 生鮮食品個別ページ画面のビュー
+*
+* システム名： FFS
+* 作成者：　amaru
+* 作成日：　2019/05/27
+* 最終更新日：　2019/05/27
+* レビュー担当者：
+* レビュー日：
+* バージョン： 1.0
+*/
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +45,6 @@
     width: 100%;
   }
 
-
   /*レイアウト
   ----------------------------------------------------*/
   .wrapper {
@@ -66,14 +68,6 @@
       color: #000;
       text-shadow: 1px 1px 1px #fff;
       text-align: center;
-  }
-
-  #slide {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
   }
 
   /*中身
@@ -125,43 +119,66 @@
 <div class="content">
   <main>
     <article>
-      <?php
-       require_once("../function.php");
-        $dbh=connectDb();
+        <?php ph($food_value["picture"]); ?>
+        <br>
+        <!-- 生鮮食品の写真 --
+        <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
+         -->
+        <!-- 商品名 -->
+        <h3><?php ph($food_value["food_name"]); ?></h3>
 
-        try{
-          $sql = "SELECT * FROM ffs_db.food ";
-          $sth = $dbh->prepare($sql);
+        <!-- 説明 -->
+        <!-- <p>説明</p> -->
+        <p><?php ph($food_value["txt"]); ?></p>
 
-          $sth->execute();
-        }
-        catch (PDOException $e) {
-          exit("SQL発行エラー：{$e->getMessage()}");
-      }
-      ?>
+        <!-- 価格 -->
+        <h3>定価価格</h3>
+        <h3><?php ph($food_value["food_price"]); ?>円</h3>
 
-      <!-- @->　しばらく警告メッセージを隠した -->
-      <h2>食品名:<?php ph(@$_GET["food_name"]);?></h2>
-        <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
-      <article>
-          <?php
-              switch(@$_GET['lang']){
-                case @$_GET['food_id']:?>
-            <?php ph(@$_GET['picture'])?><br>
-            <?php ph(@$_GET["food_name"]);?><br>
-            価格：<?php ph(@$_GET['food_price'])?><br>
-            説明文書：<?php ph(@$_GET['txt'])?><br>
-            エネルギー：<?php ph(@$_GET['calorie'])?><br>
-            たんぱく質：<?php ph(@$_GET['protein'])?><br>
-            脂質：<?php ph(@$_GET['lipid'])?><br>
-            炭水化物：<?php ph(@$_GET['carb'])?><br>
-            ナトリウム：<?php ph(@$_GET['natrium'])?><br>
-            カリウム：<?php ph(@$_GET['kalium'])?><br>
-            </div>
-              <?php break;}?>
     </article>
-    <!--公開トップページ画面の生鮮食品欄に飛ぶ？-->
-    <a href="view_top_page.php">生鮮食品一覧画面に戻る</a>
+    <article>
+      <!-- 詳細情報 -->
+        <table>
+          <h2>栄養価</h2>
+          <tr>
+            <th>エネルギー：</th>
+            <th><?php ph($food_value["calorie"]); ?></th>
+            <td>Kcal</td>
+          </tr>
+
+          <tr>
+            <td>たんぱく質：</td>
+            <td><?php ph($food_value["protein"]); ?></td>
+            <td>g</td>
+          </tr>
+
+          <tr>
+            <td>脂質：</td>
+            <td><?php ph($food_value["lipid"]); ?></td>
+            <td>g</td>
+          </tr>
+
+          <tr>
+            <td>炭水化物：</td>
+            <td><?php ph($food_value["carb"]); ?></td>
+            <td>g</td>
+          </tr>
+
+          <tr>
+            <td>ナトリウム：</td>
+            <td><?php ph($food_value["natrium"]); ?></td>
+            <td>mg</td>
+          </tr>
+
+          <tr>
+            <td>カリウム：</td>
+            <td><?php ph($food_value["kalium"]); ?></td>
+            <td>mg</td>
+          </tr>
+        </table>
+    </article>
+    <!--特価品一覧画面に戻る-->
+    <a href="view_top_page.php">公開トップページに戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 
