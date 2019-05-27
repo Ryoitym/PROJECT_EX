@@ -52,7 +52,7 @@
         <td><?php ph($row["name_family"]);?></td>
         <td><?php ph($row["name_last"]);?></td>
         <td><?php ph($row["mail"]);?></td>
-        <td><form action = "user_update.php?genre_id=<?php
+        <td><form action = "user_update.php?user_id=<?php
              ph($row["user_id"]);?>" method="post">
              <input type="submit" value="編集">
             </form>
