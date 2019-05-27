@@ -140,14 +140,23 @@
       }
       ?>
 
-      <h2>食品名:</h2>
+      <!-- @->　しばらく警告メッセージを隠した -->
+      <h2>食品名:<?php ph(@$_GET["food_name"]);?></h2>
         <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
       <article>
           <?php
-              switch($_GET['food_id']){
-                case $i:?>
-            <?php ph($_GET["food_name"]);?><br>
-
+              switch(@$_GET['lang']){
+                case @$_GET['food_id']:?>
+            <?php ph(@$_GET['picture'])?><br>
+            <?php ph(@$_GET["food_name"]);?><br>
+            価格：<?php ph(@$_GET['food_price'])?><br>
+            説明文書：<?php ph(@$_GET['txt'])?><br>
+            エネルギー：<?php ph(@$_GET['calorie'])?><br>
+            たんぱく質：<?php ph(@$_GET['protein'])?><br>
+            脂質：<?php ph(@$_GET['lipid'])?><br>
+            炭水化物：<?php ph(@$_GET['carb'])?><br>
+            ナトリウム：<?php ph(@$_GET['natrium'])?><br>
+            カリウム：<?php ph(@$_GET['kalium'])?><br>
             </div>
               <?php break;}?>
     </article>
