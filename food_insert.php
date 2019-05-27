@@ -26,7 +26,7 @@
         $sql = "SELECT * FROM ffs_db.genre";
         $sth = $dbh->prepare($sql); // SQLを準備
         $sth->execute();
-            $row = $sth->fetch(PDO::FETCH_ASSOC); //結果データを取得
+        
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
@@ -80,7 +80,6 @@
             $sql = "SELECT * FROM ffs_db.genre";
             $sth = $dbh->prepare($sql); // SQLを準備
             $sth->execute();
-                $row = $sth->fetch(PDO::FETCH_ASSOC); //結果データを取得
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
@@ -92,7 +91,6 @@
             $sql = "SELECT * FROM ffs_db.genre";
             $sth = $dbh->prepare($sql); // SQLを準備
             $sth->execute();
-                $row = $sth->fetch(PDO::FETCH_ASSOC); //結果データを取得
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
