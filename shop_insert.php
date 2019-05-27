@@ -7,15 +7,18 @@
  * システム名： FFS
  * 作成者：　appleCandy
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/27
  * レビュー担当者：
  * レビュー日：
- * バージョン： 1.1
+ * バージョン： 1.2
  */
 ?>
   <?php
       //共通関数読み込み
       require_once("lib/init.php");
+      // IT担当者かどうか確認
+      accesscheckAdmin();
+
       //入力画面表示
       if(empty($_POST)){
         require_once("lib/view/shop/view_shop_insert.php");
