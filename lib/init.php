@@ -14,7 +14,7 @@
  */
 
 // session_start
-//session_start();
+session_start();
 
 // 共通関数をrequire_onceで読み込む
 require_once("function.php");

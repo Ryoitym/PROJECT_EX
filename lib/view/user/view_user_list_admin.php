@@ -22,8 +22,8 @@
 <title>ユーザ一覧画面(IT担当者)</title>
 </head>
 <body>
-  <form action="logout.php" method="post">
-        <button type="submit" name="logout" value="logout">ログアウト</button>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>ユーザ一覧</h1>
 <a href="special_price_food_list_admin.php">特価商品</a>

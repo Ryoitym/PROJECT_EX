@@ -23,8 +23,8 @@
 <title>店舗一覧画面(店長級社員)</title>
 </head>
 <body>
-<form action="logout.php" method="post">
-        <button type="submit" name="logout" value="logout">ログアウト</button>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
     <h1>店舗一覧画面</h1><br>
 

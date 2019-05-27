@@ -21,9 +21,9 @@
  </head>
 
  <body>
-   <form action="logout.php" method="post">
-          <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form>
+ <form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
  削除しました<br>
  <a href="category_list_admin.php">分類一覧画面に戻る</a>
  </body>

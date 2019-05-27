@@ -22,9 +22,9 @@
 <title>ユーザ登録画面</title>
 </head>
 <body>
-  <form action="logout.php" method="post">
-      <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form><br>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
 
 <form action="user_insert.php" method="post">
 姓: <input type="text" name="name_family"><br>

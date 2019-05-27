@@ -20,9 +20,9 @@
 <title>分類一覧画面(IT担当者)</title>
 </head>
 <body>
-  <form action="logout.php" method="post">
-          <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
 <h1>分類一覧画面</h1>
 <!-- 画面上部タブ -->
 <a href="special_price_food_list_admin.php">特価商品</a>

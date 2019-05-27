@@ -22,9 +22,9 @@
 </head>
 <body>
 
-<form action="logout.php" method="post">
-        <button type="submit" name="logout" value="logout">ログアウト</button>
-    </form><br>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
 <h1>店舗登録画面</h1>
 
 <br>
