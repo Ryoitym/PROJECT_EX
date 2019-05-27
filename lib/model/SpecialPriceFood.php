@@ -2,7 +2,7 @@
 /**
  * このファイルの概要説明
  * 特価商品モデル
- * 
+ *
  * このファイルの詳細説明
  *
  * システム名： FFS
@@ -33,8 +33,8 @@ class SpecialPriceFood
     {
         try {
             // SQLを構築
-            $sql = "SELECT * 
-                    FROM ffs_db.sale t1 
+            $sql = "SELECT *
+                    FROM ffs_db.sale t1
                         INNER JOIN ffs_db.food t2
                             ON t1.food_id = t2.food_id
                         INNER JOIN ffs_db.shop t3
@@ -57,8 +57,8 @@ class SpecialPriceFood
     {
         try {
             // SQLを構築
-            $sql = "SELECT * 
-                    FROM ffs_db.sale t1 
+            $sql = "SELECT *
+                    FROM ffs_db.sale t1
                         INNER JOIN ffs_db.food t2
                             ON t1.food_id = t2.food_id
                         INNER JOIN ffs_db.shop t3
@@ -66,12 +66,12 @@ class SpecialPriceFood
                     WHERE
                         food_name LIKE :search_word ";
 
-            
+
             $sth = $this->dbh->prepare($sql); // SQLを準備
 
             // プレースホルダに値をバインド
             $name_search_word = "%". $search_word . "%";
-            $sth->bindValue(":search_word", $name_search_word);           
+            $sth->bindValue(":search_word", $name_search_word);
 
             // SQLを発行
             $sth->execute();
@@ -83,7 +83,7 @@ class SpecialPriceFood
         }
     }
 
-    
+
     // データベースからfoodのデータを取得し、連想配列を返す
     public function getDataFoodArray()
     {
@@ -119,7 +119,7 @@ class SpecialPriceFood
             exit("SQL発行エラー：{$e->getMessage()}");
         }
     }
-   
+
     // データベースからfoodのデータを取得し、連想配列を返す
     public function getDataSalepArrayAtDate($date)
     {
@@ -147,12 +147,12 @@ class SpecialPriceFood
     {
         try {
             // SQLを構築
-            $sql = "SELECT * 
-                        FROM ffs_db.sale  t1 
+            $sql = "SELECT *
+                        FROM ffs_db.sale  t1
                             INNER JOIN ffs_db.food t2
                                 ON t1.food_id = t2.food_id
                             INNER JOIN ffs_db.shop t3
-                                ON t1.shop_id = t3.shop_id 
+                                ON t1.shop_id = t3.shop_id
                     WHERE sale_id = :sale_id";
 
             $sth = $this->dbh->prepare($sql); // SQLを準備
@@ -195,6 +195,7 @@ class SpecialPriceFood
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
+        header('Location: special_price_food_list.php');
     }
 
 
@@ -220,6 +221,7 @@ class SpecialPriceFood
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
+        header('Location: special_price_food_list.php');
     }
 
 
@@ -249,7 +251,7 @@ class SpecialPriceFood
         $before_date = date("Y-m-d",strtotime("-" . "1" . " day", $targetTime));
         $after_date = date("Y-m-d",strtotime("+" . "1" . " day", $targetTime));
 
-        $dates = [  "yesterday" => strval($before_date), 
+        $dates = [  "yesterday" => strval($before_date),
                     "today"     => $today,
                     "tomorrow"  => strval($after_date)];
         return $dates;
