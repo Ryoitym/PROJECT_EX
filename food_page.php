@@ -16,6 +16,7 @@
 require_once("lib/function.php");
 $dbh = connectDb();
 
+if(empty($_)){
 
 
 ?>
