@@ -22,9 +22,9 @@
 <title>ユーザ一覧画面(店長)</title>
 </head>
 <body>
-  <form action="logout.php" method="post">
-        <button type="submit" name="logout" value="logout">ログアウト</button>
-</form><br>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
 <h1>ユーザ一覧</h1><br>
 <a href="special_price_food_list.php">特価商品</a>
 <a href="food_list.php">生鮮食品</a>

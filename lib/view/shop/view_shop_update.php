@@ -49,8 +49,8 @@
         }
     }
 ?>
-<form action="view_logout.php">
-    <input type="submit" value="ログアウト">
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>店舗編集画面</h1>
 

@@ -24,9 +24,9 @@
 <body>
     <h1>分類編集画面</h1>
     <!-- ログアウトボタン-->
-    <form action="logout.php" method="post">
-          <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form>
+    <form action="logout.php" method="get">
+      <button type="submit" name="logout" value="logout">ログアウト</button>
+    </form>
   <!-- エラー表示 -->
   <?php
   require_once("lib/function.php");

@@ -22,7 +22,9 @@
  </head>
 
  <body>
- <input type="submit" value="ログアウト"><br>
+ <form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
  削除しました<br>
  <a href="shop_list_admin.php">店舗一覧画面に戻る</a>
  </body>

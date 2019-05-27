@@ -22,9 +22,9 @@
 <title>ユーザ編集画面</title>
 </head>
 <body>
-  <form action="logout.php" method="post">
-          <button type="submit" name="logout" value="logout">ログアウト</button>
-  </form>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
 <form action="user_update.php" method="post">
 <input type="hidden" name="user_id" value=<?php print $user_id_get; ?> ><br>
 

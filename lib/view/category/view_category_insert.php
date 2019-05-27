@@ -19,8 +19,8 @@
 <title>分類登録画面</title>
 </head>
 <body>
-  <form action="logout.php" method="post">
-        <button type="submit" name="logout" value="logout">ログアウト</button>
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>分類登録画面</h1>
     <!-- エラー表示 -->
