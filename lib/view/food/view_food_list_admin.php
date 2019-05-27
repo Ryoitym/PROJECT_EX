@@ -65,7 +65,12 @@
         <td><?php ph($row["carb"]); ?></td>
         <td><?php ph($row["natrium"]); ?></td>
         <td><?php ph($row["kalium"]); ?></td>
-        <td><?php ph($row["show_flag"]); ?></td>
+        <td><?php 
+                if($row["show_flag"] == 1){
+                  ph("表示");
+                } else{
+                  ph("非表示"); 
+              }?></td>
         <td><?php ph($row["genre_id"]); ?></td>
         <td>
           <form action = "food_update.php" method="get">
