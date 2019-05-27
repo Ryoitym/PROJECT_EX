@@ -24,6 +24,7 @@
     <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
     </form>
+    <h1>特価商品一覧画面</h1>
 
     <a href="special_price_food_list_admin.php">特価商品</a>
     <a href="food_list_admin.php">生鮮食品</a>
