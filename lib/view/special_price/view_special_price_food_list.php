@@ -34,7 +34,7 @@
             検索: <input type="text" name="search_name">
             <input type="submit" value="検索">
         </form>
-        
+
         <a href="special_price_food_insert.php">新規登録</a>
 
         <!-- borderは後で消す -->
@@ -69,7 +69,7 @@
             </tr>
         <?php } ?>
         </table>
-
         <a href="special_price_food_list.php">全て表示</a>
+        <a href="management_page.php">トップページへ戻る</a>
     </body>
 </html>

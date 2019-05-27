@@ -52,7 +52,7 @@
     </tr>
     <?php } ?>
 </table>
-<p><a href="user_list.php">全て表示</a></p>
+<a href="user_list.php">全て表示</a>
 <a href="management_page.php">トップページへ戻る</a>
 </body>
 </html>

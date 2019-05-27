@@ -58,17 +58,17 @@
             $sth = $dbh->prepare($sql); // SQLを準備
 
             // プレースホルダに値をバインド
-            $sth->bindValue(":food_name", $_POST["food_name"]);
-            $sth->bindValue(":genre_id", $_POST["genre_id"]);
-            $sth->bindValue(":picture", $_POST["picture"]);
-            $sth->bindValue(":food_price", $_POST["food_price"]);
-            $sth->bindValue(":txt", $_POST["txt"]);
-            $sth->bindValue(":calorie", $_POST["calorie"]);
-            $sth->bindValue(":protein", $_POST["protein"]);
-            $sth->bindValue(":lipid", $_POST["lipid"]);
-            $sth->bindValue(":carb", $_POST["carb"]);
-            $sth->bindValue(":natrium", $_POST["natrium"]);
-            $sth->bindValue(":kalium", $_POST["kalium"]);
+            $sth->bindValue(":food_name",   $_POST["food_name"]);
+            $sth->bindValue(":genre_id",    $_POST["genre_id"]);
+            $sth->bindValue(":picture",     $_POST["picture"]);
+            $sth->bindValue(":food_price",  $_POST["food_price"]);
+            $sth->bindValue(":txt",         $_POST["txt"]);
+            $sth->bindValue(":calorie",     $_POST["calorie"]);
+            $sth->bindValue(":protein",     $_POST["protein"]);
+            $sth->bindValue(":lipid",       $_POST["lipid"]);
+            $sth->bindValue(":carb",        $_POST["carb"]);
+            $sth->bindValue(":natrium",     $_POST["natrium"]);
+            $sth->bindValue(":kalium",      $_POST["kalium"]);
 
             // SQLを発行
             $sth->execute();
@@ -82,10 +82,17 @@
         if(!empty($row)){
             require_once("lib/view/food/view_food_update.php");
             ph("同じ内容の商品が登録されています");
-        } else if(empty($_POST["food_name"])||empty($_POST["genre_id"])||empty($_POST["picture"])
-            ||empty($_POST["food_price"])||empty($_POST["txt"])||empty($_POST["calorie"])
-            ||empty($_POST["protein"])||empty($_POST["lipid"])||empty($_POST["carb"])
-            ||empty($_POST["natrium"])||empty($_POST["kalium"])){
+        } else if(  strlen($_POST["food_name"]) == 0 ||
+                    strlen($_POST["genre_id"])  == 0 ||
+                    strlen($_POST["picture"])   == 0 ||
+                    strlen($_POST["food_price"])== 0 ||
+                    strlen($_POST["txt"])       == 0 ||
+                    strlen($_POST["calorie"])   == 0 ||
+                    strlen($_POST["protein"])   == 0 ||
+                    strlen($_POST["lipid"])     == 0 ||
+                    strlen($_POST["carb"])      == 0 ||
+                    strlen($_POST["natrium"])   == 0 ||
+                    strlen($_POST["kalium"])    == 0 ){
                 require_once("lib/view/food/view_food_update.php");
                 ph("入力不十分です");
         } else{
@@ -98,18 +105,18 @@
                 $sth = $dbh->prepare($sql); // SQLを準備
 
                 // プレースホルダに値をバインド
-                $sth->bindValue(":food_name", $_POST["food_name"]);
-                $sth->bindValue(":genre_id", $_POST["genre_id"]);
-                $sth->bindValue(":picture", $_POST["picture"]);
-                $sth->bindValue(":food_price", $_POST["food_price"]);
-                $sth->bindValue(":txt", $_POST["txt"]);
-                $sth->bindValue(":calorie", $_POST["calorie"]);
-                $sth->bindValue(":protein", $_POST["protein"]);
-                $sth->bindValue(":lipid", $_POST["lipid"]);
-                $sth->bindValue(":carb", $_POST["carb"]);
-                $sth->bindValue(":natrium", $_POST["natrium"]);
-                $sth->bindValue(":kalium", $_POST["kalium"]);
-                $sth->bindValue(":food_id", $_POST["food_id"]);
+                $sth->bindValue(":food_name",   $_POST["food_name"]);
+                $sth->bindValue(":genre_id",    $_POST["genre_id"]);
+                $sth->bindValue(":picture",     $_POST["picture"]);
+                $sth->bindValue(":food_price",  $_POST["food_price"]);
+                $sth->bindValue(":txt",         $_POST["txt"]);
+                $sth->bindValue(":calorie",     $_POST["calorie"]);
+                $sth->bindValue(":protein",     $_POST["protein"]);
+                $sth->bindValue(":lipid",       $_POST["lipid"]);
+                $sth->bindValue(":carb",        $_POST["carb"]);
+                $sth->bindValue(":natrium",     $_POST["natrium"]);
+                $sth->bindValue(":kalium",      $_POST["kalium"]);
+                $sth->bindValue(":food_id",     $_POST["food_id"]);
 
                 // SQLを発行
                 $sth->execute();
