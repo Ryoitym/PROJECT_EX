@@ -22,7 +22,7 @@
         $sql .= "WHERE shop_id=:shop_id";
         $sth = $dbh->prepare($sql);
 
-        $sth->bindValue(":shop_id", $_GET["shop_id"]);
+        $sth->bindValue(":shop_id", $_POST["shop_id"]);
         $sth->execute();
 
     } catch (PDOException $e) {

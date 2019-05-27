@@ -61,10 +61,10 @@
                     </form>
                 </td>
                 <td>
-                    <form action="special_price_food_delete.php" method="get">
-                            <input type="submit" value="削除">
-                            <input type="hidden" name="sale_id" value="<?php print $special_price_food_i["sale_id"]; ?>" />
-                    </form>
+                    <form action = "special_price_food_delete.php" method="post">
+                      <input type="hidden" name="sale_id" value="<?php ph($row["sale_id"]);?>">
+                     <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
+                     </form>
                 </td>
             </tr>
         <?php } ?>
