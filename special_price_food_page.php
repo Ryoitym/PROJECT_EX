@@ -23,11 +23,12 @@ require_once("lib/model/SpecialPriceFood.php");
 // モデルクラスのインスタンスを生成
 $special_price_food = new SpecialPriceFood($dbh);
 
-
-
-$target_sale_id = $_GET["sale_id"];
-$special_price_food_value = $special_price_food->getDataById($target_sale_id);
-
-// var_dump($special_price_food_value);
-require_once("lib/view/view_special_price_food_page.php");
-// <?php?>
+if (empty($_GET)) {
+    // 後で修正
+    // header('Location: https://techacademy.jp/');
+} else {
+    $target_sale_id = $_GET["sale_id"];
+    $special_price_food_value = $special_price_food->getDataById($target_sale_id);
+    
+    require_once("lib/view/view_special_price_food_page.php");
+}

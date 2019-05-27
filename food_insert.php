@@ -70,10 +70,17 @@
         }
 
         //入力チェック
-        if(empty($_POST["food_name"])||empty($_POST["genre_id"])||empty($_POST["picture"])
-        ||empty($_POST["food_price"])||empty($_POST["txt"])||empty($_POST["calorie"])
-        ||empty($_POST["protein"])||empty($_POST["lipid"])||empty($_POST["carb"])
-        ||empty($_POST["natrium"])||empty($_POST["kalium"])){
+        if(strlen($_POST["food_name"]) == 0 ||
+        strlen($_POST["genre_id"])  == 0 ||
+        strlen($_POST["picture"])   == 0 ||
+        strlen($_POST["food_price"])== 0 ||
+        strlen($_POST["txt"])       == 0 ||
+        strlen($_POST["calorie"])   == 0 ||
+        strlen($_POST["protein"])   == 0 ||
+        strlen($_POST["lipid"])     == 0 ||
+        strlen($_POST["carb"])      == 0 ||
+        strlen($_POST["natrium"])   == 0 ||
+        strlen($_POST["kalium"])    == 0){
         // 入力チェックNG
             //分類のためのSQL作成
         try{
@@ -83,8 +90,37 @@
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
-            $message = "入力不十分です";
+            $message .= "入力不十分です";
             require_once("lib/view/food/view_food_insert.php");
+        }else if(   is_numeric($_POST["food_price"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["calorie"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["protein"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["lipid"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["carb"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["natrium"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["kalium"]) == false || $_POST["food_price"] < 0 ){
+                        //分類のためのSQL作成
+            try{
+                $sql = "SELECT * FROM ffs_db.genre";
+                $sth = $dbh->prepare($sql); // SQLを準備
+                $sth->execute();
+                } catch (PDOException $e) {
+                    exit("SQL発行エラー：{$e->getMessage()}");
+                }
+                $message .= "正の数値を入力してください";
+                require_once("lib/view/food/view_food_insert.php");
+        }else if(   strlen($_POST["food_name"]) <= 100 ||
+                    strlen($_POST["picture"]) <= 300){
+                        //分類のためのSQL作成
+                try{
+                    $sql = "SELECT * FROM ffs_db.genre";
+                    $sth = $dbh->prepare($sql); // SQLを準備
+                    $sth->execute();
+                    } catch (PDOException $e) {
+                        exit("SQL発行エラー：{$e->getMessage()}");
+                    }
+                    $message .= "食品名は１００文字、写真は３００文字以内で入力してください";
+                    require_once("lib/view/food/view_food_insert.php");
         }else if(!empty($row)){
             //分類のためのSQL作成
         try{
@@ -94,7 +130,7 @@
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
-            $message = "すでに登録されています";
+            $message .= "すでに登録されています";
             require_once("lib/view/food/view_food_insert.php");
         }else{
           //入力チェックOK 分類を追加する

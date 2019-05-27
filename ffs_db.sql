@@ -114,7 +114,7 @@ INSERT INTO genre(
 );
 
 INSERT INTO food (
-  food_id, 
+  food_id,
   food_name,
   food_price,
   picture,
@@ -128,7 +128,7 @@ INSERT INTO food (
   show_flag,
   genre_id
   ) VALUES (
-    1, 
+    1,
     '茄子',
     60,
     'http://placehold.jp/150x150.png',
@@ -145,7 +145,7 @@ INSERT INTO food (
 
 --田中さん
 INSERT INTO user (
-  user_id, 
+  user_id,
   password,
   name_family,
   name_last,
@@ -153,7 +153,7 @@ INSERT INTO user (
   acess_lv,
   shop_id
   ) VALUES (
-    1, 
+    1,
     'ffs',
     '田中',
     '太郎',
@@ -164,7 +164,7 @@ INSERT INTO user (
 
 --山田さん
 INSERT INTO user (
-  user_id, 
+  user_id,
   password,
   name_family,
   name_last,
@@ -172,7 +172,7 @@ INSERT INTO user (
   acess_lv,
   shop_id
   ) VALUES (
-    2, 
+    2,
     'yamada',
     '山田',
     '花子',

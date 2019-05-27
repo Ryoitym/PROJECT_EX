@@ -17,11 +17,12 @@
  <?php
      require_once("lib/init.php");
      // 入力画面表示
-     $user_id_get = "";
+
 
 if(!empty($_GET)){
     $user_id_get = $_GET["user_id"];
 }
+
 
 
      if(empty($_POST)){
