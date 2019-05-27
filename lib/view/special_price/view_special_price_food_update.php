@@ -31,13 +31,14 @@
         <?php print $error_message;?>
 
         <form action="special_price_food_update.php" method="post">
-            <input type="hidden" name="sale_id" value="<?php ph($sale_id_r) ?>">
+            <input type="hidden" name="sale_id" value=<?php ph($sale_id_r) ?>>
             生鮮食品名: 
             <select name="food_select">
                 <?php foreach ($food_list as $food) {?>
                         <option value="<?php ph($food["food_id"]);?>" 
                             <?php 
-                            if (isset($special_price_food_value)) {
+                            if (count($special_price_food_value)!=0) {
+                                
                                 if ($special_price_food_value["food_id"] == $food["food_id"]) {
                                     print "selected";
                                 }

@@ -165,7 +165,13 @@ class SpecialPriceFood
 
             // データを戻す
             $result_array = $sth->fetchAll(PDO::FETCH_ASSOC);
-            return $result_array[0];
+
+            if (!empty($result_array)) {
+                return $result_array[0];
+            } else {
+                return null;
+            }
+            
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }

@@ -34,14 +34,17 @@ if(empty($_POST)){
       // SQLを構築
       $sql = "SELECT * FROM food
       INNER JOIN genre ON food.genre_id=genre.genre_id
-      WHERE food.genre_id = :search_genre_id";
+      WHERE food_name LIKE :search AND genre_id = ? AND eiyoka = ?";
       $sth = $dbh->prepare($sql); // SQLを準備
 
         // プレースホルダに値をバインド
         $search_name = "%" . $_POST["search"] . "%";
         $search_genre_id = $_POST["genre_id"];
-        // $sth->bindValue(":search", $search_name);
+        $search_eiyoka = $_POST["eiyoka"];
+
+        $sth->bindValue(":search", $search_name);
         $sth->bindValue(":search_genre_id", $search_genre_id);
+        $sth->bindValue(":search_eiyoka", $search_eiyoka);
         $sth->execute();
         //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));
         //var_dump($_POST);
