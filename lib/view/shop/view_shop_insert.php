@@ -35,6 +35,6 @@
     <input type="submit" value = "登録">
     <input type="reset" value = "クリア"><br>
 </form>
-
+<p><a href="shop_list_admin.php">一覧に戻る</a></p>
 </body>
 </html>

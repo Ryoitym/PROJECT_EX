@@ -27,10 +27,5 @@
 </form>
  削除しました<br>
  <a href="shop_list_admin.php">店舗一覧画面に戻る</a>
- </body>
- </html>
- 
-</body>
-</html>
 </body>
 </html>
