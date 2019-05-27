@@ -35,7 +35,7 @@
   検索：<input type="text" name="search">
         <input type="submit" value="検索">
 </form>
-<brs>
+<br>
 <table border="1">
     <tr>
         <th>店舗</th>
