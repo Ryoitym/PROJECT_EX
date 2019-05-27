@@ -14,7 +14,10 @@
 -->
 
 <?php
-    require_once("lib/function.php");
+    require_once("lib/init.php");
+    accesscheckAdmin();
+    $message = "";
+
     // 入力画面表示
     if(empty($_POST)){
         $dbh = connectDb();
@@ -81,7 +84,7 @@
 
         if(!empty($row)){
             require_once("lib/view/food/view_food_update.php");
-            ph("同じ内容の商品が登録されています");
+            $message="同じ内容の商品が登録されています";
         } else if(  strlen($_POST["food_name"]) == 0 ||
                     strlen($_POST["genre_id"])  == 0 ||
                     strlen($_POST["picture"])   == 0 ||
@@ -94,7 +97,20 @@
                     strlen($_POST["natrium"])   == 0 ||
                     strlen($_POST["kalium"])    == 0 ){
                 require_once("lib/view/food/view_food_update.php");
-                ph("入力不十分です");
+                $message="入力不十分です";
+        } else if(  is_numeric($_POST["food_price"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["calorie"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["protein"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["lipid"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["carb"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["natrium"]) == false || $_POST["food_price"] < 0 ||
+                    is_numeric($_POST["kalium"]) == false || $_POST["food_price"] < 0 ){
+                require_once("lib/view/food/view_food_update.php");
+                $message="正の数値で入力してください";
+        } else if(  strlen($_POST["food_name"]) <= 100 ||
+                    strlen($_POST["picture"]) <= 300){
+                require_once("lib/view/food/view_food_update.php");
+                $message="食品名は１００文字、写真は３００文字以内で入力してください";
         } else{
             
             try{
