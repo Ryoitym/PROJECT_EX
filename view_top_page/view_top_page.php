@@ -82,7 +82,7 @@
         <?php if($value["sale_id"]==1){echo $value["food_name"]; break;?><br>
         <?php
         }
-      }?> 1パック<?php echo $value['picture'];?></h2>
+      }?> 1パック</h2>
 ¥<?php foreach ($sth as $value) {
         if($value["sale_id"]==1){echo $value["sale_price"]; break;?><br>
         <?php
@@ -94,9 +94,10 @@
 
 <section class="section_top_page">
 <a href="＃">
-<img src="images/onion.jpg" alt="sale2">
+
 <h2><?php foreach ($sth as $value) {
-        if($value["sale_id"]==2){echo $value["food_name"]; break;?><br>
+  ?><img src="<?php echo $b= ($value['picture'].'.jpg');?>" alt="sale2">
+        <?php if($value["sale_id"]==2){echo $value["food_name"]; break;?><br>
         <?php
         }
       }?> 1パック 500g</h2>
@@ -226,7 +227,7 @@
 
 <section class="section_top_page">
 <a href="＃">
-<img src="images/eggplant.jpg" alt="とろとろ炒めなす">
+<img src="images/1.jpg" alt="とろとろ炒めなす">
 <h2>とろとろ炒めなす 2個</h2>
 <p>￥379</p>
 </a>
@@ -290,7 +291,24 @@
 
 </div>
 
+<?php
+    //ここに置かないとなぜか非表示になるため仮配置
+      $dbh=connectDb();
 
+      try{
+        $sql = "SELECT * FROM ffs_db.shop , ";
+        $sql .= "ffs_db.sale t1 
+                INNER JOIN ffs_db.food t2 
+                ON t1.food_id = t2.food_id 
+                ";
+        $sth = $dbh->prepare($sql);
+
+        $sth->execute();
+      }
+      catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+?>
 
 <div class="main_area">
 <font = color="green"><h2>店舗一覧</h2></font>
@@ -300,7 +318,7 @@
     <tr>
     <div class="box_shop">
         <a href="../lib/view/view_shop_page.php?shop_id=<?php 
-        ph($row['shop_id'])?>&shop_name=<?php ph($row['shop_name']);?>
+        ph($row['shop_id']);?>&shop_name=<?php ph($row['shop_name']);?>
         &address=<?php ph($row['address']);?>
         &tel=<?php ph($row['tel']);?>"
         method="post"><td><?php ph($row["shop_name"]);?></td>店<br>
