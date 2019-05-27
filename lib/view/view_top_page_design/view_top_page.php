@@ -34,7 +34,7 @@
 
 <nav class="navigation_main">
 <ul>
-<li><a href="index.html">特売商品一覧</a></li>
+<li><a href="#">特売商品一覧</a></li>
 <li><a href="＃">生鮮食品一覧</a></li>
 <li><a href="＃">店舗一覧</a></li>
 </ul>
@@ -50,6 +50,66 @@
 <img src="images/04.jpg" alt="Slideshow Image 4">
 </div>
 </div><!--/.main_visual-->
+
+<div class="main_area">
+  <font = color="green"><h2>生鮮食品一覧</h2></font>
+
+  <!-- 分類 -->
+  <select name="genre_name">
+        <option value="1">肉</option><br>
+        <option value="2">野菜</option><br>
+        <option value="3">魚</option><br>
+        <option value="4">その他</option><br>
+  </select>
+
+  <!-- 栄養価 -->
+  栄養価: <select name="eiyoka">
+          <option value="calorie">エネルギー</option><br>
+          <option value="protein">たんぱく質</option><br>
+          <option value="lipid">脂質</option><br>
+          <option value="carb">炭水化物</option><br>
+          <option value="natrium">ナトリウム</option><br>
+          <option value="kalium">カリウム</option><br>
+          </select><br>
+
+  <input type="text" name="keyword">
+  <input type="submit" value="検索"><br>
+
+<!-- image 400px x 400px -->
+<section class="section_top_page">
+<a href="＃">
+<img src="images/cabbage.jpg" alt="キャベツ">
+<h2>キャベツ 1個</h2>
+<p>￥266</p>
+</a>
+</section>
+
+<section class="section_top_page">
+<a href="＃">
+<img src="images/onion.jpg" alt="玉ねぎ">
+<h2>玉ねぎ 1パック 500g</h2>
+<p>￥169</p>
+</a>
+</section>
+
+<section class="section_top_page">
+<a href="＃">
+<img src="images/carrot.jpg" alt="にんじん">
+<h2>にんじん 1パック 400g</h2>
+<p>￥150</p>
+</a>
+</section>
+
+<section class="section_top_page">
+<a href="＃">
+<img src="images/potato.jpg" alt="じゃがいも">
+<h2>じゃがいも 1パック 500g</h2>
+<p>￥181</p>
+</a>
+</section>
+
+
+</div>
 
 <div class="main_area">
   <font = color="green"><h2>生鮮食品一覧</h2></font>
@@ -209,7 +269,7 @@
 <footer class="footer_top_page">
 <nav class="navigation_footer">
 <ul>
-  <li><a href="index.html">特売商品一覧</a></li>
+  <li><a href="#">特売商品一覧</a></li>
   <li><a href="＃">生鮮食品一覧</a></li>
   <li><a href="＃">店舗一覧</a></li>
 </ul>
