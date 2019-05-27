@@ -28,6 +28,6 @@ $special_price_food = new SpecialPriceFood($dbh);
 $target_sale_id = $_GET["sale_id"];
 $special_price_food_value = $special_price_food->getDataById($target_sale_id);
 
-var_dump($special_price_food_value);
+// var_dump($special_price_food_value);
 require_once("lib/view/view_special_price_food_page.php");
 // <?php?>
