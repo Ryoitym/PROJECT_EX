@@ -251,7 +251,9 @@
     <div class="box_shop">
         <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
       </div>
-        
+      <td><form action="view_shop_page.php?shop_id=<?php
+            ph($row['shop_id']);?>"
+             method="post">
     </tr>
     <?php } ?>
       <!-- 店舗リンク -->

@@ -225,9 +225,10 @@
         <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
     </div>
     </tr>
-    <?php } ?>
+    <?php } ph($_GET["shop_id"]);?>
         電話番号：090-xxxx-xxxx<br>
         住所：東京都 xx区
+        
       </div>
     </article>
 
