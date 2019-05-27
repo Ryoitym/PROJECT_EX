@@ -173,36 +173,45 @@
   <main>
   <h2>特売商品一覧</h2>
   <article>
-  <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
+  <?php 
+  // SQLを構築
+        require_once("../function.php");
+        $dbh = connectDb();
 
-      <div class="box">
-        <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-      </div>
+        $sql = "SELECT * FROM ffs_db.sale t1 
+                INNER JOIN ffs_db.food t2 
+                ON t1.food_id = t2.food_id 
+                ";
+        
+        $sth = $dbh->prepare($sql); // SQLを準備
 
-      <div class="box">
+        // プレースホルダに値をバインド
+        //GETで飛んできたIDのレコードを取ってくる
+        //$sth->bindValue(":sale_id", $_POST["sale_id"]);
+
+        $sth->execute();
+  
+  for($i=0;$i<1;$i++){
+
+    ?><div class="box">
         <!-- 生鮮食品の写真 -->
         <img src="#" alt="">
-        <!-- 商品名 -->
-        <h3>食品名</h3>
-        <!-- 説明 -->
-        <p>説明</p>
+
+      <?php foreach ($sth as $value) {
+        if($_GET["shop_id"]==$value["shop_id"]){echo $value["food_name"];?><br><?php 
+        echo $value["txt"];?><br><?php }
+      }
+      ?>
+      <br>
+      
+      
+      <?php }?>
+      <?php ?>
       </div>
 
     </article>
     <?php 
-     require_once("../function.php");
+      require_once("../function.php");
       $dbh=connectDb();
 
       try{

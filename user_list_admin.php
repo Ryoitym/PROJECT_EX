@@ -13,7 +13,10 @@
  * バージョン： 1.1
  */
 
-require_once("lib/function.php");
+require_once("lib/init.php");
+// IT担当者かどうか確認
+accesscheckAdmin();
+
 $dbh = connectDb();
 
 if(empty($_POST)){
