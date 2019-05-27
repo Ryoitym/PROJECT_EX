@@ -14,8 +14,8 @@
  */
 
  require_once("lib/init.php");
- // IT担当者かどうか確認
- accesscheckAdmin();
+ // 店長級社員かどうか確認
+ accesscheck();
     //SQL作成
     $dbh = connectDb();
 
