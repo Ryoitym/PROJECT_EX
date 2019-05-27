@@ -32,9 +32,20 @@
     <form action="food_insert.php" method="post">
         食品名：<input type="text" name="food_name" value=""><br>
         分類：<select name="genre_id">
-        <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-            <option value="<?php ph($row["genre_id"]);?>"><?php ph($row["genre_name"]);?></option>
-	    <?php } ?>
+        <?php foreach ($genre_list as $genre) {?>
+                        <option value="<?php ph($genre["genre_id"]);?>" 
+                        <?php 
+                            /*if (isset($special_price_food_value)) {
+                                if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
+                                    print " selected";
+                                }
+                            } */
+                        ?>
+                        >
+                            <?php ph($genre["genre_name"]); ?>
+                        </option>
+                        <br>
+                <?php } ?>
              </select><br>
         写真：<input type="text" name="picture" value="">
               <input type="submit" value="写真を選択"><br>
