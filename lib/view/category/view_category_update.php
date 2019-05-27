@@ -29,7 +29,7 @@
     </form>
   <!-- エラー表示 -->
   <?php
-  require_once("lib/function.php");
+  require_once("lib/init.php");
   ph($error_message);
   ?>
     <!-- 分類入力フォーム-->
