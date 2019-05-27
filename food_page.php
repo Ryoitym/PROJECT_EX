@@ -21,12 +21,11 @@ $dbh = connectDb();
 require_once("lib/model/Food.php");
 
 //モデルクラスのインスタンスを生成
-$food = new SpecialPriceFood($dbh);
+$food = new Food($dbh);
 
-$show_food_id = $_GET["food_id"];
+$show_food_id = @$_GET["food_id"];
 $food_value = $food->getDataById($show_food_id);
 
-var_dump($food_value);
 require_once("lib/view/view_food_page.php");
 
 ?>
