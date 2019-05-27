@@ -79,6 +79,6 @@
           } catch (PDOException $e) {
               exit("SQL発行エラー：{$e->getMessage()}");
           }
-          header('Location: user_list.php');
+          header('Location: user_list_admin.php');
         }
     } ?>
