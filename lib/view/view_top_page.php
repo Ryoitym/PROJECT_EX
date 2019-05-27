@@ -229,7 +229,7 @@
     </article>
 
     <article>
-    <?php 
+    <?php
      require_once("../function.php");
       $dbh=connectDb();
 
@@ -243,7 +243,7 @@
         exit("SQL発行エラー：{$e->getMessage()}");
     }
     ?>
-    
+
 
       <h2>店舗一覧</h2>
       <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
@@ -257,7 +257,7 @@
     </tr>
     <?php } ?>
       <!-- 店舗リンク -->
-      
+
       <div class="box_shop">
         <a href="#">def店舗
       </div>
