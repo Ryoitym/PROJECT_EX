@@ -157,8 +157,8 @@
                     }
                 $message.="正の数値で入力してください";
                 require_once("lib/view/food/view_food_update.php");
-        } else if(  strlen($_POST["food_name"]) <= 100 ||
-                    strlen($_POST["picture"]) <= 300){
+        } else if(  strlen($_POST["food_name"]) >= 100 ||
+                    strlen($_POST["picture"]) >= 300){
                         try {
                             // SQLを構築
                             $sql = "SELECT * FROM ffs_db.food ";

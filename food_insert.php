@@ -112,8 +112,8 @@
                 }
                 $message .= "正の数値を入力してください";
                 require_once("lib/view/food/view_food_insert.php");
-        }else if(   strlen($_POST["food_name"]) <= 100 ||
-                    strlen($_POST["picture"]) <= 300){
+        }else if(   strlen($_POST["food_name"]) >= 100 ||
+                    strlen($_POST["picture"]) >= 300){
                         //分類のためのSQL作成
                 try{
                     $sql = "SELECT * FROM ffs_db.genre";
