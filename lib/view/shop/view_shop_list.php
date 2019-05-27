@@ -10,7 +10,7 @@
  * 作成者：　amaru
  * 作成日：　2019/05/22
  * 最終更新日：　2019/05/27
- * レビュー担当者：室岡
+ * レビュー担当者：orange juice
  * レビュー日：2019/05/27
  * バージョン： 1.1
  */
@@ -25,7 +25,7 @@
 <body>
 <form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-</form><br>
+</form>
     <h1>店舗一覧画面</h1><br>
 
 <a href="special_price_food_list_admin.php">特価商品</a>
@@ -37,7 +37,6 @@
 <input type="text" name="search">
 <input type="submit" value="検索">
 </form>
-<brs>
 <table border="1">
     <tr>
         <th>店舗名</th>
