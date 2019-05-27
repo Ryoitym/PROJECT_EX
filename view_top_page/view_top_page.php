@@ -22,6 +22,25 @@
 
 <body>
 
+<?php
+     require_once("../lib/function.php");
+      $dbh=connectDb();
+
+      try{
+        $sql = "SELECT * FROM ffs_db.shop , ";
+        $sql .= "ffs_db.sale t1 
+                INNER JOIN ffs_db.food t2 
+                ON t1.food_id = t2.food_id 
+                ";
+        $sth = $dbh->prepare($sql);
+
+        $sth->execute();
+      }
+      catch (PDOException $e) {
+        exit("SQL発行エラー：{$e->getMessage()}");
+    }
+?>
+
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
@@ -34,9 +53,9 @@
 
 <nav class="navigation_main">
 <ul>
-<li><a href="index.html">特売商品一覧</a></li>
-<li><a href="＃">生鮮食品一覧</a></li>
-<li><a href="＃">店舗一覧</a></li>
+<a href="index.html">特売商品一覧</a>
+<a href="＃">生鮮食品一覧</a>
+<a href="＃">店舗一覧</a>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -50,6 +69,62 @@
 <img src="images/04.jpg" alt="Slideshow Image 4">
 </div>
 </div><!--/.main_visual-->
+
+<div class="main_area">
+<font = color="green"><h2>特価商品一覧</h2></font>
+
+<!-- image 400px x 400px -->
+<section class="section_top_page">
+<a href="../special_price_food_page.php?sale_id=1">
+
+<h2><?php foreach ($sth as $value) {
+    ?><img src="<?php echo $b= ($value['picture'].'.jpg');?>" alt="sale1">
+        <?php if($value["sale_id"]==1){echo $value["food_name"]; break;?><br>
+        <?php
+        }
+      }?> 1パック<?php echo $value['picture'];?></h2>
+¥<?php foreach ($sth as $value) {
+        if($value["sale_id"]==1){echo $value["sale_price"]; break;?><br>
+        <?php
+        }
+      }?>
+
+</a>
+</section>
+
+<section class="section_top_page">
+<a href="＃">
+<img src="images/onion.jpg" alt="sale2">
+<h2><?php foreach ($sth as $value) {
+        if($value["sale_id"]==2){echo $value["food_name"]; break;?><br>
+        <?php
+        }
+      }?> 1パック 500g</h2>
+<p>￥<?php foreach ($sth as $value) {
+        if($value["sale_id"]==2){echo $value["sale_price"]; break;?><br>
+        <?php
+        }
+      }?></p>
+</a>
+</section>
+
+<section class="section_top_page">
+<a href="＃">
+<img src="images/carrot.jpg" alt="にんじん">
+<h2>にんじん 1パック 400g</h2>
+<p>￥150</p>
+</a>
+</section>
+
+<section class="section_top_page">
+<a href="＃">
+<img src="images/potato.jpg" alt="じゃがいも">
+<h2>じゃがいも 1パック 500g</h2>
+<p>￥181</p>
+</a>
+</section>
+
+</div>
 
 <div class="main_area">
   <font = color="green"><h2>生鮮食品一覧</h2></font>
@@ -77,10 +152,19 @@
 
 <!-- image 400px x 400px -->
 <section class="section_top_page">
-<a href="＃">
-<img src="images/cabbage.jpg" alt="キャベツ">
-<h2>キャベツ 1個</h2>
-<p>￥266</p>
+<a href="../food_page.php?food_id=3">
+
+<h2> <?php foreach ($sth as $value) {
+  ?><img src="images/<?php echo $b= ($value['picture'].'.jpg');?>" alt="ひき肉">
+        <?php echo $value["food_name"];break;?><br>
+        <?php
+        }
+      ?>1個</h2>
+<p>￥<?php foreach ($sth as $value) {
+        echo $value["food_price"]; break;?><br>
+        <?php
+        }
+      ?></p>
 </a>
 </section>
 
@@ -205,6 +289,28 @@
 </section>
 
 </div>
+
+
+
+<div class="main_area">
+<font = color="green"><h2>店舗一覧</h2></font>
+
+<!-- image 400px x 400px -->
+<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+    <tr>
+    <div class="box_shop">
+        <a href="../lib/view/view_shop_page.php?shop_id=<?php 
+        ph($row['shop_id'])?>&shop_name=<?php ph($row['shop_name']);?>
+        &address=<?php ph($row['address']);?>
+        &tel=<?php ph($row['tel']);?>"
+        method="post"><td><?php ph($row["shop_name"]);?></td>店<br>
+      </div>
+
+    </tr>
+    <?php } ?>
+
+</div>
+
 
 <footer class="footer_top_page">
 <nav class="navigation_footer">

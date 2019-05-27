@@ -185,15 +185,11 @@
         
         $sth = $dbh->prepare($sql); // SQLを準備
 
-        // プレースホルダに値をバインド
-        //GETで飛んできたIDのレコードを取ってくる
-        //$sth->bindValue(":sale_id", $_POST["sale_id"]);
-
         $sth->execute();
   
   for($i=0;$i<1;$i++){
 
-    ?><div class="box">
+    ?><div class="">
         <!-- 生鮮食品の写真 -->
         <img src="#" alt="">
 
@@ -244,7 +240,7 @@
       </div>
     </article>
     <br>
-    <a href='view_top_page.php'>トップページへ戻る</a>
+    <a href='../../view_top_page/view_top_page.php'>トップページへ戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 

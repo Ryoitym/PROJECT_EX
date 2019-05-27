@@ -21,7 +21,7 @@ $dbh = connectDb();
 
 if(empty($_POST)){
     try {
-        $sql = "SELECT * FROM user WHERE acess_lv = 2";
+        $sql = "SELECT * FROM user";
         $sth = $dbh->prepare($sql);
 
         $sth->execute();
