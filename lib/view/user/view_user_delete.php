@@ -26,8 +26,8 @@
 
   <p>削除しました。</p>
   <p><a href="user_list_admin.php">ユーザ一覧画面に戻る</a></p>
-  <form action="logout.php" method="post">
-        <button type="submit" name="logout" value="logout">ログアウト</button>
-</form><br>
+  <form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
 </body>
 </html>
