@@ -26,15 +26,15 @@
 
     $food_list = $special_price_food->getDataFoodArray();
     $shop_list = $special_price_food->getDataShopArray();
-
+    
     $error_message = "";
 
 
     // 編集対象のidを遷移前のページからgetで得る
-    $sale_id_r = $_GET["sale_id"];
+    
 
     if (!empty($_POST)){
-        
+        $sale_id_r = $_POST["sale_id"];
         // 選択日の前後の日付で、同生鮮商品かつ同店舗の特価価格商品の有無を表す。true：有　false：無
         $flag_yesterday = false;
         $flag_tomorrow = false;
@@ -82,12 +82,10 @@
             $special_price_food->update($sale_id_r, $_POST);
         }
     } else {
-        
-        $special_price_food_value = $special_price_food->getDataById($sale_id_r);
-        // 確認用
-        // var_dump($special_price_food_value);
+        $sale_id_r = $_GET["sale_id"];
 
     }
+    $special_price_food_value = $special_price_food->getDataById($sale_id_r);
     
     $result = $special_price_food->getDataFoodArray();
     require_once("lib/view/special_price/view_special_price_food_update.php");

@@ -29,7 +29,7 @@
         <?php print $error_message;?>
 
         <form action="special_price_food_update.php" method="post">
-
+            <input type="hidden" name="sale_id" value="<?php ph($sale_id_r) ?>">
             生鮮食品名: 
             <select name="food_select">
                 <?php foreach ($food_list as $food) {?>
@@ -89,7 +89,7 @@
                             } 
                         ?>
                         >
-                            <?php print $shop["shop_name"]; ?>
+                            <?php ph($shop["shop_name"]); ?>
                         </option>
                         <br>
                 <?php } ?>
@@ -98,7 +98,7 @@
             <input type="submit" value="編集"><br>
             <input type="submit" value="クリア"><br>
 
-            
+            <a href="special_price_food_list.php">特価品一覧に戻る</a>
             
         </form>
     </body>
