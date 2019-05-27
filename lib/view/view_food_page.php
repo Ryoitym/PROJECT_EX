@@ -126,80 +126,30 @@
   <main>
     <article>
       <?php
-          require_once("../function.php");
-          $dbh = connectDb();
+       require_once("../function.php");
+        $dbh=connectDb();
 
-          try {
-              // SQLを構築
-              $sql = "SELECT * FROM food";
-              $sth = $dbh->prepare($sql); // SQLを準備
+        try{
+          $sql = "SELECT * FROM ffs_db.food ";
+          $sth = $dbh->prepare($sql);
 
-              // SQLを発行
-              $sth->execute();
-              $row = $sth->fetch(PDO::FETCH_ASSOC);
-
-          } catch (PDOException $e) {
-              exit("SQL発行エラー：{$e->getMessage()}");
-          }
+          $sth->execute();
+        }
+        catch (PDOException $e) {
+          exit("SQL発行エラー：{$e->getMessage()}");
+      }
       ?>
 
       <h2>食品名:</h2>
-        <!-- 生鮮食品の写真 -->
-        <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
-        <!-- 商品名 -->
-        <h3>価格</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-    </article>
-    <article>
-      <!-- 詳細情報 -->
-        <table>
-          <h2>栄養価</h2>
-          <tr>
-            <th>エネルギー：</th>
-            <th>保有量</th>
-          </tr>
+        <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
+      <article>
+          <?php
+              switch($_GET['food_id']){
+                case $i:?>
+            <?php ph($_GET["food_name"]);?><br>
 
-          <tr>
-            <td>たんぱく質：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>脂質：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>炭水化物：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>ナトリウム：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>カリウム：</td>
-            <td>保有量</td>
-          </tr>
-        </table>
-        <?php foreach ($row as $value): ?>
-          <tr>
-              <td>
-                  <?php print htmlspecialchars($value["id"], ENT_QUOTES, "UTF-8"); ?>
-              </td>
-              <td>
-                  <?php print htmlspecialchars($value["入力値"], ENT_QUOTES, "UTF-8"); ?>
-              </td>
-              <td>
-                  <a href="<?php print "information.php?info=" . htmlspecialchars($value["id"], ENT_QUOTES, "UTF-8") ?>">
-                      <?php print htmlspecialchars($value["詳細"], ENT_QUOTES, "UTF-8"); ?>
-                  </a>
-              </td>
-          </tr>
-      <?php endforeach; ?>
+            </div>
+              <?php break;}?>
     </article>
     <!--公開トップページ画面の生鮮食品欄に飛ぶ？-->
     <a href="view_top_page.php">生鮮食品一覧画面に戻る</a>
