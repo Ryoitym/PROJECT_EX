@@ -22,7 +22,6 @@
     // モデルクラスのインスタンスを生成
     $special_price_food = new SpecialPriceFood($dbh);
 
-    $result = $special_price_food->getDataFoodArray();
 
     $food_list = $special_price_food->getDataFoodArray();
     $shop_list = $special_price_food->getDataShopArray();
@@ -83,11 +82,10 @@
         }
     } else {
         $sale_id_r = $_GET["sale_id"];
-
+        
     }
-    $special_price_food_value = $special_price_food->getDataById($sale_id_r);
     
-    $result = $special_price_food->getDataFoodArray();
+    $special_price_food_value = $special_price_food->getDataById($sale_id_r);
     require_once("lib/view/special_price/view_special_price_food_update.php");
 
 ?>
