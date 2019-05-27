@@ -1,13 +1,16 @@
 <?php
 /*
- * システム名： FFS
- * 作成者：　amaru
- * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
- * レビュー担当者：
- * レビュー日：
- * バージョン： 1.0
- */
+* このファイルの概要説明
+* 特価品個別ページ画面のビュー
+* 
+* システム名： FFS
+* 作成者：　amaru
+* 作成日：　2019/05/23
+* 最終更新日：　2019/05/27
+* レビュー担当者：
+* レビュー日：
+* バージョン： 1.0
+*/
 ?>
 
 <!DOCTYPE html>
@@ -116,16 +119,24 @@
 <div class="content">
   <main>
     <article>
-      <h2><a href="view_shop_page.php">abc店舗限定！！！</a></h2>
-        <!-- 生鮮食品の写真 -->
+      <h2><a href="shop_page.php"><?php ph($special_price_food_value["shop_name"]); ?>店舗限定！！！</a></h2>
+        <!-- 生鮮食品の写真 --
         <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
+         -->
         <!-- 商品名 -->
-        <h3>なす</h3>
+        <h3><?php ph($special_price_food_value["food_name"]); ?></h3>
+        
         <!-- 説明 -->
-        <p>説明</p>
+        <!-- <p>説明</p> -->
+        <p><?php ph($special_price_food_value["txt"]); ?></p>
+
         <!-- 価格 -->
         <h3>定価価格</h3>
+        <h3><?php ph($special_price_food_value["food_price"]); ?>円</h3>
+
         <h3>特価価格</h3>
+        <h3><?php ph($special_price_food_value["sale_price"]); ?>円</h3>
+
     </article>
     <article>
       <!-- 詳細情報 -->
@@ -133,32 +144,32 @@
           <h2>栄養価</h2>
           <tr>
             <th>エネルギー：</th>
-            <th>保有量</th>
+            <th><?php ph($special_price_food_value["calorie"]); ?></th>
           </tr>
 
           <tr>
             <td>たんぱく質：</td>
-            <td>保有量</td>
+            <td><?php ph($special_price_food_value["protein"]); ?></td>
           </tr>
 
           <tr>
             <td>脂質：</td>
-            <td>保有量</td>
+            <td><?php ph($special_price_food_value["lipid"]); ?></td>
           </tr>
 
           <tr>
             <td>炭水化物：</td>
-            <td>保有量</td>
+            <td><?php ph($special_price_food_value["carb"]); ?></td>
           </tr>
 
           <tr>
             <td>ナトリウム：</td>
-            <td>保有量</td>
+            <td><?php ph($special_price_food_value["natrium"]); ?></td>
           </tr>
 
           <tr>
             <td>カリウム：</td>
-            <td>保有量</td>
+            <td><?php ph($special_price_food_value["kalium"]); ?></td>
           </tr>
         </table>
     </article>
