@@ -91,4 +91,21 @@ class Food{
             exit("SQL発行エラー：{$e->getMessage()}");
         }
     }
+
+    public function getDataGenreArray()
+    {
+        try {
+            // SQLを構築
+            $sql = "SELECT * FROM ffs_db.genre";
+            $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // SQLを発行
+            $sth->execute();
+
+            // データを戻す
+            return $sth->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
  }
