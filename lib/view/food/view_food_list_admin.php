@@ -16,7 +16,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script type="text/javascript" src="lib/js/food_delete.js"></script>
 <title>生鮮食品一覧画面(IT担当者)</title>
 </head>
 <body>
@@ -54,7 +53,6 @@
             <th>表示フラグ</th>
             <th>分類ID</th>
         </tr>
-
 <?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
       <tr>
         <td><?php ph($row["picture"]); ?></td>
@@ -70,25 +68,23 @@
         <td><?php ph($row["show_flag"]); ?></td>
         <td><?php ph($row["genre_id"]); ?></td>
         <td>
-          <form action = "food_update.php?food_id=<?php
-            ph($row["food_id"]);
-          ?>" method="post">
+          <form action = "food_update.php" method="get">
+            <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
             <input type="submit" value="編集">
           </form>
         </td>
         <td>
-          <form action = "food_delete.php?food_id=<?php
-            ph($row["food_id"]);
-          ?>" method="post">
-            <input type="submit" value="削除" id="delete">
+          <form action = "food_delete.php" method="get">
+            <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
+            <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
           </form>
         </td>
       </tr>
 <?php } ?>
     </table>
   <hr>
-  <a href="">全て表示</a><br>
+  <a href="food_list_admin.php">全て表示</a><br>
 
-  <a href='food_list_admin.php'>トップページへ戻る</a>
+  <a href="management.php">トップページへ戻る</a>
 </body>
 </html>

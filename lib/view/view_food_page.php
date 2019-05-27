@@ -140,50 +140,25 @@
       }
       ?>
 
-      <h2>食品名</h2>
-        <!-- 生鮮食品の写真 -->
-        <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-        <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
-        <!-- 商品名 -->
-        <h3>価格</h3>
-        <!-- 説明 -->
-        <p>説明</p>
-    </article>
-    <article>
-      <!-- 詳細情報 -->
-        <table>
-          <h2>栄養価</h2>
-          <tr>
-            <th>エネルギー：</th>
-            <th>保有量</th>
-          </tr>
-
-          <tr>
-            <td>たんぱく質：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>脂質：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>炭水化物：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>ナトリウム：</td>
-            <td>保有量</td>
-          </tr>
-
-          <tr>
-            <td>カリウム：</td>
-            <td>保有量</td>
-          </tr>
-        </table>
-      <?php } ph(@$_GET["food_id"]);?>
+      <!-- @->　しばらく警告メッセージを隠した -->
+      <h2>食品名:<?php ph(@$_GET["food_name"]);?></h2>
+        <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
+      <article>
+          <?php
+              switch(@$_GET['lang']){
+                case @$_GET['food_id']:?>
+            <?php ph(@$_GET['picture'])?><br>
+            <?php ph(@$_GET["food_name"]);?><br>
+            価格：<?php ph(@$_GET['food_price'])?><br>
+            説明文書：<?php ph(@$_GET['txt'])?><br>
+            エネルギー：<?php ph(@$_GET['calorie'])?><br>
+            たんぱく質：<?php ph(@$_GET['protein'])?><br>
+            脂質：<?php ph(@$_GET['lipid'])?><br>
+            炭水化物：<?php ph(@$_GET['carb'])?><br>
+            ナトリウム：<?php ph(@$_GET['natrium'])?><br>
+            カリウム：<?php ph(@$_GET['kalium'])?><br>
+            </div>
+              <?php break;}?>
     </article>
     <!--公開トップページ画面の生鮮食品欄に飛ぶ？-->
     <a href="view_top_page.php">生鮮食品一覧画面に戻る</a>

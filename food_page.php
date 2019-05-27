@@ -13,10 +13,6 @@
  * バージョン： 1.1
  */
 
-require_once("lib/function.php");
-$dbh = connectDb();
-
-if(empty($_)){
-
+ require_once("lib\init.php");
 
 ?>

@@ -9,10 +9,10 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
- * レビュー担当者：
- * レビュー日：
- * バージョン： 1.0
+ * 最終更新日：　2019/05/27
+ * レビュー担当者：orange juice
+ * レビュー日：2019/05/27
+ * バージョン： 1.1
  */
 -->
 
@@ -20,41 +20,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>店舗一覧画面(IT担当者)</title>
+<title>店舗一覧画面(店長級社員)</title>
 </head>
 <body>
 <form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-</form><br>
+</form>
     <h1>店舗一覧画面</h1><br>
-<?php
-    /*修正してない
 
-    require_once("init.php");
-    $dbh = connectDb();
-
-    try {
-        $sql = "SELECT * FROM shop";
-        $sth = $dbh->prepare($sql);
-
-        $sth->execute();
-    } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-    }
-
-    setcookie("access", 0);*/
-?>
-
-<a href="view_special_price_food_list_admin.php">特価商品</a>
-<a href="view_food_list_admin.php">生鮮食品</a>
-<a href="view_user_list_admin.php">ユーザ</a>
-<a href="view_shop_list_admin.php">店舗</a>
+<a href="special_price_food_list_admin.php">特価商品</a>
+<a href="food_list_admin.php">生鮮食品</a>
+<a href="user_list_admin.php">ユーザ</a>
+<a href="shop_list_admin.php">店舗</a>
 <br>
-<form action="view_user_list_admin.php"method="post">
-<input type="text" name="name_family">
+<form action="shop_list.php"method="post">
+<input type="text" name="search">
 <input type="submit" value="検索">
 </form>
-<brs>
 <table border="1">
     <tr>
         <th>店舗名</th>
@@ -69,6 +51,6 @@
     </tr>
     <?php } ?>
 </table>
-<p><a href="#">全て表示</a></p>
+<p><a href="shop_list.php">全て表示</a></p>
 </body>
 </html>
