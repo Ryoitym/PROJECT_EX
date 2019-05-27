@@ -62,5 +62,6 @@
     <?php } ?>
 </table>
 <p><a href="user_list_admin.php">全て表示</a></p>
+<a href="management_page_admin.php">トップページへ戻る</a>
 </body>
 </html>
