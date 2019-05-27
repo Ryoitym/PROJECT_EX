@@ -93,8 +93,8 @@
 </style>
 
 <!-- 削除確認画面-->
-<form action="view_login.php">
-  <input type="submit" value="ログアウト">
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>削除しました</h1>
 <a href="food_list_admin.php">生鮮食品一覧画面</a>

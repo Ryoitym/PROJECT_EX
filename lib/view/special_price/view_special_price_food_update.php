@@ -23,7 +23,9 @@
 
     <body>
 
-        <input type="submit" value="ログアウト"><br>
+        <form action="logout.php" method="get">
+            <button type="submit" name="logout" value="logout">ログアウト</button>
+        </form>
 
         <!-- エラーメッセージ -->
         <?php print $error_message;?>
@@ -98,7 +100,7 @@
             <input type="submit" value="編集"><br>
             <input type="submit" value="クリア"><br>
 
-            
+            <a href="special_price_food_list.php">特価商品一覧画面へ戻る</a>
             
         </form>
     </body>

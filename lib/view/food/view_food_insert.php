@@ -25,9 +25,9 @@
     <h1>生鮮食品登録画面</h1>
     <?php ph($message); ?>
     <!-- ログアウトボタン-->
-    <form action="logout.php" method="post">
+    <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
-    </form><br>
+    </form>
     <!-- 生鮮食品入力フォーム-->
     <form action="food_insert.php" method="post">
         食品名：<input type="text" name="food_name" value=""><br>
