@@ -93,8 +93,8 @@
   検索：<form action="TopPage.php"method="post">
   <select name="genre_id">
         <option value="0">選択してください</option>
-        <option value="1">肉</option>
-        <option value="2">野菜</option>
+        <option value="1">野菜</option>
+        <option value="2">肉</option>
         <option value="3">魚</option>
   </select>
   <input type="text" name="food_name">
@@ -115,159 +115,17 @@
 
 <!-- image 400px x 400px -->
 
-<?php //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));//exit();?>
+
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
 <tr>
 <div class="box_food">
-  <a href="view_food_page.php"><td><?php ph($row["food_name"]);?></td><br>
+  <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
+  <a href="food_page.php?food_id=<?php ph($row['food_id'])?>&food_name=<?php ph($row['food_name']);?>&food_price=<?php ph($row['food_price']);?>">
+    <?php ph($row["food_name"]);?><br></a>
+    定価 <?php ph($row["food_price"]); ?>
 </div>
-    <td><form action="view_food_page.php?food_id=<?php ph($row['food_id'])?>
-      &food_name=<?php ph($row['food_name']);?>
-      &food_price=<?php ph($row['food_price']);?>
-      &txt=<?php ph($row['txt']);?>"
-    method="post">
-  </td>
 </tr>
 <?php }?>
-
-
-<!-- <section class="section_top_page">
-<a href="../food_page.php?food_id=3">
-
-<h2> <?php foreach ($sth as $value) {
-  ?><img src="lib/images/<?php ph(($value['picture']));?>" alt="">
-        <?php if($value["food_id"]==1){ph($value["food_name"]); break;?><br>
-        <?php
-        }
-      }?>1個</h2>
-<p>￥<?php foreach ($sth as $value) {
-        ph($value["food_price"]); continue;?><br>
-        <?php
-        }
-      ?></p>
-</a>
-</section> -->
-
-<!--<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/onion.jpg" alt="玉ねぎ">
-<h2>玉ねぎ 1パック 500g</h2>
-<p>￥169</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/carrot.jpg" alt="にんじん">
-<h2>にんじん 1パック 400g</h2>
-<p>￥150</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/potato.jpg" alt="じゃがいも">
-<h2>じゃがいも 1パック 500g</h2>
-<p>￥181</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/komatsuna.jpg" alt="小松菜">
-<h2>小松菜 1パック 180g</h2>
-<p>￥78</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/melon.jpg" alt="マスクメロン">
-<h2>マスクメロン 1個</h2>
-<p>￥5400</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/daikon.jpg" alt="大根">
-<h2>大根 1本</h2>
-<p>￥214</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/chives.jpg" alt="にら">
-<h2>にら 1パック 100g</h2>
-<p>￥113</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/1.jpg" alt="とろとろ炒めなす">
-<h2>とろとろ炒めなす 2個</h2>
-<p>￥379</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/tomato.jpg" alt="奏トマト">
-<h2>奏トマト 1パック 300g</h2>
-<p>￥980</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/hakusai.jpg" alt="白菜">
-<h2>白菜 1/2個 800g</h2>
-<p>￥232</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/enoki.jpg" alt="えのき">
-<h2>えのき 1パック 180g</h2>
-<p>￥72</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/orange.jpg" alt="ネーブルオレンジ">
-<h2>ネーブルオレンジ 3個</h2>
-<p>￥285</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/egg.jpg" alt="ふじたま">
-<h2>[冷蔵] ふじたま 10個</h2>
-<p>￥215</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/pepper.jpg" alt="パプリカ">
-<h2>パプリカ 1パック 250g</h2>
-<p>￥432</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/kiwi.jpg" alt="ゴールド キウイフルーツ">
-<h2>ゴールド キウイフルーツ 2個</h2>
-<p>￥346</p>
-</a>
-</section>-->
-
 </div>
 
 

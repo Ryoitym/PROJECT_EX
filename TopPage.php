@@ -38,13 +38,13 @@ function get_food($dbh)
         }
         //var_dump($where);
         if (!empty($where)) {
+
             $where_sql = implode(" AND ", $where);
             // SQLを構築
             $sql = "SELECT * FROM food ";
             $sql .= "INNER JOIN genre ";
             $sql .= "ON food.genre_id = genre.genre_id ";
             $sql .= "WHERE " . $where_sql ;
-
             if (!empty($_POST["eiyoka"])) {
               switch($_POST["eiyoka"]){
                 case "calorie";
@@ -144,8 +144,8 @@ function get_food($dbh)
     // 今日の特価商品一覧の連想配列を得て、変数$special_price_food_today_listに代入
     $today = date("Y-m-d");
     $special_price_food_today_list = $special_price_food->getDataSaleFoodShoppArrayAtDate($today);
-    
-    
+
+
     // モデルファイルを読み込む
     require_once("lib/model/Shop.php");
 
@@ -153,8 +153,8 @@ function get_food($dbh)
     $shop_i = new SpecialPriceFood($dbh);
 
     $shop_list = $shop_i->getDataShopArray();
-    
-    
+
+
 
     require_once("lib/view/view_top_page.php");
 ?>
