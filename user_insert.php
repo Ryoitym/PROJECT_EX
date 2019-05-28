@@ -21,6 +21,15 @@
       accesscheckAdmin();
 
       $dbh = connectDb();
+    // モデルファイルを読み込む
+    require_once("lib/model/User.php");
+
+    // モデルクラスのインスタンスを生成
+    $user = new User($dbh);
+
+    $shop_list = $user->getDataShopArray();
+
+
       //入力画面表示
       if(empty($_POST)){
           // 店舗をセレクトボックスで表示するためのSQL作成

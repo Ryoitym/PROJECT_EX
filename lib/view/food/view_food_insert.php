@@ -33,15 +33,7 @@
         食品名：<input type="text" name="food_name" value=""><br>
         分類：<select name="genre_id">
         <?php foreach ($genre_list as $genre) {?>
-                        <option value="<?php ph($genre["genre_id"]);?>" 
-                        <?php 
-                            /*if (isset($special_price_food_value)) {
-                                if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
-                                    print " selected";
-                                }
-                            } */
-                        ?>
-                        >
+                        <option value="<?php ph($genre["genre_id"]);?>">
                             <?php ph($genre["genre_name"]); ?>
                         </option>
                         <br>
