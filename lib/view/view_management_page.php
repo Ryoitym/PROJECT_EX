@@ -26,7 +26,7 @@
     //require_once("init.php");
 ?>
 <div class="m_center">
-<form action="logout.php" method="post">
+<form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>店長級社員管理画面</h1>
