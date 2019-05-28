@@ -27,9 +27,9 @@
 
         $sth->bindValue(":food_id", $_GET["food_id"]);
         $sth->execute();
+        require_once("lib/view/food/view_food_delete.php");
 
     } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
+        require_once("lib/view/food/view_food_delete_error.php");
     }
-    require_once("lib/view/food/view_food_delete.php");
 ?>

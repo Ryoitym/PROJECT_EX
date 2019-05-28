@@ -26,9 +26,11 @@
         $sth->bindValue(":genre_id", $_POST["genre_id"]);
         $sth->execute();
 
+        require_once("lib/view/category/view_category_delete.php");
+
     } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-        require_once("view_category_delete.error.php");
+        require_once("lib/view/category/view_category_delete_error.php");
+        //exit("SQL発行エラー：{$e->getMessage()}");
+        
     }
 
-  require_once("lib/view/category/view_category_delete.php");
