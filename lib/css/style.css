@@ -1,0 +1,42 @@
+.management{
+  background-color: #f4f2ab;
+}
+
+.m_center{
+  text-align: center;
+  background-color: #b0f2a2;
+  margin: 60px 300px;
+  padding: 30px;
+  border-radius: 20px;
+  border-style: groove;
+}
+
+.btn-management {
+  height: 50px;
+  width: 150px;
+  padding: 0.5em 1em;
+  background: #20c91a;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 3px 3px #666666;
+  border: dotted  1px #FFF;
+  font-size: 15px;
+}
+
+.btn-management:hover {
+  color: #575957;
+  background-color: #3af27d;
+  border: double 1px #FFF;
+}
+
+.btn-management {
+  margin: 10px;
+}
+
+/* #m_food{
+  float:left;
+}
+
+#m_user{
+  float:left;
+} */

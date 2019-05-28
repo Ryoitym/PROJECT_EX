@@ -1,5 +1,6 @@
 <?php
- $food = get_food($_GET);/*
+// $food = get_food($_GET);
+/*
 
  * システム名： FFS
  * 作成者：　amaru
@@ -182,19 +183,21 @@
       <!-- 分類 -->
       <form action="TopPage.php"method="post">
       <select name="genre_id">
-            <option value="1">肉</option><br>
-            <option value="2">野菜</option><br>
-            <option value="3">魚</option><br>
+            <option value="0"></option>
+            <option value="1">肉</option>
+            <option value="2">野菜</option>
+            <option value="3">魚</option>
       </select>
 
       <!-- 栄養価 -->
       栄養価: <select name="eiyoka">
-              <option value="calorie">エネルギー</option><br>
-              <option value="protein">たんぱく質</option><br>
-              <option value="lipid">脂質</option><br>
-              <option value="carb">炭水化物</option><br>
-              <option value="natrium">ナトリウム</option><br>
-              <option value="kalium">カリウム</option><br>
+              <option value=""></option>
+              <option value="calorie">エネルギー</option>
+              <option value="protein">たんぱく質</option>
+              <option value="lipid">脂質</option>
+              <option value="carb">炭水化物</option>
+              <option value="natrium">ナトリウム</option>
+              <option value="kalium">カリウム</option>
               </select><br>
 
 
@@ -202,30 +205,25 @@
             <input type="submit" value="検索">
       </form>
 
+<?php
+  require_once("lib/function.php");
+?>
+<?php //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));//exit();?>
+<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+<tr>
+<div class="box_food">
+  <a href="view_food_page.php"><td><?php ph($row["food_name"]);?></td><br>
+</div>
+    <td><form action="view_food_page.php?food_id=<?php ph($row['food_id'])?>
+      &food_name=<?php ph($row['food_name']);?>
+      &food_price=<?php ph($row['food_price']);?>
+      &txt=<?php ph($row['txt']);?>"
+    method="post">
+  </td>
+</tr>
+<?php }
 
-<div>
-	<?php //③取得データを表示する ?>
-	<?php if(isset($food) && count($food)): ?>
-		<p><?php echo count($food) ?>件見つかりました。</p>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>生鮮食品名</th>
-					<th>価格</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($food as $row): ?>
-					<tr>
-						<td><?php echo htmlspecialchars($row['food_name']) ?></td>
-						<td><?php echo htmlspecialchars($row['food_price']) ?></td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
-	<?php else: ?>
-		<p>検索対象は見つかりませんでした。</p>
-	<?php endif; ?>
+?>
 
     </article>
 
