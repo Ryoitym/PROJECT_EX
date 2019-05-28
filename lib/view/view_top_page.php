@@ -139,7 +139,7 @@
         }
       }?>1個</h2>
 <p>￥<?php foreach ($sth as $value) {
-        ph($value["food_price"]); break;?><br>
+        ph($value["food_price"]); continue;?><br>
         <?php
         }
       ?></p>
@@ -269,15 +269,11 @@
 </div>
 
 <?php
-    //ここに置かないとなぜか非表示になるため仮配置
+     require_once("lib/function.php");
       $dbh=connectDb();
 
       try{
-        $sql = "SELECT * FROM ffs_db.shop , ";
-        $sql .= "ffs_db.sale t1
-                INNER JOIN ffs_db.food t2
-                ON t1.food_id = t2.food_id
-                ";
+        $sql = "SELECT * FROM ffs_db.shop ";
         $sth = $dbh->prepare($sql);
 
         $sth->execute();
@@ -294,7 +290,7 @@
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
     <div class="box_shop">
-        <a href="../lib/view/view_shop_page.php?shop_id=<?php
+        <a href="lib/view/view_shop_page.php?shop_id=<?php
         ph($row['shop_id']);?>&shop_name=<?php ph($row['shop_name']);?>
         &address=<?php ph($row['address']);?>
         &tel=<?php ph($row['tel']);?>"
