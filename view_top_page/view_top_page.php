@@ -28,9 +28,9 @@
 
       try{
         $sql = "SELECT * FROM ffs_db.shop , ";
-        $sql .= "ffs_db.sale t1 
-                INNER JOIN ffs_db.food t2 
-                ON t1.food_id = t2.food_id 
+        $sql .= "ffs_db.sale t1
+                INNER JOIN ffs_db.food t2
+                ON t1.food_id = t2.food_id
                 ";
         $sth = $dbh->prepare($sql);
 
@@ -53,9 +53,9 @@
 
 <nav class="navigation_main">
 <ul>
-<a href="index.html">特売商品一覧</a>
-<a href="＃">生鮮食品一覧</a>
-<a href="＃">店舗一覧</a>
+  <li><a href="index.html">特売商品一覧</a></li>
+  <li><a href="＃">生鮮食品一覧</a><li>
+  <li><a href="＃">店舗一覧</a></li>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -78,13 +78,13 @@
 <a href="../special_price_food_page.php?sale_id=1">
 
 <h2><?php foreach ($sth as $value) {
-    ?><img src="<?php echo $b= ($value['picture'].'.jpg');?>" alt="sale1">
-        <?php if($value["sale_id"]==1){echo $value["food_name"]; break;?><br>
+    ?><img src="images/<?php ph(($value['picture']));?>" alt="sale1">
+        <?php if($value["sale_id"]==1){ph($value["food_name"]); break;?><br>
         <?php
         }
       }?> 1パック</h2>
 ¥<?php foreach ($sth as $value) {
-        if($value["sale_id"]==1){echo $value["sale_price"]; break;?><br>
+        if($value["sale_id"]==1){ph($value["sale_price"]); break;?><br>
         <?php
         }
       }?>
@@ -96,15 +96,17 @@
 <a href="＃">
 
 <h2><?php foreach ($sth as $value) {
-  ?><img src="<?php echo $b= ($value['picture'].'.jpg');?>" alt="sale2">
-        <?php if($value["sale_id"]==2){echo $value["food_name"]; break;?><br>
+  ?><img src="images/<?php ph(($value['picture']));?>" alt="sale2">
+        <?php if($value["sale_id"]==2){ph($value["food_name"]); ?><br>
         <?php
         }
-      }?> 1パック 500g</h2>
+        break;
+      }?> 1パック<?php ph(($value['picture']));?></h2>
 <p>￥<?php foreach ($sth as $value) {
-        if($value["sale_id"]==2){echo $value["sale_price"]; break;?><br>
+        if($value["sale_id"]==2){ph($value["sale_price"]); ?><br>
         <?php
         }
+        break;
       }?></p>
 </a>
 </section>
@@ -156,13 +158,13 @@
 <a href="../food_page.php?food_id=3">
 
 <h2> <?php foreach ($sth as $value) {
-  ?><img src="images/<?php echo $b= ($value['picture'].'.jpg');?>" alt="ひき肉">
-        <?php echo $value["food_name"];break;?><br>
+  ?><img src="images/<?php ph(($value['picture']));?>" alt="">
+        <?php if($value["food_id"]==1){ph($value["food_name"]); break;?><br>
         <?php
         }
-      ?>1個</h2>
+      }?>1個</h2>
 <p>￥<?php foreach ($sth as $value) {
-        echo $value["food_price"]; break;?><br>
+        ph($value["food_price"]); break;?><br>
         <?php
         }
       ?></p>
@@ -297,9 +299,9 @@
 
       try{
         $sql = "SELECT * FROM ffs_db.shop , ";
-        $sql .= "ffs_db.sale t1 
-                INNER JOIN ffs_db.food t2 
-                ON t1.food_id = t2.food_id 
+        $sql .= "ffs_db.sale t1
+                INNER JOIN ffs_db.food t2
+                ON t1.food_id = t2.food_id
                 ";
         $sth = $dbh->prepare($sql);
 
@@ -317,11 +319,11 @@
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
     <div class="box_shop">
-        <a href="../lib/view/view_shop_page.php?shop_id=<?php 
+        <a href="../lib/view/view_shop_page.php?shop_id=<?php
         ph($row['shop_id']);?>&shop_name=<?php ph($row['shop_name']);?>
         &address=<?php ph($row['address']);?>
         &tel=<?php ph($row['tel']);?>"
-        method="post"><td><?php ph($row["shop_name"]);?></td>店<br>
+        method="post"><td><?php ph($row["shop_name"]);?></td><br>
       </div>
 
     </tr>
