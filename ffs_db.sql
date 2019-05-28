@@ -27,15 +27,22 @@ GRANT ALL PRIVILEGES ON ffs_db.* TO 'root'@'%' IDENTIFIED BY 'ffs';
 USE ffs_db;
 
 -- 分類テーブル作成 genre
-DROP TABLE IF EXISTS genre;
 CREATE TABLE IF NOT EXISTS genre (
   `genre_id` INT AUTO_INCREMENT NOT NULL,
   `genre_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`genre_id`)
 );
 
+-- 店舗テーブル作成 shop
+CREATE TABLE IF NOT EXISTS shop (
+  `shop_id` INT AUTO_INCREMENT NOT NULL,
+  `shop_name` VARCHAR(100) NOT NULL,
+  `address` VARCHAR(100) NOT NULL,
+  `tel` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`shop_id`)
+);
+
 -- 生鮮食品テーブル作成 food
-DROP TABLE IF EXISTS food;
 CREATE TABLE IF NOT EXISTS food (
   `food_id` INT AUTO_INCREMENT NOT NULL,
   `food_name` VARCHAR(100) NOT NULL,
@@ -54,18 +61,20 @@ CREATE TABLE IF NOT EXISTS food (
   FOREIGN KEY(`genre_id`) REFERENCES genre (`genre_id`)
 );
 
--- 店舗テーブル作成 shop
-DROP TABLE IF EXISTS shop;
-CREATE TABLE IF NOT EXISTS shop (
-  `shop_id` INT AUTO_INCREMENT NOT NULL,
-  `shop_name` VARCHAR(100) NOT NULL,
-  `address` VARCHAR(100) NOT NULL,
-  `tel` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`shop_id`)
+
+-- 特価品テーブル作成 sale
+CREATE TABLE IF NOT EXISTS sale (
+  `sale_id` INT AUTO_INCREMENT NOT NULL,
+  `sale_price` INT NOT NULL,
+  `date` DATE NOT NULL,
+  `shop_id` INT NOT NULL,
+  `food_id` INT NOT NULL,
+  PRIMARY KEY (`sale_id`),
+  FOREIGN KEY(`food_id`) REFERENCES food (`food_id`),
+  FOREIGN KEY(`shop_id`) REFERENCES shop (`shop_id`)
 );
 
 -- ユーザテーブル作成 user
-DROP TABLE IF EXISTS user;
 CREATE TABLE IF NOT EXISTS user (
   `user_id` INT AUTO_INCREMENT NOT NULL,
   `password` VARCHAR(20) NOT NULL,
@@ -78,18 +87,10 @@ CREATE TABLE IF NOT EXISTS user (
   FOREIGN KEY(`shop_id`) REFERENCES shop (`shop_id`)
 );
 
--- 特価品テーブル作成 sale
-DROP TABLE IF EXISTS sale;
-CREATE TABLE IF NOT EXISTS sale (
-  `sale_id` INT AUTO_INCREMENT NOT NULL,
-  `sale_price` INT NOT NULL,
-  `date` DATE NOT NULL,
-  `shop_id` INT NOT NULL,
-  `food_id` INT NOT NULL,
-  PRIMARY KEY (`sale_id`),
-  FOREIGN KEY(`food_id`) REFERENCES food (`food_id`),
-  FOREIGN KEY(`shop_id`) REFERENCES shop (`shop_id`)
-);
+
+
+
+
 
 
 --野菜
@@ -256,6 +257,30 @@ INSERT INTO food (
     5
     );
 
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    1,
+    '浅草橋店',
+    '東京都台東区浅草橋5丁目２－３',
+    '090-1234-5678'
+  );
+
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    2,
+    '秋葉原店',
+    '東京都台東区浅草橋5丁目２－３',
+    '090-1234-5678'
+  );
+
 --田中さん
 INSERT INTO user (
   user_id,
@@ -309,14 +334,4 @@ INSERT INTO sale(
     1
   );
 
-INSERT INTO shop(
-  shop_id,
-  shop_name,
-  address,
-  tel
-  ) VALUES (
-    1,
-    '浅草橋店',
-    '東京都台東区浅草橋5丁目２－３',
-    '090-1234-5678'
-  );
+
