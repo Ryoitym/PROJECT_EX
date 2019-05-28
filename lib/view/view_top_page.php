@@ -87,7 +87,7 @@
               "&tel=" .
               $special_price_food_today["tel"];
   ?>
-  
+
   <a href="<?php ph($shop_url) ?>"><?php ph($special_price_food_today["shop_name"]); ?> </a>
   <a href="food_page.php?food_id=<?php ph($special_price_food_today["food_id"]); ?>">
     <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
@@ -108,28 +108,48 @@
   <font = color="green"><h2>生鮮食品一覧</h2></font>
 
   <!-- 分類 -->
-  <select name="genre_name">
-        <option value="1">肉</option><br>
-        <option value="2">野菜</option><br>
-        <option value="3">魚</option><br>
-        <option value="4">その他</option><br>
+  検索：<form action="TopPage.php"method="post">
+  <select name="genre_id">
+        <option value="0">選択してください</option>
+        <option value="1">肉</option>
+        <option value="2">野菜</option>
+        <option value="3">魚</option>
   </select>
+  <input type="text" name="food_name">
+  <input type="submit" value="検索">
+  <br>
 
   <!-- 栄養価 -->
-  栄養価: <select name="eiyoka">
-          <option value="calorie">エネルギー</option><br>
-          <option value="protein">たんぱく質</option><br>
-          <option value="lipid">脂質</option><br>
-          <option value="carb">炭水化物</option><br>
-          <option value="natrium">ナトリウム</option><br>
-          <option value="kalium">カリウム</option><br>
-          </select><br>
-
-  <input type="text" name="keyword">
-  <input type="submit" value="検索"><br>
+  栄養価: <br><select name="eiyoka">
+          <option value="">選択してください</option>
+          <option value="calorie">エネルギー</option>
+          <option value="protein">たんぱく質</option>
+          <option value="lipid">脂質</option>
+          <option value="carb">炭水化物</option>
+          <option value="natrium">ナトリウム</option>
+          <option value="kalium">カリウム</option>
+          </select> <input type="submit" value="検索"><br>
+  </form>
 
 <!-- image 400px x 400px -->
-<section class="section_top_page">
+
+<?php //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));//exit();?>
+<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+<tr>
+<div class="box_food">
+  <a href="view_food_page.php"><td><?php ph($row["food_name"]);?></td><br>
+</div>
+    <td><form action="view_food_page.php?food_id=<?php ph($row['food_id'])?>
+      &food_name=<?php ph($row['food_name']);?>
+      &food_price=<?php ph($row['food_price']);?>
+      &txt=<?php ph($row['txt']);?>"
+    method="post">
+  </td>
+</tr>
+<?php }?>
+
+
+<!-- <section class="section_top_page">
 <a href="../food_page.php?food_id=3">
 
 <h2> <?php foreach ($sth as $value) {
@@ -144,9 +164,9 @@
         }
       ?></p>
 </a>
-</section>
+</section> -->
 
-<section class="section_top_page">
+<!--<section class="section_top_page">
 <a href="＃">
 <img src="lib/images/onion.jpg" alt="玉ねぎ">
 <h2>玉ねぎ 1パック 500g</h2>
@@ -264,7 +284,7 @@
 <h2>ゴールド キウイフルーツ 2個</h2>
 <p>￥346</p>
 </a>
-</section>
+</section>-->
 
 </div>
 
