@@ -183,7 +183,7 @@
       <!-- 分類 -->
       検索：<form action="TopPage.php"method="post">
       <select name="genre_id">
-            <option value="0"></option>
+            <option value="0">選択してください</option>
             <option value="1">肉</option>
             <option value="2">野菜</option>
             <option value="3">魚</option>
@@ -194,14 +194,14 @@
 
       <!-- 栄養価 -->
       栄養価: <br><select name="eiyoka">
-              <option value=""></option>
+              <option value="">選択してください</option>
               <option value="calorie">エネルギー</option>
               <option value="protein">たんぱく質</option>
               <option value="lipid">脂質</option>
               <option value="carb">炭水化物</option>
               <option value="natrium">ナトリウム</option>
               <option value="kalium">カリウム</option>
-              </select><br>
+              </select> <input type="submit" value="検索"><br>
       </form>
 
 <?php

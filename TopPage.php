@@ -38,7 +38,6 @@ function get_food($dbh)
         }
         //var_dump($where);
         if (!empty($where)) {
-           print "test";
             $where_sql = implode(" AND ", $where);
             // SQLを構築
             $sql = "SELECT * FROM food ";
