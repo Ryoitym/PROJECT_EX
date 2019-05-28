@@ -31,7 +31,7 @@ if(empty($_POST)){
   }else{
     //検索ボタン押下時の処理
     try {
-        $sql = "SELECT * FROM ffs_db.user name_family LIKE :search";
+        $sql = "SELECT * FROM ffs_db.user WHERE name_family LIKE :search";
         $sth = $dbh->prepare($sql);
 
         // プレースホルダに値をバインド

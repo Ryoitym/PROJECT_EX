@@ -1,11 +1,9 @@
 <?php
-// $food = get_food($_GET);
 /*
-
  * システム名： FFS
  * 作成者：　amaru
- * 作成日：　2019/05/23
- * 最終更新日：　2019/05/28
+ * 作成日：　2019/05/26
+ * 最終更新日：　2019/05/27
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.0
@@ -14,258 +12,187 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>公開トップページ画面</title>
-<!--外部記述する場合
-<link rel="stylesheet" href="css/style.css">
--->
+<title>FFS is Fresh foods Shop</title>
+<link rel="stylesheet" href="lib/css/style-pc.css">
+
 </head>
+
 <body>
-<!-- css -->
-<style type="text/css">
-  body {
-    font-family:"Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
-    line-height: 1.8;
-    color: #333;
-    background: #E9FDCD;
-  }
-  img {
-      max-width: 100%;
-      height: auto;
-  }
 
-  p {
-      text-shadow: 1px 1px 1px #fff;
-  }
-
-  hr {
-    width: 100%;
-  }
-
-
-  /*レイアウト
-  ----------------------------------------------------*/
-  .wrapper {
-      max-width: 960px;/*最大コンテンツ幅*/
-      margin: 0 auto;
-      padding: 10px;
-      background-color: white;
-      /*background-image:url(../img/bg_body.png);*/
-  }
-
-  /*header（最上部）
-  ----------------------------------------------------*/
-  header {
-      margin-bottom: 1.5rem;
-  }
-
-  header h1 {
-      line-height: 1.2;
-      font-size: 2rem;
-      font-weight: normal;
-      color: #000;
-      text-shadow: 1px 1px 1px #fff;
-      text-align: center;
-  }
-
-  nav ul {
-       margin: 0;
-       padding: 0;
-       list-style-type: none;
-  }
-
-  nav ul li {
-       float: left;
-       width: 25%; /*各メニューの幅*/
-       text-align: center;
-       text-shadow: 1px 1px 1px #fff;
-  }
-
-  nav ul li a{
-       display: block;
-       padding: 10px 0;
-       color: #666;
-       text-decoration: none;
-  }
-
-  #slide {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
-  }
-
-  /*中身
-  ----------------------------------------------------*/
-  .content {
-        padding: 0 10px;
-  }
-
-  main {
-      float: left;
-      margin-left: 10px;
-      width: 65.9574%;
-
-  }
-
-  main h2 {
-        margin: 0.5rem 0;
-        padding: 0 0 0 10px;
-        border-left: 3px solid #333;
-        font-size: 1.5rem;
-        font-weight: normal;
-        text-shadow: 1px 1px 1px #fff;
-  }
-
-  main {
-        margin-bottom: 3rem;
-
-  }
-
-  .box{
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #dedede;
-  }
-
-  .box_shop{
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #dedede;
-  }
-
-  /*最下部
-  ----------------------------------------------------*/
-  footer {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
-  }
-</style>
 
 <div class="wrapper">
-<!-- タイトル & ナビゲーション & 特売商品欄 -->
-<header>
-  <h1>FFS</h1>
-  <hr>
-  <nav>
-    <ul>
-      <li><a href="#">特売</a></li>
-      <li><a href="#">生鮮食品</a></li>
-      <li><a href="#">店舗</a></li>
-    </ul>
-  </nav>
-
-<!-- 特売商品欄(スライダー機能必要) -->
-  <div id="slide">
-    <a href="#">もっと見る</a>
-  </div>
-</header>
-
-
-<!-- 本文（中身・コンテンツ） -->
-<div class="content">
-  <main>
-    <article>
-      <h2>生鮮食品一覧</h2>
-
-      <!-- 分類 -->
-      検索：<form action="TopPage.php"method="post">
-      <select name="genre_id">
-            <option value="0">選択してください</option>
-            <option value="1">肉</option>
-            <option value="2">野菜</option>
-            <option value="3">魚</option>
-      </select>
-      <input type="text" name="food_name">
-      <input type="submit" value="検索">
-      <br>
-
-      <!-- 栄養価 -->
-      栄養価: <br><select name="eiyoka">
-              <option value="">選択してください</option>
-              <option value="calorie">エネルギー</option>
-              <option value="protein">たんぱく質</option>
-              <option value="lipid">脂質</option>
-              <option value="carb">炭水化物</option>
-              <option value="natrium">ナトリウム</option>
-              <option value="kalium">カリウム</option>
-              </select> <input type="submit" value="検索"><br>
-      </form>
-
-<?php
-  require_once("lib/function.php");
-?>
-<?php //var_dump($sth->fetchAll(PDO::FETCH_ASSOC));//exit();?>
-<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-<tr>
-<div class="box_food">
-  <a href="view_food_page.php"><td><?php ph($row["food_name"]);?></td><br>
+<header class="header_top_page">
+<div class="title">
+  <h1><a href=""><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
-    <td><form action="view_food_page.php?food_id=<?php ph($row['food_id'])?>
-      &food_name=<?php ph($row['food_name']);?>
-      &food_price=<?php ph($row['food_price']);?>
-      &txt=<?php ph($row['txt']);?>"
-    method="post">
-  </td>
-</tr>
+
+<div id="navToggle">
+  <div> <span></span> <span></span> <span></span> </div>
+</div><!--#navToggle END-->
+
+<nav class="navigation_main">
+<ul>
+  <li><a href="">特売商品一覧</a></li>
+  <li><a href="">生鮮食品一覧</a><li>
+  <li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+</header><!--/.header-->
+
+<!-- スライダー -->
+<div class="main_visual">
+<div id="slideshow">
+<img src="lib/images/01.jpg" alt="Slideshow Image 1" class="active">
+<img src="lib/images/02.jpg" alt="Slideshow Image 2">
+<img src="lib/images/03.jpg" alt="Slideshow Image 3">
+<img src="lib/images/04.jpg" alt="Slideshow Image 4">
+</div>
+</div><!--/.main_visual-->
+
+<div class="main_area">
+<font = color="green"><h2>特価商品一覧</h2></font>
+
+<!-- image 400px x 400px -->
+
+<?php foreach ($special_price_food_today_list as $special_price_food_today) { ?>
+  <section class="section_top_page">
+  <?php
+  $shop_url = "shop_page.php?shop_id=" .
+              $special_price_food_today["shop_id"] .
+              "&shop_name=" .
+              $special_price_food_today["shop_name"] .
+              "&address=" .
+              $special_price_food_today["address"] .
+              "&tel=" .
+              $special_price_food_today["tel"];
+  ?>
+
+  <a href="<?php ph($shop_url) ?>"><?php ph($special_price_food_today["shop_name"]); ?> </a>
+  <a href="food_page.php?food_id=<?php ph($special_price_food_today["food_id"]); ?>">
+    <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
+    <h2><?php ph($special_price_food_today["food_name"]); ?></h2>
+
+    <p>定価 ￥<?php ph($special_price_food_today["food_price"]); ?></p>
+    <p>特価 ￥<?php ph($special_price_food_today["sale_price"]); ?></p>
+  </a>
+  <!-- 商品の説明文 -->
+  <p><?php ph($special_price_food_today["txt"]); ?></p>
+  </section>
+<?php } ?>
+
+
+</div>
+
+<div class="main_area">
+  <font = color="green"><h2>生鮮食品一覧</h2></font>
+
+  <!-- 分類 -->
+  検索：<form action="TopPage.php"method="post">
+  <select name="genre_id">
+        <option value="0">選択してください</option>
+        <option value="1">野菜</option>
+        <option value="2">肉</option>
+        <option value="3">魚</option>
+  </select>
+  <input type="text" name="food_name">
+  <input type="submit" value="検索">
+  <br>
+
+  <!-- 栄養価 -->
+  栄養価: <br><select name="eiyoka">
+          <option value="">選択してください</option>
+          <option value="calorie">エネルギー</option>
+          <option value="protein">たんぱく質</option>
+          <option value="lipid">脂質</option>
+          <option value="carb">炭水化物</option>
+          <option value="natrium">ナトリウム</option>
+          <option value="kalium">カリウム</option>
+          </select> <input type="submit" value="検索"><br>
+  </form>
+
+  <p><a href="TopPage.php">全て表示</a></p>
+
+<!-- image 400px x 400px -->
+
+
+<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+<section class="section_top_page">
+  <a href="food_page.php?food_id=<?php ph($row['food_id'])?>&food_name=<?php ph($row['food_name']);?>&food_price=<?php ph($row['food_price']);?>">
+    <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
+    <?php ph($row["food_name"]);?><br>
+    定価 ￥<?php ph(number_format($row["food_price"])); ?></a>
+    <p><?php ph($row["txt"]); ?></p>
+    </section>
+</section>
 <?php }?>
-
-    </article>
-
-    <article>
-    <?php
-     require_once("lib/init.php");
-      $dbh=connectDb();
-
-      try{
-        $sql = "SELECT * FROM ffs_db.shop ";
-        $sth = $dbh->prepare($sql);
-
-        $sth->execute();
-      }
-      catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-    }
-    ?>
+</div>
 
 
-      <h2>店舗一覧</h2>
-      <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+<div class="main_area">
+<font = color="green"><h2>店舗一覧</h2></font>
+
+<!-- image 400px x 400px -->
+<?php foreach ($shop_list as $shop) {?>
     <tr>
     <div class="box_shop">
-        <a href="view_shop_page.php"><td><?php ph($row["shop_name"]);?></td>店<br>
+        <a href="shop_page.php?shop_id=<?php
+        ph($shop['shop_id']);?>&shop_name=<?php ph($shop['shop_name']);?>
+        &address=<?php ph($shop['address']);?>
+        &tel=<?php ph($shop['tel']);?>"
+        method="post"><td><?php ph($shop["shop_name"]);?></td><br>
       </div>
-          <!--仮で送信ボタン追加-->
-          <td><form action="view_shop_page.php?shop_id=<?php
-            ph($row['shop_id'])?>&shop_name=<?php ph($row['shop_name']);?>
-            &address=<?php ph($row['address']);?>
-            &tel=<?php ph($row['tel']);?>"
-             method="post">
-      <input type="submit" value="送信"></form></td>
+
     </tr>
     <?php } ?>
 
-    </article>
-</main>
-</div><!-- コンテンツはここまで -->
+</div>
 
-<!-- 最下部（著者情報） -->
-<footer>
-  <small>Copyright 2019 team FFS</small>
+
+<footer class="footer_top_page">
+<nav class="navigation_footer">
+<ul>
+  <li><a href="">特売商品一覧</a></li>
+  <li><a href="">生鮮食品一覧</a></li>
+  <li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+<small>&copy; 2019 Team FFS </small>
 </footer>
 
-</div><!--　wrapperはここまで　-->
+</div><!--/.wrapper-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+//スライド設定
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+    $active.addClass('last-active');
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 4000 );
+});
+
+//トグルメニュー
+$(function() {
+	$('#navToggle').click(function(){
+		$('header').toggleClass('openNav');
+	});
+});
+</script>
+
 </body>
+
 </html>

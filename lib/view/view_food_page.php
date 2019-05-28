@@ -15,170 +15,98 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>生鮮食品個別ページ画面</title>
-<!--外部記述する場合
-<link rel="stylesheet" href="css/style.css">
--->
+<link rel="stylesheet" href="lib/css/style-sample.css">
 </head>
+
 <body>
-<!-- css -->
-<style type="text/css">
-  body {
-    font-family:"Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
-    line-height: 1.8;
-    color: #333;
-    background: #E9FDCD;
-  }
-  img {
-      max-width: 100%;
-      height: auto;
-  }
-
-  p {
-      text-shadow: 1px 1px 1px #fff;
-  }
-
-  hr {
-    width: 100%;
-  }
-
-  /*レイアウト
-  ----------------------------------------------------*/
-  .wrapper {
-      max-width: 960px;/*最大コンテンツ幅*/
-      margin: 0 auto;
-      padding: 10px;
-      background-color: white;
-      /*background-image:url(../img/bg_body.png);*/
-  }
-
-  /*header（最上部）
-  ----------------------------------------------------*/
-  header {
-      margin-bottom: 1.5rem;
-  }
-
-  header h1 {
-      line-height: 1.2;
-      font-size: 2rem;
-      font-weight: normal;
-      color: #000;
-      text-shadow: 1px 1px 1px #fff;
-      text-align: center;
-  }
-
-  /*中身
-  ----------------------------------------------------*/
-  .content {
-        padding: 0 10px;
-  }
-
-  main {
-      float: left;
-      margin-left: 10px;
-      width: 65.9574%;
-
-  }
-
-  main h2 {
-        margin: 0.5rem 0;
-        padding: 0 0 0 10px;
-        border-left: 3px solid #333;
-        font-size: 1.5rem;
-        font-weight: normal;
-        text-shadow: 1px 1px 1px #fff;
-  }
-
-  main {
-        margin-bottom: 3rem;
-
-  }
-
-  /*最下部
-  ----------------------------------------------------*/
-  footer {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
-  }
-</style>
-
 <div class="wrapper">
-<!-- タイトル -->
-<header>
-  <h1>FFS</h1>
-</header>
+<header class="header_top_page">
+<div class="title">
+  <h1><a href="top_page.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+</div>
+
+<nav class="navigation_main">
+<ul>
+<li><a href="">特売商品一覧</a></li>
+<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+</header><!--/.header-->
 <hr>
 
+
 <!-- 本文（中身・コンテンツ） -->
-<div class="content">
-  <main>
-    <article>
-        <?php ph($food_value["picture"]); ?>
-        <br>
-        <!-- 生鮮食品の写真 -->
-        <img src="lib/pic/food_pic/<?php ph($food_value["picture"]) ?>" width=300px height=300px alt="生鮮食品画像">
+<article class="content_second_page">
+<h2><!-- アイコン --><img src="lib/images/apple.png" alt=""/>
+  <!-- 生鮮食品名・特価品名・店舗名はここに -->
+  <?php ph($food_value["food_name"]); ?>
+</h2>
 
-        <!-- 商品名 -->
-        <h3><?php ph($food_value["food_name"]); ?></h3>
+<!-- 生鮮食品・特価品の画像 -->
+<img src="lib/images/<?php ph($food_value["picture"]) ?>" width="400px" height="400px" alt="生鮮食品画像">
 
-        <!-- 説明 -->
-        <!-- <p>説明</p> -->
-        <p><?php ph($food_value["txt"]); ?></p>
+<h3><img src="lib/images/apple.png" alt=""/>紹介</h3>
+<!-- 生鮮食品・特価品・店舗の説明 -->
+<p>
+  <!-- 説明 -->
+  <!-- <p>説明</p> -->
+  <?php ph($food_value["txt"]); ?>
 
-        <!-- 価格 -->
-        <h3>定価価格</h3>
-        <h3><?php ph($food_value["food_price"]); ?>円</h3>
+  <!-- 価格 -->
+  <h3><img src="lib/images/apple.png" alt=""/>定価価格：
+    <?php ph(number_format($food_value["food_price"])); ?>円</h3>
 
-    </article>
-    <article>
-      <!-- 詳細情報 -->
-        <table>
-          <h2>栄養価</h2>
-          <tr>
-            <th>エネルギー：</th>
-            <th><?php ph($food_value["calorie"]); ?></th>
-            <td>Kcal</td>
-          </tr>
+</p>
 
-          <tr>
-            <td>たんぱく質：</td>
-            <td><?php ph($food_value["protein"]); ?></td>
-            <td>g</td>
-          </tr>
+<!-- 生鮮食品の詳細情報 -->
+<!-- 詳細情報 -->
+  <table>
+    <h2><img src="lib/images/apple.png" alt=""/>栄養価</h2>
+    <tr>
+      <th>エネルギー：</th>
+      <th><?php ph($food_value["calorie"]); ?></th>
+      <td>Kcal</td>
+    </tr>
 
-          <tr>
-            <td>脂質：</td>
-            <td><?php ph($food_value["lipid"]); ?></td>
-            <td>g</td>
-          </tr>
+    <tr>
+      <td>たんぱく質：</td>
+      <td><?php ph($food_value["protein"]); ?></td>
+      <td>g</td>
+    </tr>
 
-          <tr>
-            <td>炭水化物：</td>
-            <td><?php ph($food_value["carb"]); ?></td>
-            <td>g</td>
-          </tr>
+    <tr>
+      <td>脂質：</td>
+      <td><?php ph($food_value["lipid"]); ?></td>
+      <td>g</td>
+    </tr>
 
-          <tr>
-            <td>ナトリウム：</td>
-            <td><?php ph($food_value["natrium"]); ?></td>
-            <td>mg</td>
-          </tr>
+    <tr>
+      <td>炭水化物：</td>
+      <td><?php ph($food_value["carb"]); ?></td>
+      <td>g</td>
+    </tr>
 
-          <tr>
-            <td>カリウム：</td>
-            <td><?php ph($food_value["kalium"]); ?></td>
-            <td>mg</td>
-          </tr>
-        </table>
-    </article>
+    <tr>
+      <td>ナトリウム：</td>
+      <td><?php ph($food_value["natrium"]); ?></td>
+      <td>mg</td>
+    </tr>
+
+    <tr>
+      <td>カリウム：</td>
+      <td><?php ph($food_value["kalium"]); ?></td>
+      <td>mg</td>
+    </tr>
+  </table>
+</article>
+
     <!--特価品一覧画面に戻る-->
-    <a href="lib/view/view_top_page.php">公開トップページに戻る</a>
+    <a href="TopPage.php">トップページに戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 

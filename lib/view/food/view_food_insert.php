@@ -43,9 +43,9 @@
                 <?php } ?>
              </select><br>
         写真：<input type="text" name="picture" value="">
-              <input type="submit" value="写真を選択"><br>
+            <br>
         価格：<input type="text" name="food_price" value=""><br>
-        説明文書：<input type="textarea" name="txt" value=""><br>
+        説明文書：<textarea name="txt" value=""></textarea><br>
         栄養価<br>
         エネルギー<input type="text" name="calorie" value=""><br>
         タンパク質<input type="text" name="protein" value=""><br>

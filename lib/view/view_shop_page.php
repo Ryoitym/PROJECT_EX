@@ -1,49 +1,49 @@
 <?php
-/**
- * このファイルの概要説明
- *　データベース作成フォーマット
- * このファイルの詳細説明
- *
- * システム名： FFS
- * 作成者：　appleCandy
- * 作成日：　2019/05/23
- * 最終更新日：　2019/05/28
- * レビュー担当者：
- * レビュー日：
- * バージョン： 1.1
- */
+/*
+* このファイルの概要説明
+*　公開店舗個別ページのビュー
+* このファイルの詳細説明
+*
+* システム名： FFS
+* 作成者：　appleCandy
+* 作成日：　2019/05/23
+* 最終更新日：　2019/05/28
+* レビュー担当者：
+* レビュー日：
+* バージョン： 1.1
+*/
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>生鮮食品個別ページ画面</title>
+<link rel="stylesheet" href="lib/css/style-sample.css">
+</head>
+<body>
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="index.php"><img src="../../view_top_page/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="top_page.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
+<nav class="navigation_main">
+<ul>
+<li><a href="">特売商品一覧</a></li>
+<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+</header><!--/.header-->
+<hr>
 
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-<meta charset="utf-8">
-<title>FFS is Fresh foods Shop</title>
-<link rel="stylesheet" href="css/style-pc.css">
-
-</head>
-
-<body>
 <div class="content">
   <main>
   <h2>特売商品一覧</h2>
   <article>
   <?php
   // SQLを構築
-        require_once("../function.php");
+        require_once("lib/function.php");
         $dbh = connectDb();
 
         $sql = "SELECT * FROM ffs_db.sale t1
@@ -54,28 +54,26 @@
         $sth = $dbh->prepare($sql); // SQLを準備
 
         $sth->execute();
-
-  for($i=0;$i<1;$i++){
-
-    ?><div class="">
+?>
+        <div class="">
         <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
 
-      <?php foreach ($sth as $value) {
-        if($_GET["shop_id"]==$value["shop_id"]){echo $value["food_name"];?><br><?php
-        echo $value["txt"];?><br><?php }
+
+      <?php foreach ($sth as $value) {?>
+
+        <?php if($value['shop_id']==$_GET['shop_id']){ph($value["food_name"]);?><br>
+          <img src="lib/images/<?php ph(($value['picture']));?>" alt="sale1"><br>
+        <?php
+        ph($value["txt"]); ?><br><h1>¥<?php ph($value['food_price']); ?>→
+        <font color="red">¥<?php ph($value['sale_price']); ?></h1></font><?php }
       }
       ?>
       <br>
-
-
-      <?php }?>
-      <?php ?>
       </div>
 
     </article>
 <?php
-     require_once("../function.php");
+     require_once("lib/function.php");
       $dbh=connectDb();
 
       try{
@@ -114,7 +112,7 @@
       </div>
     </article>
     <br>
-    <a href='../../view_top_page/view_top_page.php'>トップページへ戻る</a>
+    <a href='TopPage.php'>トップページへ戻る</a>
 </main>
 </div>
 
