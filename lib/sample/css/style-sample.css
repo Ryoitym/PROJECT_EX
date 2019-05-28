@@ -5,10 +5,15 @@
 body {
 	margin: 20px 10px;
 	font: 16px "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+	/*background-image: url("../images/bg_03.jpg");
+	background-repeat: repeat;*/
+	background-color: white;
 }
 .wrapper {
 	width: 960px;
 	margin: auto;
+	padding: 20px 80px;
+	background-color: white;
 }
 .header_top_page {
 	margin-bottom: 10px;
@@ -38,15 +43,16 @@ a:hover img {
 .navigation_main ul{
 	margin: 0;
 	padding: 0;
-	list-style: none;
 }
 .navigation_main li {
 	float: left;
+	list-style: none;
 }
 .navigation_main li a {
 	display: block;
 	float: left;
 	margin-left: 20px;
+	text-decoration: none;
 }
 
 /* スライド */
@@ -77,10 +83,9 @@ a:hover img {
 .section_top_page {
 	float: left;
 	width: 216px;
-	height: 400px;
-	/* margin-right: 32px; */
-	/* margin-bottom: 25px; */
-	margin: 50px;
+ height: 260px;
+	margin-right: 32px;
+	margin-bottom: 25px;
 }
 .section_top_page img {
 	width: 216px;
@@ -134,30 +139,30 @@ small {
 /* サブページ用 */
 .content_second_page {
 	width: 960px;
-	margin-top: 20px;
+	margin-top: 50px;
 	margin-bottom:200px;
 }
 .content_second_page p{
 	font-size:16px;
 	line-height:1.75;
-	margin-right:430px;
+	margin-right:0;
 	margin-bottom: 1rem;
 	text-align: justify;
 }
 .content_second_page h2{
 	margin-bottom: 5px;
 	font-size:22px;
-	color: #86b12e;
+	color: #09ae5f;
 }
 .content_second_page h2 img{
-	height:30px;
-	width:30px;
+	height:20px;
+	width:20px;
 	margin-right: 5px;
 }
 .content_second_page h3{
 	margin-bottom: 5px;
 	font-size:20px;
-	color: #86b12e;
+	color: #09ae5f;
 }
 .content_second_page h3 img{
 	height:20px;
