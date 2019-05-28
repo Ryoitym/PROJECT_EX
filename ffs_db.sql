@@ -193,7 +193,7 @@ INSERT INTO food (
     2,
     '卵',
     100,
-    'eggplant.jpg',
+    'egg.jpg',
     '千葉県産　農家直送の朝採れたて卵です！',
     151, 
     12.3, 
