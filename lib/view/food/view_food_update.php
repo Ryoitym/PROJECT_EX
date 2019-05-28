@@ -33,8 +33,8 @@
         食品名：<input type="text" name="food_name" value="<?php ph($row["food_name"]);?>"><br>
         分類：<select name="genre_id">
         <?php foreach ($genre_list as $genre) {?>
-                        <option value="<?php ph($genre["genre_id"]);?>" 
-                        <?php 
+                        <option value="<?php ph($genre["genre_id"]);?>"
+                        <?php
                             /*if (isset($special_price_food_value)) {
                                 if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
                                     print " selected";
@@ -64,7 +64,7 @@
         </select><br>
         <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
         <input type="submit" value="登録">
-        <input type="submit" value="クリア"><br>
+        <input type="reset" value="クリア"><br>
         <a href="food_list_admin.php">生鮮食品一覧画面へ戻る</a>
     </form>
 </body>
