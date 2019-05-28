@@ -181,16 +181,19 @@
       <h2>生鮮食品一覧</h2>
 
       <!-- 分類 -->
-      <form action="TopPage.php"method="post">
+      検索：<form action="TopPage.php"method="post">
       <select name="genre_id">
             <option value="0"></option>
             <option value="1">肉</option>
             <option value="2">野菜</option>
             <option value="3">魚</option>
       </select>
+      <input type="text" name="food_name">
+      <input type="submit" value="検索">
+      <br>
 
       <!-- 栄養価 -->
-      栄養価: <select name="eiyoka">
+      栄養価: <br><select name="eiyoka">
               <option value=""></option>
               <option value="calorie">エネルギー</option>
               <option value="protein">たんぱく質</option>
@@ -199,10 +202,6 @@
               <option value="natrium">ナトリウム</option>
               <option value="kalium">カリウム</option>
               </select><br>
-
-
-      検索：<input type="text" name="search">
-            <input type="submit" value="検索">
       </form>
 
 <?php
