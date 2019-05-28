@@ -33,14 +33,8 @@ function get_food($dbh)
 
         //分類ID
         if (!empty($_POST["genre_id"])) {
-            $where[] = "genre_id LIKE :genre_id";
+            $where[] = "food.genre_id LIKE :genre_id";
             $bind[] = "genre_id";
-        }
-
-        //栄養価
-        if (!empty($_POST["eiyoka"])) {
-            $where[] = "eiyokae LIKE :eiyoka";
-            $bind[] = "eiyoka";
         }
 
         if (!empty($where)) {
@@ -51,8 +45,19 @@ function get_food($dbh)
             $sql .= "ON food.genre_id = genre.genre_id ";
             $sql .= "WHERE " . $where_sql ;
 
+            //栄養価
+            var_dump($_POST);
+            if (!empty($_POST["eiyoka"])) {
+              //var_dump($_POST);
+              $sql .= " ORDER BY :eiyoka ";
+
+            }
+
             $sth = $dbh->prepare($sql); // SQLを準備
 
+            if (!empty($_POST["eiyoka"])) {
+              $sth->bindValue(":eiyoka", $_POST["eiyoka"]);
+            }
             // プレースホルダに値をバインド
             foreach ($bind as $bind_value) {
                 if ($bind_value == "genre_id") {
@@ -63,6 +68,7 @@ function get_food($dbh)
             }
 
             // SQLを発行
+
             $sth->execute();
             // データを戻す
             return $sth;
@@ -85,6 +91,8 @@ function get_food($dbh)
         exit("SQL発行エラー：{$e->getMessage()}");
     }
 }
+
+    $sth = get_food($dbh);
     require_once("lib/view/view_top_page.php");
 
 ?>
