@@ -41,6 +41,11 @@
         <input type="submit" value="新規登録">
 </form>
 <table border="1">
+  <tr>
+      <th>分類名</th>
+      <th>編集</th>
+      <th>削除</th>
+  </tr>
   <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
       <tr>
         <td><?php ph($row["genre_name"]);?></td>
