@@ -59,7 +59,7 @@
 <br>
 <form action="shop_update.php" method="post">
     店舗名:<input type="text" name="shop_name" value= "<?php ph($row["shop_name"])?>" ><br>
-    住所：<input type="text" name = "address" value= "<?php echo $row["address"];?>" ><br>
+    住所：<input type="text" name = "address" class="txt_address" value= "<?php echo $row["address"];?>" ><br>
     電話番号：<input type="text" name = "tel" value= "<?php echo $row["tel"];?>"    ><br>
     <input type="hidden" name="shop_id" value="<?php ph($row["shop_id"]);?>">
 

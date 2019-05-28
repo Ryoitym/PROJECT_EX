@@ -100,3 +100,12 @@ td{
 .midium{
   width: 130px;
 }
+
+input[type="text"]{
+  width: 150px;
+}
+
+/* textボックスのtxt_addressクラスを指定 */
+input[type="text"].txt_address{
+  width: 200px;
+}
