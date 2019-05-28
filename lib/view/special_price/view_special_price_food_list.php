@@ -48,8 +48,8 @@
             <th>店舗名</th>
             <th>食品名</th>
             <th>価格</th>
-            <th></th>
-            <th></th>
+            <th>編集</th>
+            <th>削除</th>
         </tr>
 
         <?php foreach ($special_price_food_list as $special_price_food_i) {?>

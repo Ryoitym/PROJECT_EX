@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　orange juice
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/25
+ * 最終更新日：　2019/05/27
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -41,22 +41,23 @@
       </form>
       <a href="food_insert.php">新規登録</a>
     <hr>
+  <div  class="food">
     <table border="1">
         <tr>
-            <th>写真</th>
-            <th>食品名</th>
-            <th>価格</th>
+            <th class="small">写真</th>
+            <th class="midium">食品名</th>
+            <th class="small">価格</th>
             <th class="text">説明文書</th>
-            <th>エネルギー</th>
-            <th>タンパク質</th>
-            <th>脂質</th>
-            <th>炭水化物</th>
-            <th>ナトリウム</th>
-            <th>カリウム</th>
-            <th>表示フラグ</th>
-            <th>分類</th>
-            <th>編集</th>
-            <th>削除</th>
+            <th class="small">エネルギー</th>
+            <th class="small">タンパク質</th>
+            <th class="small">脂質</th>
+            <th class="small">炭水化物</th>
+            <th class="small">ナトリウム</th>
+            <th class="small">カリウム</th>
+            <th class="small">表示フラグ</th>
+            <th class="small">分類</th>
+            <th class="small">編集</th>
+            <th class="small">削除</th>
         </tr>
 <?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
       <tr>
@@ -92,6 +93,7 @@
       </tr>
 <?php } ?>
     </table>
+  </div>
   <hr>
   <a href="management_page_admin.php">トップページへ戻る</a>
     <a href="food_list_admin.php">全て表示</a>
