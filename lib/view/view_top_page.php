@@ -136,7 +136,7 @@
 <?php foreach ($shop_list as $shop) {?>
     <tr>
     <div class="box_shop">
-        <a href="lib/view/view_shop_page.php?shop_id=<?php
+        <a href="shop_page.php?shop_id=<?php
         ph($shop['shop_id']);?>&shop_name=<?php ph($shop['shop_name']);?>
         &address=<?php ph($shop['address']);?>
         &tel=<?php ph($shop['tel']);?>"

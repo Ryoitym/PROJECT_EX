@@ -1,17 +1,17 @@
 <?php
-/**
- * このファイルの概要説明
- *　データベース作成フォーマット
- * このファイルの詳細説明
- *
- * システム名： FFS
- * 作成者：　appleCandy
- * 作成日：　2019/05/23
- * 最終更新日：　2019/05/28
- * レビュー担当者：
- * レビュー日：
- * バージョン： 1.1
- */
+/*
+* このファイルの概要説明
+*　公開店舗個別ページのビュー
+* このファイルの詳細説明
+*
+* システム名： FFS
+* 作成者：　appleCandy
+* 作成日：　2019/05/23
+* 最終更新日：　2019/05/28
+* レビュー担当者：
+* レビュー日：
+* バージョン： 1.1
+*/
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="../../TopPage.php"><img src="../images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="TopPage.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
   <article>
   <?php
   // SQLを構築
-        require_once("../function.php");
+        require_once("lib/function.php");
         $dbh = connectDb();
 
         $sql = "SELECT * FROM ffs_db.sale t1
@@ -62,7 +62,7 @@
       <?php foreach ($sth as $value) {?>
         
         <?php if($value['shop_id']==$_GET['shop_id']){ph($value["food_name"]);?><br>
-          <img src="../images/<?php ph(($value['picture']));?>" alt="sale1"><br>
+          <img src="lib/images/<?php ph(($value['picture']));?>" alt="sale1"><br>
         <?php
         ph($value["txt"]); ?><br><h1>¥<?php ph($value['food_price']); ?>→
         <font color="red">¥<?php ph($value['sale_price']); ?></h1></font><?php } 
@@ -73,7 +73,7 @@
 
     </article>
 <?php
-     require_once("../function.php");
+     require_once("lib/function.php");
       $dbh=connectDb();
 
       try{
@@ -112,7 +112,7 @@
       </div>
     </article>
     <br>
-    <a href='../../view_top_page/view_top_page.php'>トップページへ戻る</a>
+    <a href='TopPage.php'>トップページへ戻る</a>
 </main>
 </div>
 

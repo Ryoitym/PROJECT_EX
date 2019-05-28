@@ -19,99 +19,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>生鮮食品個別ページ画面</title>
+<link rel="stylesheet" href="css/style-pc.css">
+
+
 <!--外部記述する場合
 <link rel="stylesheet" href="css/style.css">
 -->
 </head>
 <body>
 <!-- css -->
-<style type="text/css">
-  body {
-    font-family:"Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
-    line-height: 1.8;
-    color: #333;
-    background: #E9FDCD;
-  }
-  img {
-      max-width: 100%;
-      height: auto;
-  }
 
-  p {
-      text-shadow: 1px 1px 1px #fff;
-  }
-
-  hr {
-    width: 100%;
-  }
-
-  /*レイアウト
-  ----------------------------------------------------*/
-  .wrapper {
-      max-width: 960px;/*最大コンテンツ幅*/
-      margin: 0 auto;
-      padding: 10px;
-      background-color: white;
-      /*background-image:url(../img/bg_body.png);*/
-  }
-
-  /*header（最上部）
-  ----------------------------------------------------*/
-  header {
-      margin-bottom: 1.5rem;
-  }
-
-  header h1 {
-      line-height: 1.2;
-      font-size: 2rem;
-      font-weight: normal;
-      color: #000;
-      text-shadow: 1px 1px 1px #fff;
-      text-align: center;
-  }
-
-  /*中身
-  ----------------------------------------------------*/
-  .content {
-        padding: 0 10px;
-  }
-
-  main {
-      float: left;
-      margin-left: 10px;
-      width: 65.9574%;
-
-  }
-
-  main h2 {
-        margin: 0.5rem 0;
-        padding: 0 0 0 10px;
-        border-left: 3px solid #333;
-        font-size: 1.5rem;
-        font-weight: normal;
-        text-shadow: 1px 1px 1px #fff;
-  }
-
-  main {
-        margin-bottom: 3rem;
-
-  }
-
-  /*最下部
-  ----------------------------------------------------*/
-  footer {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
-  }
-</style>
-
-<div class="wrapper">
 <!-- タイトル -->
 <header>
-  <h1>FFS</h1>
+<div class="title">
+  <h1><a href="TopPage.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+</div>
 </header>
 <hr>
 
@@ -119,10 +41,9 @@
 <div class="content">
   <main>
     <article>
-        <?php ph($food_value["picture"]); ?>
         <br>
         <!-- 生鮮食品の写真 -->
-        <img src="lib/pic/food_pic/<?php ph($food_value["picture"]) ?>" width=300px height=300px alt="生鮮食品画像">
+        <img src="lib/images/<?php ph($food_value["picture"]) ?>" width=300px height=300px alt="生鮮食品画像">
 
         <!-- 商品名 -->
         <h3><?php ph($food_value["food_name"]); ?></h3>
