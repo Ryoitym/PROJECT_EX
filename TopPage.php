@@ -46,11 +46,10 @@ function get_food($dbh)
             $sql .= "WHERE " . $where_sql ;
 
             //栄養価
-            var_dump($_POST);
+            //var_dump($_POST);
             if (!empty($_POST["eiyoka"])) {
               //var_dump($_POST);
               $sql .= " ORDER BY :eiyoka ";
-
             }
 
             $sth = $dbh->prepare($sql); // SQLを準備
@@ -78,8 +77,14 @@ function get_food($dbh)
             $sql = "SELECT * FROM food ";
             $sql .= "INNER JOIN genre ";
             $sql .= "ON food.genre_id = genre.genre_id ";
-
+            if (!empty($_POST["eiyoka"])) {
+              //var_dump($_POST);
+              $sql .= " ORDER BY :eiyoka ";
+            }
             $sth = $dbh->prepare($sql); // SQLを準備
+            if (!empty($_POST["eiyoka"])) {
+              $sth->bindValue(":eiyoka", $_POST["eiyoka"]);
+            }
 
             // SQLを発行
             $sth->execute();
