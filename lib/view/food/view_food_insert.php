@@ -55,7 +55,7 @@
             <option value="0">非表示</option>
         </select><br>
         <input type="submit" value="登録">
-        <input type="submit" value="クリア"><br>
+        <input type="reset" value="クリア"><br>
         <a href="food_list_admin.php">生鮮食品一覧画面へ戻る</a>
     </form>
 </body>
