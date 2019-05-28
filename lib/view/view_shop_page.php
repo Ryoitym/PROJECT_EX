@@ -18,25 +18,25 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>生鮮食品個別ページ画面</title>
+<link rel="stylesheet" href="lib/css/style-sample.css">
+</head>
+<body>
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="TopPage.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="top_page.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
+<nav class="navigation_main">
+<ul>
+<li><a href="">特売商品一覧</a></li>
+<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+</header><!--/.header-->
+<hr>
 
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-<meta charset="utf-8">
-<title>FFS is Fresh foods Shop</title>
-<link rel="stylesheet" href="css/style-pc.css">
-
-</head>
-
-<body>
 <div class="content">
   <main>
   <h2>特売商品一覧</h2>
@@ -57,15 +57,15 @@
 ?>
         <div class="">
         <!-- 生鮮食品の写真 -->
-        
+
 
       <?php foreach ($sth as $value) {?>
-        
+
         <?php if($value['shop_id']==$_GET['shop_id']){ph($value["food_name"]);?><br>
           <img src="lib/images/<?php ph(($value['picture']));?>" alt="sale1"><br>
         <?php
         ph($value["txt"]); ?><br><h1>¥<?php ph($value['food_price']); ?>→
-        <font color="red">¥<?php ph($value['sale_price']); ?></h1></font><?php } 
+        <font color="red">¥<?php ph($value['sale_price']); ?></h1></font><?php }
       }
       ?>
       <br>
