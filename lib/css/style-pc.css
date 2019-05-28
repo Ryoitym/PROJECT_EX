@@ -77,9 +77,10 @@ a:hover img {
 .section_top_page {
 	float: left;
 	width: 216px;
- height: 400px;
-	margin-right: 32px;
-	margin-bottom: 25px;
+	height: 216px;
+	/* margin-right: 32px; */
+	/* margin-bottom: 25px; */
+	margin: 50px;
 }
 .section_top_page img {
 	width: 216px;
