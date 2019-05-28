@@ -2,7 +2,7 @@
 /*
 * このファイルの概要説明
 * 特価品個別ページ画面のビュー
-* 
+*
 * システム名： FFS
 * 作成者：　amaru
 * 作成日：　2019/05/23
@@ -15,104 +15,28 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>特価品個別ページ画面</title>
-<!--外部記述する場合
-<link rel="stylesheet" href="css/style.css">
--->
+<link rel="stylesheet" href="lib/css/style-sample.css">
 </head>
+
 <body>
-<!-- css -->
-<style type="text/css">
-  body {
-    font-family:"Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
-    line-height: 1.8;
-    color: #333;
-    background: #E9FDCD;
-  }
-  img {
-      max-width: 100%;
-      height: auto;
-  }
-
-  p {
-      text-shadow: 1px 1px 1px #fff;
-  }
-
-  hr {
-    width: 100%;
-  }
-
-  /*レイアウト
-  ----------------------------------------------------*/
-  .wrapper {
-      max-width: 960px;/*最大コンテンツ幅*/
-      margin: 0 auto;
-      padding: 10px;
-      background-color: white;
-      /*background-image:url(../img/bg_body.png);*/
-  }
-
-  /*header（最上部）
-  ----------------------------------------------------*/
-  header {
-      margin-bottom: 1.5rem;
-  }
-
-  header h1 {
-      line-height: 1.2;
-      font-size: 2rem;
-      font-weight: normal;
-      color: #000;
-      text-shadow: 1px 1px 1px #fff;
-      text-align: center;
-  }
-
-  /*中身
-  ----------------------------------------------------*/
-  .content {
-        padding: 0 10px;
-  }
-
-  main {
-      float: left;
-      margin-left: 10px;
-      width: 65.9574%;
-
-  }
-
-  main h2 {
-        margin: 0.5rem 0;
-        padding: 0 0 0 10px;
-        border-left: 3px solid #333;
-        font-size: 1.5rem;
-        font-weight: normal;
-        text-shadow: 1px 1px 1px #fff;
-  }
-
-  main {
-        margin-bottom: 3rem;
-
-  }
-
-  /*最下部
-  ----------------------------------------------------*/
-  footer {
-    clear: both;
-    padding: 40px 0;
-    background: #dedede;
-    color: grey;
-    text-align: center;
-  }
-</style>
-
 <div class="wrapper">
-<!-- タイトル -->
-<header>
-  <h1>FFS</h1>
-</header>
+<header class="header_top_page">
+<div class="title">
+  <h1><a href="top_page.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+</div>
+
+<nav class="navigation_main">
+<ul>
+<li><a href="">特売商品一覧</a></li>
+<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+</header><!--/.header-->
 <hr>
 
 <!-- 本文（中身・コンテンツ） -->
@@ -123,11 +47,11 @@
         <!-- 生鮮食品の写真 --
         <img src="https://cdn1.bigcommerce.com/server700/5mvrqhbm/products/2496/images/151378/kamo-eggplant2-s__06471.1552440601.1280.1280.jpg?c=2" width=300px height=300px alt="">
          -->
-         
+
          <img src="lib/pic/food_pic/<?php ph($special_price_food_value["picture"]) ?>" width=300px height=300px alt="特価商品画像">
         <!-- 商品名 -->
         <h3><?php ph($special_price_food_value["food_name"]); ?></h3>
-        
+
         <!-- 説明 -->
         <!-- <p>説明</p> -->
         <p><?php ph($special_price_food_value["txt"]); ?></p>
