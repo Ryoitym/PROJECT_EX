@@ -136,6 +136,14 @@ INSERT INTO genre(
   5,
   '果物'
 );
+--甲殻類
+INSERT INTO genre(
+  genre_id,
+  genre_name
+)VALUES(
+  6,
+  '甲殻類'
+);
 
 INSERT INTO food (
   food_id,
@@ -185,7 +193,7 @@ INSERT INTO food (
     2,
     '卵',
     100,
-    'eggplant.jpg',
+    'egg.jpg',
     '千葉県産　農家直送の朝採れたて卵です！',
     151, 
     12.3, 
@@ -303,7 +311,7 @@ INSERT INTO food (
   show_flag,
   genre_id
   ) VALUES (
-    5,
+    6,
     '鮭の切り身',
     500,
     'salmon.jpg',
@@ -318,6 +326,129 @@ INSERT INTO food (
     3
     );
 
+INSERT INTO food (
+  food_id,
+  food_name,
+  food_price,
+  picture,
+  txt,
+  calorie,
+  protein,
+  lipid,
+  carb,
+  natrium,
+  kalium,
+  show_flag,
+  genre_id
+  ) VALUES (
+    7,
+    '牛肉ヒレステーキ',
+    1500,
+    'meat_America.jpg',
+    'アメリカ産　新鮮なうちに冷凍し、旨味を閉じ込めた当店長渾身の一品！リーズナブルなうえにおいしい！',
+    517, 
+    11, 
+    50, 
+    0.1,
+    44, 
+    160,
+    1, 
+    2
+    );
+
+INSERT INTO food (
+  food_id,
+  food_name,
+  food_price,
+  picture,
+  txt,
+  calorie,
+  protein,
+  lipid,
+  carb,
+  natrium,
+  kalium,
+  show_flag,
+  genre_id
+  ) VALUES (
+    8,
+    'ズワイガニ',
+    6000,
+    'kani.jpg',
+    'カナダ産　シーフードの本場、カナダの海で収穫されたずわいがにを豪華な姿ボイルでお届けします。 
+    上品で甘い脚肉と、濃厚でコク深いかに味噌が同時に味わえる贅沢な逸品です。 手を汚さずに解凍するだけで簡単に召し上がれます。
+    そのままかぶりつくも良し、様々な料理に使うも良し、お好きな食べ方で本場の味をご堪能ください。',
+    57, 
+    12.51, 
+    0.36, 
+    0.09,
+    279, 
+    279,
+    1, 
+    6
+    );
+
+INSERT INTO food (
+  food_id,
+  food_name,
+  food_price,
+  picture,
+  txt,
+  calorie,
+  protein,
+  lipid,
+  carb,
+  natrium,
+  kalium,
+  show_flag,
+  genre_id
+  ) VALUES (
+    9,
+    '人参',
+    50,
+    'carrot.jpg',
+    '東京都産　都会の厳しい環境で育った強い人参。社長お手製の限定品！',
+    152, 
+    0.8, 
+    0.1, 
+    8.7,
+    34, 
+    270,
+    1, 
+    1
+    );
+
+INSERT INTO food (
+  food_id,
+  food_name,
+  food_price,
+  picture,
+  txt,
+  calorie,
+  protein,
+  lipid,
+  carb,
+  natrium,
+  kalium,
+  show_flag,
+  genre_id
+  ) VALUES (
+    10,
+    '大根',
+    20,
+    'daikon.jpg',
+    '埼玉県産　食材としての大根はビタミンC以外に目立った栄養はない。
+    カロリーは少なく、ジアスターゼを多く含み消化を助ける効能も有るためダイエット・フードとしても注目されている！',
+    75, 
+    0.5, 
+    0.1, 
+    4.1,
+    19, 
+    230,
+    1, 
+    1
+    );
+
 INSERT INTO shop(
   shop_id,
   shop_name,
@@ -326,8 +457,8 @@ INSERT INTO shop(
   ) VALUES (
     1,
     '浅草橋店',
-    '東京都台東区浅草橋5丁目２－３',
-    '090-1234-5678'
+    '東京都浅草橋5丁目2-3鈴和ビル3F',
+    '03-1234-5678'
   );
 
 INSERT INTO shop(
@@ -338,8 +469,8 @@ INSERT INTO shop(
   ) VALUES (
     2,
     '秋葉原店',
-    '東京都台東区浅草橋5丁目２－３',
-    '090-1234-5678'
+    '東京都千代田区外神田1丁目15-16',
+    '03-9876-5432'
   );
 
 --田中さん
@@ -390,7 +521,9 @@ INSERT INTO sale(
   ) VALUES (
     1,
     50,
-    '2019-05-27',
+    '2019-05-30',
     1,
     1
   );
+
+SELECT * FROM food;

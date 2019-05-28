@@ -21,7 +21,7 @@
 </head>
 <body class="management">
 
-<div class="m_center">
+<div class="m_center_food">
 <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
@@ -46,7 +46,7 @@
             <th>写真</th>
             <th>食品名</th>
             <th>価格</th>
-            <th>説明文書</th>
+            <th class="text">説明文書</th>
             <th>エネルギー</th>
             <th>タンパク質</th>
             <th>脂質</th>
@@ -54,7 +54,9 @@
             <th>ナトリウム</th>
             <th>カリウム</th>
             <th>表示フラグ</th>
-            <th>分類ID</th>
+            <th>分類</th>
+            <th>編集</th>
+            <th>削除</th>
         </tr>
 <?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
       <tr>
