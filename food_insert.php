@@ -50,20 +50,22 @@ $genre_list = $food->getDataGenreArray();
             $sql .= " lipid = :lipid AND ";
             $sql .= " carb = :carb AND ";
             $sql .= " natrium = :natrium AND ";
-            $sql .= " kalium = :kalium ";
+            $sql .= " kalium = :kalium AND ";
+            $sql .= " show_flag = :show_flag ";
             $sth = $dbh->prepare($sql); // SQLを準備
 
-            $sth->bindValue(":food_name", $_POST["food_name"]);
-            $sth->bindValue(":genre_id", $_POST["genre_id"]);
-            $sth->bindValue(":picture", $_POST["picture"]);
-            $sth->bindValue(":food_price", $_POST["food_price"]);
-            $sth->bindValue(":txt", $_POST["txt"]);
-            $sth->bindValue(":calorie", $_POST["calorie"]);
-            $sth->bindValue(":protein", $_POST["protein"]);
-            $sth->bindValue(":lipid", $_POST["lipid"]);
-            $sth->bindValue(":carb", $_POST["carb"]);
-            $sth->bindValue(":natrium", $_POST["natrium"]);
-            $sth->bindValue(":kalium", $_POST["kalium"]);
+            $sth->bindValue(":food_name",   $_POST["food_name"]);
+            $sth->bindValue(":genre_id",    $_POST["genre_id"]);
+            $sth->bindValue(":picture",     $_POST["picture"]);
+            $sth->bindValue(":food_price",  $_POST["food_price"]);
+            $sth->bindValue(":txt",         $_POST["txt"]);
+            $sth->bindValue(":calorie",     $_POST["calorie"]);
+            $sth->bindValue(":protein",     $_POST["protein"]);
+            $sth->bindValue(":lipid",       $_POST["lipid"]);
+            $sth->bindValue(":carb",        $_POST["carb"]);
+            $sth->bindValue(":natrium",     $_POST["natrium"]);
+            $sth->bindValue(":kalium",      $_POST["kalium"]);
+            $sth->bindValue(":show_flag",   $_POST["show_flag"]);
             // SQLを発行
             $sth->execute();
             $row = $sth->fetch(PDO::FETCH_ASSOC); //結果データを取得
@@ -87,12 +89,12 @@ $genre_list = $food->getDataGenreArray();
             $message .= "入力不十分です";
             require_once("lib/view/food/view_food_insert.php");
         }else if(   is_numeric($_POST["food_price"]) == false || $_POST["food_price"] < 0 ||
-                    is_numeric($_POST["calorie"]) == false || $_POST["food_price"] < 0 ||
-                    is_numeric($_POST["protein"]) == false || $_POST["food_price"] < 0 ||
-                    is_numeric($_POST["lipid"]) == false || $_POST["food_price"] < 0 ||
-                    is_numeric($_POST["carb"]) == false || $_POST["food_price"] < 0 ||
-                    is_numeric($_POST["natrium"]) == false || $_POST["food_price"] < 0 ||
-                    is_numeric($_POST["kalium"]) == false || $_POST["food_price"] < 0 ){
+                    is_numeric($_POST["calorie"]) == false || $_POST["calorie"] < 0 ||
+                    is_numeric($_POST["protein"]) == false || $_POST["protein"] < 0 ||
+                    is_numeric($_POST["lipid"]) == false || $_POST["lipid"] < 0 ||
+                    is_numeric($_POST["carb"]) == false || $_POST["carb"] < 0 ||
+                    is_numeric($_POST["natrium"]) == false || $_POST["natrium"] < 0 ||
+                    is_numeric($_POST["kalium"]) == false || $_POST["kalium"] < 0 ){
                 $message .= "正の数値を入力してください";
                 require_once("lib/view/food/view_food_insert.php");
         }else if(   strlen($_POST["food_name"]) >= 100 ||
@@ -107,9 +109,9 @@ $genre_list = $food->getDataGenreArray();
           try {
               // プレースホルダ付きSQLを構築
               $sql = "INSERT INTO ffs_db.food (food_name, genre_id, picture, food_price, ";
-              $sql .= "txt, calorie, protein, lipid, carb, natrium, kalium) ";
+              $sql .= "txt, calorie, protein, lipid, carb, natrium, kalium, show_flag ) ";
               $sql .= "VALUES (:food_name, :genre_id, :picture, :food_price, ";
-              $sql .= ":txt, :calorie, :protein, :lipid, :carb, :natrium, :kalium) ";
+              $sql .= ":txt, :calorie, :protein, :lipid, :carb, :natrium, :kalium, :show_flag ) ";
               $sth = $dbh->prepare($sql); // SQLを準備
 
               // プレースホルダに値をバインド
@@ -124,6 +126,7 @@ $genre_list = $food->getDataGenreArray();
               $sth->bindValue(":carb", $_POST["carb"]);
               $sth->bindValue(":natrium", $_POST["natrium"]);
               $sth->bindValue(":kalium", $_POST["kalium"]);
+              $sth->bindValue(":show_flag", $_POST["show_flag"]);
 
               // SQLを発行
               $sth->execute();
