@@ -9,15 +9,27 @@
  * 最終更新日：　2019/05/27
  * レビュー担当者：orange jyuuice
  * レビュー日：2019/05/27
- * バージョン： 1.0
+ * バージョン： 1.1
  */
 -->
 
 
   <?php
       //共通関数読み込み
-      require_once("lib/function.php");
+      require_once("lib/init.php");
+      // IT担当者かどうか確認
+      accesscheckAdmin();
+
       $dbh = connectDb();
+    // モデルファイルを読み込む
+    require_once("lib/model/User.php");
+
+    // モデルクラスのインスタンスを生成
+    $user = new User($dbh);
+
+    $shop_list = $user->getDataShopArray();
+
+
       //入力画面表示
       if(empty($_POST)){
           // 店舗をセレクトボックスで表示するためのSQL作成

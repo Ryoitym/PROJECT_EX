@@ -19,6 +19,14 @@
     $message = "";
     $dbh = connectDb();
 
+    // モデルファイルを読み込む
+    require_once("lib/model/Food.php");
+
+    // モデルクラスのインスタンスを生成
+    $food = new Food($dbh);
+    
+    $genre_list = $food->getDataGenreArray();
+
 
     // 入力画面表示
     if(empty($_POST)){

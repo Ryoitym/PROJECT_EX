@@ -32,9 +32,12 @@
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40"><br>
 パスワード:<input type="password" name="password" size="20"><br>
 店舗名: <select name="shop_id">
-  <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
-      <option value="<?php ph($row["shop_id"]);?>"><?php ph($row["shop_name"]);?></option>
-  <?php }?>
+<?php foreach ($shop_list as $shop) {?>
+        <option value="<?php ph($shop["shop_id"]);?>">
+        <?php ph($shop["shop_name"]); ?>
+        </option>
+        <br>
+<?php } ?>
         </select><br>
       <!-- <?php var_dump($sth->fetchAll(PDO::FETCH_ASSOC)); ?> -->
 権限レベル: <select name="acess_lv">

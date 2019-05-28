@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/24
+ * 最終更新日：　2019/05/27
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -17,7 +17,18 @@
  <?php
      require_once("lib/init.php");
      // 入力画面表示
+     // IT担当者かどうか確認
+     accesscheckAdmin();
 
+     $dbh = connectDb();
+
+     // モデルファイルを読み込む
+    require_once("lib/model/User.php");
+
+    // モデルクラスのインスタンスを生成
+    $user = new User($dbh);
+
+    $shop_list = $user->getDataShopArray();
 
 if(!empty($_GET)){
     $user_id_get = $_GET["user_id"];
@@ -26,7 +37,6 @@ if(!empty($_GET)){
 
 
      if(empty($_POST)){
-       $dbh = connectDb();
 
      try {
          // SQLを構築
