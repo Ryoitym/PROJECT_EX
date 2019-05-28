@@ -51,7 +51,7 @@
                 <?php } ?>
              </select><br>
         写真：<input type="text" name="picture" value="<?php ph($row["picture"]);?>">
-              <input type="submit" value="写真を選択"><br>
+              <br>
         価格：<input type="text" name="food_price" value="<?php ph($row["food_price"]);?>"><br>
         説明文書：<input type="textarea" name="txt" value="<?php ph($row["txt"]);?>"><br>
         栄養価<br>
