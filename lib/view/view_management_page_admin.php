@@ -23,7 +23,7 @@
 <body class="management">
 
 <div class="m_center">
-<form action="logout.php" method="post">
+<form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 
