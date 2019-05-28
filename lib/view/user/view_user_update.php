@@ -35,10 +35,12 @@
 メールアドレス: <input type="email" name="mail" size="30" maxlength="40" value="<?php ph($row["mail"]);?>"><br>
 パスワード:<input type="password" name="password" size="20" value="<?php ph($row["password"]);?>"><br>
 店舗名: <select name="shop_id">
-  <option value="1">○○○○</option><br>
-  <option value="2">■ ■ ■</option><br>
-  <option value="3">△△△</option><br>
-  <option value="4">♡♡♡</option><br>
+<?php foreach ($shop_list as $shop) {?>
+        <option value="<?php ph($shop["shop_id"]);?>">
+        <?php ph($shop["shop_name"]); ?>
+        </option>
+        <br>
+<?php } ?>
 
         </select><br>
 権限レベル: <select name="acess_lv">

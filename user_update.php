@@ -20,6 +20,16 @@
      // IT担当者かどうか確認
      accesscheckAdmin();
 
+     $dbh = connectDb();
+
+     // モデルファイルを読み込む
+    require_once("lib/model/User.php");
+
+    // モデルクラスのインスタンスを生成
+    $user = new User($dbh);
+
+    $shop_list = $user->getDataShopArray();
+
 if(!empty($_GET)){
     $user_id_get = $_GET["user_id"];
 }
@@ -27,7 +37,6 @@ if(!empty($_GET)){
 
 
      if(empty($_POST)){
-       $dbh = connectDb();
 
      try {
          // SQLを構築
