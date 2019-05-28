@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/27
- * 最終更新日：　2019/05/27
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -36,7 +36,7 @@ function get_food($dbh)
             $where[] = "food.genre_id LIKE :genre_id";
             $bind[] = "genre_id";
         }
-
+        //var_dump($where);
         if (!empty($where)) {
             $where_sql = implode(" AND ", $where);
             // SQLを構築
@@ -44,6 +44,28 @@ function get_food($dbh)
             $sql .= "INNER JOIN genre ";
             $sql .= "ON food.genre_id = genre.genre_id ";
             $sql .= "WHERE " . $where_sql ;
+
+            if (!empty($_POST["eiyoka"])) {
+              switch($_POST["eiyoka"]){
+                case "calorie";
+                  $sql .= "ORDER BY calorie";
+                  break;
+                case "protein";
+                  $sql .= "ORDER BY protein";
+                  break;
+                case "lipid";
+                  $sql .= "ORDER BY lipid";
+                  break;
+                case "carb";
+                  $sql .= "ORDER BY carb";
+                  break;
+                case "natrium";
+                  $sql .= "ORDER BY natrium";
+                  break;
+                default;
+              }
+            }
+
 
             //栄養価
             //var_dump($_POST);
@@ -78,13 +100,27 @@ function get_food($dbh)
             $sql .= "INNER JOIN genre ";
             $sql .= "ON food.genre_id = genre.genre_id ";
             if (!empty($_POST["eiyoka"])) {
-              //var_dump($_POST);
-              $sql .= " ORDER BY :eiyoka ";
+              switch($_POST["eiyoka"]){
+                case "calorie";
+                  $sql .= "ORDER BY calorie";
+                  break;
+                case "protein";
+                  $sql .= "ORDER BY protein";
+                  break;
+                case "lipid";
+                  $sql .= "ORDER BY lipid";
+                  break;
+                case "carb";
+                  $sql .= "ORDER BY carb";
+                  break;
+                case "natrium";
+                  $sql .= "ORDER BY natrium";
+                  break;
+                default;
+              }
             }
+
             $sth = $dbh->prepare($sql); // SQLを準備
-            if (!empty($_POST["eiyoka"])) {
-              $sth->bindValue(":eiyoka", $_POST["eiyoka"]);
-            }
 
             // SQLを発行
             $sth->execute();

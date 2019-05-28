@@ -5,7 +5,7 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.0
@@ -181,28 +181,27 @@
       <h2>生鮮食品一覧</h2>
 
       <!-- 分類 -->
-      <form action="TopPage.php"method="post">
+      検索：<form action="TopPage.php"method="post">
       <select name="genre_id">
-            <option value="0"></option>
+            <option value="0">選択してください</option>
             <option value="1">肉</option>
             <option value="2">野菜</option>
             <option value="3">魚</option>
       </select>
+      <input type="text" name="food_name">
+      <input type="submit" value="検索">
+      <br>
 
       <!-- 栄養価 -->
-      栄養価: <select name="eiyoka">
-              <option value=""></option>
+      栄養価: <br><select name="eiyoka">
+              <option value="">選択してください</option>
               <option value="calorie">エネルギー</option>
               <option value="protein">たんぱく質</option>
               <option value="lipid">脂質</option>
               <option value="carb">炭水化物</option>
               <option value="natrium">ナトリウム</option>
               <option value="kalium">カリウム</option>
-              </select><br>
-
-
-      検索：<input type="text" name="search">
-            <input type="submit" value="検索">
+              </select> <input type="submit" value="検索"><br>
       </form>
 
 <?php
