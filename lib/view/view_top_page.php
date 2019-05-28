@@ -113,6 +113,8 @@
           </select> <input type="submit" value="検索"><br>
   </form>
 
+  <p><a href="TopPage.php">全て表示</a></p>
+
 <!-- image 400px x 400px -->
 
 
