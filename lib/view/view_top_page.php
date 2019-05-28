@@ -36,8 +36,8 @@
 <nav class="navigation_main">
 <ul>
   <li><a href="">特売商品一覧</a></li>
-  <li><a href="＃">生鮮食品一覧</a><li>
-  <li><a href="＃">店舗一覧</a></li>
+  <li><a href="">生鮮食品一覧</a><li>
+  <li><a href="">店舗一覧</a></li>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -152,9 +152,9 @@
 <footer class="footer_top_page">
 <nav class="navigation_footer">
 <ul>
-  <li><a href="index.html">特売商品一覧</a></li>
-  <li><a href="＃">生鮮食品一覧</a></li>
-  <li><a href="＃">店舗一覧</a></li>
+  <li><a href="">特売商品一覧</a></li>
+  <li><a href="">生鮮食品一覧</a></li>
+  <li><a href="">店舗一覧</a></li>
 </ul>
 </nav>
 <small>&copy; 2019 Team FFS </small>
