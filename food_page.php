@@ -15,8 +15,6 @@
 */
 
 require_once("lib\init.php");
-// IT担当者かどうか確認
-accesscheckAdmin();
 
 $dbh = connectDb();
 
