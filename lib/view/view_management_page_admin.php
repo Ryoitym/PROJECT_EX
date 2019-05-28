@@ -21,10 +21,7 @@
 <link rel="stylesheet" href= "lib/css/style.css">
 </head>
 <body class="management">
-<?php
-    //init.phpができたらコメントアウト解除
-    //require_once("init.php");
-?>
+
 <div class="m_center">
 <form action="logout.php" method="post">
         <button type="submit" name="logout" value="logout">ログアウト</button>

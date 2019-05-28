@@ -20,8 +20,11 @@
 <head>
 <meta charset="utf-8">
 <title>ユーザ一覧画面(IT担当者)</title>
+<link rel="stylesheet" href= "lib/css/style.css">
 </head>
-<body>
+<body class="management">
+
+<div class="m_center">
 <form action="logout.php" method="get">
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
@@ -67,5 +70,6 @@
 </table>
 <a href="management_page_admin.php">トップページへ戻る</a>
 <a href="user_list_admin.php">全て表示</a>
+</div>
 </body>
 </html>
