@@ -220,9 +220,7 @@
     method="post">
   </td>
 </tr>
-<?php }
-
-?>
+<?php }?>
 
     </article>
 
