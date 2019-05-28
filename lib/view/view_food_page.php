@@ -15,91 +15,100 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>生鮮食品個別ページ画面</title>
-<link rel="stylesheet" href="css/style-pc.css">
-
-
-<!--外部記述する場合
-<link rel="stylesheet" href="css/style.css">
--->
+<link rel="stylesheet" href="lib/css/style-sample.css">
 </head>
-<body>
-<!-- css -->
 
-<!-- タイトル -->
-<header>
+<body>
+<div class="wrapper">
+<header class="header_top_page">
 <div class="title">
-  <h1><a href="TopPage.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="top_page.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
-</header>
+
+<nav class="navigation_main">
+<ul>
+<li><a href="">特売商品一覧</a></li>
+<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">店舗一覧</a></li>
+</ul>
+</nav>
+</header><!--/.header-->
 <hr>
 
+
 <!-- 本文（中身・コンテンツ） -->
-<div class="content">
-  <main>
-    <article>
-        <br>
-        <!-- 生鮮食品の写真 -->
-        <img src="lib/images/<?php ph($food_value["picture"]) ?>" width=300px height=300px alt="生鮮食品画像">
+<article class="content_second_page">
+<h2><!-- アイコン --><img src="lib/images/apple.png" alt=""/>
+  <!-- 生鮮食品名・特価品名・店舗名はここに -->
+  <?php ph($food_value["food_name"]); ?>
+</h2>
 
-        <!-- 商品名 -->
-        <h3><?php ph($food_value["food_name"]); ?></h3>
+<!-- 生鮮食品・特価品の画像 -->
+<img src="lib/images/<?php ph($food_value["picture"]) ?>" width="400px" height="400px" alt="生鮮食品画像">
 
-        <!-- 説明 -->
-        <!-- <p>説明</p> -->
-        <p><?php ph($food_value["txt"]); ?></p>
+<h3><img src="lib/images/apple.png" alt=""/>紹介</h3>
+<!-- 生鮮食品・特価品・店舗の説明 -->
+<p>
+  <!-- 説明 -->
+  <!-- <p>説明</p> -->
+  <?php ph($food_value["txt"]); ?>
 
-        <!-- 価格 -->
-        <h3>定価価格</h3>
-        <h3><?php ph($food_value["food_price"]); ?>円</h3>
+  <!-- 価格 -->
+  <h3><img src="lib/images/apple.png" alt=""/>定価価格：
+    <?php ph(number_format($food_value["food_price"])); ?>円</h3>
 
-    </article>
-    <article>
-      <!-- 詳細情報 -->
-        <table>
-          <h2>栄養価</h2>
-          <tr>
-            <th>エネルギー：</th>
-            <th><?php ph($food_value["calorie"]); ?></th>
-            <td>Kcal</td>
-          </tr>
+</p>
 
-          <tr>
-            <td>たんぱく質：</td>
-            <td><?php ph($food_value["protein"]); ?></td>
-            <td>g</td>
-          </tr>
+<h3><img src="lib/images/apple.png" alt=""/>詳細情報</h3>
 
-          <tr>
-            <td>脂質：</td>
-            <td><?php ph($food_value["lipid"]); ?></td>
-            <td>g</td>
-          </tr>
+<!-- 生鮮食品の詳細情報 -->
+<!-- 詳細情報 -->
+  <table>
+    <h2><img src="lib/images/apple.png" alt=""/>栄養価</h2>
+    <tr>
+      <th>エネルギー：</th>
+      <th><?php ph($food_value["calorie"]); ?></th>
+      <td>Kcal</td>
+    </tr>
 
-          <tr>
-            <td>炭水化物：</td>
-            <td><?php ph($food_value["carb"]); ?></td>
-            <td>g</td>
-          </tr>
+    <tr>
+      <td>たんぱく質：</td>
+      <td><?php ph($food_value["protein"]); ?></td>
+      <td>g</td>
+    </tr>
 
-          <tr>
-            <td>ナトリウム：</td>
-            <td><?php ph($food_value["natrium"]); ?></td>
-            <td>mg</td>
-          </tr>
+    <tr>
+      <td>脂質：</td>
+      <td><?php ph($food_value["lipid"]); ?></td>
+      <td>g</td>
+    </tr>
 
-          <tr>
-            <td>カリウム：</td>
-            <td><?php ph($food_value["kalium"]); ?></td>
-            <td>mg</td>
-          </tr>
-        </table>
-    </article>
+    <tr>
+      <td>炭水化物：</td>
+      <td><?php ph($food_value["carb"]); ?></td>
+      <td>g</td>
+    </tr>
+
+    <tr>
+      <td>ナトリウム：</td>
+      <td><?php ph($food_value["natrium"]); ?></td>
+      <td>mg</td>
+    </tr>
+
+    <tr>
+      <td>カリウム：</td>
+      <td><?php ph($food_value["kalium"]); ?></td>
+      <td>mg</td>
+    </tr>
+  </table>
+</article>
+
     <!--特価品一覧画面に戻る-->
-    <a href="lib/view/view_top_page.php">公開トップページに戻る</a>
+    <a href="TopPage.php">公開トップページに戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 
