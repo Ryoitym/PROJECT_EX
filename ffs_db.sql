@@ -525,3 +525,5 @@ INSERT INTO sale(
     1,
     1
   );
+
+SELECT * FROM food;
