@@ -74,58 +74,33 @@
 <font = color="green"><h2>特価商品一覧</h2></font>
 
 <!-- image 400px x 400px -->
-<section class="section_top_page">
-<a href="special_price_food_page.php?sale_id=1">
 
-<h2><?php foreach ($sth as $value) {
-    ?><img src="lib/images/<?php ph(($value['picture']));?>" alt="sale1">
-        <?php if($value["sale_id"]==1){ph($value["food_name"]); break;?><br>
-        <?php
-        }
-      }?> 1パック</h2>
-¥<?php foreach ($sth as $value) {
-        if($value["sale_id"]==1){ph($value["sale_price"]); break;?><br>
-        <?php
-        }
-      }?>
+<?php foreach ($special_price_food_today_list as $special_price_food_today) { ?>
+  <section class="section_top_page">
+  <?php
+  $shop_url = "shop_page.php?shop_id=" .
+              $special_price_food_today["shop_id"] .
+              "&shop_name=" .
+              $special_price_food_today["shop_name"] .
+              "&address=" .
+              $special_price_food_today["address"] .
+              "&tel=" .
+              $special_price_food_today["tel"];
+  ?>
+  
+  <a href="<?php ph($shop_url) ?>"><?php ph($special_price_food_today["shop_name"]); ?> </a>
+  <a href="food_page.php?food_id=<?php ph($special_price_food_today["food_id"]); ?>">
+    <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
+    <h2><?php ph($special_price_food_today["food_name"]); ?></h2>
 
-</a>
-</section>
+    <p>定価 ￥<?php ph($special_price_food_today["food_price"]); ?></p>
+    <p>特価 ￥<?php ph($special_price_food_today["sale_price"]); ?></p>
+  </a>
+  <!-- 商品の説明文 -->
+  <p><?php ph($special_price_food_today["txt"]); ?></p>
+  </section>
+<?php } ?>
 
-<section class="section_top_page">
-<a href="＃">
-
-<h2><?php foreach ($sth as $value) {
-  ?><img src="lib/images/<?php ph(($value['picture']));?>" alt="sale2">
-        <?php if($value["sale_id"]==2){ph($value["food_name"]); ?><br>
-        <?php
-        }
-        break;
-      }?> 1パック<?php ph(($value['picture']));?></h2>
-<p>￥<?php foreach ($sth as $value) {
-        if($value["sale_id"]==2){ph($value["sale_price"]); ?><br>
-        <?php
-        }
-        break;
-      }?></p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/carrot.jpg" alt="にんじん">
-<h2>にんじん 1パック 400g</h2>
-<p>￥150</p>
-</a>
-</section>
-
-<section class="section_top_page">
-<a href="＃">
-<img src="lib/images/potato.jpg" alt="じゃがいも">
-<h2>じゃがいも 1パック 500g</h2>
-<p>￥181</p>
-</a>
-</section>
 
 </div>
 

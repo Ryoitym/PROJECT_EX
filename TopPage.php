@@ -134,6 +134,17 @@ function get_food($dbh)
 }
 
     $sth = get_food($dbh);
-    require_once("lib/view/view_top_page.php");
 
+    // モデルファイルを読み込む
+    require_once("lib/model/SpecialPriceFood.php");
+
+    // モデルクラスのインスタンスを生成
+    $special_price_food = new SpecialPriceFood($dbh);
+
+    // 今日の特価商品一覧の連想配列を得て、変数$special_price_food_today_listに代入
+    $today = date("Y-m-d");
+    $special_price_food_today_list = $special_price_food->getDataSaleFoodShoppArrayAtDate($today);
+    
+    
+    require_once("lib/view/view_top_page.php");
 ?>
