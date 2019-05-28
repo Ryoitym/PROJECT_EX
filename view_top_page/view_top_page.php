@@ -78,7 +78,7 @@
 <a href="../special_price_food_page.php?sale_id=1">
 
 <h2><?php foreach ($sth as $value) {
-    ?><img src="<?php echo $b= ($value['picture'].'.jpg');?>" alt="sale1">
+    ?><img src="images/<?php ph(($value['picture']));?>" alt="sale1">
         <?php if($value["sale_id"]==1){echo $value["food_name"]; break;?><br>
         <?php
         }
@@ -96,11 +96,11 @@
 <a href="＃">
 
 <h2><?php foreach ($sth as $value) {
-  ?><img src="<?php echo $b= ($value['picture'].'.jpg');?>" alt="sale2">
+  ?><img src="images/<?php ph(($value['picture']));?>" alt="sale2">
         <?php if($value["sale_id"]==2){echo $value["food_name"]; break;?><br>
         <?php
         }
-      }?> 1パック 500g</h2>
+      }?> 1パック</h2>
 <p>￥<?php foreach ($sth as $value) {
         if($value["sale_id"]==2){echo $value["sale_price"]; break;?><br>
         <?php
