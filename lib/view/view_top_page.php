@@ -75,7 +75,7 @@
 
 <!-- image 400px x 400px -->
 <section class="section_top_page">
-<a href="../special_price_food_page.php?sale_id=1">
+<a href="special_price_food_page.php?sale_id=1">
 
 <h2><?php foreach ($sth as $value) {
     ?><img src="lib/images/<?php ph(($value['picture']));?>" alt="sale1">
@@ -319,7 +319,7 @@
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
     <div class="box_shop">
-        <a href="../lib/view/view_shop_page.php?shop_id=<?php
+        <a href="lib/view/view_shop_page.php?shop_id=<?php
         ph($row['shop_id']);?>&shop_name=<?php ph($row['shop_name']);?>
         &address=<?php ph($row['address']);?>
         &tel=<?php ph($row['tel']);?>"
