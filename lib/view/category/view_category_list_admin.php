@@ -29,12 +29,13 @@
 
 <h1>分類一覧画面</h1>
 <!-- 画面上部タブ -->
-<a href="special_price_food_list_admin.php">特価商品</a>
-<a href="food_list_admin.php">生鮮食品</a>
-<a href="category_list_admin.php">分類</a>
-<a href="user_list_admin.php">ユーザ</a>
-<a href="shop_list_admin.php">店舗</a>
-
+<div class="tab1">
+<a class="tab" href="special_price_food_list_admin.php">特価商品</a>
+<a class="tab" href="food_list_admin.php">生鮮食品</a>
+<a class="tab" href="category_list_admin.php">分類</a>
+<a class="tab" href="user_list_admin.php">ユーザ</a>
+<a class="tab" href="shop_list_admin.php">店舗</a>
+</div>
   <!-- 検索窓作成 -->
 
 <form action="category_list_admin.php" method="post">

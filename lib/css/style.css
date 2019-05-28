@@ -76,6 +76,26 @@ td{
   width: 80px;
 }
 
+.tab1{
+display: block;
+background-color: #f2e27d;
+width: 400px;
+height: 30px;
+margin: 0 auto;
+padding-top: 10px;
+}
+
+.tab{
+margin: 0 10px;
+}
+
+.tab:hover{
+  color: #575957;
+  background-color: #3af27d;
+  border: double 1px #FFF;
+  background-color: #3af27d;
+}
+
 .m_center_food{
   text-align: center;
   background-color: #b0f2a2;
