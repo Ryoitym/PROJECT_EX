@@ -146,5 +146,15 @@ function get_food($dbh)
     $special_price_food_today_list = $special_price_food->getDataSaleFoodShoppArrayAtDate($today);
     
     
+    // モデルファイルを読み込む
+    require_once("lib/model/Shop.php");
+
+    // モデルクラスのインスタンスを生成
+    $shop_i = new SpecialPriceFood($dbh);
+
+    $shop_list = $shop_i->getDataShopArray();
+    
+    
+
     require_once("lib/view/view_top_page.php");
 ?>
