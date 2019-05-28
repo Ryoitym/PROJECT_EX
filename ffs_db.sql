@@ -1,39 +1,39 @@
 /**
- * このファイルの概要説明
- *　データベース作成フォーマット
- * このファイルの詳細説明
+ * ���̃t�@�C���̊T�v����
+ *�@�f�[�^�x�[�X�쐬�t�H�[�}�b�g
+ * ���̃t�@�C���̏ڍא���
  *
- * システム名： FFS
- * 作成者：　appleCandy
- * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
- * レビュー担当者：
- * レビュー日：
- * バージョン： 1.1
+ * �V�X�e�����F FFS
+ * �쐬�ҁF�@appleCandy
+ * �쐬���F�@2019/05/22
+ * �ŏI�X�V���F�@2019/05/22
+ * ���r���[�S���ҁF
+ * ���r���[���F
+ * �o�[�W�����F 1.1
  */
 
---　データベース作成
+--�@�f�[�^�x�[�X�쐬
 DROP DATABASE IF EXISTS ffs_db;
 CREATE DATABASE ffs_db DEFAULT CHARACTER SET UTF8;
 
---　ユーザ作成
+--�@���[�U�쐬
 GRANT ALL PRIVILEGES ON ffs_db.* TO 'root'@'%' IDENTIFIED BY 'ffs';
 
 /*
-  mysql -u root -p -h IPアドレスで他PCのmysqlにアクセス可
+  mysql -u root -p -h IP�A�h���X�ő�PC��mysql�ɃA�N�Z�X��
 */
 
--- デフォルトDB指定
+-- �f�t�H���gDB�w��
 USE ffs_db;
 
--- 分類テーブル作成 genre
+-- ���ރe�[�u���쐬 genre
 CREATE TABLE IF NOT EXISTS genre (
   `genre_id` INT AUTO_INCREMENT NOT NULL,
   `genre_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`genre_id`)
 );
 
--- 店舗テーブル作成 shop
+-- �X�܃e�[�u���쐬 shop
 CREATE TABLE IF NOT EXISTS shop (
   `shop_id` INT AUTO_INCREMENT NOT NULL,
   `shop_name` VARCHAR(100) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS shop (
   PRIMARY KEY (`shop_id`)
 );
 
--- 生鮮食品テーブル作成 food
+-- ���N�H�i�e�[�u���쐬 food
 CREATE TABLE IF NOT EXISTS food (
   `food_id` INT AUTO_INCREMENT NOT NULL,
   `food_name` VARCHAR(100) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS food (
 );
 
 
--- 特価品テーブル作成 sale
+-- �����i�e�[�u���쐬 sale
 CREATE TABLE IF NOT EXISTS sale (
   `sale_id` INT AUTO_INCREMENT NOT NULL,
   `sale_price` INT NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS sale (
   FOREIGN KEY(`shop_id`) REFERENCES shop (`shop_id`)
 );
 
--- ユーザテーブル作成 user
+-- ���[�U�e�[�u���쐬 user
 CREATE TABLE IF NOT EXISTS user (
   `user_id` INT AUTO_INCREMENT NOT NULL,
   `password` VARCHAR(20) NOT NULL,
@@ -93,56 +93,56 @@ CREATE TABLE IF NOT EXISTS user (
 
 
 
---野菜
+--���
 INSERT INTO genre(
   genre_id,
   genre_name
 ) VALUES (
   1,
-  '野菜'
+  '���'
 );
 
---肉
+--��
 INSERT INTO genre(
   genre_id,
   genre_name
 ) VALUES (
   2,
-  '肉'
+  '��'
 );
 
---魚
+--��
 INSERT INTO genre(
   genre_id,
   genre_name
 ) VALUES (
   3,
-  '魚'
+  '��'
 );
 
---卵
+--��
 INSERT INTO genre(
   genre_id,
   genre_name
 )VALUES(
   4,
-  '卵'
+  '��'
 );
---果物
+--�ʕ�
 INSERT INTO genre(
   genre_id,
   genre_name
 )VALUES(
   5,
-  '果物'
+  '�ʕ�'
 );
---甲殻類
+--�b�k��
 INSERT INTO genre(
   genre_id,
   genre_name
 )VALUES(
   6,
-  '甲殻類'
+  '�b�k��'
 );
 
 INSERT INTO food (
@@ -161,10 +161,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     1,
-    '茄子',
+    '�֎q',
     60,
     'eggplant.jpg',
-    '高知県産　みずみずしくて今が旬！',
+    '���m���Y�@�݂��݂������č����{�I',
     22,
     1.1,
     0.1,
@@ -191,10 +191,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     2,
-    '卵',
+    '��',
     100,
     'egg.jpg',
-    '千葉県産　農家直送の朝採れたて卵です！',
+    '��t���Y�@�_�ƒ����̒��̂ꂽ�ė��ł��I',
     151, 
     12.3, 
     10.3, 
@@ -221,10 +221,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     3,
-    'メロン',
+    '������',
     3000,
     'melon.jpg',
-    '北海道産　高級メロンです。これを食べたら他店のメロンはもう食べられない！',
+    '�k�C���Y�@�����������ł��B�����H�ׂ��瑼�X�̃������͂����H�ׂ��Ȃ��I',
     176, 
     1.0, 
     0.1, 
@@ -251,11 +251,11 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     4,
-    'ステーキ用牛肉',
+    '�X�e�[�L�p����',
     10000,
     'meat.jpg',
-    '国産　A５ランク黒毛和牛！
-    栄養成分は輸入牛より水分が少ない分脂質が多く、半分が脂質で一価不飽和脂肪酸、亜鉛が豊富',
+    '���Y�@A�T�����N���јa���I
+    �h�{�����͗A������萅�������Ȃ��������������A�����������ňꉿ�s�O�a���b�_�A�������L�x',
     517, 
     11, 
     50, 
@@ -282,10 +282,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     5,
-    'キャベツ',
+    '�L���x�c',
     80,
     'cabbage.jpg',
-    '長野県産　食べるときのシャキシャキ感を味わえるのはは当店だけ！',
+    '���쌧�Y�@�H�ׂ�Ƃ��̃V���L�V���L���𖡂킦��͓̂͂��X�����I',
     23, 
     1.3, 
     0.2, 
@@ -312,10 +312,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     6,
-    '鮭の切り身',
+    '���̐؂�g',
     500,
     'salmon.jpg',
-    '千葉県産　銀鮭の切り身。朝の一品に追加すればその日は元気もりもり間違いなし！',
+    '��t���Y�@����̐؂�g�B���̈�i�ɒǉ�����΂��̓��͌��C�������ԈႢ�Ȃ��I',
     120, 
     20.14, 
     3.77, 
@@ -342,10 +342,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     7,
-    '牛肉ヒレステーキ',
+    '�����q���X�e�[�L',
     1500,
     'meat_America.jpg',
-    'アメリカ産　新鮮なうちに冷凍し、旨味を閉じ込めた当店長渾身の一品！リーズナブルなうえにおいしい！',
+    '�A�����J�Y�@�V�N�Ȃ����ɗⓀ���A�|��������߂����X���Ӑg�̈�i�I���[�Y�i�u���Ȃ����ɂ��������I',
     517, 
     11, 
     50, 
@@ -372,12 +372,12 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     8,
-    'ズワイガニ',
+    '�Y���C�K�j',
     6000,
     'kani.jpg',
-    'カナダ産　シーフードの本場、カナダの海で収穫されたずわいがにを豪華な姿ボイルでお届けします。 
-    上品で甘い脚肉と、濃厚でコク深いかに味噌が同時に味わえる贅沢な逸品です。 手を汚さずに解凍するだけで簡単に召し上がれます。
-    そのままかぶりつくも良し、様々な料理に使うも良し、お好きな食べ方で本場の味をご堪能ください。',
+    '�J�i�_�Y�@�V�[�t�[�h�̖{��A�J�i�_�̊C�Ŏ��n���ꂽ���킢���ɂ����؂Ȏp�{�C���ł��͂����܂��B 
+    ��i�ŊÂ��r���ƁA�Z���ŃR�N�[�����ɖ��X�������ɖ��킦���ґ�Ȉ�i�ł��B ����������ɉ𓀂��邾���ŊȒP�ɏ����オ��܂��B
+    ���̂܂܂��Ԃ�����ǂ��A�l�X�ȗ����Ɏg�����ǂ��A���D���ȐH�ו��Ŗ{��̖��������\���������B',
     57, 
     12.51, 
     0.36, 
@@ -404,10 +404,10 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     9,
-    '人参',
+    '�l�Q',
     50,
     'carrot.jpg',
-    '東京都産　都会の厳しい環境で育った強い人参。社長お手製の限定品！',
+    '�����s�Y�@�s��̌��������ň���������l�Q�B�В����萻�̌���i�I',
     152, 
     0.8, 
     0.1, 
@@ -434,11 +434,11 @@ INSERT INTO food (
   genre_id
   ) VALUES (
     10,
-    '大根',
+    '�卪',
     20,
     'daikon.jpg',
-    '埼玉県産　食材としての大根はビタミンC以外に目立った栄養はない。
-    カロリーは少なく、ジアスターゼを多く含み消化を助ける効能も有るためダイエット・フードとしても注目されている！',
+    '��ʌ��Y�@�H�ނƂ��Ă̑卪�̓r�^�~��C�ȊO�ɖڗ������h�{�͂Ȃ��B
+    �J�����[�͏��Ȃ��A�W�A�X�^�[�[�𑽂��܂ݏ�������������\���L�邽�߃_�C�G�b�g�E�t�[�h�Ƃ��Ă����ڂ���Ă���I',
     75, 
     0.5, 
     0.1, 
@@ -456,8 +456,8 @@ INSERT INTO shop(
   tel
   ) VALUES (
     1,
-    '浅草橋店',
-    '東京都浅草橋5丁目2-3鈴和ビル3F',
+    '�󑐋��X',
+    '�����s�󑐋�5����2-3��a�r��3F',
     '03-1234-5678'
   );
 
@@ -468,12 +468,12 @@ INSERT INTO shop(
   tel
   ) VALUES (
     2,
-    '秋葉原店',
-    '東京都千代田区外神田1丁目15-16',
+    '�H�t���X',
+    '�����s���c��O�_�c1����15-16',
     '03-9876-5432'
   );
 
---田中さん
+--�c������
 INSERT INTO user (
   user_id,
   password,
@@ -485,14 +485,14 @@ INSERT INTO user (
   ) VALUES (
     1,
     'ffs',
-    '田中',
-    '太郎',
+    '�c��',
+    '���Y',
     'ffs@gmail.com',
     1,
     1
     );
 
---山田さん
+--�R�c����
 INSERT INTO user (
   user_id,
   password,
@@ -504,14 +504,14 @@ INSERT INTO user (
   ) VALUES (
     2,
     'yamada',
-    '山田',
-    '花子',
+    '�R�c',
+    '�Ԏq',
     'yamada@gmail.com',
     2,
     2
     );
 
--- 特価品、茄子
+-- �����i�A�֎q
 INSERT INTO sale(
   sale_id,
   sale_price,
