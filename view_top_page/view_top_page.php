@@ -97,14 +97,16 @@
 
 <h2><?php foreach ($sth as $value) {
   ?><img src="images/<?php ph(($value['picture']));?>" alt="sale2">
-        <?php if($value["sale_id"]==2){ph($value["food_name"]); break;?><br>
+        <?php if($value["sale_id"]==2){ph($value["food_name"]); ?><br>
         <?php
         }
-      }?> 1パック</h2>
+        break;
+      }?> 1パック<?php ph(($value['picture']));?></h2>
 <p>￥<?php foreach ($sth as $value) {
-        if($value["sale_id"]==2){ph($value["sale_price"]); break;?><br>
+        if($value["sale_id"]==2){ph($value["sale_price"]); ?><br>
         <?php
         }
+        break;
       }?></p>
 </a>
 </section>
@@ -160,7 +162,7 @@
         <?php if($value["food_id"]==1){ph($value["food_name"]); break;?><br>
         <?php
         }
-      }?>1個<?php ph($value["food_name"]?></h2>
+      }?>1個</h2>
 <p>￥<?php foreach ($sth as $value) {
         ph($value["food_price"]); break;?><br>
         <?php
