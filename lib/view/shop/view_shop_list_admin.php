@@ -15,17 +15,22 @@
  * バージョン： 1.1
  */
 -->
-<form action="logout.php" method="get">
-    <button type="submit" name="logout" value="logout">ログアウト</button>
-</form>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>店舗一覧画面(IT担当者)</title>
+<link rel="stylesheet" href= "lib/css/style.css">
 </head>
-<body>
-    <h1>店舗一覧画面</h1><br>
+<body class="management">
+
+<div class="m_center">
+<form action="logout.php" method="get">
+    <button type="submit" name="logout" value="logout">ログアウト</button>
+</form>
+
+<h1>店舗一覧画面</h1><br>
 
 <a href="special_price_food_list_admin.php">特価商品</a>
 <a href="food_list_admin.php">生鮮食品</a>
@@ -64,5 +69,6 @@
 </table>
 <a href="management_page_admin.php">トップページへ戻る</a>
 <a href="shop_list_admin.php">全て表示</a>
+</div>
 </body>
 </html>

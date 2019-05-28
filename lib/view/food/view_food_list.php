@@ -17,8 +17,11 @@
 <head>
 <meta charset="utf-8">
 <title>生鮮食品一覧画面(店長)</title>
+<link rel="stylesheet" href= "lib/css/style.css">
 </head>
-<body>
+<body class="management">
+
+<div class="m_center">
 <form action="logout.php" method="get">
         <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
@@ -63,11 +66,11 @@
         <td><?php ph($row["carb"]); ?></td>
         <td><?php ph($row["natrium"]); ?></td>
         <td><?php ph($row["kalium"]); ?></td>
-        <td><?php 
+        <td><?php
                 if($row["show_flag"] == 1){
                   ph("表示");
                 } else{
-                  ph("非表示"); 
+                  ph("非表示");
               }?></td>
         <td><?php ph($row["genre_name"]); ?></td>
       </tr>
@@ -75,5 +78,6 @@
 </table>
   <a href="management_page.php">トップページへ戻る</a>
   <a href="food_list.php">全て表示</a>
+</div>
 </body>
 </html>

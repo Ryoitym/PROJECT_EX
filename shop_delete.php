@@ -27,9 +27,9 @@
 
         $sth->bindValue(":shop_id", $_POST["shop_id"]);
         $sth->execute();
+        require_once('lib/view/shop/view_shop_delete.php');
 
     } catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
+        require_once('lib/view/shop/view_shop_delete_error.php');
     }
-    require_once('lib/view/shop/view_shop_delete.php');
 ?>
