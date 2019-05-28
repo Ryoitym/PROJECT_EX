@@ -106,7 +106,7 @@
 </article>
 
     <!--特価品一覧画面に戻る-->
-    <a href="TopPage.php">公開トップページに戻る</a>
+    <a href="TopPage.php">トップページに戻る</a>
 </main>
 </div><!-- コンテンツはここまで -->
 
