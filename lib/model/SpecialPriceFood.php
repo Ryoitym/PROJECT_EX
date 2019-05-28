@@ -120,7 +120,7 @@ class SpecialPriceFood
         }
     }
 
-    // データベースからfoodのデータを取得し、連想配列を返す
+    // データベースから引数で渡した日付と同じ日付のsaleのデータを取得し、連想配列を返す
     public function getDataSalepArrayAtDate($date)
     {
         try {
@@ -140,6 +140,30 @@ class SpecialPriceFood
         }
     }
 
+
+    // データベースから引数で渡した日付と同じ日付のsaleのデータを取得し、連想配列を返す
+    public function getDataSaleFoodShoppArrayAtDate($date)
+    {
+        try {
+            // SQLを構築
+            $sql = "SELECT *
+                    FROM ffs_db.sale t1
+                        INNER JOIN ffs_db.food t2
+                            ON t1.food_id = t2.food_id
+                        INNER JOIN ffs_db.shop t3
+                            ON t1.shop_id = t3.shop_id
+                    WHERE date = '{$date}';";
+            $sth = $this->dbh->prepare($sql); // SQLを準備
+
+            // SQLを発行
+            $sth->execute();
+
+            // データを戻す
+            return $sth->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            exit("SQL発行エラー：{$e->getMessage()}");
+        }
+    }
 
     // データベースのデータをIDを指定して1件取得する
     // $id:idを指定
