@@ -22,24 +22,6 @@
 
 <body>
 
-<?php
-     require_once("lib/function.php");
-      $dbh=connectDb();
-
-      try{
-        $sql = "SELECT * FROM ffs_db.shop , ";
-        $sql .= "ffs_db.sale t1
-                INNER JOIN ffs_db.food t2
-                ON t1.food_id = t2.food_id
-                ";
-        $sth = $dbh->prepare($sql);
-
-        $sth->execute();
-      }
-      catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-    }
-?>
 
 <div class="wrapper">
 <header class="header_top_page">
@@ -288,26 +270,12 @@
 
 </div>
 
-<?php
-     require_once("lib/function.php");
-      $dbh=connectDb();
-
-      try{
-        $sql = "SELECT * FROM ffs_db.shop ";
-        $sth = $dbh->prepare($sql);
-
-        $sth->execute();
-      }
-      catch (PDOException $e) {
-        exit("SQL発行エラー：{$e->getMessage()}");
-    }
-?>
 
 <div class="main_area">
 <font = color="green"><h2>店舗一覧</h2></font>
 
 <!-- image 400px x 400px -->
-<?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
+<?php foreach ($shop_list as $shop) {?>
     <tr>
     <div class="box_shop">
         <a href="shop_page.php?shop_id=<?php
