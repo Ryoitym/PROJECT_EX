@@ -279,10 +279,10 @@
     <tr>
     <div class="box_shop">
         <a href="shop_page.php?shop_id=<?php
-        ph($row['shop_id']);?>&shop_name=<?php ph($row['shop_name']);?>
-        &address=<?php ph($row['address']);?>
-        &tel=<?php ph($row['tel']);?>"
-        method="post"><td><?php ph($row["shop_name"]);?></td><br>
+        ph($shop['shop_id']);?>&shop_name=<?php ph($shop['shop_name']);?>
+        &address=<?php ph($shop['address']);?>
+        &tel=<?php ph($shop['tel']);?>"
+        method="post"><td><?php ph($shop["shop_name"]);?></td><br>
       </div>
 
     </tr>
