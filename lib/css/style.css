@@ -1,3 +1,4 @@
+/* 全体の背景 */
 .management{
   background-color: #f4f2ab;
 }
@@ -40,3 +41,20 @@
 #m_user{
   float:left;
 } */
+
+/* テーブル中央寄せ */
+table{
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: #ffffff;
+}
+
+th{
+  padding: 5px 20px;
+  background-color: #6df96d;
+}
+
+td{
+  padding: 5px 20px;
+}

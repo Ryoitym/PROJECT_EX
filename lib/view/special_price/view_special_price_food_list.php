@@ -19,9 +19,11 @@
     <head>
     <meta charset="utf-8">
     <title>特価商品一覧画面</title>
+    <link rel="stylesheet" href= "lib/css/style.css">
     </head>
+    <body class="management">
 
-    <body>
+    <div class="m_center">
         <form action="logout.php" method="get">
             <button type="submit" name="logout" value="logout">ログアウト</button>
         </form>
@@ -73,5 +75,6 @@
         </table>
         <a href="management_page.php">トップページへ戻る</a>
         <a href="special_price_food_list.php">全て表示</a>
+      </div>
     </body>
 </html>
