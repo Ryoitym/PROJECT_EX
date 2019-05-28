@@ -118,10 +118,12 @@
 
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
 <section class="section_top_page">
-  <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
   <a href="food_page.php?food_id=<?php ph($row['food_id'])?>&food_name=<?php ph($row['food_name']);?>&food_price=<?php ph($row['food_price']);?>">
-    <?php ph($row["food_name"]);?><br></a>
-    定価 <?php ph($row["food_price"]); ?>
+    <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
+    <?php ph($row["food_name"]);?><br>
+    定価 ￥<?php ph(number_format($row["food_price"])); ?></a>
+    <p><?php ph($row["txt"]); ?></p>
+    </section>
 </section>
 <?php }?>
 </div>
