@@ -44,7 +44,7 @@
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="index.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href=""><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 
 <div id="navToggle">
@@ -53,7 +53,7 @@
 
 <nav class="navigation_main">
 <ul>
-  <li><a href="index.html">特売商品一覧</a></li>
+  <li><a href="">特売商品一覧</a></li>
   <li><a href="＃">生鮮食品一覧</a><li>
   <li><a href="＃">店舗一覧</a></li>
 </ul>

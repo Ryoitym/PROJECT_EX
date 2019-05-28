@@ -23,7 +23,7 @@
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="index.php"><img src="../../view_top_page/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="../../TopPage.php"><img src="../../view_top_page/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 
 <!DOCTYPE html>
@@ -59,11 +59,12 @@
 
     ?><div class="">
         <!-- 生鮮食品の写真 -->
-        <img src="#" alt="">
+        
 
-      <?php foreach ($sth as $value) {
-        if($value['shop_id']==$_GET['shop_id']){echo $value["food_name"];?><br><?php
-        echo $value["txt"];?><br><?php }
+      <?php foreach ($sth as $value) {?>
+        <img src="../images/<?php ph(($value['picture']));?>" alt="sale1"><br>
+        <?php if($value['shop_id']==$_GET['shop_id']){echo $value["picture"];?><br><?php
+        echo $value["txt"];?><br><?php } 
       }
       ?>
       <br>
