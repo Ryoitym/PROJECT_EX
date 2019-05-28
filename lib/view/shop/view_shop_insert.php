@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　appleCandy
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -18,10 +18,11 @@
 <head>
 <meta charset="utf-8">
 <title>店舗登録画面</title>
-<link rel="stylesheet" href= "style.css">
+<link rel="stylesheet" href= "lib/css/style.css">
 </head>
-<body>
+<body class="management">
 
+<div class="m_center">
 <form action="logout.php" method="get">
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
@@ -36,5 +37,6 @@
     <input type="reset" value = "クリア"><br>
 </form>
 <p><a href="shop_list_admin.php">一覧に戻る</a></p>
+</div>
 </body>
 </html>

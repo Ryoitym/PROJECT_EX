@@ -6,7 +6,7 @@
  * システム名： FFS
  * 作成者：　sugerSong
  * 作成日：　2019/05/24
- * 最終更新日：　2019/05/24
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.0
@@ -24,7 +24,7 @@
 
     // モデルクラスのインスタンスを生成
     $food = new Food($dbh);
-    
+
     $genre_list = $food->getDataGenreArray();
 
 
@@ -47,12 +47,12 @@
             exit("SQL発行エラー：{$e->getMessage()}");
         }
 
-        
+
 
         require_once("lib/view/food/view_food_update.php");
     }else{
         // 入力チェック 既に登録されているかどうか
-        
+
 
         try {
             // SQLを構築
@@ -98,11 +98,11 @@
                 $sql = "SELECT * FROM ffs_db.food ";
                 $sql .= "WHERE food_id=:food_id";
                 $sth = $dbh->prepare($sql); // SQLを準備
-    
+
                 // プレースホルダに値をバインド
                 //GETで飛んできたIDのレコードを取ってくる
                 $sth->bindValue(":food_id", $_POST["food_id"]);
-    
+
                 // SQLを発行
                 $sth->execute();
                 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -127,11 +127,11 @@
                         $sql = "SELECT * FROM ffs_db.food ";
                         $sql .= "WHERE food_id=:food_id";
                         $sth = $dbh->prepare($sql); // SQLを準備
-                
+
                         // プレースホルダに値をバインド
                         //GETで飛んできたIDのレコードを取ってくる
                         $sth->bindValue(":food_id", $_POST["food_id"]);
-                
+
                         // SQLを発行
                         $sth->execute();
                         $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -152,11 +152,11 @@
                         $sql = "SELECT * FROM ffs_db.food ";
                         $sql .= "WHERE food_id=:food_id";
                         $sth = $dbh->prepare($sql); // SQLを準備
-                
+
                         // プレースホルダに値をバインド
                         //GETで飛んできたIDのレコードを取ってくる
                         $sth->bindValue(":food_id", $_POST["food_id"]);
-                
+
                         // SQLを発行
                         $sth->execute();
                         $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -172,11 +172,11 @@
                             $sql = "SELECT * FROM ffs_db.food ";
                             $sql .= "WHERE food_id=:food_id";
                             $sth = $dbh->prepare($sql); // SQLを準備
-                
+
                             // プレースホルダに値をバインド
                             //GETで飛んできたIDのレコードを取ってくる
                             $sth->bindValue(":food_id", $_POST["food_id"]);
-                
+
                             // SQLを発行
                             $sth->execute();
                             $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -186,7 +186,7 @@
                 $message.="食品名は１００文字、写真は３００文字以内で入力してください";
                 require_once("lib/view/food/view_food_update.php");
         } else{
-            
+
             try{
                 // プレースホルダ付きSQLを構築
                 $sql = "UPDATE ffs_db.food SET food_name=:food_name, genre_id=:genre_id, picture=:picture, food_price=:food_price, ";

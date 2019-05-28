@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/24
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -20,8 +20,11 @@
 <head>
 <meta charset="utf-8">
 <title>ユーザ登録画面</title>
+<link rel="stylesheet" href= "lib/css/style.css">
 </head>
-<body>
+<body class="management">
+
+<div class="m_center">
 <form action="logout.php" method="get">
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
@@ -48,5 +51,6 @@
 <input type="reset" value="クリア"><br>
 <p><a href="user_list_admin.php">一覧に戻る</a></p>
 </form>
+</div>
 </body>
 </html>

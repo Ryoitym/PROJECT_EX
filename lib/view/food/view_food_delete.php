@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　sugerSong
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -20,9 +20,11 @@
 <head>
 <meta charset="utf-8">
 <title>生鮮食品削除画面</title>
+<link rel="stylesheet" href= "lib/css/style.css">
 </head>
+<body class="management">
 
-<body>
+<div class="m_center">
 <style type="text/css">
   #overlay {
       position: fixed;
@@ -98,5 +100,6 @@
 </form>
 <h1>削除しました</h1>
 <a href="food_list_admin.php">生鮮食品一覧画面</a>
+</div>
 </body>
 </html>

@@ -9,9 +9,9 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/27
+ * 最終更新日：　2019/05/28
  * レビュー担当者：orange juice
- * レビュー日：2019/05/27
+ * レビュー日：2019/05/28
  * バージョン： 1.1
  */
 -->
@@ -29,7 +29,7 @@
 <form action="logout.php" method="get">
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
-    <h1>店舗一覧画面</h1><br>
+    <h1>店舗一覧画面</h1>
 
 <a href="special_price_food_list.php">特価商品</a>
 <a href="food_list.php">生鮮食品</a>
@@ -43,8 +43,8 @@
 <table border="1">
     <tr>
         <th>店舗名</th>
-        <th>電話番号</th>
-        <th>住所</th>
+        <th class="midium">住所</th>
+        <th class="midium">電話番号</th>
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>

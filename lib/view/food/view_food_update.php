@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　sugerSong
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -20,8 +20,11 @@
 <head>
     <meta charset="UTF-8">
     <title>生鮮食品編集画面</title>
+    <link rel="stylesheet" href= "lib/css/style.css">
 </head>
-<body>
+    <body class="management">
+
+    <div class="m_center">
     <h1>生鮮食品編集画面</h1>
     <!-- ログアウトボタン-->
     <form action="logout.php" method="get">
@@ -67,5 +70,6 @@
         <input type="reset" value="クリア"><br>
         <a href="food_list_admin.php">生鮮食品一覧画面へ戻る</a>
     </form>
+  </div>
 </body>
 </html>

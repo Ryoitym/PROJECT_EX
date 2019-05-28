@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　sugerSong
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -20,9 +20,13 @@
 <head>
     <meta charset="UTF-8">
     <title>ログアウト画面</title>
-</head>
-<body>
+    <link rel="stylesheet" href= "lib/css/style.css">
+    </head>
+    <body class="management">
+
+    <div class="m_center">
     <h1>ログアウトしました</h1>
     <a href="login.php">ログイン画面に戻る</a>
+  </div>
 </body>
 </html>

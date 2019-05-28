@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　appleCandy
  * 作成日：　2019/05/23
- * 最終更新日：　2019/05/23
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -173,20 +173,20 @@
   <main>
   <h2>特売商品一覧</h2>
   <article>
-  <?php 
+  <?php
   // SQLを構築
         require_once("../function.php");
         $dbh = connectDb();
 
-        $sql = "SELECT * FROM ffs_db.sale t1 
-                INNER JOIN ffs_db.food t2 
-                ON t1.food_id = t2.food_id 
+        $sql = "SELECT * FROM ffs_db.sale t1
+                INNER JOIN ffs_db.food t2
+                ON t1.food_id = t2.food_id
                 ";
-        
+
         $sth = $dbh->prepare($sql); // SQLを準備
 
         $sth->execute();
-  
+
   for($i=0;$i<1;$i++){
 
     ?><div class="">
@@ -194,19 +194,19 @@
         <img src="#" alt="">
 
       <?php foreach ($sth as $value) {
-        if($_GET["shop_id"]==$value["shop_id"]){echo $value["food_name"];?><br><?php 
+        if($_GET["shop_id"]==$value["shop_id"]){echo $value["food_name"];?><br><?php
         echo $value["txt"];?><br><?php }
       }
       ?>
       <br>
-      
-      
+
+
       <?php }?>
       <?php ?>
       </div>
 
     </article>
-    <?php 
+    <?php
       require_once("../function.php");
       $dbh=connectDb();
 
@@ -236,7 +236,7 @@
           </div>
             <?php break;}
           }?>
-        
+
       </div>
     </article>
     <br>

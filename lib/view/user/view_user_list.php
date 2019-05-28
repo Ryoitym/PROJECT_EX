@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　amaru
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/22
+ * 最終更新日：　2019/05/28
  * レビュー担当者：orange juice
  * レビュー日：2019/05/27
  * バージョン： 1.2
@@ -29,7 +29,7 @@
 <form action="logout.php" method="get">
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
-<h1>ユーザ一覧</h1><br>
+<h1>ユーザ一覧</h1>
 <a href="special_price_food_list.php">特価商品</a>
 <a href="food_list.php">生鮮食品</a>
 <a href="user_list.php">ユーザ</a>

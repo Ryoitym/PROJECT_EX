@@ -68,6 +68,6 @@ if(empty($_POST)){
         //空白の場合
         $message = "メールアドレスまたはパスワードが違います";
         require_once("lib/view/view_login.php");
-        
+
     }
 }

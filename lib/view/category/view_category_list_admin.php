@@ -7,7 +7,7 @@
  * システム名： FFS
  * 作成者：　orange juice
  * 作成日：　2019/05/22
- * 最終更新日：　2019/05/25
+ * 最終更新日：　2019/05/28
  * レビュー担当者：
  * レビュー日：
  * バージョン： 1.1
@@ -41,9 +41,7 @@
     検索：<input type="text" name="search">
           <input type="submit" value="検索">
 </form>
-<form action = "category_insert.php" method="post">
-        <input type="submit" value="新規登録">
-</form>
+<a href="category_insert.php">新規登録</a>
 <table border="1">
   <tr>
       <th>分類名</th>
