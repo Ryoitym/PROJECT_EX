@@ -28,9 +28,9 @@
 
       try{
         $sql = "SELECT * FROM ffs_db.shop , ";
-        $sql .= "ffs_db.sale t1 
-                INNER JOIN ffs_db.food t2 
-                ON t1.food_id = t2.food_id 
+        $sql .= "ffs_db.sale t1
+                INNER JOIN ffs_db.food t2
+                ON t1.food_id = t2.food_id
                 ";
         $sth = $dbh->prepare($sql);
 
@@ -53,9 +53,9 @@
 
 <nav class="navigation_main">
 <ul>
-<a href="index.html">特売商品一覧</a>
-<a href="＃">生鮮食品一覧</a>
-<a href="＃">店舗一覧</a>
+  <li><a href="index.html">特売商品一覧</a></li>
+  <li><a href="＃">生鮮食品一覧</a><li>
+  <li><a href="＃">店舗一覧</a></li>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -297,9 +297,9 @@
 
       try{
         $sql = "SELECT * FROM ffs_db.shop , ";
-        $sql .= "ffs_db.sale t1 
-                INNER JOIN ffs_db.food t2 
-                ON t1.food_id = t2.food_id 
+        $sql .= "ffs_db.sale t1
+                INNER JOIN ffs_db.food t2
+                ON t1.food_id = t2.food_id
                 ";
         $sth = $dbh->prepare($sql);
 
@@ -317,7 +317,7 @@
 <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
     <div class="box_shop">
-        <a href="../lib/view/view_shop_page.php?shop_id=<?php 
+        <a href="../lib/view/view_shop_page.php?shop_id=<?php
         ph($row['shop_id']);?>&shop_name=<?php ph($row['shop_name']);?>
         &address=<?php ph($row['address']);?>
         &tel=<?php ph($row['tel']);?>"
