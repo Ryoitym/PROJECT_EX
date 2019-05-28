@@ -20,6 +20,7 @@ body {
 }
 a {
 	color: #86b12e;
+	text-decoration: none;
 }
 a:hover {
 	color: #4f4f4f;
@@ -37,6 +38,7 @@ a:hover img {
 .navigation_main ul{
 	margin: 0;
 	padding: 0;
+	list-style: none;
 }
 .navigation_main li {
 	float: left;
