@@ -23,7 +23,7 @@
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="../../TopPage.php"><img src="../../view_top_page/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="../../TopPage.php"><img src="../images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 
 <!DOCTYPE html>
@@ -54,24 +54,21 @@
         $sth = $dbh->prepare($sql); // SQLを準備
 
         $sth->execute();
-
-  for($i=0;$i<1;$i++){
-
-    ?><div class="">
+?>
+        <div class="">
         <!-- 生鮮食品の写真 -->
         
 
       <?php foreach ($sth as $value) {?>
-        <img src="../images/<?php ph(($value['picture']));?>" alt="sale1"><br>
-        <?php if($value['shop_id']==$_GET['shop_id']){echo $value["picture"];?><br><?php
-        echo $value["txt"];?><br><?php } 
+        
+        <?php if($value['shop_id']==$_GET['shop_id']){ph($value["food_name"]);?><br>
+          <img src="../images/<?php ph(($value['picture']));?>" alt="sale1"><br>
+        <?php
+        ph($value["txt"]); ?><br><h1>¥<?php ph($value['food_price']); ?>→
+        <font color="red">¥<?php ph($value['sale_price']); ?></h1></font><?php } 
       }
       ?>
       <br>
-
-
-    <?php }?>
-      <?php ?>
       </div>
 
     </article>
