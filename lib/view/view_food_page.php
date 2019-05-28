@@ -63,8 +63,6 @@
 
 </p>
 
-<h3><img src="lib/images/apple.png" alt=""/>詳細情報</h3>
-
 <!-- 生鮮食品の詳細情報 -->
 <!-- 詳細情報 -->
   <table>
