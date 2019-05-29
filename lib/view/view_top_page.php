@@ -31,9 +31,9 @@
 
 <nav class="navigation_main">
 <ul>
-  <li><a href="" class="link">特売商品一覧</a></li>
-  <li><a href="" class="link">生鮮食品一覧</a><li>
-  <li><a href="" class="link">店舗一覧</a></li>
+  <li><a href="#sale" class="link">特売商品一覧</a></li>
+  <li><a href="#food" class="link">生鮮食品一覧</a><li>
+  <li><a href="#shop" class="link">店舗一覧</a></li>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -49,7 +49,7 @@
 </div><!--/.main_visual-->
 
 <div class="main_area">
-<font = color=#5AAD5A><h2>特価商品一覧</h2></font>
+<font = color=#5AAD5A><h2 id="sale">特価商品一覧</h2></font>
 
 <!-- image 400px x 400px -->
 
@@ -83,7 +83,7 @@
 </div>
 
 <div class="main_area">
-  <font = color=#5AAD5A><h2>生鮮食品一覧</h2></font>
+  <font = color=#5AAD5A><h2 id="food">生鮮食品一覧</h2></font>
 
   <!-- 分類 -->
   検索：<form action="TopPage.php"method="post">
@@ -132,7 +132,7 @@
 
 
 <div class="main_area">
-<font = color=#5AAD5A><h2>店舗一覧</h2></font>
+<font = color=#5AAD5A><h2 id="shop">店舗一覧</h2></font>
 
 <!-- image 400px x 400px -->
 <?php foreach ($shop_list as $shop) {?>
@@ -154,9 +154,9 @@
 <footer class="footer_top_page">
 <nav class="navigation_footer">
 <ul>
-  <li><a href="" class="link">特売商品一覧</a></li>
-  <li><a href="" class="link">生鮮食品一覧</a></li>
-  <li><a href="" class="link">店舗一覧</a></li>
+  <li><a href="#sale" class="link">特売商品一覧</a></li>
+  <li><a href="#food" class="link">生鮮食品一覧</a></li>
+  <li><a href="#shop" class="link">店舗一覧</a></li>
 </ul>
 </nav>
 <small>&copy; 2019 Team FFS </small>
