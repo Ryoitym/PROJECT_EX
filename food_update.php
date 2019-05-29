@@ -43,6 +43,14 @@
             // SQLを発行
             $sth->execute();
             $row = $sth->fetch(PDO::FETCH_ASSOC);
+
+            // // 結果データを取得
+            // $row = $sth->fetch(PDO::FETCH_ASSOC);
+            //
+            // $sql_genre = "SELECT * FROM genre";
+            // $sth_genre = $dbh->prepare($sql_genre);
+            //
+            // $sth_genre->execute();
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
@@ -88,9 +96,8 @@
 
             // SQLを発行
             $sth->execute();
-
             // 結果データを取得
-            $row = $sth->fetch(PDO::FETCH_ASSOC);
+        $row = $sth->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             exit("SQL発行エラー：{$e->getMessage()}");
         }
@@ -109,6 +116,7 @@
                 // SQLを発行
                 $sth->execute();
                 $row = $sth->fetch(PDO::FETCH_ASSOC);
+
             } catch (PDOException $e) {
                 exit("SQL発行エラー：{$e->getMessage()}");
             }
