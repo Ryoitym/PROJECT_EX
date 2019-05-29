@@ -11,6 +11,9 @@
  */
 
 /* 管理者画面 */
+body{
+  font-family: Meiryo;
+}
 /* 全体の背景 */
 .management{
   background-color: #f4f2ab;
@@ -18,7 +21,7 @@
 
 .m_center{
   text-align: center;
-  background-color: #b0f2a2;
+  background-color: #c3edbd;
   margin: 60px auto;
   padding: 30px;
   border-radius: 20px;
@@ -100,7 +103,7 @@ margin: auto 10px;
 
 .m_center_food{
   text-align: center;
-  background-color: #b0f2a2;
+  background-color: #c3edbd;
   margin: 60px auto;
   padding: 30px;
   border-radius: 20px;
