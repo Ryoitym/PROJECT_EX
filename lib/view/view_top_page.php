@@ -195,7 +195,7 @@ $genre_list = $food->getDataGenreArray($show_food_id);
 
 
 <div class="main_area">
-<font = color=#5AAD5A id="shop"><h2>店舗一覧</h2></font>
+<font = color=#5AAD5A id="shop"><h2>店舗情報</h2></font>
 
 <!-- image 400px x 400px -->
 <?php foreach ($shop_list as $shop) {?>

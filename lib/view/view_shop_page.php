@@ -154,7 +154,7 @@
     <br>
     <br>
     <br>
-      <h2><font color="#5AAD5A">店舗名</font></h2>
+      <h2><font color="#5AAD5A">店舗情報</font></h2>
       <!-- 店舗リンク -->
       <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
       <div class="box_shop">
