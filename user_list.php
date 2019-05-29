@@ -21,7 +21,7 @@ $dbh = connectDb();
 
 if(empty($_POST)){
     try {
-        $sql = "SELECT * FROM user";
+        $sql = "SELECT * FROM ffs_db.user INNER JOIN ffs_db.shop ON user.shop_id=shop.shop_id ";
         $sth = $dbh->prepare($sql);
 
         $sth->execute();
@@ -31,7 +31,7 @@ if(empty($_POST)){
   }else{
     //検索ボタン押下時の処理
     try {
-        $sql = "SELECT * FROM ffs_db.user WHERE name_family LIKE :search";
+        $sql = "SELECT * FROM ffs_db.user INNER JOIN ffs_db.shop ON user.shop_id=shop.shop_id WHERE name_family LIKE :search";
         $sth = $dbh->prepare($sql);
 
         // プレースホルダに値をバインド
