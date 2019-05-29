@@ -49,7 +49,7 @@
 </div><!--/.main_visual-->
 
 <div class="main_area">
-<font = color=#5AAD5A id="today"><h2>本日の広告の品！！</h2></font>
+<font color=#5AAD5A id="today"><h2>本日の広告の品！！</h2></font>
 
 <!-- image 400px x 400px -->
 

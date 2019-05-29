@@ -39,7 +39,7 @@
 
 <div class="content">
   <main>
-  <h2><?php ph($_GET["shop_name"]);?>の本日の広告の品！！</h2>
+  <h2><font color="#5AAD5A"><?php ph($_GET["shop_name"]);?>の本日の広告の品！！</font></h2>
   <article>
   <?php
   // SQLを構築
@@ -74,7 +74,7 @@
     ?>
         <div class="">
         <!-- 生鮮食品の写真 -->
-        
+
         <?php foreach ($special_price_food_today_list as $special_price_food_today) { ?>
           <?php if($_GET["shop_id"]==$special_price_food_today["shop_id"]){?>
               <section class="section_top_page">
@@ -102,7 +102,7 @@
         <?php }?>
         <?php }?>
 
-      
+
       <br>
       </div>
 
@@ -155,7 +155,7 @@
     <br>
     <br>
     <br>
-      <h2>店舗名</h2>
+      <h2><font color="#5AAD5A">店舗名</font></h2>
       <!-- 店舗リンク -->
       <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
       <div class="box_shop">
@@ -174,7 +174,7 @@
       </div>
     </article>
     <br>
-    <a href='TopPage.php'>トップページへ戻る</a>
+    <a href="TopPage.php"><button class="btn">トップページに戻る</button></a>
 </main>
 </div>
 </div>
