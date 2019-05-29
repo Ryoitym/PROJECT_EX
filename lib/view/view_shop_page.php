@@ -39,11 +39,7 @@
 
 <div class="content">
   <main>
-<<<<<<< HEAD
-  <h2>今日の特価品</h2>
-=======
   <h2><?php ph($_GET["shop_name"]);?>の本日の広告の品！！</h2>
->>>>>>> 559e9488bae61826999c01cb18df4345b797f1e1
   <article>
   <?php
   // SQLを構築
