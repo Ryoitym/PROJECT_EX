@@ -50,8 +50,8 @@
 
         </select><br>
 権限レベル: <select name="acess_lv">
-        <option value="1">IT担当者</option><br>
-        <option value="2">店長</option><br>
+        <option value="1" <?php if($row["acess_lv"] == 1){print "selected";}?>>IT担当者</option><br>
+        <option value="2" <?php if($row["acess_lv"] == 2){print "selected";}?>>店長</option><br>
         </select><br>
 <input type="submit" value="編集">
 <input type="reset" value="クリア"><br>

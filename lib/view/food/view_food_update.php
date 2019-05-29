@@ -35,21 +35,15 @@
     <form action="food_update.php" method="post">
         食品名：<input type="text" name="food_name" value="<?php ph($row["food_name"]);?>"><br>
         分類：<select name="genre_id">
-        <?php foreach ($genre_list as $genre) {?>
-                        <option value="<?php ph($genre["genre_id"]);?>"
-                        <?php
-                            /*if (isset($special_price_food_value)) {
-                                if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
-                                    print " selected";
-                                }
-                            } */
-                        ?>
-                        >
-                            <?php ph($genre["genre_name"]); ?>
-                        </option>
-                        <br>
-                <?php } ?>
-             </select><br>
+
+          <?php foreach ($genre_list as $genre) {?>
+                    <option value="<?php ph($genre["genre_id"]);?>"
+              <?php if ($row["genre_id"] == $genre["genre_id"]) { print "selected";}?>>
+              <?php ph($genre["genre_name"]);?>
+            </option>
+          <?php } ?>
+        </select>
+        <br>
         写真：<input type="text" name="picture" value="<?php ph($row["picture"]);?>">
               <br>
         価格：<input type="text" name="food_price" value="<?php ph($row["food_price"]);?>"><br>
@@ -62,8 +56,8 @@
         ナトリウム：<input type="text" name="natrium" value="<?php ph($row["natrium"]);?>"><br>
         カリウム：<input type="text" name="kalium" value="<?php ph($row["kalium"]);?>"><br>
         <select name="show_flag">
-            <option value="1">表示</option>
-            <option value="0">非表示</option>
+            <option value="1" <?php if($row["show_flag"] == 1){print "selected";}?>>表示</option>
+            <option value="0" <?php if($row["show_flag"] == 0){print "selected";}?>>非表示</option>
         </select><br>
         <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
         <input type="submit" value="登録">
