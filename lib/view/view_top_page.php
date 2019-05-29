@@ -31,8 +31,8 @@
 
 <nav class="navigation_main">
 <ul>
-  <li><a href="" class="link">特売商品一覧</a></li>
-  <li><a href="" class="link">生鮮食品一覧</a><li>
+  <li><a href="" class="link">本日の広告の品</a></li>
+  <li><a href="" class="link">当店取り扱い商品</a><li>
   <li><a href="" class="link">店舗一覧</a></li>
 </ul>
 </nav>
@@ -49,7 +49,7 @@
 </div><!--/.main_visual-->
 
 <div class="main_area">
-<font = color=#5AAD5A><h2>特価商品一覧</h2></font>
+<font = color=#5AAD5A><h2>本日の広告の品！！</h2></font>
 
 <!-- image 400px x 400px -->
 
@@ -91,7 +91,7 @@ $genre_list = $food->getDataGenreArray($show_food_id);
 </div>
 
 <div class="main_area">
-  <font = color=#5AAD5A><h2>生鮮食品一覧</h2></font>
+  <font = color=#5AAD5A><h2>当店取り扱い商品</h2></font>
 
   <!-- 分類 -->
   検索：<form action="TopPage.php"method="post">

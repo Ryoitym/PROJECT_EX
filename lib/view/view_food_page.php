@@ -31,8 +31,8 @@
 
 <nav class="navigation_main">
 <ul>
-<li><a href="">特売商品一覧</a></li>
-<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">本日の広告の品</a></li>
+<li><a href="">当店取り扱い商品</a></li>
 <li><a href="">店舗一覧</a></li>
 </ul>
 </nav>
