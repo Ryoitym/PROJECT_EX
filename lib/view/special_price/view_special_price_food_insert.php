@@ -71,10 +71,10 @@
         価格 <input type="text" name="sale_price">
 
         <br>
-        <input type="submit" value="登録">
-        <input type="submit" value="クリア">
+            <input type="submit" value="登録" name="edit">
+            <input type="submit" value="クリア" name="clear">
         </form>
-        <a href="special_price_food_list.php">特価商品一覧画面へ戻る</a>
+        <a href="special_price_food_list.php">一覧に戻る</a>
       </div>
     </body>
 </html>

@@ -60,27 +60,28 @@ if (!empty($_POST)){
               }
           }
     }
-
-    if (empty($_POST["sale_price"]) || !is_numeric($_POST["sale_price"])) {
-        $error_message .= "特価価格の入力に不備があります。<br>";
+    if (empty($_POST["clear"])) {
+        if (empty($_POST["sale_price"]) || !is_numeric($_POST["sale_price"]) || $_POST["sale_price"] < 0) {
+            $error_message .= "特価価格の入力に不備があります。<br>";
+        }
+        if ($flag_yesterday == true || $flag_today == true || $flag_tomorrow == true) {
+            if ($flag_yesterday === true) {
+                $error_message .= $dates["yesterday"];
+                $error_message .= "<br>";
+            }
+            if ($flag_today === true) {
+                $error_message .= $dates["today"];
+                $error_message .= "<br>";
+            }
+            if ($flag_tomorrow === true) {
+                $error_message .= $dates["tomorrow"];
+                
+                $error_message .= "<br>";
+            }
+            $error_message .= "上記の日付で、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
+        }
     }
-    if ($flag_yesterday == true || $flag_today == true || $flag_tomorrow == true) {
-        if ($flag_yesterday === true) {
-            $error_message .= $dates["yesterday"];
-            $error_message .= "<br>";
-        }
-        if ($flag_today === true) {
-            $error_message .= $dates["today"];
-            $error_message .= "<br>";
-        }
-        if ($flag_tomorrow === true) {
-            $error_message .= $dates["tomorrow"];
-            
-            $error_message .= "<br>";
-        }
-        $error_message .= "上記の日付で、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
-    }
-    if ($error_message == "") {
+    if ($error_message == "" && !empty($_POST["edit"])) {
         
         $special_price_food->insert($_POST);
     }
