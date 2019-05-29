@@ -19,7 +19,7 @@
 .m_center{
   text-align: center;
   background-color: #b0f2a2;
-  margin: 60px 300px;
+  margin: 60px auto;
   padding: 30px;
   border-radius: 20px;
   border-style: groove;
@@ -88,7 +88,7 @@ border-color: #edcc6a;
 }
 
 .tab{
-margin: 0 10px;
+margin: auto 10px;
 }
 
 .tab:hover{
@@ -96,7 +96,6 @@ margin: 0 10px;
   background-color: #f2eae1;
   border: double 1px #FFF;
   /* border-radius: 10px 10px 0px 0px; */
-  padding: 5px;
 }
 
 .m_center_food{
