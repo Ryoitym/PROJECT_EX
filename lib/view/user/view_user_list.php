@@ -30,22 +30,23 @@
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 <h1>ユーザ一覧</h1>
-<a href="special_price_food_list.php">特価商品</a>
-<a href="food_list.php">生鮮食品</a>
-<a href="user_list.php">ユーザ</a>
-<a href="shop_list.php">店舗</a>
+<div class="tab1">
+<a class="tab" href="special_price_food_list.php">特価商品</a>
+<a class="tab" href="food_list.php">生鮮食品</a>
+<a class="tab" href="user_list.php">ユーザ</a>
+<a class="tab" href="shop_list.php">店舗</a>
+</div>
 <br>
 <form action="user_list.php"method="post">
   検索：<input type="text" name="search">
         <input type="submit" value="検索">
 </form>
-<br>
 <table border="1">
     <tr>
         <th>店舗</th>
         <th>姓</th>
         <th>名</th>
-        <th>メール</th>
+        <th class="midium">メール</th>
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
