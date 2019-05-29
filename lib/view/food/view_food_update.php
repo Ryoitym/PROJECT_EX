@@ -53,7 +53,7 @@
         写真：<input type="text" name="picture" value="<?php ph($row["picture"]);?>">
               <br>
         価格：<input type="text" name="food_price" value="<?php ph($row["food_price"]);?>"><br>
-        説明文書：<textarea name="txt" value="<?php ph($row["txt"]);?>"></textarea><br>
+        説明文書：<textarea name="txt"><?php ph($row["txt"]);?></textarea><br>
         栄養価<br>
         エネルギー<input type="text" name="calorie" value="<?php ph($row["calorie"]);?>"><br>
         タンパク質<input type="text" name="protein" value="<?php ph($row["protein"]);?>"><br>

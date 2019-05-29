@@ -83,6 +83,8 @@ width: 400px;
 height: 30px;
 margin: 0 auto;
 padding-top: 10px;
+border: solid;
+border-color: #edcc6a;
 }
 
 .tab{
@@ -91,9 +93,10 @@ margin: 0 10px;
 
 .tab:hover{
   color: #575957;
-  background-color: #3af27d;
+  background-color: #f2eae1;
   border: double 1px #FFF;
-  background-color: #3af27d;
+  /* border-radius: 10px 10px 0px 0px; */
+  padding: 5px;
 }
 
 .m_center_food{
@@ -103,6 +106,11 @@ margin: 0 10px;
   padding: 30px;
   border-radius: 20px;
   border-style: groove;
+}
+
+img{
+  width: 150px;
+  height: auto;
 }
 
 .food{
@@ -118,9 +126,10 @@ margin: 0 10px;
 }
 
 .midium{
-  width: 130px;
+  width: 140px;
 }
 
+/* テキストボックス固定 */
 input[type="text"]{
   width: 150px;
 }

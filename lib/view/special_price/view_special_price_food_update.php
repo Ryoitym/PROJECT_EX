@@ -54,7 +54,7 @@
 
             特価価格:<input type="text" name="sale_price" size="20"
                         <?php
-                            if (isset($special_price_food_value)) {
+                            if (!empty($special_price_food_value)) {
                                 ph("value={$special_price_food_value["sale_price"]}");
                             }
                         ?>
@@ -67,7 +67,7 @@
                 <?php $temp_date = date("Y-m-d",strtotime("+" . $i . " day")); ?>
                 <option value="<?php print $temp_date; ?>"
                     <?php
-                        if (isset($special_price_food_value)) {
+                        if (!empty($special_price_food_value)) {
                             if ($special_price_food_value["date"] == $temp_date) {
                                 print " selected";
                             }
@@ -86,7 +86,7 @@
                 <?php foreach ($shop_list as $shop) {?>
                         <option value="<?php ph($shop["shop_id"]);?>"
                         <?php
-                            if (isset($special_price_food_value)) {
+                            if (!empty($special_price_food_value)) {
                                 if ($special_price_food_value["shop_id"] == $shop["shop_id"]) {
                                     print " selected";
                                 }
@@ -99,12 +99,13 @@
                 <?php } ?>
             </select><br>
 
-            <input type="submit" value="編集"><br>
-            <input type="submit" value="クリア"><br>
-
-            <a href="special_price_food_list.php">特価商品一覧画面へ戻る</a>
+            <input type="submit" value="編集" name="edit">
+            <input type="submit" value="クリア" name="clear">
 
         </form>
+
+        <a href="special_price_food_list.php">一覧に戻る</a>
       </div>
+      
     </body>
 </html>
