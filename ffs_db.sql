@@ -472,6 +472,28 @@ INSERT INTO shop(
     '東京都千代田区外神田1丁目15-16',
     '03-9876-5432'
   );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    3,
+    '浦安店',
+    '千葉県浦安市舞浜1-1',
+    '047-999-2222'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    4,
+    '那覇店',
+    '沖縄県国頭郡本部町石川424',
+    '0980-23-5678'
+  );
 
 --田中さん
 INSERT INTO user (
@@ -520,10 +542,52 @@ INSERT INTO sale(
   food_id
   ) VALUES (
     1,
-    50,
+    30,
     '2019-05-30',
     1,
     1
+  );
+--卵
+INSERT INTO sale(
+  sale_id,
+  sale_price,
+  date,
+  shop_id,
+  food_id
+  ) VALUES (
+    2,
+    50,
+    '2019-05-30',
+    2,
+    2
+  );
+--メロン
+INSERT INTO sale(
+  sale_id,
+  sale_price,
+  date,
+  shop_id,
+  food_id
+  ) VALUES (
+    3,
+    2000,
+    '2019-05-30',
+    3,
+    3
+  );
+--ステーキ用牛肉
+INSERT INTO sale(
+  sale_id,
+  sale_price,
+  date,
+  shop_id,
+  food_id
+  ) VALUES (
+    4,
+    8000,
+    '2019-05-29',
+    4,
+    4
   );
 
 SELECT * FROM food;
