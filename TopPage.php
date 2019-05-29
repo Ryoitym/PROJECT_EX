@@ -62,6 +62,9 @@ function get_food($dbh)
                 case "natrium";
                   $sql .= "ORDER BY natrium DESC";
                   break;
+                case "kalium";
+                  $sql .= "ORDER BY kalium DESC";
+                  break;
                 default;
               }
             }
@@ -107,19 +110,22 @@ function get_food($dbh)
             if (!empty($_POST["eiyoka"])) {
               switch($_POST["eiyoka"]){
                 case "calorie";
-                  $sql .= "ORDER BY calorie";
+                  $sql .= "ORDER BY calorie DESC";
                   break;
                 case "protein";
-                  $sql .= "ORDER BY protein";
+                  $sql .= "ORDER BY protein DESC";
                   break;
                 case "lipid";
-                  $sql .= "ORDER BY lipid";
+                  $sql .= "ORDER BY lipid DESC";
                   break;
                 case "carb";
-                  $sql .= "ORDER BY carb";
+                  $sql .= "ORDER BY carb DESC";
                   break;
                 case "natrium";
-                  $sql .= "ORDER BY natrium";
+                  $sql .= "ORDER BY natrium DESC";
+                  break;
+                case "kalium";
+                  $sql .= "ORDER BY kalium DESC";
                   break;
                 default;
               }
