@@ -20,6 +20,8 @@
      // IT担当者かどうか確認
      accesscheckAdmin();
 
+     $error_message = "";
+
      $dbh = connectDb();
 
      // モデルファイルを読み込む
@@ -90,8 +92,8 @@ if(!empty($_GET)){
        if(empty($_POST["name_family"])||empty($_POST["name_last"])||empty($_POST["mail"])
        ||empty($_POST["password"])||empty($_POST["shop_id"])||empty($_POST["acess_lv"])){
        // 入力チェックNG
+          $error_message="入力不十分です";
            require_once("lib/view/user/view_user_update.php");
-          ph("入力不十分です");
        }
        // else if(!empty($row)){
        //     require_once("lib/view/user/view_user_update.php");

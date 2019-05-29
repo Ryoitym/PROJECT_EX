@@ -31,10 +31,7 @@
       <button type="submit" name="logout" value="logout">ログアウト</button>
     </form>
   <!-- エラー表示 -->
-  <?php
-  require_once("lib/init.php");
-  ph($error_message);
-  ?>
+  <?php ph($error_message);?>
     <!-- 分類入力フォーム-->
     <form action="category_update.php" method="post">
       <!-- 編集前のデータを表示するためにvalueでデフォルト値を設定する -->
