@@ -113,6 +113,7 @@
             <option value="natrium">ナトリウム</option>
             <option value="kalium">カリウム</option>
         </select></div> <input type="submit" class="btn" value="検索"><br>
+        <a href="TopPage.php"><button class="btn">全て表示</button></a>
   </form>
 
 <!-- image 400px x 400px -->

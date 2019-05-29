@@ -4,7 +4,7 @@
 body {
 	margin: 20px 10px;
 	font: 16px "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
-	background-image: url('https://i.pinimg.com/564x/59/9e/0b/599e0b3acde3229c1158760b7a76eb41.jpg');
+	background-image: url(../images/bg-06.jpg);
 }
 .wrapper {
 	width: 960px;
@@ -21,11 +21,11 @@ body {
 	margin-bottom: 80px;
 }
 a {
-	color: #86b12e;
+	color: #4BBF42;
 	text-decoration: none;
 }
 a:hover {
-	color: #4f4f4f;
+	color: 	#97ebdb;
 }
 a:hover img {
 	opacity:0.8;

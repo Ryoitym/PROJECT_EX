@@ -19,7 +19,7 @@
 <head>
 <meta charset="utf-8">
 <title>生鮮食品個別ページ画面</title>
-<link rel="stylesheet" href="lib/css/style-sample.css">
+<link rel="stylesheet" href="lib/css/style-pc.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
 
 <!-- 本文（中身・コンテンツ） -->
 <article class="content_second_page">
-<h2><!-- アイコン --><img src="lib/images/apple.png" alt=""/>
+<h2><!-- アイコン -->
   <!-- 生鮮食品名・特価品名・店舗名はここに -->
   <?php ph($food_value["food_name"]); ?>
 </h2>
@@ -50,7 +50,7 @@
 <!-- 生鮮食品・特価品の画像 -->
 <img src="lib/images/<?php ph($food_value["picture"]) ?>" width="400px" height="400px" alt="生鮮食品画像">
 
-<h3><img src="lib/images/apple.png" alt=""/>紹介</h3>
+<h3>紹介</h3>
 <!-- 生鮮食品・特価品・店舗の説明 -->
 <p>
   <!-- 説明 -->
@@ -58,7 +58,7 @@
   <?php ph($food_value["txt"]); ?>
 
   <!-- 価格 -->
-  <h3><img src="lib/images/apple.png" alt=""/>定価価格：
+  <h3>定価価格：
     <?php ph(number_format($food_value["food_price"])); ?>円</h3>
 
 </p>
@@ -66,7 +66,7 @@
 <!-- 生鮮食品の詳細情報 -->
 <!-- 詳細情報 -->
   <table>
-    <h2><img src="lib/images/apple.png" alt=""/>栄養価</h2>
+    <h2>栄養価</h2>
     <tr>
       <th>エネルギー：</th>
       <th><?php ph($food_value["calorie"]); ?></th>
