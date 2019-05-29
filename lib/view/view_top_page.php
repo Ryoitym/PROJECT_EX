@@ -79,7 +79,7 @@
   </section>
 <?php } ?>
 
-<?php 
+<?php
 $dbh = connectDb();
 require_once("lib/model/Food.php");
 //モデルクラスのインスタンスを生成
@@ -92,7 +92,6 @@ $genre_list = $food->getDataGenreArray($show_food_id);
 
 <div class="main_area">
   <font = color=#5AAD5A id="item"><h2>当店取り扱い商品</h2></font>
-
   <!-- 分類 -->
   検索：<form action="TopPage.php"method="post">
   <div class="cp_ipselect cp_sl02">
@@ -100,7 +99,7 @@ $genre_list = $food->getDataGenreArray($show_food_id);
   <option value="">選択してください</option>
   <?php foreach ($genre_list as $genre) {?>
           <option value="<?php ph($genre["genre_id"]);?>"
-          
+
           >
               <?php ph($genre["genre_name"]); ?>
           </option>
@@ -126,6 +125,7 @@ $genre_list = $food->getDataGenreArray($show_food_id);
             <option value="natrium">ナトリウム</option>
             <option value="kalium">カリウム</option>
         </select></div> <input type="submit" class="btn" value="検索"><br>
+        <a href="TopPage.php"><button class="btn">生鮮食品を全て表示する</button></a>
   </form>
 
 <!-- image 400px x 400px -->
@@ -136,7 +136,57 @@ $genre_list = $food->getDataGenreArray($show_food_id);
   <a href="food_page.php?food_id=<?php ph($row['food_id'])?>&food_name=<?php ph($row['food_name']);?>&food_price=<?php ph($row['food_price']);?>">
     <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
     <?php ph($row["food_name"]);?><br>
-    定価 ￥<?php ph(number_format($row["food_price"])); ?></a>
+    定価 ￥<?php ph(number_format($row["food_price"])); ?>
+    <br>
+    <?php
+    switch(@$_POST["eiyoka"]){
+      case "calorie";
+        print "エネルギー:";
+        break;
+      case "protein";
+        print "たんぱく質:";
+        break;
+      case "lipid";
+        print "脂質:";
+        break;
+      case "carb";
+        print "炭水化物:";
+        break;
+      case "natrium";
+        print "ナトリウム:";
+        break;
+      case "kalium";
+        print "カリウム:";
+        break;
+      default;
+    }
+     ?>
+     <?php ph(@$row[$_POST["eiyoka"]]); ?>
+    <?php
+    switch(@$_POST["eiyoka"]){
+      case "calorie";
+        print "Kcal";
+        break;
+      case "protein";
+        print "g";
+        break;
+      case "lipid";
+        print "g";
+        break;
+      case "carb";
+        print "g";
+        break;
+      case "natrium";
+        print "mg";
+        break;
+      case "kalium";
+        print "mg";
+        break;
+      default;
+    }
+    ?>
+    </a>
+
     <p><?php ph($row["txt"]); ?></p>
     </section>
 </section>

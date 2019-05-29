@@ -33,7 +33,7 @@ function get_food($dbh)
 
         //分類ID
         if (!empty($_POST["genre_id"])) {
-            $where[] = "food.genre_id LIKE :genre_id";
+            $where[] = "food.genre_id LIKE :genre_id ";
             $bind[] = "genre_id";
         }
         //var_dump($where);
@@ -48,19 +48,22 @@ function get_food($dbh)
             if (!empty($_POST["eiyoka"])) {
               switch($_POST["eiyoka"]){
                 case "calorie";
-                  $sql .= "ORDER BY calorie";
+                  $sql .= "ORDER BY calorie DESC";
                   break;
                 case "protein";
-                  $sql .= "ORDER BY protein";
+                  $sql .= "ORDER BY protein DESC";
                   break;
                 case "lipid";
-                  $sql .= "ORDER BY lipid";
+                  $sql .= "ORDER BY lipid DESC";
                   break;
                 case "carb";
-                  $sql .= "ORDER BY carb";
+                  $sql .= "ORDER BY carb DESC";
                   break;
                 case "natrium";
-                  $sql .= "ORDER BY natrium";
+                  $sql .= "ORDER BY natrium DESC";
+                  break;
+                case "kalium";
+                  $sql .= "ORDER BY kalium DESC";
                   break;
                 default;
               }
@@ -69,16 +72,14 @@ function get_food($dbh)
 
             //栄養価
             //var_dump($_POST);
-            if (!empty($_POST["eiyoka"])) {
-              //var_dump($_POST);
-              $sql .= " ORDER BY :eiyoka ";
-            }
+            // if (!empty($_POST["eiyoka"])) {
+            //   //var_dump($_POST);
+            //   $sql .= " ORDER BY :eiyoka ";
+            // }
 
             $sth = $dbh->prepare($sql); // SQLを準備
 
-            if (!empty($_POST["eiyoka"])) {
-              $sth->bindValue(":eiyoka", $_POST["eiyoka"]);
-            }
+
             // プレースホルダに値をバインド
             foreach ($bind as $bind_value) {
                 if ($bind_value == "genre_id") {
@@ -87,6 +88,13 @@ function get_food($dbh)
                     $sth->bindValue(":{$bind_value}", "%{$_POST[$bind_value]}%");
                 }
             }
+            //var_dump($sth);
+            // foreach ($bind as $bind_value) {
+            //   if ($bind_value == "genre_id" && $bind_value == "eiyoka") {
+            //       $sth->bindValue(":genre_id", $_POST["genre_id"]);
+            //       $sth->bindValue(":eiyoka", $_POST["eiyoka"]);
+            //   }
+            // }
 
             // SQLを発行
 
@@ -102,19 +110,22 @@ function get_food($dbh)
             if (!empty($_POST["eiyoka"])) {
               switch($_POST["eiyoka"]){
                 case "calorie";
-                  $sql .= "ORDER BY calorie";
+                  $sql .= "ORDER BY calorie DESC";
                   break;
                 case "protein";
-                  $sql .= "ORDER BY protein";
+                  $sql .= "ORDER BY protein DESC";
                   break;
                 case "lipid";
-                  $sql .= "ORDER BY lipid";
+                  $sql .= "ORDER BY lipid DESC";
                   break;
                 case "carb";
-                  $sql .= "ORDER BY carb";
+                  $sql .= "ORDER BY carb DESC";
                   break;
                 case "natrium";
-                  $sql .= "ORDER BY natrium";
+                  $sql .= "ORDER BY natrium DESC";
+                  break;
+                case "kalium";
+                  $sql .= "ORDER BY kalium DESC";
                   break;
                 default;
               }

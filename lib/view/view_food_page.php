@@ -42,7 +42,7 @@
 
 <!-- 本文（中身・コンテンツ） -->
 <article class="content_second_page">
-<h2><!-- アイコン --><img src="lib/images/apple.png" alt=""/>
+<h2><!-- アイコン -->
   <!-- 生鮮食品名・特価品名・店舗名はここに -->
   <?php ph($food_value["food_name"]); ?>
 </h2>
@@ -50,26 +50,28 @@
 <!-- 生鮮食品・特価品の画像 -->
 <img src="lib/images/<?php ph($food_value["picture"]) ?>" width="400px" height="400px" alt="生鮮食品画像">
 
-<h3><img src="lib/images/apple.png" alt=""/>紹介</h3>
+<h2>紹介</h2>
 <!-- 生鮮食品・特価品・店舗の説明 -->
 <p>
   <!-- 説明 -->
   <!-- <p>説明</p> -->
-  <?php ph($food_value["txt"]); ?>
-
-  <!-- 価格 -->
-  <h3><img src="lib/images/apple.png" alt=""/>定価価格：
-    <?php ph(number_format($food_value["food_price"])); ?>円</h3>
+  <h3><?php ph($food_value["txt"]); ?></h3>
 
 </p>
+<br>
+<br>
+<br>
+  <!-- 価格 -->
+  <h2>定価価格：
+    <font color="red"><?php ph(number_format($food_value["food_price"])); ?></font>円</h2>
 
 <!-- 生鮮食品の詳細情報 -->
 <!-- 詳細情報 -->
   <table>
-    <h2><img src="lib/images/apple.png" alt=""/>栄養価</h2>
+    <h2>栄養価</h2>
     <tr>
-      <th>エネルギー：</th>
-      <th><?php ph($food_value["calorie"]); ?></th>
+      <td>エネルギー：</td>
+      <td><?php ph($food_value["calorie"]); ?></td>
       <td>Kcal</td>
     </tr>
 
@@ -106,14 +108,21 @@
 </article>
 
     <!--特価品一覧画面に戻る-->
-    <a href="TopPage.php">トップページに戻る</a>
+    <a href="TopPage.php"><button class="btn">トップページに戻る</button></a>
 </main>
-</div><!-- コンテンツはここまで -->
+<!-- コンテンツはここまで -->
 
-<!-- 最下部（著者情報） -->
-<footer>
-  <small>Copyright 2019 team FFS</small>
+<footer class="footer_top_page">
+<nav class="navigation_footer">
+<ul>
+  <li><a href="#sale" class="link">特売商品一覧</a></li>
+  <li><a href="#food" class="link">生鮮食品一覧</a></li>
+  <li><a href="#shop" class="link">店舗一覧</a></li>
+</ul>
+</nav>
+<small>&copy; 2019 Team FFS </small>
 </footer>
+</div>
 
 </div><!--　wrapperはここまで　-->
 </body>
