@@ -19,7 +19,7 @@
 <head>
 <meta charset="utf-8">
 <title>生鮮食品個別ページ画面</title>
-<link rel="stylesheet" href="lib/css/style-sample.css">
+<link rel="stylesheet" href="lib/css/style-pc.css">
 </head>
 <body>
 <div class="wrapper">
