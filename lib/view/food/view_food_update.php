@@ -55,12 +55,12 @@
         価格：<input type="text" name="food_price" value="<?php ph($row["food_price"]);?>"><br>
         説明文書：<textarea name="txt"><?php ph($row["txt"]);?></textarea><br>
         栄養価<br>
-        エネルギー<input type="text" name="calorie" value="<?php ph($row["calorie"]);?>"><br>
-        タンパク質<input type="text" name="protein" value="<?php ph($row["protein"]);?>"><br>
-        脂質<input type="text" name="lipid" value="<?php ph($row["lipid"]);?>"><br>
-        炭水化物<input type="text" name="carb" value="<?php ph($row["carb"]);?>"><br>
-        ナトリウム<input type="text" name="natrium" value="<?php ph($row["natrium"]);?>"><br>
-        カリウム<input type="text" name="kalium" value="<?php ph($row["kalium"]);?>"><br>
+        エネルギー：<input type="text" name="calorie" value="<?php ph($row["calorie"]);?>"><br>
+        タンパク質：<input type="text" name="protein" value="<?php ph($row["protein"]);?>"><br>
+        脂質：<input type="text" name="lipid" value="<?php ph($row["lipid"]);?>"><br>
+        炭水化物：<input type="text" name="carb" value="<?php ph($row["carb"]);?>"><br>
+        ナトリウム：<input type="text" name="natrium" value="<?php ph($row["natrium"]);?>"><br>
+        カリウム：<input type="text" name="kalium" value="<?php ph($row["kalium"]);?>"><br>
         <select name="show_flag">
             <option value="1">表示</option>
             <option value="0">非表示</option>

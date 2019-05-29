@@ -19,7 +19,7 @@
 <head>
 <meta charset="utf-8">
 <title>生鮮食品個別ページ画面</title>
-<link rel="stylesheet" href="lib/css/style-sample.css">
+<link rel="stylesheet" href="lib/css/style-pc.css">
 </head>
 <body>
 <div class="wrapper">
@@ -29,8 +29,8 @@
 </div>
 <nav class="navigation_main">
 <ul>
-<li><a href="">特売商品一覧</a></li>
-<li><a href="">生鮮食品一覧</a></li>
+<li><a href="">本日の広告の品</a></li>
+<li><a href="">当店取り扱い商品</a></li>
 <li><a href="">店舗一覧</a></li>
 </ul>
 </nav>
@@ -39,7 +39,7 @@
 
 <div class="content">
   <main>
-  <h2>特売商品一覧</h2>
+  <h2><?php ph($_GET["shop_name"]);?>の本日の広告の品！！</h2>
   <article>
   <?php
   // SQLを構築
@@ -55,19 +55,54 @@
 
         $sth->execute();
 ?>
+<?php require_once("lib/model/SpecialPriceFood.php");
+        // モデルクラスのインスタンスを生成
+    $special_price_food = new SpecialPriceFood($dbh);
+
+    // 今日の特価商品一覧の連想配列を得て、変数$special_price_food_today_listに代入
+    $today = date("Y-m-d");
+    $special_price_food_today_list = $special_price_food->getDataSaleFoodShoppArrayAtDate($today);
+
+
+    // モデルファイルを読み込む
+    require_once("lib/model/Shop.php");
+
+    // モデルクラスのインスタンスを生成
+    $shop_i = new SpecialPriceFood($dbh);
+
+    $shop_list = $shop_i->getDataShopArray();
+    ?>
         <div class="">
         <!-- 生鮮食品の写真 -->
+        
+        <?php foreach ($special_price_food_today_list as $special_price_food_today) { ?>
+          <?php if($_GET["shop_id"]==$special_price_food_today["shop_id"]){?>
+              <section class="section_top_page">
+              <?php
+              $shop_url = "shop_page.php?shop_id=" .
+              $special_price_food_today["shop_id"] .
+              "&shop_name=" .
+              $special_price_food_today["shop_name"] .
+              "&address=" .
+              $special_price_food_today["address"] .
+              "&tel=" .
+              $special_price_food_today["tel"];?>
 
+              <a href="<?php ph($shop_url) ?>"></a>
+              <a href="food_page.php?food_id=<?php ph($special_price_food_today["food_id"]); ?>">
+                <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
+                <h2><?php ph($special_price_food_today["food_name"]); ?></h2>
 
-      <?php foreach ($sth as $value) {?>
+                <p>定価 ￥<?php ph($special_price_food_today["food_price"]); ?></p>
+                <p>特価 ￥<?php ph($special_price_food_today["sale_price"]); ?></p>
+              </a>
+              <!-- 商品の説明文 -->
+              <p><?php ph($special_price_food_today["txt"]); ?></p>
+              </section>
+        <?php }?>
+        <?php }?>
 
-        <?php if($value['shop_id']==$_GET['shop_id']){ph($value["food_name"]);?><br>
-          <img src="lib/images/<?php ph(($value['picture']));?>" alt="sale1"><br>
-        <?php
-        ph($value["txt"]); ?><br><h1>¥<?php ph($value['food_price']); ?>→
-        <font color="red">¥<?php ph($value['sale_price']); ?></h1></font><?php }
-      }
-      ?>
+      
       <br>
       </div>
 
@@ -91,8 +126,35 @@
     }
 
 ?>
-
+<div>
     <article>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
       <h2>店舗名</h2>
       <!-- 店舗リンク -->
       <?php $row = $sth->fetch(PDO::FETCH_ASSOC) ?>
@@ -115,7 +177,7 @@
     <a href='TopPage.php'>トップページへ戻る</a>
 </main>
 </div>
-
+</div>
 <div id="navToggle">
   <div> <span></span> <span></span> <span></span> </div>
 </div><!--#navToggle END-->
