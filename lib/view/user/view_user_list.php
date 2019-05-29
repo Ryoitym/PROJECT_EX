@@ -50,7 +50,7 @@
     </tr>
     <?php while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {?>
     <tr>
-        <td><?php ph($row["shop_id"]);?></td>
+        <td><?php ph($row["shop_name"]);?></td>
         <td><?php ph($row["name_family"]);?></td>
         <td><?php ph($row["name_last"]);?></td>
         <td><?php ph($row["mail"]);?></td>
