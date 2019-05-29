@@ -139,7 +139,7 @@ $genre_list = $food->getDataGenreArray($show_food_id);
     定価 ￥<?php ph(number_format($row["food_price"])); ?>
     <br>
     <?php
-    switch($_POST["eiyoka"]){
+    switch(@$_POST["eiyoka"]){
       case "calorie";
         print "エネルギー:";
         break;
@@ -155,13 +155,15 @@ $genre_list = $food->getDataGenreArray($show_food_id);
       case "natrium";
         print "ナトリウム:";
         break;
-      default;
+      case "kalium";
         print "カリウム:";
+        break;
+      default;
     }
      ?>
-     <?php ph($row[$_POST["eiyoka"]]); ?>
+     <?php ph(@$row[$_POST["eiyoka"]]); ?>
     <?php
-    switch($_POST["eiyoka"]){
+    switch(@$_POST["eiyoka"]){
       case "calorie";
         print "Kcal";
         break;
@@ -177,8 +179,10 @@ $genre_list = $food->getDataGenreArray($show_food_id);
       case "natrium";
         print "mg";
         break;
-      default;
+      case "kalium";
         print "mg";
+        break;
+      default;
     }
     ?>
     </a>
