@@ -66,16 +66,16 @@
               $special_price_food_today["tel"];
   ?>
 
-  <a href="<?php ph($shop_url) ?>"><?php ph($special_price_food_today["shop_name"]); ?> </a>
+  <a href="<?php ph($shop_url) ?>"><h4 class="spf_shop_name"><?php ph($special_price_food_today["shop_name"]); ?></h4> </a>
   <a href="food_page.php?food_id=<?php ph($special_price_food_today["food_id"]); ?>">
     <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
-    <h2><?php ph($special_price_food_today["food_name"]); ?></h2>
+    <h2 class="spf_name"><?php ph($special_price_food_today["food_name"]); ?></h2>
 
     <p>定価 ￥<?php ph(number_format($special_price_food_today["food_price"])); ?></p>
     <p>特価 ￥<?php ph(number_format($special_price_food_today["sale_price"])); ?></p>
   </a>
   <!-- 商品の説明文 -->
-  <p><?php ph($special_price_food_today["txt"]); ?></p>
+  <p class="sph_food_description"><?php ph($special_price_food_today["txt"]); ?></p>
   </section>
 <?php } ?>
 

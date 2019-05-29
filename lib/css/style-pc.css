@@ -314,3 +314,10 @@ float:right;
 clear:right;
 margin:3px 0 10px 20px;
 }
+
+p.sph_food_description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
+}
