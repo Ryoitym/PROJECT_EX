@@ -61,7 +61,7 @@
         </tr>
 <?php while($row = $sth->fetch(PDO::FETCH_ASSOC)){ ?>
       <tr>
-        <td><?php ph($row["picture"]); ?></td>
+        <td><img src="lib/images/<?php ph($row["picture"]); ?>"></td>
         <td><?php ph($row["food_name"]); ?></td>
         <td><?php ph($row["food_price"]); ?></td>
         <td><?php ph($row["txt"]); ?></td>
