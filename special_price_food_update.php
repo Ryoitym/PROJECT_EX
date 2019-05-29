@@ -1,5 +1,5 @@
 <?php
-/**
+/*
 * このファイルの概要説明
 * 特価商品編集画面のコントローラ
 *　
@@ -64,7 +64,7 @@
               }
         }
         if (empty($_POST["clear"])) {
-            if (empty($_POST["sale_price"]) || !is_numeric($_POST["sale_price"])) {
+            if (empty($_POST["sale_price"]) || !is_numeric($_POST["sale_price"]) || $_POST["sale_price"] < 0) {
                 $error_message .= "特価価格の入力に不備があります。<br>";
             }
             if ($flag_yesterday == true || $flag_today == true || $flag_tomorrow == true) {
