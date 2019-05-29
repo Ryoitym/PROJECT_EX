@@ -66,8 +66,8 @@
         require_once("lib/view/category/view_category_update.php");
        $error_message = "すでに登録されています";
      }else if(empty($_POST["genre_name"])){
-       require_once("lib/view/category/view_category_updete.php");
       $error_message = "入力不十分です";
+      require_once("lib/view/category/view_category_update.php");
     }else{
       //編集する処理
       try{
