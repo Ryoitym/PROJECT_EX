@@ -26,14 +26,14 @@
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href=""><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="" id="top"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 
 <nav class="navigation_main">
 <ul>
-  <li><a href="" class="link">特売商品一覧</a></li>
-  <li><a href="" class="link">生鮮食品一覧</a><li>
-  <li><a href="" class="link">店舗一覧</a></li>
+  <li><a href="#today" class="link">本日の広告の品</a></li>
+  <li><a href="#item" class="link">当店取り扱い商品</a><li>
+  <li><a href="#shop" class="link">店舗一覧</a></li>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -49,7 +49,7 @@
 </div><!--/.main_visual-->
 
 <div class="main_area">
-<font = color=#5AAD5A><h2>特価商品一覧</h2></font>
+<font = color=#5AAD5A id="today"><h2>本日の広告の品！！</h2></font>
 
 <!-- image 400px x 400px -->
 
@@ -66,33 +66,45 @@
               $special_price_food_today["tel"];
   ?>
 
-  <a href="<?php ph($shop_url) ?>"><?php ph($special_price_food_today["shop_name"]); ?> </a>
+  <a href="<?php ph($shop_url) ?>"><h4 class="spf_shop_name"><?php ph($special_price_food_today["shop_name"]); ?></h4> </a>
   <a href="food_page.php?food_id=<?php ph($special_price_food_today["food_id"]); ?>">
     <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
-    <h2><?php ph($special_price_food_today["food_name"]); ?></h2>
+    <h2 class="spf_name"><?php ph($special_price_food_today["food_name"]); ?></h2>
 
     <p>定価 ￥<?php ph(number_format($special_price_food_today["food_price"])); ?></p>
     <p>特価 ￥<?php ph(number_format($special_price_food_today["sale_price"])); ?></p>
   </a>
   <!-- 商品の説明文 -->
-  <p><?php ph($special_price_food_today["txt"]); ?></p>
+  <p class="sph_food_description"><?php ph($special_price_food_today["txt"]); ?></p>
   </section>
 <?php } ?>
 
+<?php
+$dbh = connectDb();
+require_once("lib/model/Food.php");
+//モデルクラスのインスタンスを生成
+$food = new Food($dbh);
 
+$show_food_id = @$_GET["genre_id"];
+$genre_list = $food->getDataGenreArray($show_food_id);
+?>
 </div>
 
 <div class="main_area">
-  <font = color=#5AAD5A><h2>生鮮食品一覧</h2></font>
-
+  <font = color=#5AAD5A id="item"><h2>当店取り扱い商品</h2></font>
   <!-- 分類 -->
   検索：<form action="TopPage.php"method="post">
   <div class="cp_ipselect cp_sl02">
   <select name="genre_id">
-        <option value="0">選択してください</option>
-        <option value="1">野菜</option>
-        <option value="2">肉</option>
-        <option value="3">魚</option>
+  <option value="">選択してください</option>
+  <?php foreach ($genre_list as $genre) {?>
+          <option value="<?php ph($genre["genre_id"]);?>"
+
+          >
+              <?php ph($genre["genre_name"]); ?>
+          </option>
+          <br>
+  <?php } ?>
   </select>
 </div>
 <div class="cp_iptxt">
@@ -113,6 +125,7 @@
             <option value="natrium">ナトリウム</option>
             <option value="kalium">カリウム</option>
         </select></div> <input type="submit" class="btn" value="検索"><br>
+        <a href="TopPage.php"><button class="btn">生鮮食品を全て表示する</button></a>
   </form>
 
 <!-- image 400px x 400px -->
@@ -123,7 +136,57 @@
   <a href="food_page.php?food_id=<?php ph($row['food_id'])?>&food_name=<?php ph($row['food_name']);?>&food_price=<?php ph($row['food_price']);?>">
     <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
     <?php ph($row["food_name"]);?><br>
-    定価 ￥<?php ph(number_format($row["food_price"])); ?></a>
+    定価 ￥<?php ph(number_format($row["food_price"])); ?>
+    <br>
+    <?php
+    switch(@$_POST["eiyoka"]){
+      case "calorie";
+        print "エネルギー:";
+        break;
+      case "protein";
+        print "たんぱく質:";
+        break;
+      case "lipid";
+        print "脂質:";
+        break;
+      case "carb";
+        print "炭水化物:";
+        break;
+      case "natrium";
+        print "ナトリウム:";
+        break;
+      case "kalium";
+        print "カリウム:";
+        break;
+      default;
+    }
+     ?>
+     <?php ph(@$row[$_POST["eiyoka"]]); ?>
+    <?php
+    switch(@$_POST["eiyoka"]){
+      case "calorie";
+        print "Kcal";
+        break;
+      case "protein";
+        print "g";
+        break;
+      case "lipid";
+        print "g";
+        break;
+      case "carb";
+        print "g";
+        break;
+      case "natrium";
+        print "mg";
+        break;
+      case "kalium";
+        print "mg";
+        break;
+      default;
+    }
+    ?>
+    </a>
+
     <p><?php ph($row["txt"]); ?></p>
     </section>
 </section>
@@ -132,7 +195,7 @@
 
 
 <div class="main_area">
-<font = color=#5AAD5A><h2>店舗一覧</h2></font>
+<font = color=#5AAD5A id="shop"><h2>店舗一覧</h2></font>
 
 <!-- image 400px x 400px -->
 <?php foreach ($shop_list as $shop) {?>
@@ -154,9 +217,10 @@
 <footer class="footer_top_page">
 <nav class="navigation_footer">
 <ul>
-  <li><a href="" class="link">特売商品一覧</a></li>
-  <li><a href="" class="link">生鮮食品一覧</a></li>
-  <li><a href="" class="link">店舗一覧</a></li>
+  <li><a href="#today" class="link">本日の広告の品</a></li>
+  <li><a href="#item" class="link">当店取り扱い商品</a></li>
+  <li><a href="#shop" class="link">店舗一覧</a></li>
+  <li><a href="#top" class="link">先頭に戻る</a></li>
 </ul>
 </nav>
 <small>&copy; 2019 Team FFS </small>
