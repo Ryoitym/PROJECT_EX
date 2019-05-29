@@ -32,6 +32,7 @@
 
     $shop_list = $user->getDataShopArray();
 
+
 if(!empty($_GET)){
     $user_id_get = $_GET["user_id"];
 }

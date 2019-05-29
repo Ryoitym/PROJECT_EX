@@ -309,6 +309,24 @@ margin:3px 0 10px 20px;
 p.sph_food_description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 6;
   overflow: hidden;
 }
+
+h2.spf_name{
+	position: relative;
+	padding: .75em .5em;
+	border: 1px solid #F1AD1C;
+	}
+	
+h2.spf_name:after{
+content: "特価商品";
+position: absolute;
+top: -.6em;
+left: 10px;
+background: #fff;
+font-size: .75em;
+color: #F1AD1C;
+padding: 0 10px;
+}
+

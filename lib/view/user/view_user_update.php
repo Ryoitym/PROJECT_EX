@@ -39,11 +39,14 @@
 パスワード:<input type="password" name="password" size="20" value="<?php ph($row["password"]);?>"><br>
 店舗名: <select name="shop_id">
 <?php foreach ($shop_list as $shop) {?>
-        <option value="<?php ph($shop["shop_id"]);?>">
+        <option value="<?php ph($shop["shop_id"]);?>" 
+        <?php if($shop["shop_id"] == $row["shop_id"]){ print "selected";}?>>
         <?php ph($shop["shop_name"]); ?>
         </option>
         <br>
 <?php } ?>
+
+<?php ?>
 
         </select><br>
 権限レベル: <select name="acess_lv">
