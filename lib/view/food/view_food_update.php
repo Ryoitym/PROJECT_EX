@@ -56,8 +56,8 @@
         ナトリウム：<input type="text" name="natrium" value="<?php ph($row["natrium"]);?>"><br>
         カリウム：<input type="text" name="kalium" value="<?php ph($row["kalium"]);?>"><br>
         <select name="show_flag">
-            <option value="1">表示</option>
-            <option value="0">非表示</option>
+            <option value="1" <?php if($row["show_flag"] == 1){print "selected";}?>>表示</option>
+            <option value="0" <?php if($row["show_flag"] == 0){print "selected";}?>>非表示</option>
         </select><br>
         <input type="hidden" name="food_id" value="<?php ph($row["food_id"]);?>">
         <input type="submit" value="登録">
