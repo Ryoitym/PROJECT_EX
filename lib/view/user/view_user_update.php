@@ -29,8 +29,9 @@
     <button type="submit" name="logout" value="logout">ログアウト</button>
 </form>
 
+<?php ph($error_message);?>
 <form action="user_update.php" method="post">
-<input type="hidden" name="user_id" value=<?php print $user_id_get; ?> ><br>
+<input type="hidden" name="user_id" value=<?php ph($row["user_id"]); ?> >
 <!-- valueでデフォルト値設定 -->
 姓: <input type="text" name="name_family" value="<?php ph($row["name_family"]);?>"><br>
 名: <input type="text" name="name_last" value="<?php ph($row["name_last"]);?>"><br>
@@ -50,7 +51,7 @@
         <option value="2">店長</option><br>
         </select><br>
 <input type="submit" value="編集">
-<input type="submit" value="クリア"><br>
+<input type="reset" value="クリア"><br>
 <a href="user_list_admin.php">ユーザ一覧に戻る</a>
 </form>
 </div>
