@@ -79,7 +79,15 @@
   </section>
 <?php } ?>
 
+<?php 
+$dbh = connectDb();
+require_once("lib/model/Food.php");
+//モデルクラスのインスタンスを生成
+$food = new Food($dbh);
 
+$show_food_id = @$_GET["genre_id"];
+$genre_list = $food->getDataGenreArray($show_food_id);
+?>
 </div>
 
 <div class="main_area">
@@ -89,10 +97,15 @@
   検索：<form action="TopPage.php"method="post">
   <div class="cp_ipselect cp_sl02">
   <select name="genre_id">
-        <option value="0">選択してください</option>
-        <option value="1">野菜</option>
-        <option value="2">肉</option>
-        <option value="3">魚</option>
+  <option value="">選択してください</option>
+  <?php foreach ($genre_list as $genre) {?>
+          <option value="<?php ph($genre["genre_id"]);?>"
+          
+          >
+              <?php ph($genre["genre_name"]); ?>
+          </option>
+          <br>
+  <?php } ?>
   </select>
 </div>
 <div class="cp_iptxt">
