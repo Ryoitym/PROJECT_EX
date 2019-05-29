@@ -25,7 +25,7 @@
 <div class="wrapper">
 <header class="header_top_page">
 <div class="title">
-  <h1><a href="top_page.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
+  <h1><a href="TopPage.php"><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 <nav class="navigation_main">
 <ul>
@@ -35,7 +35,6 @@
 </ul>
 </nav>
 </header><!--/.header-->
-<hr>
 
 <div class="content">
   <main>
