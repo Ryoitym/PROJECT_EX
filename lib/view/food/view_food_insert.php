@@ -47,12 +47,12 @@
         価格：<input type="text" name="food_price" value=""><br>
         説明文書：<textarea name="txt" value=""></textarea><br>
         栄養価<br>
-        エネルギー<input type="text" name="calorie" value=""><br>
-        タンパク質<input type="text" name="protein" value=""><br>
-        脂質<input type="text" name="lipid" value=""><br>
-        炭水化物<input type="text" name="carb" value=""><br>
-        ナトリウム<input type="text" name="natrium" value=""><br>
-        カリウム<input type="text" name="kalium" value=""><br>
+        エネルギー：<input type="text" name="calorie" value=""><br>
+        タンパク質：<input type="text" name="protein" value=""><br>
+        脂質：<input type="text" name="lipid" value=""><br>
+        炭水化物：<input type="text" name="carb" value=""><br>
+        ナトリウム：<input type="text" name="natrium" value=""><br>
+        カリウム：<input type="text" name="kalium" value=""><br>
         <select name="show_flag">
             <option value="1">表示</option>
             <option value="0">非表示</option>
