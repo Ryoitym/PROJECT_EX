@@ -67,7 +67,7 @@
   ?>
 
   <a href="<?php ph($shop_url) ?>"><h4 class="spf_shop_name"><?php ph($special_price_food_today["shop_name"]); ?></h4> </a>
-  <a href="<?php ph($shop_url) ?>">>
+  <a href="<?php ph($shop_url) ?>">
     <img src="lib/images/<?php ph($special_price_food_today["picture"]); ?>" alt="<?php ph($special_price_food_today["food_name"]);?>の画像" width="300" height="300">
     <h2 class="spf_name"><?php ph($special_price_food_today["food_name"]); ?></h2>
 
