@@ -99,8 +99,7 @@
                 <?php } ?>
             </select><br>
 
-            <input type="submit" value="編集" name="edit"><br>
-            
+            <input type="submit" value="編集" name="edit">
             <input type="submit" value="クリア" name="clear">
 
         </form>
