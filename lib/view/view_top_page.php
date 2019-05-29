@@ -125,7 +125,7 @@ $genre_list = $food->getDataGenreArray($show_food_id);
             <option value="natrium">ナトリウム</option>
             <option value="kalium">カリウム</option>
         </select></div> <input type="submit" class="btn" value="検索"><br>
-        <a href="TopPage.php"><button class="btn">全て表示</button></a>
+        <a href="TopPage.php"><button class="btn">生鮮食品を全て表示する</button></a>
   </form>
 
 <!-- image 400px x 400px -->
