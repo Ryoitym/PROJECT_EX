@@ -50,9 +50,11 @@ if (!empty($_POST)){
               if ($shop["shop_id"] ==  $_POST["shop_select"] && $shop["food_id"] == $_POST["food_select"]){
                     if ($key == "yesterday") {
                         $flag_yesterday = true;
-                    } else if ($key == "today") {
+                    }
+                    if ($key == "tomorrow") {
                         $flag_tomorrow = true;
-                    } else if ($key == "tomorrow") {
+                    }
+                    if ($key == "today") {
                         $flag_today = true;
                     }
               }
@@ -73,12 +75,13 @@ if (!empty($_POST)){
         }
         if ($flag_tomorrow === true) {
             $error_message .= $dates["tomorrow"];
+            
             $error_message .= "<br>";
         }
         $error_message .= "上記の日付で、同じ店舗でかつ同じ生鮮食品が特価価格商品として登録されています。<br>";
     }
     if ($error_message == "") {
-        print "test";
+        
         $special_price_food->insert($_POST);
     }
 }

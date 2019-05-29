@@ -29,15 +29,11 @@
   <h1><a href=""><img src="lib/images/ffs.jpg" alt="FFS"></a></h1>
 </div>
 
-<div id="navToggle">
-  <div> <span></span> <span></span> <span></span> </div>
-</div><!--#navToggle END-->
-
 <nav class="navigation_main">
 <ul>
-  <li><a href="">特売商品一覧</a></li>
-  <li><a href="">生鮮食品一覧</a><li>
-  <li><a href="">店舗一覧</a></li>
+  <li><a href="" class="link">特売商品一覧</a></li>
+  <li><a href="" class="link">生鮮食品一覧</a><li>
+  <li><a href="" class="link">店舗一覧</a></li>
 </ul>
 </nav>
 </header><!--/.header-->
@@ -53,7 +49,7 @@
 </div><!--/.main_visual-->
 
 <div class="main_area">
-<font = color="green"><h2>特価商品一覧</h2></font>
+<font = color=#5AAD5A><h2>特価商品一覧</h2></font>
 
 <!-- image 400px x 400px -->
 
@@ -87,33 +83,37 @@
 </div>
 
 <div class="main_area">
-  <font = color="green"><h2>生鮮食品一覧</h2></font>
+  <font = color=#5AAD5A><h2>生鮮食品一覧</h2></font>
 
   <!-- 分類 -->
   検索：<form action="TopPage.php"method="post">
+  <div class="cp_ipselect cp_sl02">
   <select name="genre_id">
         <option value="0">選択してください</option>
         <option value="1">野菜</option>
         <option value="2">肉</option>
         <option value="3">魚</option>
   </select>
-  <input type="text" name="food_name">
-  <input type="submit" value="検索">
+</div>
+<div class="cp_iptxt">
+    <input type="text" name="food_name" placeholder="生鮮食品名を入力してください。">
+</div>
+  <input type="submit" class="btn" value="検索">
   <br>
 
   <!-- 栄養価 -->
-  栄養価: <br><select name="eiyoka">
-          <option value="">選択してください</option>
-          <option value="calorie">エネルギー</option>
-          <option value="protein">たんぱく質</option>
-          <option value="lipid">脂質</option>
-          <option value="carb">炭水化物</option>
-          <option value="natrium">ナトリウム</option>
-          <option value="kalium">カリウム</option>
-          </select> <input type="submit" value="検索"><br>
+  栄養価: <br>
+          <div class="cp_ipselect cp_sl02">
+          <select name="eiyoka">
+            <option value="">選択してください</option>
+            <option value="calorie">エネルギー</option>
+            <option value="protein">たんぱく質</option>
+            <option value="lipid">脂質</option>
+            <option value="carb">炭水化物</option>
+            <option value="natrium">ナトリウム</option>
+            <option value="kalium">カリウム</option>
+        </select></div> <input type="submit" class="btn" value="検索"><br>
   </form>
-
-  <p><a href="TopPage.php">全て表示</a></p>
 
 <!-- image 400px x 400px -->
 
@@ -132,7 +132,7 @@
 
 
 <div class="main_area">
-<font = color="green"><h2>店舗一覧</h2></font>
+<font = color=#5AAD5A><h2>店舗一覧</h2></font>
 
 <!-- image 400px x 400px -->
 <?php foreach ($shop_list as $shop) {?>
@@ -154,9 +154,9 @@
 <footer class="footer_top_page">
 <nav class="navigation_footer">
 <ul>
-  <li><a href="">特売商品一覧</a></li>
-  <li><a href="">生鮮食品一覧</a></li>
-  <li><a href="">店舗一覧</a></li>
+  <li><a href="" class="link">特売商品一覧</a></li>
+  <li><a href="" class="link">生鮮食品一覧</a></li>
+  <li><a href="" class="link">店舗一覧</a></li>
 </ul>
 </nav>
 <small>&copy; 2019 Team FFS </small>
