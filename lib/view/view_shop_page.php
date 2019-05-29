@@ -39,7 +39,7 @@
 
 <div class="content">
   <main>
-  <h2>特売商品一覧</h2>
+  <h2>今日の特価品</h2>
   <article>
   <?php
   // SQLを構築
