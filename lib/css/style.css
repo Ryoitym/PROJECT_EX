@@ -108,6 +108,11 @@ margin: 0 10px;
   border-style: groove;
 }
 
+img{
+  width: 150px;
+  height: auto;
+}
+
 .food{
   font-size: 12px;
 }
