@@ -136,7 +136,53 @@ $genre_list = $food->getDataGenreArray($show_food_id);
   <a href="food_page.php?food_id=<?php ph($row['food_id'])?>&food_name=<?php ph($row['food_name']);?>&food_price=<?php ph($row['food_price']);?>">
     <img src="lib/images/<?php ph($row["picture"]); ?>" alt="<?php ph($row["food_name"]);?>の画像" width="300" height="300"><br>
     <?php ph($row["food_name"]);?><br>
-    定価 ￥<?php ph(number_format($row["food_price"])); ?></a>
+    定価 ￥<?php ph(number_format($row["food_price"])); ?>
+    <br>
+    <?php
+    switch($_POST["eiyoka"]){
+      case "calorie";
+        print "エネルギー:";
+        break;
+      case "protein";
+        print "たんぱく質:";
+        break;
+      case "lipid";
+        print "脂質:";
+        break;
+      case "carb";
+        print "炭水化物:";
+        break;
+      case "natrium";
+        print "ナトリウム:";
+        break;
+      default;
+        print "カリウム:";
+    }
+     ?>
+     <?php ph($row[$_POST["eiyoka"]]); ?>
+    <?php
+    switch($_POST["eiyoka"]){
+      case "calorie";
+        print "Kcal";
+        break;
+      case "protein";
+        print "g";
+        break;
+      case "lipid";
+        print "g";
+        break;
+      case "carb";
+        print "g";
+        break;
+      case "natrium";
+        print "mg";
+        break;
+      default;
+        print "mg";
+    }
+    ?>
+    </a>
+
     <p><?php ph($row["txt"]); ?></p>
     </section>
 </section>
