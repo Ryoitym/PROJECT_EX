@@ -535,8 +535,8 @@ INSERT INTO shop(
   ) VALUES (
     8,
     '秋葉原電気街口店',
-    '',
-    '047-765-4321'
+    '東京都千代田区外神田1丁目20-1',
+    '03-8765-9999'
   );
 INSERT INTO shop(
   shop_id,
