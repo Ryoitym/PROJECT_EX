@@ -490,9 +490,75 @@ INSERT INTO shop(
   tel
   ) VALUES (
     4,
-    '那覇店',
-    '沖縄県国頭郡本部町石川424',
-    '0980-23-5678'
+    '新宿店',
+    '東京都新宿区歌舞伎町1-1',
+    '03-2222-1234'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    5,
+    '千葉店',
+    '千葉県千葉市稲毛区弥生町1-33',
+    '047-678-9765'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    6,
+    '東京駅前店',
+    '東京都千代田区丸の内1丁目',
+    '03-5555-5555'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    7,
+    '船橋店',
+    '船橋市本町7-1-1',
+    '047-765-4321'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    8,
+    '秋葉原電気街口店',
+    '東京都千代田区外神田1丁目20-1',
+    '03-8765-9999'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    9,
+    '横浜店',
+    '神奈川県横浜市西区高島2-16',
+    '045-876-9999'
+  );
+INSERT INTO shop(
+  shop_id,
+  shop_name,
+  address,
+  tel
+  ) VALUES (
+    10,
+    '甲府店',
+    ' 山梨県甲府市丸の内1丁目',
+    '050-2016-1600'
   );
 
 --田中さん
