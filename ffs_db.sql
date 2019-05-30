@@ -656,4 +656,4 @@ INSERT INTO sale(
     4
   );
 
-SELECT * FROM food;
+SELECT * FROM shop;
