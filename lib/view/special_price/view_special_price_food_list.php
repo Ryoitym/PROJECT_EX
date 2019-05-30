@@ -60,6 +60,7 @@
                 <td><?php ph($special_price_food_i["shop_name"]); ?></td>
                 <td><?php ph($special_price_food_i["food_name"]); ?></td>
                 <td><?php ph($special_price_food_i["sale_price"]); ?></td>
+                <?php if ($_SESSION["shop_id"] == $special_price_food_i["shop_id"]) {?>
                 <td>
                     <form action="special_price_food_update.php" method="get">
                         <input type="submit" value="編集">
@@ -72,6 +73,12 @@
                             <input type="hidden" name="sale_id" value="<?php ph($special_price_food_i["sale_id"]); ?>" />
                     </form>
                 </td>
+                <?php } else {?>
+                <td>
+                </td>
+                <td>
+                </td>
+                <?php } ?>
             </tr>
         <?php } ?>
         </table>
